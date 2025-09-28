@@ -1,0 +1,34 @@
+To the Editors of Scientific Reports,
+
+I am submitting the manuscript entitled:
+“A no‑calibration reproducibility kit for the hydrogen ground state:
+sealed scales, 1% external checks, and cross‑platform validation.”
+
+Author and contact:
+  LEE YOUNG JAE (Independent Researcher, Daegu, Republic of Korea)
+  Corresponding author email: rego093@naver.com
+  (Background: alumnus of Kyungpook National University, Daegu; graduated ~20 years ago.)
+
+Fit to Scientific Reports:
+• The work is judged on technical validity and soundness rather than perceived impact.
+• Our contribution is a fully auditable, no‑calibration pipeline with a sealed scale file (pinned SHA256 cited in‑text),
+  programmatic 1% external checks (R7/R8) with exit(0|1), negative‑control re‑execution,
+  and a cross‑platform log CSV.
+• All data and code artifacts are included; a DOI-backed public archive will mirror the exact versions upon acceptance.
+
+Highlights:
+• Main results: E1_eV = 13.6056931; a_H = 0.5291772109 Å; both pass the 1% criteria with large margins.
+• Integrity: seal hash pre/post equality, pin match, and deterministic verification (no RNG patterns).
+• Reproducibility: Linux reference run; macOS/Windows runs with the same hash to be appended.
+
+Declarations:
+• Funding: none.
+• Competing interests: none.
+• Human/animal subjects: not applicable.
+
+Thank you for your consideration.
+
+Sincerely,
+LEE YOUNG JAE
+Independent Researcher, Daegu, Republic of Korea
+Email: rego093@naver.com
