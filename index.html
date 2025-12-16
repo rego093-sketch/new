@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Canonical (GitHub Pages URL for this repo) -->
+  <link rel="canonical" href="https://rego093-sketch.github.io/new/" />
+
+  <title>Volume Particle Theory (VP) Whitepaper v2.0 — LOCK→Derive→Gate, Jamming‑Lattice Physics (DOI: 10.5281/zenodo.17932567)</title>
+  <meta name="description" content="Volume Particle Theory (VP) whitepaper v2.0: a LOCK→Derive→Gate framework for jamming‑lattice physics with DOI‑anchored reproducibility (PDF + validated bundle) on Zenodo." />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <meta name="theme-color" content="#0b0f19" />
+  <meta name="keywords" content="Volume Particle, VP theory, jamming lattice, discrete geometry, reproducibility, LOCK Derive Gate, percolation, SOC, blackbody, fine-structure constant, Zenodo DOI" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Volume Particle Theory (VP) Whitepaper v2.0 — LOCK→Derive→Gate" />
+  <meta property="og:description" content="Jamming‑lattice physics with DOI‑anchored reproducibility artifacts on Zenodo." />
+  <meta property="og:url" content="https://rego093-sketch.github.io/new/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Volume Particle Theory (VP) Whitepaper v2.0 — LOCK→Derive→Gate" />
+  <meta name="twitter:description" content="Whitepaper PDF + validated reproducibility bundle (DOI: 10.5281/zenodo.17932567)." />
+
+  <!-- License -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/" />
+
+  <!-- Scholar / citation meta (useful for scholarly parsers; set direct PDF URL) -->
+  <meta name="citation_title" content="Volume Particle Theory (VP) Whitepaper v2.0: A LOCK→Derive→Gate Framework for Jamming‑Lattice Physics with DOI‑Anchored Reproducibility" />
+  <meta name="citation_author" content="Young Jae Lee" />
+  <meta name="citation_author_orcid" content="https://orcid.org/0009-0002-7535-8245" />
+  <meta name="citation_publication_date" content="2025/12/15" />
+  <meta name="citation_doi" content="10.5281/zenodo.17932567" />
+  <meta name="citation_pdf_url" content="REPLACE_WITH_DIRECT_PDF_URL" />
+
+  <!-- Structured data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Volume Particle Theory (VP) Whitepaper v2.0: A LOCK→Derive→Gate Framework for Jamming‑Lattice Physics with DOI‑Anchored Reproducibility",
+    "author": {
+      "@type": "Person",
+      "name": "Young Jae Lee",
+      "identifier": "https://orcid.org/0009-0002-7535-8245"
+    },
+    "datePublished": "2025-12-15",
+    "version": "v0.1.2",
+    "identifier": [
+      { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.17932567" },
+      { "@type": "PropertyValue", "propertyID": "Concept DOI", "value": "10.5281/zenodo.17932566" }
+    ],
+    "publisher": { "@type": "Organization", "name": "Zenodo" },
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://rego093-sketch.github.io/new/",
+    "sameAs": [
+      "https://doi.org/10.5281/zenodo.17932567",
+      "https://doi.org/10.5281/zenodo.17932566",
+      "https://orcid.org/0009-0002-7535-8245"
+    ],
+    "keywords": [
+      "Volume Particle",
+      "VP theory",
+      "jamming lattice",
+      "discrete geometry",
+      "reproducibility",
+      "LOCK→Derive→Gate",
+      "percolation",
+      "SOC",
+      "blackbody",
+      "fine-structure constant"
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#0b0f19; --card:#11172a; --text:#e7eaf2; --muted:#aeb6cc;
+      --link:#9ad2ff; --border:rgba(255,255,255,.12);
+      --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      --sans:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+    }
+    html,body{margin:0;padding:0;font-family:var(--sans);background:var(--bg);color:var(--text);}
+    a{color:var(--link);text-decoration:none;} a:hover{text-decoration:underline;}
+    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 56px;}
+    header{padding:18px;border:1px solid var(--border);border-radius:16px;
+      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));}
+    h1{margin:0 0 10px;font-size:28px;line-height:1.2;}
+    .sub{margin:0;color:var(--muted);line-height:1.55;}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+    .chip{font-size:12px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);}
+    .grid{display:grid;gap:14px;grid-template-columns:1fr;margin-top:14px;}
+    @media (min-width:860px){.grid{grid-template-columns:1.2fr .8fr;}}
+    .card{border:1px solid var(--border);border-radius:16px;background:var(--card);padding:16px;}
+    .card h2{margin:0 0 10px;font-size:18px;}
+    .card p{margin:0 0 10px;color:var(--muted);line-height:1.6;}
+    .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;}
+    .btn{display:inline-block;padding:10px 12px;border-radius:12px;border:1px solid var(--border);
+      background:rgba(255,255,255,.04);font-weight:600;}
+    pre{white-space:pre-wrap;word-break:break-word;padding:12px;border-radius:12px;border:1px solid var(--border);
+      background:rgba(0,0,0,.25);color:#e9efff;margin:10px 0 0;font-family:var(--mono);}
+    ul{margin:8px 0 0 18px;color:var(--muted);line-height:1.7;}
+    .kv{display:grid;grid-template-columns:120px 1fr;gap:8px 10px;}
+    .k{color:var(--muted);}
+    footer{margin-top:16px;color:var(--muted);font-size:12px;line-height:1.6;}
+    .toc a{font-family:var(--mono);}
+    hr{border:0;border-top:1px solid var(--border);margin:14px 0;}
+  </style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Volume Particle Theory (VP) Whitepaper v2.0</h1>
+    <p class="sub">
+      A <strong>LOCK→Derive→Gate</strong> framework for <strong>jamming‑lattice physics</strong> with
+      <strong>DOI‑anchored reproducibility</strong> (whitepaper PDF + validated bundle).
+    </p>
+
+    <div class="chips" aria-label="keywords">
+      <span class="chip">VP theory</span>
+      <span class="chip">jamming lattice</span>
+      <span class="chip">discrete geometry</span>
+      <span class="chip">LOCK→Derive→Gate</span>
+      <span class="chip">reproducibility</span>
+      <span class="chip">percolation</span>
+      <span class="chip">SOC</span>
+      <span class="chip">blackbody</span>
+      <span class="chip">fine‑structure constant</span>
+    </div>
+  </header>
+
+  <div class="grid">
+    <section class="card">
+      <h2 id="overview">Overview</h2>
+      <p>
+        This project publishes a long‑form whitepaper (hundreds of pages) and a validated reproducibility bundle.
+        The goal of this landing page is not to duplicate the full text, but to provide a machine‑readable index:
+        what the document contains, how it is structured, and how results are reproduced via DOI‑anchored artifacts.
+      </p>
+
+      <p>
+        <strong>Core statement:</strong> VP models vacuum/space as a jammed lattice of discrete volume units.
+        Observed “softness” or “fluidity” is treated as a rate of structural failure (unjamming events) rather than
+        an intrinsic softness of the underlying units.
+      </p>
+
+      <h2 id="downloads">Downloads (canonical)</h2>
+      <div class="btns">
+        <a class="btn" href="https://doi.org/10.5281/zenodo.17932567" rel="noopener">Zenodo record (version DOI)</a>
+        <a class="btn" href="https://doi.org/10.5281/zenodo.17932566" rel="noopener">Concept DOI (all versions)</a>
+        <a class="btn" href="REPLACE_WITH_DIRECT_PDF_URL" rel="noopener">Direct PDF download</a>
+        <a class="btn" href="https://orcid.org/0009-0002-7535-8245" rel="noopener">ORCID</a>
+      </div>
+
+      <hr />
+
+      <h2 id="map">What is inside the whitepaper</h2>
+      <p>High‑level map (readers can jump by intent):</p>
+      <ul class="toc">
+        <li><a href="#map">Axioms & definitions</a>: notation, locked inputs, and the meaning of “jamming/rigidity”.</li>
+        <li><a href="#map">Derivations</a>: geometry‑driven derivations under the one‑way rule (LOCK→Derive→Gate).</li>
+        <li><a href="#map">Gate layer</a>: PASS/FAIL/INCONCLUSIVE qualification and how claims are restricted.</li>
+        <li><a href="#map">Reproducibility bundle</a>: manifests + checksums + DOI‑anchored citation registry.</li>
+        <li><a href="#appendices">Appendices</a>: validation modules and engineering‑motivated appendices.</li>
+      </ul>
+
+      <h2 id="keyresults">Key modules (examples)</h2>
+      <ul>
+        <li><strong>Fluidity as failure rate (φ):</strong> a protocol‑locked definition based on unjamming event counting.</li>
+        <li><strong>SOC percolation/pinning:</strong> reproducibility artifacts include rerun datasets (e.g., N=750 seeds).</li>
+        <li><strong>Blackbody / radiation:</strong> a locked derivation chain and qualification gates.</li>
+        <li><strong>Acoustic calibration (Appendix K):</strong> classical isomorphism used as a calibration test (not an analogy).</li>
+        <li><strong>4‑3‑1 state dictionary (Appendix L):</strong> interpretive state map (NON‑LOCK) that avoids symbol collisions.</li>
+        <li><strong>Black‑Copper ESS (Appendix J):</strong> an engineering appendix included as a derived application layer.</li>
+      </ul>
+
+      <h2 id="repro">Reproducibility (quick check)</h2>
+      <p>After downloading the VALIDATED bundle ZIP from Zenodo:</p>
+      <pre>python3 tools/validate_bundle.py --strict
+python3 scripts/doi_audit.py</pre>
+
+      <h2 id="cite">Suggested citation</h2>
+      <pre>Lee, Young Jae. “Volume Particle Theory (VP) Whitepaper v2.0: A LOCK→Derive→Gate Framework for Jamming‑Lattice Physics with DOI‑Anchored Reproducibility” (v0.1.2). Zenodo. https://doi.org/10.5281/zenodo.17932567</pre>
+    </section>
+
+    <aside class="card">
+      <h2>Record details</h2>
+      <div class="kv">
+        <div class="k">Version DOI</div><div>10.5281/zenodo.17932567</div>
+        <div class="k">Concept DOI</div><div>10.5281/zenodo.17932566</div>
+        <div class="k">Version</div><div>v0.1.2</div>
+        <div class="k">Published</div><div>2025‑12‑15</div>
+        <div class="k">License</div><div>CC BY 4.0</div>
+        <div class="k">Author</div><div>Young Jae Lee (Independent Researcher)</div>
+        <div class="k">ORCID</div><div><a href="https://orcid.org/0009-0002-7535-8245">0009‑0002‑7535‑8245</a></div>
+        <div class="k">Contact</div><div><a href="mailto:rego093@naver.com">rego093@naver.com</a></div>
+      </div>
+
+      <h2 style="margin-top:14px;" id="appendices">Appendices (why they matter)</h2>
+      <p>
+        Appendices are used to separate <em>interpretation</em> and <em>validation</em> from locked derivations.
+        This prevents post‑hoc tuning: the main chain stays LOCK→Derive→Gate, while appendices provide external checks
+        and application‑layer demonstrations.
+      </p>
+
+      <h2 style="margin-top:14px;">What “LOCK→Derive→Gate” means</h2>
+      <p>
+        <strong>LOCK</strong> freezes inputs/definitions/protocols.
+        <strong>Derive</strong> allows only declared transformations.
+        <strong>Gate</strong> outputs PASS/FAIL/INCONCLUSIVE with evidence pointers.
+      </p>
+
+      <h2 style="margin-top:14px;">Linking tip</h2>
+      <p>
+        When linking to the DOI from other sites, use the full title as anchor text
+        (instead of “here”) to strengthen search signals.
+      </p>
+    </aside>
+  </div>
+
+  <footer>
+    <div>© 2025 Young Jae Lee. Released under CC BY 4.0.</div>
+    <div>If a Korean archival PDF is added later, keep English as the canonical reference and label Korean as secondary/archival.</div>
+  </footer>
+
+</div>
+</body>
+</html>
