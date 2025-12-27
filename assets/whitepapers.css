@@ -1,47 +1,49 @@
-/* Whitepaper layout add-on (namespaced) */
-.wp-shell{display:grid;grid-template-columns:280px 1fr;gap:1.25rem;max-width:1200px;margin:0 auto;padding:1.25rem;}
-.wp-toc{position:sticky;top:72px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:0.75rem;background:rgba(0,0,0,0.15);}
-.wp-toc-head{display:flex;align-items:center;justify-content:space-between;gap:0.75rem;margin-bottom:0.5rem;}
-.wp-toc-title{font-weight:700;font-size:0.95rem;}
-.wp-toc-close{display:none;border:0;background:transparent;color:inherit;font-size:1.25rem;cursor:pointer;}
-.wp-toc-nav ul{list-style:none;padding-left:0;margin:0;}
-.wp-toc-nav li{margin:0.25rem 0;}
-.wp-toc-nav a{text-decoration:none;}
-.wp-toc-nav ul ul{padding-left:1rem;opacity:0.95;}
-.wp-toc-foot{display:flex;gap:0.5rem;margin-top:0.75rem;}
-.wp-doi{display:inline-block;padding:0.25rem 0.5rem;border:1px solid rgba(255,255,255,0.18);border-radius:999px;font-size:0.85rem;text-decoration:none;}
+/* Whitepaper layout layer (additive; keeps existing /assets/style.css intact) */
 
-.wp-article{min-width:0;}
-.wp-mobilebar{display:none;align-items:center;justify-content:space-between;gap:0.75rem;margin:0 0 0.75rem 0;}
-.wp-toc-open{border:1px solid rgba(255,255,255,0.18);background:transparent;color:inherit;border-radius:10px;padding:0.4rem 0.7rem;cursor:pointer;}
-.wp-lang{border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:0.35rem 0.6rem;text-decoration:none;font-size:0.9rem;}
+.wp-main { max-width: 1200px; margin: 0 auto; padding: 1.2rem; }
+.wp-hero { padding: 0.8rem 0 1rem 0; }
+.wp-breadcrumb { font-size: 0.95rem; opacity: 0.85; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.wp-breadcrumb a { text-decoration: none; }
+.wp-meta { margin-top: 0.6rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.badge { font-size: 0.9rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 999px; padding: 0.25rem 0.6rem; background: rgba(0,0,0,0.03); }
 
-.wp-hero{padding:0.25rem 0 1rem 0;border-bottom:1px solid rgba(255,255,255,0.12);margin-bottom:1rem;}
-.wp-meta{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem;}
-.wp-pill{display:inline-block;padding:0.2rem 0.55rem;border-radius:999px;border:1px solid rgba(255,255,255,0.18);font-size:0.85rem;}
-.wp-abstract{margin-top:0.75rem;opacity:0.95;}
-.wp-actions{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:0.75rem;}
-.wp-btn{display:inline-block;padding:0.45rem 0.8rem;border-radius:10px;border:1px solid rgba(255,255,255,0.18);text-decoration:none;}
+.wp-grid { display: grid; grid-template-columns: 280px 1fr; gap: 1.25rem; align-items: start; }
+.wp-toc { position: sticky; top: 0.8rem; max-height: calc(100vh - 1.6rem); overflow: auto; border: 1px solid rgba(0,0,0,0.12); border-radius: 12px; padding: 0.9rem; background: rgba(0,0,0,0.02); }
+.wp-toc ul { margin: 0.5rem 0 0 1rem; padding: 0; }
+.wp-toc li { margin: 0.2rem 0; }
+.wp-toc a { text-decoration: none; }
+.wp-toc-head { display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
+.wp-toc-toggle { display: none; border: 1px solid rgba(0,0,0,0.2); border-radius: 10px; padding: 0.2rem 0.6rem; background: transparent; cursor: pointer; }
 
-.wp-content{line-height:1.65;}
-.wp-content img{max-width:100%;height:auto;}
-.wp-content pre{overflow:auto;}
+.wp-article { min-width: 0; }
+.wp-article img { max-width: 100%; height: auto; }
+.wp-article table { width: 100%; border-collapse: collapse; overflow-x: auto; display: block; }
+.wp-article pre { overflow-x: auto; padding: 0.8rem; border-radius: 10px; border: 1px solid rgba(0,0,0,0.12); background: rgba(0,0,0,0.02); }
+.wp-article code { font-size: 0.95em; }
 
-/* Whitepapers index cards */
-.wp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;}
-.wp-card{border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:1rem;background:rgba(0,0,0,0.12);}
-.wp-card h3{margin:0 0 0.4rem 0;}
-.wp-card p{margin:0.35rem 0;}
-.wp-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.6rem;}
-.wp-tag{font-size:0.8rem;border:1px solid rgba(255,255,255,0.16);border-radius:999px;padding:0.15rem 0.5rem;opacity:0.95;}
-.wp-card-actions{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem;}
-.wp-linkbtn{display:inline-block;padding:0.35rem 0.65rem;border-radius:10px;border:1px solid rgba(255,255,255,0.18);text-decoration:none;font-size:0.9rem;}
+.wp-footer { max-width: 1200px; margin: 0 auto; padding: 1.2rem; opacity: 0.8; font-size: 0.95rem; }
 
-/* Responsive */
-@media (max-width: 980px){
-  .wp-shell{grid-template-columns:1fr;}
-  .wp-toc{position:fixed;inset:72px 0 0 0;max-height:none;border-radius:0;transform:translateX(-105%);transition:transform 0.18s ease;z-index:50;}
-  body.wp-toc-open .wp-toc{transform:translateX(0);}
-  .wp-toc-close{display:inline-block;}
-  .wp-mobilebar{display:flex;}
+/* nav paper selector */
+.nav-links { display: flex; align-items: center; gap: 0.8rem; }
+.paper-select-label { font-size: 0.9rem; opacity: 0.9; }
+.paper-select { max-width: 320px; padding: 0.2rem 0.4rem; border-radius: 10px; border: 1px solid rgba(0,0,0,0.2); background: transparent; }
+
+/* hub pages */
+.wp-hub { max-width: 1200px; margin: 0 auto; padding: 1.2rem; }
+.wp-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.wp-card { border: 1px solid rgba(0,0,0,0.12); border-radius: 14px; padding: 1rem; background: rgba(0,0,0,0.02); display: flex; flex-direction: column; gap: 0.5rem; }
+.wp-card h3 { margin: 0.2rem 0; }
+.wp-card .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.tag { font-size: 0.8rem; border: 1px solid rgba(0,0,0,0.16); border-radius: 999px; padding: 0.1rem 0.5rem; opacity: 0.95; }
+.wp-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.4rem; }
+.wp-btn { display: inline-block; text-decoration: none; border: 1px solid rgba(0,0,0,0.2); border-radius: 12px; padding: 0.35rem 0.7rem; font-size: 0.9rem; }
+.wp-btn.primary { background: rgba(0,0,0,0.06); }
+
+@media (max-width: 980px) {
+  .wp-grid { grid-template-columns: 1fr; }
+  .wp-toc { position: relative; top: auto; max-height: none; display: none; }
+  body.toc-open .wp-toc { display: block; }
+  .wp-toc-toggle { display: inline-block; }
+  .wp-cards { grid-template-columns: 1fr; }
+  .paper-select { max-width: 180px; }
 }

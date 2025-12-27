@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="$lang$">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>$title$ | Jamming Physics</title>
+  <meta name="description" content="$if(description)$$description$$else$VP Theory whitepapers in HTML (EN/KO), DOI-backed reproducibility, and gate-based verification.$endif$"/>
+  $if(canonical)$<link rel="canonical" href="$canonical$"/>$endif$
+  $for(hreflang)$<link rel="alternate" hreflang="$hreflang.lang$" href="$hreflang.href$"/>$endfor$
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="$title$"/>
+  <meta property="og:description" content="$if(description)$$description$$else$VP Theory whitepapers in HTML (EN/KO), DOI-backed reproducibility, and gate-based verification.$endif$"/>
+  $if(canonical)$<meta property="og:url" content="$canonical$"/>$endif$
+  <meta property="og:image" content="/assets/og.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="stylesheet" href="/assets/style.css"/>
+  <link rel="stylesheet" href="/assets/whitepapers.css"/>
+  $if(mathjax)$
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  $endif$
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="navbar">
+  <a href="/" class="nav-logo">JAMMING PHYSICS</a>
+  <div class="nav-links">
+    <a href="/$lang$/whitepapers/">Whitepapers</a>
+    <label class="paper-select-label" for="paperSelect">Select</label>
+    <select id="paperSelect" class="paper-select" aria-label="Select whitepaper"></select>
+  </div>
+  <div class="nav-right">
+    <div class="lang-switch"><a href="$if(lang_ko_url)$$lang_ko_url$$else$/ko/$endif$">한국어</a></div>
+    <div class="lang-switch"><a href="$if(lang_en_url)$$lang_en_url$$else$/en/$endif$">English</a></div>
+  </div>
+</nav>
+
+<main id="main" class="wp-main">
+  <header class="wp-hero">
+    <div class="wp-breadcrumb">
+      <a href="/$lang$/">Home</a> <span>›</span>
+      <a href="/$lang$/whitepapers/">Whitepapers</a> <span>›</span>
+      <span>$title$</span>
+    </div>
+    $if(doi)$
+    <div class="wp-meta">
+      <span class="badge">DOI: <a href="https://doi.org/$doi$">$doi$</a></span>
+      $if(version)$<span class="badge">Version: $version$</span>$endif$
+      $if(pubdate)$<span class="badge">Published: $pubdate$</span>$endif$
+    </div>
+    $endif$
+  </header>
+
+  <div class="wp-grid">
+    <aside class="wp-toc" aria-label="Table of contents">
+      <div class="wp-toc-head">
+        <div>Contents</div>
+        <button class="wp-toc-toggle" type="button" onclick="document.body.classList.toggle('toc-open')">TOC</button>
+      </div>
+      $if(toc)$
+      $toc$
+      $endif$
+    </aside>
+
+    <article class="wp-article">
+      $body$
+    </article>
+  </div>
+</main>
+
+<footer class="wp-footer">
+  <div>© 2025 Young Jae Lee · CC BY 4.0 (unless noted)</div>
+</footer>
+
+<script src="/assets/papers.js"></script>
+<script src="/assets/whitepapers.js"></script>
+</body>
+</html>
