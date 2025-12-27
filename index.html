@@ -4,18 +4,19 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jamming Physics | VP Theory</title>
-  <meta name="description" content="VP Theory whitepapers in HTML (EN/KR), DOI-backed reproducibility, and gate-based verification hub."/>
+  <meta name="description" content="VP Theory whitepapers in HTML (EN/KO), DOI-backed reproducibility, and gate-based verification hub."/>
   <link rel="canonical" href="https://jamming-physics.org/"/>
   <link rel="alternate" hreflang="en" href="https://jamming-physics.org/en/"/>
   <link rel="alternate" hreflang="ko" href="https://jamming-physics.org/ko/"/>
   <link rel="alternate" hreflang="x-default" href="https://jamming-physics.org/"/>
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Jamming Physics | VP Theory"/>
-  <meta property="og:description" content="VP Theory whitepapers in HTML (EN/KR), DOI-backed reproducibility, and gate-based verification hub."/>
+  <meta property="og:description" content="VP Theory whitepapers in HTML (EN/KO), DOI-backed reproducibility, and gate-based verification hub."/>
   <meta property="og:url" content="https://jamming-physics.org/"/>
   <meta property="og:image" content="/assets/og.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <link rel="stylesheet" href="/assets/style.css"/>
+  <link rel="stylesheet" href="/assets/whitepapers.css"/>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,32 +25,65 @@
   "url": "https://jamming-physics.org"
 }
 </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="navbar">
   <a href="https://jamming-physics.org/" class="nav-logo">JAMMING PHYSICS</a>
   <div class="nav-right">
-    <div class="lang-switch"><a href="https://jamming-physics.org/ko/">한국어</a></div>
-    <div class="lang-switch"><a href="https://jamming-physics.org/en/">English</a></div>
+    <div class="lang-switch"><a href="/ko/">한국어</a></div>
+    <div class="lang-switch"><a href="/en/">English</a></div>
   </div>
 </nav>
-<main class="content" id="main" style="max-width:980px;margin:0 auto;">
+
+<main class="content" id="main" style="max-width:1100px;margin:0 auto;">
   <header style="padding-top:1.5rem;">
-    <h1>VP Theory Whitepapers (HTML)</h1>
-    <p>English and Korean HTML builds generated from the LaTeX whitepapers for search indexing. Includes MathJax and an on-page table of contents.</p>
-    <p><a href="https://jamming-physics.org/en/whitepaper.html">Whitepaper (EN)</a> · <a href="https://jamming-physics.org/ko/whitepaper.html">백서 (KO)</a> · <a href="https://doi.org/10.5281/zenodo.17932567">DOI</a></p>
-    <hr/>
+    <h1>VP Theory Whitepapers (HTML Hub)</h1>
+    <p>HTML builds generated from LaTeX whitepapers for search indexing. Math is rendered with MathJax. Canonical research objects are Zenodo DOIs.</p>
+    <p>
+      <a href="/en/whitepapers/">Browse (EN)</a> ·
+      <a href="/ko/whitepapers/">둘러보기 (KO)</a>
+    </p>
+  </header>
+
+  <section style="margin:1.25rem 0 2rem 0;">
+    <h2>Whitepapers</h2>
+    <div class="wp-grid">
+      <div class="wp-card">
+        <h3>Volume Particle Theory (VP) Whitepaper v2.0</h3>
+        <p>Core VP framework (LOCK → Derive → Gate) with DOI-anchored reproducibility.</p>
+        <div class="wp-tags"><span class="wp-tag">Core VP</span><span class="wp-tag">Repro</span><span class="wp-tag">Gate</span></div>
+        <div class="wp-card-actions">
+          <a class="wp-linkbtn" href="/en/whitepaper.html">HTML (EN)</a>
+          <a class="wp-linkbtn" href="/ko/whitepaper.html">HTML (KO)</a>
+          <a class="wp-linkbtn" href="https://doi.org/10.5281/zenodo.17932567">DOI</a>
+        </div>
+      </div>
+
+      <div class="wp-card">
+        <h3>Deterministic DNA Interpretation Whitepaper (Mouse/mm39) — v1.2</h3>
+        <p>Deterministic DNA interpretation pipeline (mm39). HTML builds (EN/KO) added.</p>
+        <div class="wp-tags"><span class="wp-tag">DNA</span><span class="wp-tag">mm39</span><span class="wp-tag">Deterministic</span></div>
+        <div class="wp-card-actions">
+          <a class="wp-linkbtn" href="/en/whitepapers/dna-mm39/">HTML (EN)</a>
+          <a class="wp-linkbtn" href="/ko/whitepapers/dna-mm39/">HTML (KO)</a>
+          <a class="wp-linkbtn" href="https://doi.org/10.5281/zenodo.17963127">DOI</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin:1.25rem 0 2rem 0;">
     <h2>Site files</h2>
     <ul>
-      <li><a href="https://jamming-physics.org/sitemap.xml">sitemap.xml</a></li>
-      <li><a href="https://jamming-physics.org/robots.txt">robots.txt</a></li>
+      <li><a href="/sitemap.xml">sitemap.xml</a></li>
+      <li><a href="/robots.txt">robots.txt</a></li>
     </ul>
-  </header>
+  </section>
 </main>
+
 <footer>
-  <div>DOI: <a href="https://doi.org/10.5281/zenodo.17932567">10.5281/zenodo.17932567</a></div>
+  <div><a href="/en/whitepapers/">Whitepapers</a> · <a href="/en/">English</a> · <a href="/ko/">한국어</a></div>
 </footer>
 </body>
 </html>

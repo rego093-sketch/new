@@ -1,0 +1,13 @@
+<!-- Add these <url> entries inside your existing <urlset> in sitemap.xml -->
+<url>
+  <loc>https://jamming-physics.org/en/whitepapers/</loc>
+</url>
+<url>
+  <loc>https://jamming-physics.org/ko/whitepapers/</loc>
+</url>
+<url>
+  <loc>https://jamming-physics.org/en/whitepapers/dna-mm39/</loc>
+</url>
+<url>
+  <loc>https://jamming-physics.org/ko/whitepapers/dna-mm39/</loc>
+</url>

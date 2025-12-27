@@ -1,0 +1,2982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deterministic DNA Interpretation
+(Mouse/mm39) | Jamming Physics</title>
+  <meta name="description" content="Deterministic DNA Interpretation
+Whitepaper (Mouse/mm39) ��� HTML build from LaTeX for indexing."/>
+  <link rel="canonical" href="https://jamming-physics.org/en/whitepapers/dna-mm39/"/>
+  <link rel="alternate" hreflang="en" href="https://jamming-physics.org/en/whitepapers/dna-mm39/"/>
+  <link rel="alternate" hreflang="ko" href="https://jamming-physics.org/ko/whitepapers/dna-mm39/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Deterministic DNA Interpretation
+(Mouse/mm39)"/>
+  <meta property="og:description" content="Deterministic DNA
+Interpretation Whitepaper (Mouse/mm39) ��� HTML build from LaTeX for
+indexing."/>
+  <meta property="og:url" content="https://jamming-physics.org/en/whitepapers/dna-mm39/"/>
+  <meta property="og:image" content="/assets/og.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="stylesheet" href="/assets/style.css"/>
+  <link rel="stylesheet" href="/assets/whitepapers.css"/>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="navbar">
+  <a href="/" class="nav-logo">JAMMING PHYSICS</a>
+  <div class="nav-right">
+    <a class="nav-item" href="/en/whitepapers/">Whitepapers</a>
+    <div class="lang-switch"><a href="/ko/whitepapers/dna-mm39/">���������</a></div>
+  </div>
+</nav>
+
+<main id="main" class="wp-shell">
+  <aside class="wp-toc" id="toc">
+    <div class="wp-toc-head">
+      <div class="wp-toc-title">Contents</div>
+      <button class="wp-toc-close" type="button" aria-label="Close table of contents" onclick="JPWP.closeTOC()">×</button>
+    </div>
+        <nav class="wp-toc-nav" aria-label="Table of contents">
+    <ul>
+    <li><a href="#front-matter">Front matter</a>
+    <ul>
+    <li><a href="#purpose-and-claim-boundary">Purpose and claim
+    boundary</a></li>
+    <li><a href="#scope-what-is-included-and-what-is-not">Scope: what is
+    included and what is not</a></li>
+    <li><a href="#document-conventions-and-terminology">Document
+    conventions and terminology</a></li>
+    <li><a
+    href="#reproducibility-contract-lockderivegate">Reproducibility
+    contract (LOCK–Derive–Gate)</a></li>
+    <li><a href="#how-to-cite">How to cite</a></li>
+    <li><a
+    href="#evidence-lock-fixed-artifacts-for-this-whitepaper">Evidence
+    lock (fixed artifacts for this whitepaper)</a></li>
+    </ul></li>
+    <li><a href="#executive-summary">Executive summary</a>
+    <ul>
+    <li><a href="#one-page-pipeline-overview">One-page pipeline
+    overview</a></li>
+    <li><a href="#core-claim-restated-as-an-engineering-contract">Core
+    claim restated as an engineering contract</a></li>
+    <li><a href="#key-design-decisions">Key design decisions</a></li>
+    <li><a
+    href="#evidence-at-scale-mm39-autoscan-and-representative-panels">Evidence
+    at scale: mm39 autoscan and representative panels</a></li>
+    <li><a href="#reproducibility-statement-minimal">Reproducibility
+    statement (minimal)</a></li>
+    <li><a href="#reading-guide">Reading guide</a></li>
+    </ul></li>
+    <li><a href="#core-definitions">Core definitions</a>
+    <ul>
+    <li><a href="#input-region">Input region</a></li>
+    <li><a href="#a4-arrangement"><strong>A4</strong> arrangement</a>
+    <ul>
+    <li><a href="#shells">Shells</a></li>
+    <li><a href="#anchors">Anchors</a></li>
+    <li><a href="#motors">Motors</a></li>
+    <li><a href="#loops">Loops</a></li>
+    </ul></li>
+    <li><a href="#fixed-activity-grammar-4-operations">Fixed activity
+    grammar (4 operations)</a></li>
+    <li><a href="#j_ledger-and-gates"><strong>J_LEDGER</strong> and
+    gates</a></li>
+    <li><a href="#operational-meaning-of-100-interpretable">Operational
+    meaning of “100% interpretable”</a></li>
+    <li><a href="#why-archetype-panels-matter">Why archetype panels
+    matter</a></li>
+    </ul></li>
+    <li><a href="#data-contract-lockderivegate-packaging">Data contract
+    (LOCK–Derive–Gate packaging)</a>
+    <ul>
+    <li><a href="#design-principles">Design principles</a></li>
+    <li><a href="#run_id-a-stable-identifier">run_id: a stable
+    identifier</a></li>
+    <li><a href="#data_lock-freezing-inputs-and-parameters">DATA_LOCK:
+    freezing inputs and parameters</a></li>
+    <li><a href="#manifest-freezing-all-derived-outputs">MANIFEST:
+    freezing all derived outputs</a></li>
+    <li><a href="#index-append-only-run-summaries">INDEX: append-only
+    run summaries</a></li>
+    <li><a href="#gate-outcomes-and-validation-logic">Gate outcomes and
+    validation logic</a></li>
+    <li><a href="#invariants-implied-by-the-contract">Invariants implied
+    by the contract</a></li>
+    <li><a href="#failure-modes-and-how-they-appear">Failure modes (and
+    how they appear)</a></li>
+    </ul></li>
+    <li><a href="#key-sequenceannotation-to-a4-arrangement">KEY:
+    sequence(+annotation) to A4 arrangement</a>
+    <ul>
+    <li><a href="#windowed-observables-and-stiffness-proxy">Windowed
+    observables and stiffness proxy</a></li>
+    <li><a href="#robust-normalization-and-smoothing">Robust
+    normalization and smoothing</a></li>
+    <li><a href="#shell-segmentation">Shell segmentation</a></li>
+    <li><a href="#boundaries-and-anchor-construction">Boundaries and
+    anchor construction</a></li>
+    <li><a href="#motor-extraction-from-annotations">Motor extraction
+    from annotations</a></li>
+    <li><a href="#loop-generation">Loop generation</a></li>
+    <li><a href="#key-versions">KEY versions</a>
+    <ul>
+    <li><a href="#key_v0_3_1-single-scale">KEY_v0_3_1
+    (single-scale)</a></li>
+    <li><a href="#key_v0_4-multiscale">KEY_v0_4 (multiscale)</a></li>
+    </ul></li>
+    <li><a href="#outputs">Outputs</a></li>
+    <li><a href="#failure-modes-and-diagnostic-signals">Failure modes
+    and diagnostic signals</a></li>
+    </ul></li>
+    <li><a
+    href="#pcts-minimal-ledger-generator-pcts_v0_2"><strong>PCTS</strong>:
+    minimal ledger generator (PCTS_v0_2)</a>
+    <ul>
+    <li><a href="#state-variables-and-outputs">State variables and
+    outputs</a></li>
+    <li><a href="#residual-stress-proxy">Residual stress proxy</a></li>
+    <li><a href="#four-activity-progression">Four-activity
+    progression</a></li>
+    <li><a href="#event-rule-loop-stabilization">Event rule: loop
+    stabilization</a></li>
+    <li><a href="#admissibility-gates-what-must-be-true">Admissibility
+    gates (what must be true)</a></li>
+    <li><a href="#reproducibility-and-what-is-compared">Reproducibility
+    and what is compared</a></li>
+    <li><a href="#pi_t-proxy-and-interpretation">Pi_T proxy and
+    interpretation</a></li>
+    <li><a href="#failure-modes-and-edge-cases">Failure modes and edge
+    cases</a></li>
+    <li><a
+    href="#summary-why-pcts_v0_2-is-sufficient-for-the-whitepaper">Summary:
+    why PCTS_v0_2 is sufficient for the whitepaper</a></li>
+    </ul></li>
+    <li><a href="#sec:mm39_prov">Mouse/<strong>mm39</strong> reference
+    data provenance</a>
+    <ul>
+    <li><a href="#assembly-identity-and-coordinate-system">Assembly
+    identity and coordinate system</a></li>
+    <li><a
+    href="#primary-sources-for-genome-sequence-and-annotations">Primary
+    sources for genome sequence and annotations</a></li>
+    <li><a
+    href="#provenance-verification-what-we-hash-and-why">Provenance
+    verification: what we hash and why</a></li>
+    <li><a
+    href="#practical-conventions-used-in-this-whitepaper">Practical
+    conventions used in this whitepaper</a></li>
+    <li><a href="#failure-modes-and-how-to-detect-them">Failure modes
+    (and how to detect them)</a></li>
+    </ul></li>
+    <li><a href="#mm39-autoscan-to-representative-region-panel">mm39
+    autoscan to representative region panel</a>
+    <ul>
+    <li><a href="#windowing-scheme-and-candidate-set">Windowing scheme
+    and candidate set</a></li>
+    <li><a href="#autoscan-observables-the-4-structural-axes">Autoscan
+    observables (the 4 structural axes)</a></li>
+    <li><a href="#binning-lmh-terciles-per-axis">Binning: L/M/H terciles
+    per axis</a></li>
+    <li><a href="#archetype-definition-4-axis-bins">Archetype definition
+    (4-axis bins)</a></li>
+    <li><a
+    href="#selection-algorithm-coverage-first-uniformity-second">Selection
+    algorithm (coverage-first, uniformity-second)</a></li>
+    <li><a href="#region-extraction-and-step18-job-construction">Region
+    extraction and STEP18 job construction</a></li>
+    <li><a href="#failure-modes-autoscanselectionextraction">Failure
+    modes (autoscan/selection/extraction)</a></li>
+    </ul></li>
+    <li><a href="#results-archetype-coverage-table-1-figure-1">Results:
+    archetype coverage (Table 1; Figure 1)</a>
+    <ul>
+    <li><a href="#bin-cutoffs-and-marginal-balance-table-1">Bin cutoffs
+    and marginal balance (Table 1)</a></li>
+    <li><a href="#archetype-coverage-how-it-is-computed">Archetype
+    coverage (how it is computed)</a></li>
+    <li><a
+    href="#uniformity-metrics-optional-but-recommended">Uniformity
+    metrics (optional but recommended)</a></li>
+    <li><a href="#figure-1-tex-native-archetype-occupancy-grid">Figure
+    1: TeX-native archetype occupancy grid</a></li>
+    <li><a href="#validation-statements-and-failure-modes">Validation
+    statements and failure modes</a></li>
+    </ul></li>
+    <li><a
+    href="#interpretation-stiffness-shell-emergence-in-lockderivegate-dna-interpreter-dna">Interpretation:
+    stiffness-shell emergence in LOCK–Derive–Gate DNA Interpreter
+    DNA</a>
+    <ul>
+    <li><a
+    href="#from-sequence-statistics-to-shells-and-anchors-a-deterministic-coarse-graining">From
+    sequence statistics to shells and anchors: a deterministic
+    coarse-graining</a></li>
+    <li><a href="#motors-and-loops-as-constrained-couplings">Motors and
+    loops as constrained couplings</a></li>
+    <li><a
+    href="#jevent-as-irreversible-stabilization-ledger-semantics">JEVENT
+    as irreversible stabilization (ledger semantics)</a></li>
+    <li><a href="#what-emergence-means-here">What “emergence” means
+    here</a></li>
+    <li><a href="#scale-behavior-and-multiscale-key">Scale behavior and
+    multiscale KEY</a></li>
+    <li><a href="#why-representative-panels-generalize">Why
+    representative panels generalize</a></li>
+    <li><a
+    href="#limits-of-interpretation-truthfulness-constraints">Limits of
+    interpretation (truthfulness constraints)</a></li>
+    </ul></li>
+    <li><a href="#validation-and-failure-modes">Validation and failure
+    modes</a>
+    <ul>
+    <li><a href="#validation-levels">Validation levels</a></li>
+    <li><a href="#bundle-level-validation">Bundle-level
+    validation</a></li>
+    <li><a href="#gate-taxonomy-recommended-minimal-set">Gate taxonomy
+    (recommended minimal set)</a></li>
+    <li><a href="#interpreting-fail-vs-inconclusive">Interpreting FAIL
+    vs INCONCLUSIVE</a></li>
+    <li><a href="#failure-modes-by-layer">Failure modes by layer</a>
+    <ul>
+    <li><a href="#inputprovenance-failures">Input/provenance
+    failures</a></li>
+    <li><a href="#key-failures">KEY failures</a></li>
+    <li><a href="#pctsledger-failures">PCTS/ledger failures</a></li>
+    <li><a href="#packaging-failures">Packaging failures</a></li>
+    </ul></li>
+    <li><a href="#parameter-sensitivity-and-what-is-allowed">Parameter
+    sensitivity and what is allowed</a></li>
+    <li><a href="#limits-and-non-goals-truthfulness-constraints">Limits
+    and non-goals (truthfulness constraints)</a></li>
+    </ul></li>
+    <li><a href="#roadmap">Roadmap</a>
+    <ul>
+    <li><a href="#immediate-manuscript-completion-tasks">Immediate
+    manuscript-completion tasks</a></li>
+    <li><a href="#evidence-expansion-within-mouse-mm39">Evidence
+    expansion (within mouse <strong>mm39</strong>)</a></li>
+    <li><a href="#cross-organism-extension">Cross-organism
+    extension</a></li>
+    <li><a
+    href="#toward-organcontext-panels-without-changing-activity-grammar">Toward
+    organ/context panels (without changing activity grammar)</a></li>
+    <li><a href="#versioning-strategy">Versioning strategy</a></li>
+    <li><a href="#long-term-scientific-directions-non-binding">Long-term
+    scientific directions (non-binding)</a></li>
+    <li><a href="#release-plan">Release plan</a></li>
+    </ul></li>
+    <li><a href="#file-formats-and-schemas">File formats and schemas</a>
+    <ul>
+    <li><a href="#a5-priors-yaml">A5 priors YAML</a></li>
+    <li><a href="#a4-layout-yaml">A4 layout YAML</a></li>
+    <li><a href="#tsv-outputs">TSV outputs</a></li>
+    <li><a href="#pcts-outputs">PCTS outputs</a></li>
+    </ul></li>
+    <li><a
+    href="#reproducibility-cookbook-exact-commands">Reproducibility
+    cookbook (exact commands)</a>
+    <ul>
+    <li><a href="#b.0-what-you-should-obtain-at-the-end">B.0 What you
+    should obtain at the end</a></li>
+    <li><a href="#b.1-environment-setup">B.1 Environment setup</a></li>
+    <li><a href="#b.2-download-mm39-inputs-sequence-annotations">B.2
+    Download mm39 inputs (sequence + annotations)</a></li>
+    <li><a href="#b.2.1-one-command-end-to-end-run-recommended">B.2.1
+    One-command end-to-end run (recommended)</a></li>
+    <li><a
+    href="#b.2.2-canonical-work_dir-tree-produced-by-the-end-to-end-script">B.2.2
+    Canonical WORK_DIR tree produced by the end-to-end script</a></li>
+    <li><a href="#b.3-autoscan-compute-candidate-window-metrics">B.3
+    Autoscan: compute candidate window metrics</a></li>
+    <li><a
+    href="#b.4-compute-tercile-cutoffs-and-assign-4-axis-archetypes">B.4
+    Compute tercile cutoffs and assign 4-axis archetypes</a></li>
+    <li><a href="#b.5-select-a-representative-panel-n30100">B.5 Select a
+    representative panel (N=30–100)</a></li>
+    <li><a
+    href="#b.6-extract-raw-regions-region.fa-region.gtf-and-pack-as-raw.zip">B.6
+    Extract raw regions (region.fa + region.gtf) and pack as
+    raw.zip</a></li>
+    <li><a href="#b.7-run-step18-key-pcts-for-the-panel">B.7 Run STEP18
+    (KEY + PCTS) for the panel</a></li>
+    <li><a href="#b.8-validate-runs-and-pack-a-validated-bundle">B.8
+    Validate runs and pack a validated bundle</a></li>
+    <li><a href="#b.9-regenerate-table-1-csv-and-latex">B.9 Regenerate
+    Table 1 (CSV and LaTeX)</a></li>
+    <li><a
+    href="#b.10-figure-management-policy-this-tex-project-embeds-no-images">B.10
+    Figure management policy (this TeX project embeds no
+    images)</a></li>
+    <li><a href="#b.11-doi-audit">B.11 DOI audit</a></li>
+    <li><a
+    href="#b.12-minimal-acceptance-checklist-what-to-check-before-claiming-reproducibility">B.12
+    Minimal acceptance checklist (what to check before claiming
+    reproducibility)</a></li>
+    </ul></li>
+    </ul>
+    </nav>
+        <div class="wp-toc-foot">
+      <a class="wp-doi" href="https://doi.org/10.5281/zenodo.17963127">DOI</a>
+      <a class="wp-doi" href="https://zenodo.org/records/17963127">Zenodo</a>
+    </div>
+  </aside>
+
+  <article class="wp-article">
+    <div class="wp-mobilebar">
+      <button class="wp-toc-open" type="button" onclick="JPWP.openTOC()">Contents</button>
+      <a class="wp-lang" href="/ko/whitepapers/dna-mm39/">���������</a>
+    </div>
+
+    <header class="wp-hero">
+      <h1>Deterministic DNA Interpretation (Mouse/mm39)</h1>
+      <div class="wp-meta">
+        <span class="wp-pill">Version: v1.2</span>
+        <span class="wp-pill">Published: 2025-12-17</span>
+        <span class="wp-pill">10.5281/zenodo.17963127</span>
+      </div>
+            <p class="wp-abstract"><p>We present a deterministic,
+auditable pipeline that maps any genomic region (1D DNA sequence,
+optionally with minimal transcript annotation) to (i) a minimal
+structural arrangement <strong>A4</strong>(anchors, motors, loops, and
+stiffness shells) and (ii) an irreversible event ledger
+<strong>J_LEDGER</strong>, under a fixed 4-activity grammar (INIT /
+SCONSERV / SDISSIP / JEVENT). In this whitepaper, “DNA is 100%
+interpretable” means: for every input region, the pipeline produces the
+prescribed outputs or returns an explicit, hash-tracked failure label;
+it does <em>not</em> claim to solve biological function. Reproducibility
+is enforced by a LOCK<span class="math inline">→</span>Derive<span
+class="math inline">→</span>Gate contract with input hashing
+(<code>DATA_LOCK</code>), file-level manifests
+(<code>MANIFEST.json</code>), stable run identifiers, and gate tables
+that test ledger admissibility (e.g., <span
+class="math inline"><em>Δ</em><em>E</em><sub>diss</sub> &lt; 0</span>,
+non-increasing residual stress, and reproducibility under identical
+LOCK/seed). As evidence, we apply a whole-genome autoscan to mouse
+<strong>mm39</strong>(GRCm39) and deterministically select an <span
+class="math inline"><em>N</em> = 80</span> representative panel by
+balancing four structural axes (gene density, soft-masked repeat proxy,
+GC fraction, and CpG density). Table <a href="#tab:archetype_bins"
+data-reference-type="ref"
+data-reference="tab:archetype_bins">[tab:archetype_bins]</a> records
+axis cutoffs and marginal balance; Fig. <a href="#fig:archetype_grid"
+data-reference-type="ref"
+data-reference="fig:archetype_grid">[fig:archetype_grid]</a> is a
+TeX-native 9<span class="math inline">×</span>9 occupancy grid for the
+selected panel. All code and fixed evidence bundles are archived under
+Zenodo DOI: .</p></p>
+            <div class="wp-actions">
+        
+        
+      </div>
+    </header>
+
+    <section class="wp-content">
+    <p><strong>Keywords:</strong> DNA interpretation; genome windowing;
+    mouse mm39 (GRCm39); GC content; CpG density; repeat masking;
+    reproducibility; audit trail; SHA-256; Zenodo.</p>
+    <h1 id="front-matter">Front matter</h1>
+    <h2 id="purpose-and-claim-boundary">Purpose and claim boundary</h2>
+    <p>This whitepaper is written to support a precise, testable, and
+    reproducible claim:</p>
+    <div class="claim">
+    <p><strong>Claim 1</strong> (Operational “DNA 100% interpretation”
+    claim). <em>Within the LOCK–Derive–Gate DNA Interpreter DNA
+    contract, DNA is 100% interpretable in the following operational
+    sense: for any genomic region of interest (sequence plus minimal
+    annotations), the pipeline deterministically produces (i) an
+    <strong>A4</strong> arrangement (stiffness shells, anchors, motors,
+    loops) and (ii) a gate-validated irreversible event log
+    (<strong>J_LEDGER</strong>) generated under a fixed 4-activity
+    grammar (INIT / SCONSERV / SDISSIP / JEVENT).</em></p>
+    </div>
+    <p>This claim is deliberately <strong>not</strong> a claim about
+    fully solving biological function. Rather, it asserts that the
+    interpretation <em>output objects</em> are always produced (or a
+    failure is explicitly labeled), and that the entire process is
+    auditable and reproducible under a LOCK<span
+    class="math inline">→</span>Derive<span
+    class="math inline">→</span>Gate regime <span class="citation"
+    data-cites="zenodo17932567"></span>.</p>
+    <h2 id="scope-what-is-included-and-what-is-not">Scope: what is
+    included and what is not</h2>
+    <h4 id="included.">Included.</h4>
+    <ul>
+    <li><p>A deterministic mapping from <em>1D
+    sequence(+annotation)</em> to <strong>A4</strong>
+    primitives.</p></li>
+    <li><p>A deterministic, seed-controlled mapping from
+    <strong>A4</strong> to an irreversible <strong>J_LEDGER</strong>
+    with admissibility gates.</p></li>
+    <li><p>A mouse <strong>mm39</strong> whole-genome autoscan that
+    selects a representative region panel (N<span
+    class="math inline">≈</span>30–100) by balancing four structural
+    axes (gene density, repeat proxy, GC fraction, CpG density), with
+    coverage summarized as Table <a href="#tab:archetype_bins"
+    data-reference-type="ref" data-reference="tab:archetype_bins">3</a>
+    and Figure <a href="#fig:archetype_grid" data-reference-type="ref"
+    data-reference="fig:archetype_grid">[fig:archetype_grid]</a>.</p></li>
+    <li><p>Reproducibility artifacts: DATA_LOCK, MANIFEST (sha256),
+    INDEX, and validation/DOI audit scripts.</p></li>
+    </ul>
+    <h4 id="not-included.">Not included.</h4>
+    <ul>
+    <li><p>A claim that the model predicts biological phenotype or all
+    regulatory mechanisms.</p></li>
+    <li><p>A claim that the stiffness proxy is a universally correct
+    physical observable for DNA in vivo.</p></li>
+    <li><p>A claim that the chosen minimal annotations are complete
+    (they are sufficient for MOTOR extraction, not for full
+    biology).</p></li>
+    </ul>
+    <h2 id="document-conventions-and-terminology">Document conventions
+    and terminology</h2>
+    <h4 id="interpretation-vs.-meaning.">Interpretation
+    vs. meaning.</h4>
+    <p>Throughout this document, “interpretation” means producing
+    <strong>A4</strong> and <strong>J_LEDGER</strong> objects from
+    inputs under versioned rules. It does not mean recovering the “true
+    meaning” of DNA in an absolute biological sense.</p>
+    <h4 id="lock-vs.-state.">LOCK vs. STATE.</h4>
+    <p>We separate <strong>LOCK</strong> (frozen assumptions and rules)
+    from <strong>STATE</strong> (allowed run-time values). A change to
+    LOCK is treated as a new version; post-hoc tuning of LOCK is
+    disallowed in a validated run <span class="citation"
+    data-cites="zenodo17932567"></span>.</p>
+    <h4 id="determinism.">Determinism.</h4>
+    <p>Unless explicitly noted, procedures are deterministic functions
+    of:</p>
+    <ol>
+    <li><p>input region sequence (FASTA),</p></li>
+    <li><p>annotation subset used for MOTOR extraction (GTF),</p></li>
+    <li><p>parameter dictionary (including KEY/PCTS versions),</p></li>
+    <li><p>random seed (only where explicitly used).</p></li>
+    </ol>
+    <h2 id="reproducibility-contract-lockderivegate">Reproducibility
+    contract (LOCK–Derive–Gate)</h2>
+    <p>We adopt a strict reproducibility contract with three layers
+    <span class="citation" data-cites="zenodo17932567"></span>:</p>
+    <dl>
+    <dt>LOCK</dt>
+    <dd>
+    <p>Versioned priors, schemas, and algorithms (e.g., the 4-activity
+    grammar; A5 priors; KEY and PCTS versions).</p>
+    </dd>
+    <dt>Derive</dt>
+    <dd>
+    <p>All output files are derived from LOCK + inputs without hidden
+    manual steps.</p>
+    </dd>
+    <dt>Gate</dt>
+    <dd>
+    <p>Every run produces fail-fast gates that check admissibility
+    (e.g., <span class="math inline"><em>Δ</em><em>E</em> &lt; 0</span>
+    for JEVENT) and audit completeness.</p>
+    </dd>
+    </dl>
+    <p>A run is considered <em>validated</em> when:</p>
+    <ol>
+    <li><p>inputs are recorded with sha256 hashes (DATA_LOCK),</p></li>
+    <li><p>outputs are recorded with sha256 hashes (MANIFEST),</p></li>
+    <li><p>gates return PASS (or explicit FAIL/INCONCLUSIVE with
+    reasons),</p></li>
+    <li><p>the DOI registry has no missing DOI entries.</p></li>
+    </ol>
+    <h2 id="how-to-cite">How to cite</h2>
+    <p><strong>Zenodo DOI (this whitepaper + reproducibility
+    bundle):</strong></p>
+    <p>External resources are cited via DOI-bearing references (see
+    bibliography). Internal derived artifacts are cited by run_id and
+    sha256 hashes recorded in DATA_LOCK and MANIFEST. When distributing
+    results, include the validated bundle and its registry/audit scripts
+    to allow third-party verification <span class="citation"
+    data-cites="zenodo17932567"></span>.</p>
+    <h2 id="evidence-lock-fixed-artifacts-for-this-whitepaper">Evidence
+    lock (fixed artifacts for this whitepaper)</h2>
+    <p><strong>Zenodo upload (recommended):</strong> upload this
+    whitepaper PDF together with the wrapper bundle , which contains the
+    locked evidence bundles listed below.</p>
+    <p>To make the evidence supporting Table <a
+    href="#tab:archetype_bins" data-reference-type="ref"
+    data-reference="tab:archetype_bins">3</a> and Fig. <a
+    href="#fig:archetype_grid" data-reference-type="ref"
+    data-reference="fig:archetype_grid">[fig:archetype_grid]</a>
+    immutable and auditable, we freeze the exact evidence bundles and
+    key files by sha256 below. Any change to these hashes (inputs,
+    selection, or generated summaries) requires a new evidence version
+    and a new whitepaper revision.</p>
+    <pre><code>EVIDENCE_LOCK_v0_1
+
+(1) mm39 archetype coverage bundle (Table 1 + Fig 1 sources)
+  mm39_archetype_coverage_TABLE1_FIG1_bundle_v0_1.zip
+    sha256: d9adeb446efe6ae2e1e21ef0202ea0ed92d042f5bcaaae573f67a879f15270a8
+  key files inside the bundle:
+    TABLE1_mm39_archetype_coverage_v0_1.csv
+      sha256: c61ec72d129a899f9787e5cead3047e54004d223c3ae9bd02186c5ecc4239d77
+    mm39_selected_regions_archetypeN80_v0_1.csv
+      sha256: 9519b2a13164194b50043135ce021d7054c93b90c249caa7462b2ecca2c021a3
+    mm39_archetype_coverage_matrix9x9_v0_1.csv
+      sha256: 4881c61704f018d866e786036c383c708d20c224fd8b2a185d7c1540ff202abf
+    RUN_METADATA_mm39_archetype_coverage_v0_1.json
+      sha256: 309c920feb61c277ee62e67c47ec0744328a873a950f30b5950754f14ead01f7
+    MANIFEST_mm39_archetype_coverage_v0_1.json
+      sha256: fe7adc4fb201d31cb243c6f1e765c2248d230e59eaf1989a66be2a7475cf7f99
+    mm39_inputs_sha256_v0_1.txt
+      sha256: f8ea0caa5a009da6df7b3a77585f528999f56efedced5be6b48835db5b42dce5
+
+(2) End-to-end autoscan+STEP18 bundlekit (scripts and LOCK files)
+  mouse_mm39_autoscan_END2END_bundlekit_v1_0.zip
+    sha256: e2e2803daa972e276b9710db39f450055ad9fdfd44e0cfab974c3a592b826ac2
+  key files inside the bundlekit:
+    MANIFEST.json
+      sha256: 024bf5ed17fb984fa17ca9bef586c0b72883488352ba3d142422457126604e50
+    CITATION_REGISTRY.yaml
+      sha256: 69ca4f35e13be7c7a24bdf04d7244d1798d38ac35835a2d5d399b17a8abf8db7
+    STANDARD/A5_priors_dna_v0_1.yaml
+      sha256: 0fc1b857956b2aa5c277fb919ac56c935fc524707853e83210ab2637477f8f8d
+    STANDARD/J_LEDGER_schema_dna_v0_1.yaml
+      sha256: 1cc118ce979eecdb7b24bd93efbf2efc572941ab1057e6ae0f77f5a9f4a4b769</code></pre>
+    <h4 id="evidence-lock-in-table-form-summary.">Evidence lock in table
+    form (summary).</h4>
+    <p>For readability, Table <a href="#tab:evidence_lock_bundles"
+    data-reference-type="ref"
+    data-reference="tab:evidence_lock_bundles">1</a> summarizes the two
+    primary evidence bundles and their sha256 hashes. Hashes are grouped
+    in blocks of 8 characters in the table; the canonical unbroken
+    hashes remain in the verbatim block above.</p>
+    <div id="tab:evidence_lock_bundles">
+    <table style="width:93%;">
+    <caption>Evidence lock summary (primary bundles).</caption>
+    <colgroup>
+    <col style="width: 55%" />
+    <col style="width: 38%" />
+    </colgroup>
+    <thead>
+    <tr class="header">
+    <th style="text-align: left;">Artifact (file)</th>
+    <th style="text-align: left;">sha256 (grouped)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td style="text-align: left;"></td>
+    <td
+    style="text-align: left;"><code>d9adeb44 6efe6ae2 e1e21ef0 202ea0ed 92d042f5 bcaaae57 3f67a879 f15270a8</code></td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: left;"></td>
+    <td
+    style="text-align: left;"><code>e2e2803d aa972e27 6b9710db 39f45005 5ad9fdfd 44e0cfab 974c3a59 2b826ac2</code></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <h4 id="evidence-lock-in-table-form-key-files.">Evidence lock in
+    table form (key files).</h4>
+    <p>Table <a href="#tab:evidence_lock_keyfiles"
+    data-reference-type="ref"
+    data-reference="tab:evidence_lock_keyfiles">2</a> lists key files
+    inside the bundles whose hashes are explicitly locked for this
+    manuscript.</p>
+    <div id="tab:evidence_lock_keyfiles">
+    <table style="width:94%;">
+    <caption>Evidence lock: key files (sha256).</caption>
+    <colgroup>
+    <col style="width: 62%" />
+    <col style="width: 32%" />
+    </colgroup>
+    <thead>
+    <tr class="header">
+    <th style="text-align: left;">Path (inside bundle)</th>
+    <th style="text-align: left;">sha256 (grouped)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td style="text-align: left;">Path (inside bundle)</td>
+    <td style="text-align: left;">sha256 (grouped)</td>
+    </tr>
+    <tr class="even">
+    <td colspan="2" style="text-align: right;">(continued)</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: left;"></td>
+    <td
+    style="text-align: left;"><code>c61ec72d 129a899f 9787e5ce ad3047e5 4004d223 c3ae9bd0 2186c5ec c4239d77</code></td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: left;"></td>
+    <td
+    style="text-align: left;"><code>9519b2a1 3164194b 50043135 ce021d70 54c93b90 c249caa7 462b2ecc a2c021a3</code></td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: left;"></td>
+    <td
+    style="text-align: left;"><code>4881c617 04f018d8 66e78603 6c383c70 8d20c224 fd8b2a18 5d7c1540 ff202abf</code></td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: left;"></td>
+    <td
+    style="text-align: left;"><code>309c920f eb61c277 ee62e67c 47ec0744 328a873a 950f30b5 950754f1 4ead01f7</code></td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: left;"></td>
+    <td
+    style="text-align: left;"><code>fe7adc4f b201d31c b243c6f1 e765c224 8d230e59 eaf1989a 66be2a74 75cf7f99</code></td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: left;"></td>
+    <td
+    style="text-align: left;"><code>f8ea0caa 5a009da6 df7b3a77 585f5289 99f56efe dced5be6 b48835db 5b42dce5</code></td>
+    </tr>
+    <tr class="odd">
+    <td
+    style="text-align: left;"><code>MANIFEST.json (bundlekit)</code></td>
+    <td
+    style="text-align: left;"><code>024bf5ed 17fb984f a17ca9be f586c0b7 28834883 52ba3d14 24224571 26604e50</code></td>
+    </tr>
+    <tr class="even">
+    <td
+    style="text-align: left;"><code>CITATION_REGISTRY.yaml (bundlekit)</code></td>
+    <td
+    style="text-align: left;"><code>69ca4f35 e13be7c7 a24bdf04 d7244d17 98d38ac3 5835a2d5 d399b17a 8abf8db7</code></td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: left;"></td>
+    <td
+    style="text-align: left;"><code>0fc1b857 956b2aa5 c277fb91 9ac56c93 5fc52470 7853e832 10ab2637 477f8f8d</code></td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: left;"></td>
+    <td
+    style="text-align: left;"><code>1cc118ce 979eecdb 7b24bd93 efbf2efc 572941ab 1057e6ae 0f77f5a9 f4a4b769</code></td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: left;"></td>
+    <td style="text-align: left;"></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <h1 id="executive-summary">Executive summary</h1>
+    <h2 id="one-page-pipeline-overview">One-page pipeline overview</h2>
+    <p>The LOCK–Derive–Gate DNA Interpreter DNA pipeline is designed to
+    make <em>interpretation</em> reproducible and auditable:</p>
+    <ol>
+    <li><p><strong>Input</strong>: a genomic region sequence (FASTA) and
+    optional transcript annotations (GTF) restricted to the
+    region.</p></li>
+    <li><p><strong>KEY step (sequence <span class="math inline">→</span>
+    structure)</strong>: compute windowed sequence statistics, form a
+    stiffness proxy, segment into shells, and define anchors; extract
+    motors from TSS and connect to nearby anchors to form loops. The
+    result is a minimal <strong>A4</strong> arrangement.</p></li>
+    <li><p><strong>PCTS step (structure <span
+    class="math inline">→</span> ledger)</strong>: given
+    <strong>A4</strong>, generate a time-indexed ledger of irreversible
+    events (<strong>J_LEDGER</strong>) under a fixed 4-activity
+    grammar.</p></li>
+    <li><p><strong>Audit/validation</strong>: produce DATA_LOCK,
+    MANIFEST, INDEX, and gate tables; validate that the run is
+    admissible and reproducible.</p></li>
+    </ol>
+    <h2 id="core-claim-restated-as-an-engineering-contract">Core claim
+    restated as an engineering contract</h2>
+    <div class="claim">
+    <p><strong>Claim 2</strong> (Interpretation contract). <em>For any
+    input region, the pipeline either produces a valid
+    <strong>A4</strong> and a gate-admissible <strong>J_LEDGER</strong>,
+    or it returns an explicit failure label with sufficient diagnostics
+    to reproduce the failure. No post-hoc LOCK tuning is permitted in a
+    validated run.</em></p>
+    </div>
+    <p>This is the sense in which we use “DNA is 100% interpretable” in
+    this whitepaper <span class="citation"
+    data-cites="zenodo17932567"></span>.</p>
+    <h2 id="key-design-decisions">Key design decisions</h2>
+    <h4 id="activity-grammar-is-fixed.">Activity grammar is fixed.</h4>
+    <p>We do not introduce new activity categories beyond: INIT /
+    SCONSERV / SDISSIP / JEVENT. All diversity is expressed by
+    <strong>A4</strong> arrangement structure.</p>
+    <h4
+    id="structure-comes-from-shellsanchors-not-from-adding-activities.">Structure
+    comes from shells/anchors, not from adding activities.</h4>
+    <p>The KEY step is responsible for producing diverse arrangements
+    via stiffness-shell segmentation and anchor strengths.</p>
+    <h4 id="irreversibility-is-logged-not-assumed.">Irreversibility is
+    logged, not assumed.</h4>
+    <p>JEVENT entries must satisfy dissipative constraints (<span
+    class="math inline"><em>Δ</em><em>E</em> &lt; 0</span>) and
+    non-increasing residual stress across events.</p>
+    <h2
+    id="evidence-at-scale-mm39-autoscan-and-representative-panels">Evidence
+    at scale: mm39 autoscan and representative panels</h2>
+    <p>To avoid relying on a small hand-picked region set, we run a
+    whole-genome autoscan over mouse <strong>mm39</strong>. Each window
+    is summarized by four structural observables:</p>
+    <ul>
+    <li><p>gene density (TSS per Mb),</p></li>
+    <li><p>repeat proxy (softmask fraction),</p></li>
+    <li><p>GC fraction,</p></li>
+    <li><p>CpG density.</p></li>
+    </ul>
+    <p>Each axis is discretized into L/M/H (terciles), producing a <span
+    class="math inline">3<sup>4</sup> = 81</span> archetype grid. We
+    then select a representative panel (N<span
+    class="math inline">≈</span>30–100) with the goal of maximizing
+    archetype coverage and maintaining approximate uniformity across
+    covered archetypes.</p>
+    <h4 id="what-table-1-and-figure-1-establish.">What Table 1 and
+    Figure 1 establish.</h4>
+    <ul>
+    <li><p>Table <a href="#tab:archetype_bins" data-reference-type="ref"
+    data-reference="tab:archetype_bins">3</a> records bin cutoffs <span
+    class="math inline">(<em>q</em><sub>1</sub>,<em>q</em><sub>2</sub>)</span>
+    for each axis and the marginal balance of selected regions across
+    L/M/H.</p></li>
+    <li><p>Figure <a href="#fig:archetype_grid"
+    data-reference-type="ref"
+    data-reference="fig:archetype_grid">[fig:archetype_grid]</a> records
+    archetype occupancy in a flattened 9<span
+    class="math inline">×</span>9 grid, showing how uniformly the
+    N-budget covers the observed archetype space.</p></li>
+    </ul>
+    <h2 id="reproducibility-statement-minimal">Reproducibility statement
+    (minimal)</h2>
+    <p>The evidence is packaged as validated bundles:</p>
+    <ul>
+    <li><p>each run has DATA_LOCK (input hashes and
+    parameters),</p></li>
+    <li><p>each bundle has MANIFEST (sha256 for outputs),</p></li>
+    <li><p>gate tables and verdicts are included,</p></li>
+    <li><p>DOI audit is included for citations.</p></li>
+    </ul>
+    <p>A third party can reproduce the same run_id outputs by re-running
+    the pipeline with identical inputs and parameters <span
+    class="citation" data-cites="zenodo17932567"></span>.</p>
+    <h2 id="reading-guide">Reading guide</h2>
+    <p>Sections 2–3 define the formal objects and the reproducibility
+    contract. Sections 4–5 define the deterministic transforms (KEY and
+    PCTS). Sections 6–8 provide mouse <strong>mm39</strong> data
+    provenance and autoscan panel results (Table 1 and Fig. 1).
+    Sections 9–10 interpret the emergence of stiffness-shell structure
+    and document failure modes.</p>
+    <h1 id="core-definitions">Core definitions</h1>
+    <p>This section fixes the objects and terminology used throughout
+    the paper.</p>
+    <h2 id="input-region">Input region</h2>
+    <div class="definition">
+    <p><strong>Definition 1</strong> (Region object). <em>A
+    <em>region</em> is a tuple <span
+    class="math display">ℛ := (<em>S</em>,𝒜,<em>θ</em>),</span> where
+    <span class="math inline"><em>S</em></span> is a DNA sequence string
+    of length <span class="math inline"><em>L</em></span> over <span
+    class="math inline">{<em>A</em>, <em>C</em>, <em>G</em>, <em>T</em>, <em>N</em>}</span>,
+    <span class="math inline">𝒜</span> is an optional annotation set
+    restricted to the region (e.g., transcripts), and <span
+    class="math inline"><em>θ</em></span> is a parameter dictionary
+    (window size, step size, algorithm versions, and seed).</em></p>
+    </div>
+    <div class="remark">
+    <p><strong>Remark 1</strong> (Minimal annotation). <em>Annotations
+    are optional. When <span class="math inline">𝒜</span> is absent, the
+    pipeline still produces shells/anchors; motors/loops may be empty.
+    This is admissible, but it changes what can be claimed (e.g., no
+    TSS-driven MOTOR structure).</em></p>
+    </div>
+    <h2 id="a4-arrangement"><strong>A4</strong> arrangement</h2>
+    <div class="definition">
+    <p><strong>Definition 2</strong> (<strong>A4</strong> layout).
+    <em>An <strong>A4</strong> layout is a structured object <span
+    class="math display">A4 := (shells,anchors,motors,loops,meta),</span>
+    where meta records version and provenance (input headers, region
+    length, etc.).</em></p>
+    </div>
+    <h3 class="unnumbered" id="shells">Shells</h3>
+    <div class="definition">
+    <p><strong>Definition 3</strong> (Stiffness shells). <em>A
+    <em>shell</em> is a contiguous segment <span
+    class="math inline">[<em>s</em>, <em>e</em>)</span> of the region
+    produced by segmenting a stiffness proxy signal derived from
+    windowed sequence statistics. Shells are labeled by a coarse class
+    (e.g., terciles) and carry a mean normalized value used for boundary
+    strength.</em></p>
+    </div>
+    <h3 class="unnumbered" id="anchors">Anchors</h3>
+    <div class="definition">
+    <p><strong>Definition 4</strong> (Anchor). <em>An <em>anchor</em> is
+    a tuple <span
+    class="math inline">(id,<em>p</em>,<em>k</em>,<em>α</em>)</span>
+    where <span class="math inline"><em>p</em></span> is a genomic
+    position in bp, <span class="math inline"><em>k</em></span> is an
+    anchor kind (region edge, shell boundary, optional shell core), and
+    <span class="math inline"><em>α</em> ≥ 0</span> is an anchor
+    strength (typically a boundary discontinuity magnitude).</em></p>
+    </div>
+    <h3 class="unnumbered" id="motors">Motors</h3>
+    <div class="definition">
+    <p><strong>Definition 5</strong> (Motor). <em>A <em>motor</em> is a
+    transcript-driven position (TSS) extracted from annotations,
+    represented as <span
+    class="math inline">(id,<em>p</em>,strand)</span> in local
+    coordinates.</em></p>
+    </div>
+    <h3 class="unnumbered" id="loops">Loops</h3>
+    <div class="definition">
+    <p><strong>Definition 6</strong> (Loop). <em>A <em>loop</em> is a
+    coupling between a motor and an anchor. In the minimal
+    representation we record:</em></p>
+    <ul>
+    <li><p><em><code>loop_id</code>: unique identifier,</em></p></li>
+    <li><p><em><code>motor_id</code>: the MOTOR endpoint (TSS
+    position),</em></p></li>
+    <li><p><em><code>anchor_id</code>: the ANCHOR endpoint
+    (boundary/core/edge),</em></p></li>
+    <li><p><em><span class="math inline"><em>d</em></span> (bp): the
+    motor–anchor distance in local coordinates.</em></p></li>
+    </ul>
+    <p><em>Given a fixed integer <span
+    class="math inline"><em>k</em> ≥ 1</span>, loop sets are generated
+    by connecting each motor to its nearest <span
+    class="math inline"><em>k</em></span> anchors under a deterministic
+    rule.</em></p>
+    </div>
+    <h2 id="fixed-activity-grammar-4-operations">Fixed activity grammar
+    (4 operations)</h2>
+    <div class="definition">
+    <p><strong>Definition 7</strong> (Activity grammar). <em>The
+    activity grammar is the ordered set of allowed activity categories:
+    <span class="math display">{INIT, SCONSERV, SDISSIP, JEVENT}.</span>
+    No additional activity categories are introduced. Any model
+    diversity must arise from <strong>A4</strong> structure and event
+    logs, not from adding activity types.</em></p>
+    </div>
+    <h4 id="interpretation.">Interpretation.</h4>
+    <p>INIT initializes a run state. SCONSERV is a conservative
+    projection step (constraint satisfaction). SDISSIP is a dissipative
+    relaxation step. JEVENT is an irreversible discrete update that
+    advances time and writes to the ledger.</p>
+    <h2 id="j_ledger-and-gates"><strong>J_LEDGER</strong> and gates</h2>
+    <div class="definition">
+    <p><strong>Definition 8</strong> (<strong>J_LEDGER</strong> entry).
+    <em>A <strong>J_LEDGER</strong> entry is a row with required fields
+    including run_id, event_id, event_type, time step, involved entity
+    identifiers (anchors/motors/loops), trigger summary, dissipated
+    energy <span class="math inline"><em>Δ</em><em>E</em></span>, and
+    pre/post residual stress proxies.</em></p>
+    </div>
+    <div class="definition">
+    <p><strong>Definition 9</strong> (Gate outcomes). <em>Gate
+    evaluation returns one of: <strong>PASS</strong>,
+    <strong>FAIL</strong>, or <strong>INCONCLUSIVE</strong>. FAIL
+    indicates a violated admissibility constraint (e.g., <span
+    class="math inline"><em>Δ</em><em>E</em> ≥ 0</span> for JEVENT).
+    INCONCLUSIVE indicates that a check could not be resolved under
+    available data but is explicitly labeled.</em></p>
+    </div>
+    <h2 id="operational-meaning-of-100-interpretable">Operational
+    meaning of “100% interpretable”</h2>
+    <div class="definition">
+    <p><strong>Definition 10</strong> (Operational interpretability).
+    <em>A region <span class="math inline">ℛ</span> is
+    <em>interpretable</em> under LOCK–Derive–Gate DNA Interpreter DNA if
+    the pipeline deterministically produces:</em></p>
+    <ol>
+    <li><p><em>an <strong>A4</strong> layout (possibly with empty
+    motors/loops when annotations are absent), and</em></p></li>
+    <li><p><em>a <strong>J_LEDGER</strong> and verdict
+    (PASS/FAIL/INCONCLUSIVE) with complete audit artifacts (DATA_LOCK
+    and MANIFEST).</em></p></li>
+    </ol>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 1</strong> (Deterministic mapping under fixed
+    LOCK). <em>Fix LOCK (versions, schemas, priors), fix inputs <span
+    class="math inline">(<em>S</em>,𝒜)</span>, fix parameters and seed.
+    Then the mapping <span class="math display">$$(S,\mathcal{A},\theta)
+    \xrightarrow{\ \mathrm{KEY}\ } \mathrm{A4} \xrightarrow{\
+    \mathrm{PCTS}\ } (\textbf{J\_LEDGER},\mathrm{verdict})$$</span> is
+    deterministic, and the run_id is stable (hash of
+    inputs+params+versions+seed).</em></p>
+    </div>
+    <div class="remark">
+    <p><strong>Remark 2</strong> (What can change). <em>If STATE
+    parameters are changed within allowed ranges, the run_id changes
+    because parameters are included in the hash. If LOCK is changed
+    (e.g., new segmentation rule), the version must be bumped and
+    comparisons must be explicit.</em></p>
+    </div>
+    <h2 id="why-archetype-panels-matter">Why archetype panels
+    matter</h2>
+    <p>The “100% interpretable” claim is global (any region can be
+    processed), but evidence must be compact. Representative archetype
+    panels provide a finite, auditable set of regions that cover the
+    combinations of structural axes that drive <strong>A4</strong>
+    diversity. The autoscan selection algorithm and its coverage
+    (Table 1 and Fig. 1) are therefore treated as core evidence, not as
+    an optional demonstration <span class="citation"
+    data-cites="zenodo17932567"></span>.</p>
+    <h1 id="data-contract-lockderivegate-packaging">Data contract
+    (LOCK–Derive–Gate packaging)</h1>
+    <p>This section specifies the reproducibility contract at the level
+    of files, hashes, and validation outcomes. It is intentionally
+    strict: a run is either validated (PASS), invalid (FAIL), or
+    explicitly unresolved (INCONCLUSIVE) with diagnostics.</p>
+    <h2 id="design-principles">Design principles</h2>
+    <ol>
+    <li><p><strong>No silent drift.</strong> Inputs and outputs are
+    hashed (sha256) and recorded.</p></li>
+    <li><p><strong>Stable identity.</strong> A run has a stable run_id
+    derived from inputs and parameters.</p></li>
+    <li><p><strong>Idempotence.</strong> Re-running the same run_id
+    produces the same directory structure; an existing run with MANIFEST
+    is skipped.</p></li>
+    <li><p><strong>Fail-fast.</strong> Missing required fields or
+    violated admissibility constraints must be detected early and
+    recorded.</p></li>
+    </ol>
+    <h2 id="run_id-a-stable-identifier">run_id: a stable identifier</h2>
+    <div class="definition">
+    <p><strong>Definition 11</strong> (Run signature). <em>A run
+    signature is a canonical JSON object containing:</em></p>
+    <ul>
+    <li><p><em>input archive hash (raw_zip_sha256),</em></p></li>
+    <li><p><em>species_id and region_id labels,</em></p></li>
+    <li><p><em>algorithm versions (KEY, PCTS),</em></p></li>
+    <li><p><em>seed,</em></p></li>
+    <li><p><em>key parameters (window sizes, steps, loop parameter <span
+    class="math inline"><em>k</em></span>,
+    region_start_abs),</em></p></li>
+    <li><p><em>any other LOCK/STATE values that affect
+    outputs.</em></p></li>
+    </ul>
+    </div>
+    <div class="definition">
+    <p><strong>Definition 12</strong> (Stable run_id). <em>The run_id is
+    a truncated sha256 hash of the canonical JSON encoding of the run
+    signature, e.g. <span
+    class="math display">run_id := sha256(json_canonical(signature))[:16].</span></em></p>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 2</strong> (Identity invariance). <em>If two
+    runs have identical run signatures, then they have the same run_id.
+    If any field of the signature changes, the run_id changes.</em></p>
+    </div>
+    <div class="remark">
+    <p><strong>Remark 3</strong> (Why truncation is acceptable).
+    <em>Truncation does not change reproducibility semantics; it only
+    shortens filenames. Collisions are possible in principle but
+    negligible for the intended run counts; full hashes remain recorded
+    in DATA_LOCK and MANIFEST where needed.</em></p>
+    </div>
+    <h2 id="data_lock-freezing-inputs-and-parameters">DATA_LOCK:
+    freezing inputs and parameters</h2>
+    <div class="definition">
+    <p><strong>Definition 13</strong> (DATA_LOCK record). <em>For each
+    run directory, DATA_LOCK stores a containing:</em></p>
+    <ul>
+    <li><p><em>run_id and created_utc,</em></p></li>
+    <li><p><em>absolute paths of raw inputs (as executed),</em></p></li>
+    <li><p><em>sha256 of raw_zip,</em></p></li>
+    <li><p><em>sha256 of extracted FASTA and (if present)
+    GTF/GFF,</em></p></li>
+    <li><p><em>a full parameter dictionary equal to the run
+    signature,</em></p></li>
+    <li><p><em>optional environment notes.</em></p></li>
+    </ul>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 3</strong> (No-input-drift guarantee). <em>If
+    hashes match the current input files, then the run was executed on
+    the same inputs. If they do not match, the run is invalid for the
+    claimed inputs (FAIL).</em></p>
+    </div>
+    <h2 id="manifest-freezing-all-derived-outputs">MANIFEST: freezing
+    all derived outputs</h2>
+    <div class="definition">
+    <p><strong>Definition 14</strong> (MANIFEST record). <em>A MANIFEST
+    is a JSON file listing, for every file under a run root, the
+    relative path, byte size, and sha256 hash.</em></p>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 4</strong> (Output integrity guarantee).
+    <em>If the MANIFEST matches the on-disk directory (all listed files
+    exist and sha256 hashes match), then the output artifacts are
+    exactly those produced at run time (up to the MANIFEST generation
+    procedure).</em></p>
+    </div>
+    <div class="remark">
+    <p><strong>Remark 4</strong> (MANIFEST self-reference).
+    <em>Depending on implementation, the MANIFEST may or may not include
+    its own hash entry. This is acceptable provided the rule is
+    consistent and documented.</em></p>
+    </div>
+    <h2 id="index-append-only-run-summaries">INDEX: append-only run
+    summaries</h2>
+    <div class="definition">
+    <p><strong>Definition 15</strong> (INDEX row). <em>An INDEX row
+    records one run summary with fields such as: run_id, created_utc,
+    species_id, region_id, seed, key_version, pcts_version, input
+    hashes, counts (shells/anchors/motors/loops), PCTS totals (T_end,
+    n_events, Pi_T proxy), and pass/fail.</em></p>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 5</strong> (Append-only auditability). <em>If
+    the INDEX is append-only, then historical runs remain auditable even
+    when new runs are added.</em></p>
+    </div>
+    <h2 id="gate-outcomes-and-validation-logic">Gate outcomes and
+    validation logic</h2>
+    <div class="definition">
+    <p><strong>Definition 16</strong> (Gate outcomes). <em>Every gate
+    check returns exactly one of: <strong>PASS</strong>,
+    <strong>FAIL</strong>, or <strong>INCONCLUSIVE</strong>.</em></p>
+    </div>
+    <h4 id="integrity-gates-mandatory.">Integrity gates
+    (mandatory).</h4>
+    <ul>
+    <li><p><strong>G_LOCK_PRESENT</strong>: DATA_LOCK is present and
+    parseable.</p></li>
+    <li><p><strong>G_MANIFEST_PRESENT</strong>: MANIFEST is present and
+    parseable.</p></li>
+    <li><p><strong>G_MANIFEST_MATCH</strong>: MANIFEST hashes match the
+    file tree.</p></li>
+    <li><p><strong>G_SCHEMA_COMPLETE</strong>: required outputs exist
+    (A4 layout, snapshots, ledger, verdict).</p></li>
+    </ul>
+    <h4 id="ledger-admissibility-gates-mandatory.">Ledger admissibility
+    gates (mandatory).</h4>
+    <ul>
+    <li><p><strong>G_<span
+    class="math inline"><em>Δ</em><em>E</em></span></strong>: each
+    JEVENT must satisfy <span
+    class="math inline"><em>Δ</em><em>E</em> &lt; 0</span>.</p></li>
+    <li><p><strong>G_PRES</strong>: residual stress proxy must not
+    increase across JEVENT.</p></li>
+    </ul>
+    <h4 id="reproducibility-gates-mandatory.">Reproducibility gates
+    (mandatory).</h4>
+    <p>Under identical LOCK/<strong>A4</strong>/seed, the event sequence
+    must be reproducible, or the result must be labeled INCONCLUSIVE
+    with diagnostics <span class="citation"
+    data-cites="zenodo17932567"></span>.</p>
+    <h2 id="invariants-implied-by-the-contract">Invariants implied by
+    the contract</h2>
+    <p>The contract implies the following invariants (used as checklists
+    for both authors and auditors):</p>
+    <ol>
+    <li><p><strong>Deterministic derivation</strong>: outputs are
+    deterministic functions of inputs + parameters + seed.</p></li>
+    <li><p><strong>Complete provenance</strong>: every run has a
+    DATA_LOCK; every bundle has a MANIFEST.</p></li>
+    <li><p><strong>Explicit versioning</strong>: KEY and PCTS versions
+    are always recorded and cannot be inferred post-hoc.</p></li>
+    <li><p><strong>Closed-world citations</strong>: the DOI registry has
+    no missing DOI entries (audit passes).</p></li>
+    </ol>
+    <h2 id="failure-modes-and-how-they-appear">Failure modes (and how
+    they appear)</h2>
+    <h4 id="missing-inputs.">Missing inputs.</h4>
+    <p>No FASTA in the raw zip is an execution error (FAIL). Missing GTF
+    is admissible but leads to an <strong>A4</strong> without
+    motors/loops; this must be stated (and can be marked INCONCLUSIVE
+    for claims requiring motors).</p>
+    <h4 id="coordinate-mismatch.">Coordinate mismatch.</h4>
+    <p>If GTF coordinates are not correctly shifted into the local
+    window, motors may fall outside the region, yielding an empty MOTOR
+    set. This is detectable in counts and should be flagged.</p>
+    <h4 id="partial-runs.">Partial runs.</h4>
+    <p>If a run directory exists without MANIFEST, it is not validated.
+    The recommended policy is to treat it as incomplete and re-run to
+    completion.</p>
+    <h4 id="non-deterministic-behavior.">Non-deterministic
+    behavior.</h4>
+    <p>If a component depends on unrecorded state (e.g., system time
+    affecting ledger content), reproducibility checks must ignore
+    non-semantic fields or record them explicitly. When reproducibility
+    cannot be established, label INCONCLUSIVE.</p>
+    <h4 id="post-hoc-lock-tuning.">Post-hoc LOCK tuning.</h4>
+    <p>Any change to LOCKed priors/algorithms after a run invalidates
+    the run for that LOCK version. The correct response is a version
+    bump, not silent modification.</p>
+    <h1 id="key-sequenceannotation-to-a4-arrangement">KEY:
+    sequence(+annotation) to A4 arrangement</h1>
+    <p>The KEY step defines the deterministic mapping from a region’s 1D
+    sequence (and minimal annotations) into an <strong>A4</strong>
+    arrangement. KEY is the only place where structural diversity is
+    introduced; the activity grammar remains fixed.</p>
+    <h2 id="windowed-observables-and-stiffness-proxy">Windowed
+    observables and stiffness proxy</h2>
+    <p>Let the region sequence be <span
+    class="math inline"><em>S</em></span> of length <span
+    class="math inline"><em>L</em></span> (bp). Choose a window length
+    <span class="math inline"><em>W</em></span> and step <span
+    class="math inline"><em>Δ</em></span> (bp). For each window <span
+    class="math inline"><em>S</em><sub>[<em>i</em>, <em>i</em> + <em>W</em>)</sub></span>,
+    compute:</p>
+    <ul>
+    <li><p>GC fraction: <span
+    class="math display">$$\mathrm{GC}(S)=\frac{\#\{G,C\}}{\#\{A,C,G,T\}}.$$</span></p></li>
+    <li><p>CpG density (over adjacent pairs): <span
+    class="math display">$$\mathrm{CpG}(S)=\frac{\#\{j:
+    S_{j}S_{j+1}=\texttt{CG}\}}{\max(1,|S|-1)}.$$</span></p></li>
+    <li><p>AT-tract density (proxy): count occurrences of
+    <code>AAAAAA</code> or <code>TTTTTT</code> (overlapping) normalized
+    by window length.</p></li>
+    </ul>
+    <div class="definition">
+    <p><strong>Definition 17</strong> (Stiffness proxy). <em>A stiffness
+    proxy is a linear combination of windowed observables: <span
+    class="math display">stiff_raw := <em>w</em><sub>GC</sub> ⋅ GC + <em>w</em><sub>CpG</sub> ⋅ CpG + <em>w</em><sub>AT</sub> ⋅ AT6,</span>
+    with fixed weights <span
+    class="math inline">(<em>w</em><sub>GC</sub>,<em>w</em><sub>CpG</sub>,<em>w</em><sub>AT</sub>)</span>.</em></p>
+    </div>
+    <div class="remark">
+    <p><strong>Remark 5</strong> (Proxy interpretation). <em>The
+    stiffness proxy is a <em>deterministic structural signal</em> used
+    to produce shells and anchors. We do not claim it is a complete
+    physical model of chromatin mechanics; it is a minimal, auditable
+    mapping from sequence statistics to a segmentation.</em></p>
+    </div>
+    <h2 id="robust-normalization-and-smoothing">Robust normalization and
+    smoothing</h2>
+    <div class="definition">
+    <p><strong>Definition 18</strong> (Robust z-score via MAD).
+    <em>Given a list of stiffness values <span
+    class="math inline">{<em>x</em><sub><em>i</em></sub>}</span>, define
+    the median <span class="math inline"><em>m</em></span> and MAD <span
+    class="math inline"><em>d</em> = median(|<em>x</em><sub><em>i</em></sub>−<em>m</em>|)</span>.
+    Then the robust z-score is <span class="math display">$$z_i :=
+    \frac{x_i-m}{1.4826\,\max(d,\epsilon)},$$</span> with a small <span
+    class="math inline"><em>ϵ</em></span> to avoid division by
+    zero.</em></p>
+    </div>
+    <p>A short-radius moving average smoothing is applied to <span
+    class="math inline"><em>z</em><sub><em>i</em></sub></span> to reduce
+    single-window noise without introducing nonlocal dependencies.</p>
+    <h2 id="shell-segmentation">Shell segmentation</h2>
+    <div class="definition">
+    <p><strong>Definition 19</strong> (Tercile labeling). <em>Let <span
+    class="math inline"><em>q</em><sub>1</sub>, <em>q</em><sub>2</sub></span>
+    be the 33rd and 66th percentiles of the smoothed <span
+    class="math inline"><em>z</em><sub><em>i</em></sub></span> values.
+    Assign a label <span
+    class="math inline">ℓ<sub><em>i</em></sub> ∈ {0, 1, 2}</span> by:
+    <span class="math inline">ℓ<sub><em>i</em></sub> = 0</span> if <span
+    class="math inline"><em>z</em><sub><em>i</em></sub> ≤ <em>q</em><sub>1</sub></span>,
+    <span class="math inline">ℓ<sub><em>i</em></sub> = 1</span> if <span
+    class="math inline"><em>q</em><sub>1</sub> &lt; <em>z</em><sub><em>i</em></sub> ≤ <em>q</em><sub>2</sub></span>,
+    and <span class="math inline">ℓ<sub><em>i</em></sub> = 2</span> if
+    <span
+    class="math inline"><em>z</em><sub><em>i</em></sub> &gt; <em>q</em><sub>2</sub></span>.</em></p>
+    </div>
+    <div class="definition">
+    <p><strong>Definition 20</strong> (Shell). <em>A shell is a maximal
+    contiguous run of windows with identical label <span
+    class="math inline">ℓ</span>. Each shell stores its coordinate
+    interval <span class="math inline">[<em>s</em>, <em>e</em>)</span>
+    and its mean <span class="math inline"><em>z̄</em></span>.</em></p>
+    </div>
+    <h4 id="short-shell-merging.">Short-shell merging.</h4>
+    <p>To avoid unstable segmentation artifacts, shells shorter than a
+    minimum length (e.g., 5 kb) are merged into neighbors using a
+    continuity heuristic (merge toward the neighbor with closer mean
+    <span class="math inline"><em>z̄</em></span>).</p>
+    <div class="proposition">
+    <p><strong>Proposition 6</strong> (Deterministic shells). <em>For
+    fixed <span
+    class="math inline">(<em>S</em>,<em>W</em>,<em>Δ</em>)</span> and
+    fixed merging rules, the shell list is deterministic.</em></p>
+    </div>
+    <h2 id="boundaries-and-anchor-construction">Boundaries and anchor
+    construction</h2>
+    <div class="definition">
+    <p><strong>Definition 21</strong> (Boundary strength). <em>For
+    adjacent shells <span class="math inline"><em>a</em></span> and
+    <span class="math inline"><em>b</em></span> with mean values <span
+    class="math inline"><em>z̄</em><sub><em>a</em></sub>, <em>z̄</em><sub><em>b</em></sub></span>,
+    define boundary strength <span
+    class="math display"><em>σ</em> := |<em>z̄</em><sub><em>b</em></sub>−<em>z̄</em><sub><em>a</em></sub>| ≥ 0,</span>
+    located at the coordinate where shell <span
+    class="math inline"><em>b</em></span> begins.</em></p>
+    </div>
+    <div class="definition">
+    <p><strong>Definition 22</strong> (Anchor kinds). <em>Anchors are
+    created at:</em></p>
+    <ol>
+    <li><p><em>region edges (<span class="math inline">0</span> and
+    <span class="math inline"><em>L</em></span>),</em></p></li>
+    <li><p><em>each shell boundary position (strength <span
+    class="math inline"><em>σ</em></span>),</em></p></li>
+    <li><p><em>optional shell cores (e.g., midpoints of extremal shells)
+    to stabilize reference points.</em></p></li>
+    </ol>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 7</strong> (Anchor invariants). <em>All
+    anchors satisfy:</em></p>
+    <ul>
+    <li><p><em>positions lie in <span
+    class="math inline">[0,<em>L</em>]</span>,</em></p></li>
+    <li><p><em>strengths are nonnegative,</em></p></li>
+    <li><p><em>anchor identifiers are unique within a run.</em></p></li>
+    </ul>
+    </div>
+    <h2 id="motor-extraction-from-annotations">Motor extraction from
+    annotations</h2>
+    <p>When annotations are provided, we extract motors as transcript
+    start sites.</p>
+    <div class="definition">
+    <p><strong>Definition 23</strong> (TSS extraction rule). <em>For a
+    transcript with genomic coordinates <span
+    class="math inline">(start,end)</span> and strand <span
+    class="math inline"> ∈ {+, − }</span>: <span
+    class="math display">$$\mathrm{TSS}_{\mathrm{abs}} :=
+      \begin{cases}
+        \mathrm{start} &amp; \text{if strand }=+\\
+        \mathrm{end} &amp; \text{if strand }=-.
+      \end{cases}$$</span> Local coordinates are obtained by subtracting
+    a region start offset: <span
+    class="math inline">TSS<sub>local</sub> = TSS<sub>abs</sub> − region_start_abs</span>.</em></p>
+    </div>
+    <p>Only motors with <span
+    class="math inline">0 ≤ TSS<sub>local</sub> ≤ <em>L</em></span> are
+    retained.</p>
+    <div class="remark">
+    <p><strong>Remark 6</strong> (Annotation provenance). <em>In this
+    whitepaper, mouse <strong>mm39</strong> transcript annotations are
+    sourced from RefSeq/refGene via UCSC, and the assembly provenance is
+    documented separately <span class="citation"
+    data-cites="ucsc2025 refseq2016 assembly2016"></span>.</em></p>
+    </div>
+    <h2 id="loop-generation">Loop generation</h2>
+    <div class="definition">
+    <p><strong>Definition 24</strong> (<span
+    class="math inline"><em>k</em></span>-nearest anchor rule). <em>For
+    each motor position <span class="math inline"><em>p</em></span>,
+    define its candidate anchor set by selecting the <span
+    class="math inline"><em>k</em></span> anchors minimizing <span
+    class="math inline">|<em>p</em>−<em>a</em>|</span>. Each selected
+    pair defines a loop with distance <span
+    class="math inline"><em>d</em> = |<em>p</em>−<em>a</em>|</span>.</em></p>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 8</strong> (Loop invariants). <em>For every
+    loop:</em></p>
+    <ul>
+    <li><p><em>motor_id and anchor_id exist in the corresponding
+    tables,</em></p></li>
+    <li><p><em>distance <span class="math inline"><em>d</em></span> is
+    nonnegative and consistent with stored positions,</em></p></li>
+    <li><p><em>loop identifiers are unique.</em></p></li>
+    </ul>
+    </div>
+    <h2 id="key-versions">KEY versions</h2>
+    <h3 class="unnumbered" id="key_v0_3_1-single-scale">KEY_v0_3_1
+    (single-scale)</h3>
+    <p>KEY_v0_3_1 uses a single window scale <span
+    class="math inline">(<em>W</em>,<em>Δ</em>)</span> to produce one
+    shell hierarchy.</p>
+    <h3 class="unnumbered" id="key_v0_4-multiscale">KEY_v0_4
+    (multiscale)</h3>
+    <p>KEY_v0_4 uses two scales:</p>
+    <ul>
+    <li><p><strong>fine tier</strong>: <span
+    class="math inline">(<em>W</em><sub><em>f</em></sub>,<em>Δ</em><sub><em>f</em></sub>)</span>,</p></li>
+    <li><p><strong>coarse tier</strong>: <span
+    class="math inline">(<em>W</em><sub><em>c</em></sub>,<em>Δ</em><sub><em>c</em></sub>)</span>.</p></li>
+    </ul>
+    <p>Anchors derived from both tiers are merged by positional
+    proximity within a tolerance <span
+    class="math inline"><em>τ</em></span> bp, retaining the stronger
+    anchor when duplicates occur.</p>
+    <div class="proposition">
+    <p><strong>Proposition 9</strong> (Multiscale anchor merge
+    determinism). <em>For fixed fine/coarse outputs and fixed merge
+    tolerance <span class="math inline"><em>τ</em></span>, the merged
+    anchor list is deterministic.</em></p>
+    </div>
+    <h2 id="outputs">Outputs</h2>
+    <p>KEY emits:</p>
+    <ul>
+    <li><p>window feature TSVs,</p></li>
+    <li><p>shell and boundary TSVs,</p></li>
+    <li><p>anchor, motor, and loop TSVs,</p></li>
+    <li><p>a minimal <strong>A4</strong> YAML summarizing the
+    arrangement.</p></li>
+    </ul>
+    <h2 id="failure-modes-and-diagnostic-signals">Failure modes and
+    diagnostic signals</h2>
+    <h4 id="fasta-multiplicity.">FASTA multiplicity.</h4>
+    <p>If the input FASTA contains multiple sequences, a strict reader
+    may ignore additional headers; this must be documented or
+    pre-filtered. For validated bundles, we require a single-sequence
+    region FASTA.</p>
+    <h4 id="excess-ambiguous-bases.">Excess ambiguous bases.</h4>
+    <p>High N-content reduces the reliability of sequence statistics.
+    Autoscan typically filters windows with insufficient valid base
+    fraction; such filters should be recorded in parameters.</p>
+    <h4 id="missing-or-mismatched-gtf.">Missing or mismatched GTF.</h4>
+    <p>If GTF is absent, motors/loops are empty. If GTF coordinates are
+    not aligned to the region, motors may all fall outside. Both cases
+    are visible in motor/loop counts and should be surfaced explicitly
+    in INDEX and gates.</p>
+    <h4 id="parameter-extremes.">Parameter extremes.</h4>
+    <p>Very small <span class="math inline"><em>W</em></span> can
+    overfit local noise; very large <span
+    class="math inline"><em>W</em></span> can wash out boundaries. These
+    are not “errors” but affect shell/anchor density and should be
+    explored only via STATE parameter sweeps, never post-hoc LOCK
+    changes.</p>
+    <h1
+    id="pcts-minimal-ledger-generator-pcts_v0_2"><strong>PCTS</strong>:
+    minimal ledger generator (PCTS_v0_2)</h1>
+    <p>PCTS_v0_2 maps an <strong>A4</strong> layout to a time-indexed
+    ledger under a fixed 4-activity grammar. It is explicitly a
+    <em>ledger generator</em>, not a biological predictor.</p>
+    <h2 id="state-variables-and-outputs">State variables and
+    outputs</h2>
+    <div class="definition">
+    <p><strong>Definition 25</strong> (Run state). <em>A minimal run
+    state contains:</em></p>
+    <ul>
+    <li><p><em>the set of loops and the subset marked
+    <em>locked</em>,</em></p></li>
+    <li><p><em>a residual stress proxy <span
+    class="math inline">pres(<em>t</em>)</span> derived from remaining
+    unlocked loops,</em></p></li>
+    <li><p><em>deterministic pseudo-random state (seeded), if used for
+    proxy updates.</em></p></li>
+    </ul>
+    </div>
+    <div class="definition">
+    <p><strong>Definition 26</strong> (Outputs). <em>PCTS_v0_2
+    emits:</em></p>
+    <ul>
+    <li><p><em><code>snapshots.csv</code>: step-wise summary (e.g.,
+    pres, mean distance),</em></p></li>
+    <li><p><em>: event entries for JEVENT steps,</em></p></li>
+    <li><p><em>: gate results,</em></p></li>
+    <li><p><em><code>verdict.json</code>: summary (PASS/FAIL, T_end,
+    n_events, Pi_T proxy).</em></p></li>
+    </ul>
+    </div>
+    <h2 id="residual-stress-proxy">Residual stress proxy</h2>
+    <div class="definition">
+    <p><strong>Definition 27</strong> (Residual stress proxy). <em>Let
+    <span class="math inline">ℒ<sub>unlocked</sub>(<em>t</em>)</span> be
+    the set of loops not yet locked at time <span
+    class="math inline"><em>t</em></span>. Define <span
+    class="math display">$$\mathrm{pres}(t) :=
+    \frac{1}{\max(1,|\mathcal{L}_{\mathrm{unlocked}}(t)|)}\sum_{\ell\in\mathcal{L}_{\mathrm{unlocked}}(t)}
+    d(\ell),$$</span> where <span
+    class="math inline"><em>d</em>(ℓ)</span> is the motor–anchor
+    distance of loop <span class="math inline">ℓ</span>.</em></p>
+    </div>
+    <p>This proxy is intentionally simple: it is an auditable scalar
+    that should not increase across irreversible JEVENT updates.</p>
+    <h2 id="four-activity-progression">Four-activity progression</h2>
+    <p>PCTS advances in discrete steps <span
+    class="math inline"><em>t</em> = 0, 1, 2, …</span> with the
+    following fixed grammar:</p>
+    <dl>
+    <dt>INIT</dt>
+    <dd>
+    <p>initialize locked set <span class="math inline">∅</span> and
+    compute initial pres.</p>
+    </dd>
+    <dt>SCONSERV</dt>
+    <dd>
+    <p>conservative projection (placeholder in v0_2; preserves
+    admissible state representation).</p>
+    </dd>
+    <dt>SDISSIP</dt>
+    <dd>
+    <p>dissipative relaxation of the pres proxy (deterministic given
+    seed).</p>
+    </dd>
+    <dt>JEVENT</dt>
+    <dd>
+    <p>irreversible events that lock eligible loops and write
+    <strong>J_LEDGER</strong> entries.</p>
+    </dd>
+    </dl>
+    <h2 id="event-rule-loop-stabilization">Event rule: loop
+    stabilization</h2>
+    <div class="definition">
+    <p><strong>Definition 28</strong> (Lock threshold). <em>Each loop
+    <span class="math inline">ℓ</span> is associated with an anchor
+    strength <span class="math inline"><em>α</em>(ℓ) ≥ 0</span>. Define
+    a lock threshold (bp) <span
+    class="math display"><em>d</em><sub>lock</sub>(ℓ) := <em>d</em><sub>0</sub> ⋅ (1+<em>c</em>⋅min(2,<em>α</em>(ℓ))),</span>
+    where <span class="math inline"><em>d</em><sub>0</sub></span> is a
+    base threshold and <span class="math inline"><em>c</em></span> is a
+    fixed coefficient.</em></p>
+    </div>
+    <div class="definition">
+    <p><strong>Definition 29</strong> (J_LOOP_STABILIZATION event).
+    <em>At time step <span class="math inline"><em>t</em></span>, an
+    unlocked loop <span class="math inline">ℓ</span> is eligible for
+    stabilization if <span
+    class="math display"><em>d</em>(ℓ) ≤ <em>d</em><sub>lock</sub>(ℓ).</span>
+    When eligible, the loop is marked LOCKED and an event row is
+    appended to <strong>J_LEDGER</strong> with: (event_type = , involved
+    IDs, trigger summary, <span
+    class="math inline"><em>Δ</em><em>E</em> &lt; 0</span>, pres_pre,
+    pres_post).</em></p>
+    </div>
+    <h2 id="admissibility-gates-what-must-be-true">Admissibility gates
+    (what must be true)</h2>
+    <div class="proposition">
+    <p><strong>Proposition 10</strong> (<span
+    class="math inline"><em>Δ</em><em>E</em></span> negativity). <em>In
+    PCTS_v0_2, all JEVENT entries satisfy <span
+    class="math inline"><em>Δ</em><em>E</em> &lt; 0</span> by
+    construction.</em></p>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 11</strong> (Non-increasing residual stress
+    across steps). <em>The snapshot pres list is required to be
+    non-increasing: <span
+    class="math display">pres(<em>t</em>) ≤ pres(<em>t</em>−1)  ∀<em>t</em> ≥ 1.</span>
+    This is checked as a mandatory gate (FAIL if violated).</em></p>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 12</strong> (Monotone locking). <em>The
+    number of locked loops is non-decreasing in time, and never exceeds
+    the total loop count.</em></p>
+    </div>
+    <h2 id="reproducibility-and-what-is-compared">Reproducibility and
+    what is compared</h2>
+    <h4 id="semantic-reproducibility.">Semantic reproducibility.</h4>
+    <p>We distinguish <em>semantic</em> reproducibility (event skeleton)
+    from non-semantic fields (e.g., timestamps).</p>
+    <div class="definition">
+    <p><strong>Definition 30</strong> (Event skeleton). <em>The event
+    skeleton is the ordered list of tuples: <span
+    class="math display">(<em>t</em>_step,event_type,loop_id,motor_id,anchor_id).</span></em></p>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 13</strong> (Deterministic skeleton under
+    fixed <strong>A4</strong> and seed). <em>For fixed
+    <strong>A4</strong> and fixed seed, the event skeleton is
+    deterministic in PCTS_v0_2. If a future implementation includes
+    additional stochasticity affecting eligibility, the skeleton must
+    still be reproducible or labeled INCONCLUSIVE with
+    diagnostics.</em></p>
+    </div>
+    <h2 id="pi_t-proxy-and-interpretation">Pi_T proxy and
+    interpretation</h2>
+    <p>PCTS_v0_2 records a Pi_T proxy as a compact time-normalized
+    summary. In v0_2, this proxy is intentionally simplified to track
+    effective run length (T_end steps); future versions may incorporate
+    additional LOCKed priors.</p>
+    <h2 id="failure-modes-and-edge-cases">Failure modes and edge
+    cases</h2>
+    <h4 id="no-loops.">No loops.</h4>
+    <p>If the loop set is empty (e.g., no motors), the ledger may be
+    empty and the run may simply report no events. This is admissible
+    for “structure-only” interpretations but should be flagged when
+    claims require motor-driven coupling.</p>
+    <h4 id="max-step-truncation.">Max-step truncation.</h4>
+    <p>If max_steps is reached before all loops are locked, the run must
+    report this condition (e.g., n_locked <span
+    class="math inline">&lt;</span> n_loops). Depending on the intended
+    claim, this may be FAIL or INCONCLUSIVE.</p>
+    <h4 id="schema-drift.">Schema drift.</h4>
+    <p>If a <strong>J_LEDGER</strong> schema changes between versions,
+    the schema version must be LOCKed and recorded. A run that cannot be
+    interpreted under its declared schema is invalid.</p>
+    <h4 id="non-increasing-pres-gate-violation.">Non-increasing pres
+    gate violation.</h4>
+    <p>A violation indicates either a bug or an incompatible definition
+    of pres for the intended dynamics. In either case, the gate provides
+    a fail-fast diagnostic.</p>
+    <h2
+    id="summary-why-pcts_v0_2-is-sufficient-for-the-whitepaper">Summary:
+    why PCTS_v0_2 is sufficient for the whitepaper</h2>
+    <p>For the whitepaper claim, PCTS_v0_2 provides:</p>
+    <ul>
+    <li><p>a fixed activity grammar,</p></li>
+    <li><p>deterministic mapping from <strong>A4</strong> to an
+    irreversible event ledger,</p></li>
+    <li><p>explicit gates to validate admissibility,</p></li>
+    <li><p>audit artifacts to support third-party verification.</p></li>
+    </ul>
+    <p>This is exactly the “interpreter” role described by the LOCK<span
+    class="math inline">→</span>Derive<span
+    class="math inline">→</span>Gate contract <span class="citation"
+    data-cites="zenodo17932567"></span>.</p>
+    <h1 id="sec:mm39_prov">Mouse/<strong>mm39</strong> reference data
+    provenance</h1>
+    <p>This section specifies <em>exactly what</em> is meant by “mouse
+    <strong>mm39</strong> data” in this whitepaper, where it comes from,
+    and how provenance is verified. The purpose is to prevent the most
+    common failure mode in genome-scale work: silent assembly/annotation
+    drift.</p>
+    <h2 id="assembly-identity-and-coordinate-system">Assembly identity
+    and coordinate system</h2>
+    <div class="definition">
+    <p><strong>Definition 31</strong> (Assembly identity).
+    <em>Throughout this document, <strong>mm39</strong> refers to the
+    mouse reference assembly <em>GRCm39</em>. All genomic coordinates
+    are interpreted in that assembly’s coordinate system.</em></p>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 14</strong> (Coordinate consistency
+    requirement). <em>All pipeline steps that combine sequence and
+    annotation (MOTOR extraction) require that:</em></p>
+    <ol>
+    <li><p><em>chromosome naming conventions match (e.g.,
+    <code>chr1</code> vs <code>1</code>),</em></p></li>
+    <li><p><em>the annotation coordinates are in the same assembly as
+    the FASTA,</em></p></li>
+    <li><p><em>any window-level coordinate shift () is recorded and
+    applied consistently.</em></p></li>
+    </ol>
+    <p><em>If any of these conditions fail, MOTOR counts and positions
+    become invalid for the intended region (FAIL or INCONCLUSIVE
+    depending on claim scope).</em></p>
+    </div>
+    <h2 id="primary-sources-for-genome-sequence-and-annotations">Primary
+    sources for genome sequence and annotations</h2>
+    <h4 id="genome-sequence-fasta.">Genome sequence (FASTA).</h4>
+    <p>We obtain the mouse <strong>mm39</strong> sequence via the UCSC
+    Genome Browser download infrastructure <span class="citation"
+    data-cites="ucsc2025 ucsc2003"></span>. For autoscan and repeat
+    proxy construction, we use <em>soft-masked</em> chromosome FASTA
+    where repeats are indicated by lowercase bases.</p>
+    <h4 id="genetranscript-annotation-refgenerefseq.">Gene/transcript
+    annotation (refGene/RefSeq).</h4>
+    <p>We obtain transcript models from RefSeq-derived sources as
+    provided through UCSC (e.g., <code>refGene</code>/RefSeq tracks)
+    <span class="citation" data-cites="refseq2016 ucsc2025"></span>.
+    This provides a minimal annotation sufficient to extract transcript
+    start sites (TSS) as MOTOR positions.</p>
+    <h4 id="assembly-provenance.">Assembly provenance.</h4>
+    <p>We cite NCBI Assembly for assembly identity and provenance, and
+    GenBank as the primary archive underpinning assembled genome
+    distribution <span class="citation"
+    data-cites="assembly2016 genbank2016"></span>.</p>
+    <h4 id="repeat-masking-provenance.">Repeat masking provenance.</h4>
+    <p>Soft masking and repeat-oriented handling is consistent with
+    standard RepeatMasker-based pipelines <span class="citation"
+    data-cites="repeatmasker2009"></span>.</p>
+    <h2 id="provenance-verification-what-we-hash-and-why">Provenance
+    verification: what we hash and why</h2>
+    <div class="definition">
+    <p><strong>Definition 32</strong> (Input verification by hash).
+    <em>For every run, input files are verified by sha256 hashes
+    recorded in DATA_LOCK:</em></p>
+    <ul>
+    <li><p><em>for the region archive,</em></p></li>
+    <li><p><em>for the extracted region FASTA,</em></p></li>
+    <li><p><em>(or empty) for the extracted region GTF.</em></p></li>
+    </ul>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 15</strong> (Reproducible provenance). <em>If
+    two users download the same upstream UCSC/NCBI sources and run the
+    same autoscan/extraction scripts, they will generate the same region
+    FASTA/GTF, hence the same hashes and run_id (given the same
+    selection parameters and seed).</em></p>
+    </div>
+    <div class="remark">
+    <p><strong>Remark 7</strong> (Why we hash the extracted region
+    files). <em>Hashing the upstream multi-gigabyte genome archive is
+    not sufficient if the extraction pipeline can differ. We hash the
+    <em>derived region FASTA and region GTF</em> to freeze exactly what
+    KEY and PCTS see.</em></p>
+    </div>
+    <h2 id="practical-conventions-used-in-this-whitepaper">Practical
+    conventions used in this whitepaper</h2>
+    <h4 id="chromosome-set.">Chromosome set.</h4>
+    <p>The autoscan typically targets canonical chromosomes (chr1–chr19,
+    chrX, chrY) and can exclude unlocalized contigs unless a specific
+    analysis requires them.</p>
+    <h4 id="softmask-fraction-as-repeat-proxy.">Softmask fraction as
+    repeat proxy.</h4>
+    <p>The repeat proxy axis is defined as the fraction of lowercase
+    A/C/G/T bases in soft-masked FASTA windows. This is not a repeat
+    family decomposition; it is a single scalar suitable for archetype
+    balancing.</p>
+    <h4 id="tss-de-duplication.">TSS de-duplication.</h4>
+    <p>When multiple transcript entries share the same TSS, MOTOR
+    entries can be de-duplicated or retained depending on policy. The
+    policy must be recorded (LOCK or STATE) and reflected in counts.</p>
+    <h2 id="failure-modes-and-how-to-detect-them">Failure modes (and how
+    to detect them)</h2>
+    <h4 id="wrong-assembly-mm10-vs-mm39.">Wrong assembly (mm10 vs
+    <strong>mm39</strong>).</h4>
+    <p>Symptom: many transcripts fall outside extracted regions; MOTOR
+    counts near zero in gene-dense areas; inconsistent chromosome
+    lengths. Mitigation: enforce assembly metadata, and hash the exact
+    inputs.</p>
+    <h4 id="chromosome-naming-mismatch.">Chromosome naming
+    mismatch.</h4>
+    <p>Symptom: annotation parser produces zero motors because
+    chromosome IDs do not match. Mitigation: normalize names at
+    download/extraction; record normalization in parameters.</p>
+    <h4 id="softmask-unavailable-or-inconsistent.">Softmask unavailable
+    or inconsistent.</h4>
+    <p>Symptom: repeat proxy axis collapses (softmask fraction near zero
+    for all windows). Mitigation: ensure soft-masked FASTA is used;
+    record whether masking is present.</p>
+    <h4 id="annotation-version-drift.">Annotation version drift.</h4>
+    <p>Symptom: gene density distribution shifts; tercile cutoffs change
+    substantially. Mitigation: treat the annotation release as part of
+    LOCK; record hashes; regenerate Table 1 when inputs change.</p>
+    <h4 id="assembly-gaps-high-n-windows.">Assembly gaps / high-N
+    windows.</h4>
+    <p>Symptom: windows contain too many ambiguous bases; GC/CpG
+    estimates become unstable. Mitigation: apply a valid-base fraction
+    filter (recorded in parameters) and label excluded windows.</p>
+    <h1 id="mm39-autoscan-to-representative-region-panel">mm39 autoscan
+    to representative region panel</h1>
+    <p>This section specifies the whole-genome autoscan and the
+    deterministic selection of a representative region panel (N<span
+    class="math inline">≈</span>30–100) for evidence. The purpose is to
+    prevent cherry-picking: we want a compact but diverse set of regions
+    that covers the structural archetypes observed in the genome.</p>
+    <h2 id="windowing-scheme-and-candidate-set">Windowing scheme and
+    candidate set</h2>
+    <p>Let the genome be represented as a set of chromosomes <span
+    class="math inline">{<em>C</em><sub><em>k</em></sub>}</span> with
+    sequences. Fix a window length <span
+    class="math inline"><em>W</em></span> and step <span
+    class="math inline"><em>Δ</em></span>. For each chromosome, we
+    generate windows <span
+    class="math inline">[<em>i</em>, <em>i</em> + <em>W</em>)</span> for
+    <span
+    class="math inline"><em>i</em> = 0, <em>Δ</em>, 2<em>Δ</em>, …</span>
+    with truncation at chromosome end if desired. The autoscan produces
+    a candidate set <span class="math inline">𝒲</span> of windows.</p>
+    <div class="definition">
+    <p><strong>Definition 33</strong> (Valid-base fraction filter).
+    <em>For a window, define <span
+    class="math display">$$\mathrm{valid\_frac} :=
+    \frac{\#\{A,C,G,T\}}{W}.$$</span> Windows with <span
+    class="math inline">valid_frac &lt; <em>v</em><sub>min</sub></span>
+    are excluded from archetype statistics and selection.</em></p>
+    </div>
+    <div class="remark">
+    <p><strong>Remark 8</strong> (Why filtering is required). <em>If a
+    window contains too many ambiguous bases, GC/CpG and softmask
+    fraction become unreliable. Filtering is therefore a mandatory part
+    of a validated autoscan; <span
+    class="math inline"><em>v</em><sub>min</sub></span> is recorded in
+    parameters.</em></p>
+    </div>
+    <h2 id="autoscan-observables-the-4-structural-axes">Autoscan
+    observables (the 4 structural axes)</h2>
+    <p>For each candidate window, compute the following observables:</p>
+    <ol>
+    <li><p><strong>Gene density</strong>: number of TSS falling inside
+    the window, normalized per Mb (from RefSeq/refGene) <span
+    class="citation" data-cites="refseq2016"></span>.</p></li>
+    <li><p><strong>Repeat proxy</strong>: softmask fraction (fraction of
+    lowercase A/C/G/T).</p></li>
+    <li><p><strong>GC fraction</strong>: <span
+    class="math inline">$\mathrm{GC}=\frac{\#(G+C)}{\#(A+C+G+T)}$</span>.</p></li>
+    <li><p><strong>CpG density</strong>: count of <code>CG</code>
+    dinucleotides per kb; classical CpG island context is discussed in
+    <span class="citation" data-cites="cpg1987"></span>.</p></li>
+    </ol>
+    <h2 id="binning-lmh-terciles-per-axis">Binning: L/M/H terciles per
+    axis</h2>
+    <div class="definition">
+    <p><strong>Definition 34</strong> (Axis terciles). <em>Given an
+    observable <span class="math inline"><em>x</em></span> over
+    candidate windows, define <span
+    class="math inline"><em>q</em><sub>1</sub>, <em>q</em><sub>2</sub></span>
+    as the 33rd and 66th percentiles of <span
+    class="math inline"><em>x</em></span>. Assign a bin <span
+    class="math inline"> ∈ {<em>L</em>, <em>M</em>, <em>H</em>}</span>
+    by: <span class="math display">$$\mathrm{bin}(x)=
+      \begin{cases}
+        L &amp; x \le q_1\\
+        M &amp; q_1 &lt; x \le q_2\\
+        H &amp; x &gt; q_2.
+      \end{cases}$$</span></em></p>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 16</strong> (Deterministic binning). <em>For
+    fixed candidate window set <span class="math inline">𝒲</span> and
+    fixed filtering rules, tercile cutoffs and bin assignments are
+    deterministic.</em></p>
+    </div>
+    <h2 id="archetype-definition-4-axis-bins">Archetype definition
+    (4-axis bins)</h2>
+    <div class="definition">
+    <p><strong>Definition 35</strong> (Archetype ID). <em>Each window is
+    assigned an archetype <span
+    class="math display"><em>a</em> := (G,R,GC,CPG) ∈ {<em>L</em>, <em>M</em>, <em>H</em>}<sup>4</sup>,</span>
+    where G is gene-density bin, R is repeat-proxy bin, GC is GC bin,
+    and CPG is CpG bin. The archetype space has <span
+    class="math inline">3<sup>4</sup> = 81</span> combinations.</em></p>
+    </div>
+    <div class="definition">
+    <p><strong>Definition 36</strong> (Observed archetype set). <em>Let
+    <span class="math inline">𝒜<sub>obs</sub></span> be the subset of
+    archetypes that occur at least once among candidate windows. Note
+    that <span class="math inline">𝒜<sub>obs</sub></span> may be
+    strictly smaller than 81.</em></p>
+    </div>
+    <div class="remark">
+    <p><strong>Remark 9</strong> (Why unobserved archetypes matter).
+    <em>If an archetype does not occur in <span
+    class="math inline">𝒲</span>, it cannot be covered by any selection.
+    Coverage must therefore be evaluated relative to <span
+    class="math inline">𝒜<sub>obs</sub></span>, not the full 81
+    grid.</em></p>
+    </div>
+    <h2
+    id="selection-algorithm-coverage-first-uniformity-second">Selection
+    algorithm (coverage-first, uniformity-second)</h2>
+    <p>We select a representative panel of <span
+    class="math inline"><em>N</em></span> windows with the following
+    goals:</p>
+    <ol>
+    <li><p><strong>Coverage-first</strong>: select at least one window
+    from each archetype in <span
+    class="math inline">𝒜<sub>obs</sub></span> whenever <span
+    class="math inline"><em>N</em> ≥ |𝒜<sub>obs</sub>|</span>.</p></li>
+    <li><p><strong>Uniformity-second</strong>: distribute remaining
+    selections so that counts per covered archetype are as even as
+    possible.</p></li>
+    <li><p><strong>Spacing constraint</strong>: enforce a minimum
+    separation <span class="math inline"><em>d</em><sub>min</sub></span>
+    between selected windows on the same chromosome.</p></li>
+    <li><p><strong>Deterministic tie-breaking</strong>: if multiple
+    candidates are equivalent, choose the one with lexicographically
+    minimal (chromosome, start) after sorting, or via a seeded
+    deterministic pseudo-random order recorded in parameters.</p></li>
+    </ol>
+    <div class="proposition">
+    <p><strong>Proposition 17</strong> (Selection determinism).
+    <em>Given (i) candidate windows with computed bins, (ii) fixed <span
+    class="math inline"><em>N</em></span> and spacing rule, and (iii) a
+    fixed deterministic tie-breaking rule (including seed if used), the
+    selected panel is deterministic.</em></p>
+    </div>
+    <h2 id="region-extraction-and-step18-job-construction">Region
+    extraction and STEP18 job construction</h2>
+    <p>Each selected window becomes a region package:</p>
+    <ul>
+    <li><p><code>region.fa</code>: the exact subsequence extracted from
+    the genome FASTA,</p></li>
+    <li><p><code>region.gtf</code>: transcripts restricted to the region
+    (TSS used for motors),</p></li>
+    <li><p><code>raw.zip</code>: zip archive containing both
+    files.</p></li>
+    </ul>
+    <p>A job list (JSONL) is generated, where each job includes:
+    species_id, region_id, raw_zip path, seed, KEY version,
+    region_start_abs, and windowing parameters.</p>
+    <div class="proposition">
+    <p><strong>Proposition 18</strong> (End-to-end determinism (autoscan
+    <span class="math inline">→</span> runs)). <em>Fix upstream sources
+    (FASTA and annotations), fix autoscan parameters and seed, and fix
+    STEP18 parameters. Then the pipeline produces the same set of raw
+    region zips, the same run_ids, and the same derived
+    outputs.</em></p>
+    </div>
+    <h2 id="failure-modes-autoscanselectionextraction">Failure modes
+    (autoscan/selection/extraction)</h2>
+    <h4
+    id="insufficient-observed-archetypes-for-a-given-n.">Insufficient
+    observed archetypes for a given <span
+    class="math inline"><em>N</em></span>.</h4>
+    <p>If <span
+    class="math inline"><em>N</em> &lt; |𝒜<sub>obs</sub>|</span>, full
+    coverage is impossible. The correct response is to report partial
+    coverage explicitly (not to silently change bins).</p>
+    <h4 id="unstable-cutoffs-due-to-small-candidate-sets.">Unstable
+    cutoffs due to small candidate sets.</h4>
+    <p>If filtering is too strict, the number of candidate windows
+    shrinks and tercile cutoffs become noisy. Mitigation: increase
+    genome coverage, adjust <span
+    class="math inline"><em>v</em><sub>min</sub></span>, or increase
+    window size; record the change.</p>
+    <h4 id="spacing-constraint-reduces-achievable-coverage.">Spacing
+    constraint reduces achievable coverage.</h4>
+    <p>On small chromosomes or with large <span
+    class="math inline"><em>d</em><sub>min</sub></span>, spacing can
+    prevent selecting one window per archetype. This must be reported as
+    a constraint-driven coverage loss.</p>
+    <h4 id="annotation-mismatch-gene-density-axis-invalid.">Annotation
+    mismatch (gene density axis invalid).</h4>
+    <p>If transcript coordinates do not match FASTA, gene density
+    collapses or becomes unreliable. Mitigation: verify provenance
+    (Section <a href="#sec:mm39_prov" data-reference-type="ref"
+    data-reference="sec:mm39_prov">7</a>) and hash exact inputs.</p>
+    <h4 id="softmask-missing-repeat-axis-invalid.">Softmask missing
+    (repeat axis invalid).</h4>
+    <p>If FASTA is not soft-masked, repeat proxy provides no
+    discrimination. Mitigation: use soft-masked FASTA or replace repeat
+    proxy by an explicit repeat track; record policy change as
+    LOCK/STATE.</p>
+    <h1 id="results-archetype-coverage-table-1-figure-1">Results:
+    archetype coverage (Table 1; Figure 1)</h1>
+    <p>This section records the autoscan binning and panel selection
+    outcomes as fixed evidence. For management reasons, we do not embed
+    external image files in this TeX project. Instead, we render
+    Figure <a href="#fig:archetype_grid" data-reference-type="ref"
+    data-reference="fig:archetype_grid">[fig:archetype_grid]</a>
+    directly in TeX as a 9<span class="math inline">×</span>9 occupancy
+    grid (a deterministic view of the selected panel over the 4-axis
+    archetype space).</p>
+    <h2 id="bin-cutoffs-and-marginal-balance-table-1">Bin cutoffs and
+    marginal balance (Table 1)</h2>
+    <p>Table <a href="#tab:archetype_bins" data-reference-type="ref"
+    data-reference="tab:archetype_bins">3</a> records the tercile
+    cutoffs <span
+    class="math inline">(<em>q</em><sub>1</sub>,<em>q</em><sub>2</sub>)</span>
+    for each axis and the marginal balance of the selected panel across
+    L/M/H. This is a compact validation that the representative
+    selection is not overly biased on any single axis.</p>
+    <div id="tab:archetype_bins">
+    <table>
+    <caption>mm39 autoscan archetype bins and selection balance
+    (Table 1).</caption>
+    <thead>
+    <tr class="header">
+    <th style="text-align: left;">Axis</th>
+    <th style="text-align: left;">Observable</th>
+    <th style="text-align: right;"><span
+    class="math inline"><em>q</em><sub>1</sub></span></th>
+    <th style="text-align: right;"><span
+    class="math inline"><em>q</em><sub>2</sub></span></th>
+    <th style="text-align: right;">Sel(L)</th>
+    <th style="text-align: right;">Sel(M)</th>
+    <th style="text-align: right;">Sel(H)</th>
+    <th style="text-align: left;">Notes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td style="text-align: left;">G</td>
+    <td style="text-align: left;">TSS per Mb (refGene transcripts)</td>
+    <td style="text-align: right;">10</td>
+    <td style="text-align: right;">18.8</td>
+    <td style="text-align: right;">25</td>
+    <td style="text-align: right;">29</td>
+    <td style="text-align: right;">26</td>
+    <td style="text-align: left;"></td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: left;">R</td>
+    <td style="text-align: left;">softmask fraction (repeat proxy;
+    lowercase A/C/G/T)</td>
+    <td style="text-align: right;">0.40285</td>
+    <td style="text-align: right;">0.473893</td>
+    <td style="text-align: right;">26</td>
+    <td style="text-align: right;">30</td>
+    <td style="text-align: right;">24</td>
+    <td style="text-align: left;"></td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: left;">GC</td>
+    <td style="text-align: left;">GC fraction (A/C/G/T only; N
+    excluded)</td>
+    <td style="text-align: right;">0.400741</td>
+    <td style="text-align: right;">0.427662</td>
+    <td style="text-align: right;">23</td>
+    <td style="text-align: right;">33</td>
+    <td style="text-align: right;">24</td>
+    <td style="text-align: left;"></td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: left;">CPG</td>
+    <td style="text-align: left;">CpG per kb (count(<code>CG</code>)/kb;
+    N excluded)</td>
+    <td style="text-align: right;">6.908133</td>
+    <td style="text-align: right;">9.018333</td>
+    <td style="text-align: right;">24</td>
+    <td style="text-align: right;">35</td>
+    <td style="text-align: right;">21</td>
+    <td style="text-align: left;"></td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: left;">Archetype (4-axis)</td>
+    <td style="text-align: left;">Archetype = (G_bin, R_bin, GC_bin,
+    CPG_bin), each in (L,M,H)</td>
+    <td style="text-align: right;"></td>
+    <td style="text-align: right;"></td>
+    <td style="text-align: right;"></td>
+    <td style="text-align: right;"></td>
+    <td style="text-align: right;"></td>
+    <td style="text-align: left;">N_selected=80; candidate_windows=522;
+    archetypes_present=49; archetypes_covered=49/81 (60.5%)</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: left;">Uniformity</td>
+    <td style="text-align: left;">Counts over covered archetypes
+    (nonzero 9x9 cells)</td>
+    <td style="text-align: right;"></td>
+    <td style="text-align: right;"></td>
+    <td style="text-align: right;"></td>
+    <td style="text-align: right;"></td>
+    <td style="text-align: right;"></td>
+    <td style="text-align: left;">min/median/max=1/2.0/2;
+    entropy_ratio=0.988; gini=0.142; CV=0.295</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: left;">Parameters</td>
+    <td style="text-align: left;">Scan and selection settings</td>
+    <td style="text-align: right;"></td>
+    <td style="text-align: right;"></td>
+    <td style="text-align: right;"></td>
+    <td style="text-align: right;"></td>
+    <td style="text-align: right;"></td>
+    <td style="text-align: left;">assembly=mm39(UCSC);
+    chroms=chr1–19,X,Y; win=5,000,000; step=5,000,000; valid_frac<span
+    class="math inline">≥</span>0.8; bins=terciles; target_N=80;
+    selection=coverage-first; dup(max2)</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <h4 id="coverage-note.">Coverage note.</h4>
+    <p>In the locked evidence bundle underlying Table <a
+    href="#tab:archetype_bins" data-reference-type="ref"
+    data-reference="tab:archetype_bins">3</a>, the autoscan candidate
+    set contains 49 observed 4-axis archetypes. The selected <span
+    class="math inline"><em>N</em> = 80</span> panel covers all 49
+    observed archetypes (100% coverage relative to observed), which
+    corresponds to 49/81 (60.5%) of the full <span
+    class="math inline">3<sup>4</sup></span> archetype grid.</p>
+    <h2 id="archetype-coverage-how-it-is-computed">Archetype coverage
+    (how it is computed)</h2>
+    <div class="definition">
+    <p><strong>Definition 37</strong> (Coverage over observed
+    archetypes). <em>Let <span
+    class="math inline">𝒜<sub>obs</sub></span> be the set of archetypes
+    observed in the candidate windows, and let <span
+    class="math inline">𝒜<sub>sel</sub></span> be the set of archetypes
+    present in the selected panel. Define the coverage fraction as:
+    <span class="math display">$$\mathrm{coverage} :=
+    \frac{|\mathcal{A}_{\mathrm{sel}}|}{|\mathcal{A}_{\mathrm{obs}}|}.$$</span></em></p>
+    </div>
+    <div class="remark">
+    <p><strong>Remark 10</strong> (Coverage over the full 81 grid).
+    <em>Reporting <span class="math inline">|𝒜<sub>sel</sub>|/81</span>
+    is not meaningful if many archetypes are unobserved in the genome
+    under the chosen windowing/filtering scheme. Therefore, we treat
+    coverage relative to <span
+    class="math inline">𝒜<sub>obs</sub></span> as the primary
+    metric.</em></p>
+    </div>
+    <h2 id="uniformity-metrics-optional-but-recommended">Uniformity
+    metrics (optional but recommended)</h2>
+    <p>Coverage alone does not guarantee uniform evidence. To summarize
+    uniformity across covered archetypes, one may report:</p>
+    <ul>
+    <li><p>min/median/max counts per covered archetype,</p></li>
+    <li><p>normalized entropy of the archetype count
+    distribution,</p></li>
+    <li><p>Gini coefficient of the archetype count
+    distribution.</p></li>
+    </ul>
+    <p>These metrics are deterministic functions of the selected panel
+    and are suitable for inclusion in validated bundles.</p>
+    <h2 id="figure-1-tex-native-archetype-occupancy-grid">Figure 1:
+    TeX-native archetype occupancy grid</h2>
+    <h2 id="validation-statements-and-failure-modes">Validation
+    statements and failure modes</h2>
+    <h4 id="validation-statements.">Validation statements.</h4>
+    <p>A result bundle supporting Table <a href="#tab:archetype_bins"
+    data-reference-type="ref" data-reference="tab:archetype_bins">3</a>
+    is validated if:</p>
+    <ol>
+    <li><p>the autoscan candidate set and selection parameters are
+    recorded and hashed,</p></li>
+    <li><p>Table <a href="#tab:archetype_bins" data-reference-type="ref"
+    data-reference="tab:archetype_bins">3</a> is regenerated
+    deterministically from the recorded candidate windows,</p></li>
+    <li><p>the selected panel list is reproducible under identical
+    inputs and seed,</p></li>
+    <li><p>downstream STEP18 runs are validated by MANIFEST and gate
+    tables <span class="citation"
+    data-cites="zenodo17932567"></span>.</p></li>
+    </ol>
+    <h4 id="failure-modes.">Failure modes.</h4>
+    <ul>
+    <li><p><strong>Binning drift</strong>: cutoffs change because
+    upstream inputs changed (assembly/annotation drift) or because
+    filtering/windowing changed without being recorded.</p></li>
+    <li><p><strong>Coverage inflation</strong>: reporting coverage on 81
+    rather than on <span class="math inline">𝒜<sub>obs</sub></span> can
+    mislead; always report both with clear definitions if
+    needed.</p></li>
+    <li><p><strong>Selection nondeterminism</strong>: unrecorded
+    randomness in tie-breaking leads to different panels; fix a
+    deterministic rule or record the seed.</p></li>
+    <li><p><strong>Constraint-driven gaps</strong>: spacing constraints
+    can prevent full coverage; report as such.</p></li>
+    </ul>
+    <h4 id="bottom-line.">Bottom line.</h4>
+    <p>Table <a href="#tab:archetype_bins" data-reference-type="ref"
+    data-reference="tab:archetype_bins">3</a> and the TeX-native grid
+    figure (Fig. <a href="#fig:archetype_grid" data-reference-type="ref"
+    data-reference="fig:archetype_grid">[fig:archetype_grid]</a>)
+    jointly fix the evidence that the panel selection covers the
+    observed 4-axis archetype space under a finite N budget.</p>
+    <h1
+    id="interpretation-stiffness-shell-emergence-in-lockderivegate-dna-interpreter-dna">Interpretation:
+    stiffness-shell emergence in LOCK–Derive–Gate DNA Interpreter
+    DNA</h1>
+    <p>This section explains <em>what it means</em> (within this
+    framework) for structure to “emerge” from DNA, and why the claim can
+    be supported with deterministic artifacts rather than informal
+    narrative. The key point is that the activity grammar is fixed, so
+    any diversity in dynamics must arise from the arrangement
+    <strong>A4</strong>.</p>
+    <h2
+    id="from-sequence-statistics-to-shells-and-anchors-a-deterministic-coarse-graining">From
+    sequence statistics to shells and anchors: a deterministic
+    coarse-graining</h2>
+    <p>KEY converts 1D sequence into a 1D structural signal (stiffness
+    proxy), then coarse-grains it into shells.</p>
+    <div class="definition">
+    <p><strong>Definition 38</strong> (Stiffness-shell coarse-graining).
+    <em>A stiffness-shell coarse-graining is the composed mapping <span
+    class="math display"><em>S</em> ↦ {<em>z</em><sub><em>i</em></sub>}<sub><em>i</em> = 1</sub><sup><em>n</em></sup> ↦ (labeled
+    runs) ↦ shell list,</span> where <span
+    class="math inline"><em>z</em><sub><em>i</em></sub></span> is a
+    robustly normalized window score and shells are maximal runs of
+    constant tercile label.</em></p>
+    </div>
+    <p>Shell <em>boundaries</em> produce anchors with strengths
+    proportional to the discontinuity of shell means.</p>
+    <div class="definition">
+    <p><strong>Definition 39</strong> (Anchor field). <em>The anchor
+    field of a region is the set of positions <span
+    class="math inline">{<em>p</em><sub><em>j</em></sub>}</span> and
+    strengths <span
+    class="math inline">{<em>α</em><sub><em>j</em></sub>}</span> derived
+    from boundaries (plus edges and optional cores).</em></p>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 19</strong> (No “extra” degrees of freedom).
+    <em>For fixed KEY parameters, the shell list and anchor field are
+    deterministic functions of the input sequence. No additional degrees
+    of freedom are introduced at the interpretation stage other than
+    those recorded in LOCK/STATE.</em></p>
+    </div>
+    <div class="remark">
+    <p><strong>Remark 11</strong> (Why shells are the right level of
+    abstraction here). <em>Shells deliberately discard base-level
+    microstructure and keep only piecewise-homogeneous segments of the
+    proxy signal. This aligns with the design goal: diversity is
+    expressed by arrangement geometry (where anchors are and how strong
+    they are), not by adding activity categories or ad hoc event
+    types.</em></p>
+    </div>
+    <h2 id="motors-and-loops-as-constrained-couplings">Motors and loops
+    as constrained couplings</h2>
+    <p>Motors are extracted from minimal annotation (TSS). Loops connect
+    motors to nearby anchors by a fixed rule.</p>
+    <div class="definition">
+    <p><strong>Definition 40</strong> (Motor–anchor coupling graph).
+    <em>Let <span class="math inline"><em>M</em></span> be the motor set
+    and <span class="math inline"><em>A</em></span> be the anchor set.
+    Loops define a bipartite graph <span
+    class="math inline"><em>G</em> = (<em>M</em>∪<em>A</em>,<em>E</em>)</span>
+    with <span
+    class="math inline"><em>E</em> ⊆ <em>M</em> × <em>A</em></span>.</em></p>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 20</strong> (Graph determinism). <em>For
+    fixed <strong>A4</strong> construction rules (including <span
+    class="math inline"><em>k</em></span>-nearest anchor selection), the
+    coupling graph <span class="math inline"><em>G</em></span> is
+    deterministic given the input sequence and annotation.</em></p>
+    </div>
+    <div class="remark">
+    <p><strong>Remark 12</strong> (Role of annotation). <em>Annotations
+    do not change shells/anchors (sequence-driven), but they populate
+    motors and therefore loops. This cleanly separates “sequence
+    structure” from “motor activation” under a minimal
+    contract.</em></p>
+    </div>
+    <h2
+    id="jevent-as-irreversible-stabilization-ledger-semantics">JEVENT as
+    irreversible stabilization (ledger semantics)</h2>
+    <p>A JEVENT is not “a continuous dynamics”; it is an
+    <em>irreversible ledger step</em>. In PCTS_v0_2, JEVENTs lock
+    eligible loops and must dissipate energy.</p>
+    <div class="definition">
+    <p><strong>Definition 41</strong> (Irreversibility constraints).
+    <em>A JEVENT entry is admissible if:</em></p>
+    <ol>
+    <li><p><em><span
+    class="math inline"><em>Δ</em><em>E</em> &lt; 0</span>
+    (dissipation),</em></p></li>
+    <li><p><em>residual stress proxy does not increase across the
+    event,</em></p></li>
+    <li><p><em>the event is reproducible under identical
+    LOCK/<strong>A4</strong>/seed, or labeled
+    INCONCLUSIVE.</em></p></li>
+    </ol>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 21</strong> (Event diversity comes from
+    <strong>A4</strong>). <em>Fix the activity grammar and fix the PCTS
+    algorithm. Then the event skeleton is a deterministic function of
+    <strong>A4</strong>(and seed if used). Therefore, across regions,
+    any diversity in event sequences is attributable to differences in
+    <strong>A4</strong> structure (shells/anchors/motors/loops), not to
+    changes in activity categories.</em></p>
+    </div>
+    <h2 id="what-emergence-means-here">What “emergence” means here</h2>
+    <p>In this whitepaper, “emergence” is not a metaphysical claim. It
+    is a concrete statement:</p>
+    <div class="claim">
+    <p><strong>Claim 3</strong> (Emergence as structure-induced
+    irreversibility). <em>Given a fixed activity grammar,
+    region-specific <strong>A4</strong> structure induces
+    region-specific irreversible event progressions (ledger
+    sequences).</em></p>
+    </div>
+    <p>This claim is validated operationally by:</p>
+    <ul>
+    <li><p>deterministic KEY outputs (shell/anchor maps),</p></li>
+    <li><p>deterministic PCTS outputs (snapshots and ledger),</p></li>
+    <li><p>gate validation (admissibility constraints),</p></li>
+    <li><p>run_id stability and MANIFEST hashing.</p></li>
+    </ul>
+    <h2 id="scale-behavior-and-multiscale-key">Scale behavior and
+    multiscale KEY</h2>
+    <p>A common concern is whether evidence from short regions
+    generalizes to larger scales. KEY_v0_4 addresses this by introducing
+    a multiscale shelling (fine and coarse tiers) and merging
+    anchors.</p>
+    <div class="definition">
+    <p><strong>Definition 42</strong> (Multiscale representation). <em>A
+    multiscale representation uses two shell hierarchies (fine, coarse)
+    derived from two window sizes, and merges resulting anchors within a
+    tolerance.</em></p>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 22</strong> (Scale-robust anchoring
+    (qualitative)). <em>For fixed merging tolerance, multiscale
+    anchoring reduces sensitivity to any single window scale by
+    retaining strong boundaries across scales. This does not make the
+    proxy “more true” biologically; it makes the structural interpreter
+    more stable under scale variation.</em></p>
+    </div>
+    <h2 id="why-representative-panels-generalize">Why representative
+    panels generalize</h2>
+    <p>The global claim is: any region is interpretable. Evidence cannot
+    show all regions, so we use archetype panels.</p>
+    <div class="definition">
+    <p><strong>Definition 43</strong> (Archetype-based evidence
+    strategy). <em>We treat the 4-axis archetype bins (gene density /
+    repeat proxy / GC / CpG) as a coarse descriptor of the structural
+    factors that drive shell/anchor diversity. A representative panel is
+    an evidence set that covers the observed archetype space under a
+    finite budget <span class="math inline"><em>N</em></span>.</em></p>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 23</strong> (Generalization within the
+    contract). <em>Given the contract, interpretability does not require
+    that every region appear in the evidence set. It requires that the
+    procedure be defined for every region and that representative
+    evidence demonstrates the procedure across the archetype space that
+    the genome actually exhibits.</em></p>
+    </div>
+    <h2 id="limits-of-interpretation-truthfulness-constraints">Limits of
+    interpretation (truthfulness constraints)</h2>
+    <div class="remark">
+    <p><strong>Remark 13</strong> (What is and is not claimed). <em>This
+    framework claims completeness of an <em>interpreter</em> (a
+    deterministic mapping and a validated ledger), not completeness of
+    biological understanding. The stiffness proxy, the anchoring
+    heuristic, and the event rule are explicit and auditable; their
+    biological fidelity is a separate research question.</em></p>
+    </div>
+    <div class="remark">
+    <p><strong>Remark 14</strong> (Why this is still a meaningful “100%”
+    claim). <em>“100%” refers to completeness of the mapping under the
+    LOCK–Derive–Gate DNA Interpreter definition: every region produces a
+    structural arrangement and a validated ledger (or an explicit
+    failure label) under LOCKed rules. This is a strong and testable
+    claim, and it is supported by the artifacts defined in Sections 3–8
+    <span class="citation" data-cites="zenodo17932567"></span>.</em></p>
+    </div>
+    <h1 id="validation-and-failure-modes">Validation and failure
+    modes</h1>
+    <p>This section specifies what it means for a run or bundle to be
+    <em>validated</em>, how to interpret failures, and what kinds of
+    failures exist. Validation is a first-class output of the framework,
+    not an optional add-on.</p>
+    <h2 id="validation-levels">Validation levels</h2>
+    <div class="definition">
+    <p><strong>Definition 44</strong> (Validation levels). <em>We
+    distinguish three validation levels:</em></p>
+    <ol>
+    <li><p><em><strong>Integrity validation</strong>: hashes (DATA_LOCK,
+    MANIFEST) match the file system.</em></p></li>
+    <li><p><em><strong>Schema validation</strong>: required outputs
+    exist and parse under declared schemas.</em></p></li>
+    <li><p><em><strong>Admissibility validation</strong>: gate
+    constraints hold (e.g., <span
+    class="math inline"><em>Δ</em><em>E</em> &lt; 0</span>, pres
+    non-increase).</em></p></li>
+    </ol>
+    <p><em>A run may pass integrity but fail admissibility; such
+    outcomes must be reported explicitly.</em></p>
+    </div>
+    <h2 id="bundle-level-validation">Bundle-level validation</h2>
+    <div class="definition">
+    <p><strong>Definition 45</strong> (Validated bundle). <em>A bundle
+    is <em>validated</em> if:</em></p>
+    <ol>
+    <li><p><em>every included run has a DATA_LOCK record,</em></p></li>
+    <li><p><em>every included run has a MANIFEST record and hashes
+    match,</em></p></li>
+    <li><p><em>required files for KEY and PCTS exist for every
+    run,</em></p></li>
+    <li><p><em>gate outcomes are recorded and a bundle-level summary is
+    provided,</em></p></li>
+    <li><p><em>the DOI registry has no missing DOI entries (audit
+    passes).</em></p></li>
+    </ol>
+    </div>
+    <div class="proposition">
+    <p><strong>Proposition 24</strong> (Reproducibility from
+    validation). <em>If a bundle is validated and a third party re-runs
+    the pipeline with the identical recorded inputs and parameters, then
+    the third party can reproduce the same run_ids and verify outputs by
+    MANIFEST. This does not guarantee identical timestamps, but it
+    guarantees semantic reproducibility of derived artifacts.</em></p>
+    </div>
+    <h2 id="gate-taxonomy-recommended-minimal-set">Gate taxonomy
+    (recommended minimal set)</h2>
+    <h4 id="integrity-gates.">Integrity gates.</h4>
+    <ul>
+    <li><p>DATA_LOCK present and parseable.</p></li>
+    <li><p>MANIFEST present and parseable.</p></li>
+    <li><p>MANIFEST hashes match.</p></li>
+    </ul>
+    <h4 id="schema-completeness-gates.">Schema completeness gates.</h4>
+    <ul>
+    <li><p>KEY outputs exist: anchors/shells/boundaries and minimal A4
+    YAML.</p></li>
+    <li><p>PCTS outputs exist: snapshots, ledger, verdict, gate
+    table.</p></li>
+    <li><p>J_LEDGER required fields are present.</p></li>
+    </ul>
+    <h4 id="admissibility-gates.">Admissibility gates.</h4>
+    <ul>
+    <li><p><span class="math inline"><em>Δ</em><em>E</em> &lt; 0</span>
+    for JEVENT entries.</p></li>
+    <li><p>pres_post <span class="math inline">≤</span> pres_pre across
+    JEVENT.</p></li>
+    <li><p>monotone pres across steps (if defined as such).</p></li>
+    </ul>
+    <h4 id="reproducibility-gates.">Reproducibility gates.</h4>
+    <ul>
+    <li><p>under identical LOCK/<strong>A4</strong>/seed, event skeleton
+    is reproducible,</p></li>
+    <li><p>otherwise marked INCONCLUSIVE with diagnostics.</p></li>
+    </ul>
+    <h2 id="interpreting-fail-vs-inconclusive">Interpreting FAIL vs
+    INCONCLUSIVE</h2>
+    <div class="definition">
+    <p><strong>Definition 46</strong> (FAIL). <em>FAIL means an
+    admissibility constraint or integrity constraint is violated. The
+    output cannot be used to support claims that require the violated
+    property.</em></p>
+    </div>
+    <div class="definition">
+    <p><strong>Definition 47</strong> (INCONCLUSIVE). <em>INCONCLUSIVE
+    means that a check cannot be resolved under available data while
+    preserving auditability. INCONCLUSIVE is not a hidden pass; it is an
+    explicit status that prevents overclaiming.</em></p>
+    </div>
+    <h2 id="failure-modes-by-layer">Failure modes by layer</h2>
+    <h3 class="unnumbered"
+    id="inputprovenance-failures">Input/provenance failures</h3>
+    <ul>
+    <li><p><strong>FASTA missing</strong> in raw zip (execution error;
+    FAIL).</p></li>
+    <li><p><strong>FASTA/annotation assembly mismatch</strong> (motors
+    outside region; INCONCLUSIVE or FAIL depending on claim).</p></li>
+    <li><p><strong>Chromosome naming mismatch</strong> (zero motors;
+    likely FAIL for motor-dependent claims).</p></li>
+    <li><p><strong>Softmask missing</strong> (repeat proxy axis invalid;
+    FAIL for autoscan evidence if repeat axis is required).</p></li>
+    </ul>
+    <h3 class="unnumbered" id="key-failures">KEY failures</h3>
+    <ul>
+    <li><p><strong>High-N windows</strong> (unstable statistics; should
+    be filtered; otherwise INCONCLUSIVE).</p></li>
+    <li><p><strong>Parameter drift</strong> (window/step changed without
+    recording; integrity may pass but scientific claim fails).</p></li>
+    <li><p><strong>Boundary collapse</strong> (too few anchors due to
+    large window or overly aggressive merging; not a bug but must be
+    reported).</p></li>
+    </ul>
+    <h3 class="unnumbered" id="pctsledger-failures">PCTS/ledger
+    failures</h3>
+    <ul>
+    <li><p><strong><span class="math inline"><em>Δ</em><em>E</em></span>
+    violation</strong> (<span
+    class="math inline"><em>Δ</em><em>E</em> ≥ 0</span> in any JEVENT;
+    FAIL).</p></li>
+    <li><p><strong>Residual stress increase</strong> (pres gate
+    violated; FAIL).</p></li>
+    <li><p><strong>Max-step truncation</strong> (not all loops locked;
+    mark as INCONCLUSIVE unless explicitly allowed).</p></li>
+    <li><p><strong>Schema mismatch</strong> (ledger fields missing;
+    FAIL).</p></li>
+    </ul>
+    <h3 class="unnumbered" id="packaging-failures">Packaging
+    failures</h3>
+    <ul>
+    <li><p><strong>Missing MANIFEST</strong> (run not validated; treat
+    as incomplete).</p></li>
+    <li><p><strong>MANIFEST mismatch</strong> (files changed post-run;
+    FAIL).</p></li>
+    <li><p><strong>INDEX inconsistencies</strong> (counts not matching
+    actual outputs; indicates bug; FAIL).</p></li>
+    </ul>
+    <h2 id="parameter-sensitivity-and-what-is-allowed">Parameter
+    sensitivity and what is allowed</h2>
+    <div class="remark">
+    <p><strong>Remark 15</strong> (LOCK vs STATE sensitivity).
+    <em>Sensitivity studies are allowed only through STATE parameters
+    that are recorded in DATA_LOCK and therefore alter run_id. Post-hoc
+    changes to LOCKed rules invalidate the run and require a version
+    bump.</em></p>
+    </div>
+    <div class="remark">
+    <p><strong>Remark 16</strong> (What “robust” means here).
+    <em>Robustness does not mean “unchanged under any parameter”. It
+    means: under recorded parameter changes, outcomes are reproducible
+    and differences are attributable to explicit parameter
+    deltas.</em></p>
+    </div>
+    <h2 id="limits-and-non-goals-truthfulness-constraints">Limits and
+    non-goals (truthfulness constraints)</h2>
+    <ul>
+    <li><p>The framework does not guarantee biological predictive
+    accuracy; it guarantees interpretable outputs under a
+    contract.</p></li>
+    <li><p>The autoscan archetype evidence is a coverage argument, not a
+    proof of biological completeness.</p></li>
+    <li><p>The choice of proxies (GC/CpG/softmask/TSS density) is
+    explicit and auditable; alternatives can be substituted only by
+    explicit versioning.</p></li>
+    </ul>
+    <h1 id="roadmap">Roadmap</h1>
+    <p>This section describes how the present manuscript and pipeline
+    can be extended while preserving the contract. The roadmap is
+    structured around <em>versioned artifacts</em> and <em>evidence
+    expansion</em>, not around informal narrative.</p>
+    <h2 id="immediate-manuscript-completion-tasks">Immediate
+    manuscript-completion tasks</h2>
+    <ol>
+    <li><p>Freeze a final TeX asset management strategy (single central
+    figure bundle; this project uses placeholders).</p></li>
+    <li><p>Expand Appendix B into a fully executable command list
+    matching the released bundles.</p></li>
+    <li><p>Produce a “release candidate” validated bundle that
+    corresponds exactly to Table 1 and the final managed
+    figures.</p></li>
+    </ol>
+    <h2 id="evidence-expansion-within-mouse-mm39">Evidence expansion
+    (within mouse <strong>mm39</strong>)</h2>
+    <h4 id="increase-panel-diversity-under-fixed-binning.">Increase
+    panel diversity under fixed binning.</h4>
+    <p>Under the current 4-axis binning, increase <span
+    class="math inline"><em>N</em></span> from 30–100 toward larger
+    panels (e.g., 200) while maintaining spacing constraints, to provide
+    denser evidence coverage.</p>
+    <h4 id="add-scale-tiers.">Add scale tiers.</h4>
+    <p>Add 10 Mb, 50 Mb, and 200 Mb panels to stress-test multiscale
+    anchoring and ledger stability.</p>
+    <h4 id="add-alternative-annotation-sources-optional.">Add
+    alternative annotation sources (optional).</h4>
+    <p>GENCODE provides an alternative reference annotation resource
+    <span class="citation" data-cites="gencode2023"></span>. Such
+    additions must be treated as explicit provenance changes (new
+    inputs; new hashes; new runs), not as silent replacements.</p>
+    <h2 id="cross-organism-extension">Cross-organism extension</h2>
+    <ol>
+    <li><p>Apply the same autoscan and panel strategy to additional
+    vertebrates.</p></li>
+    <li><p>Maintain the same contract: LOCKed grammar, deterministic KEY
+    to <strong>A4</strong>, deterministic PCTS to ledger, validated
+    packaging.</p></li>
+    <li><p>Compare archetype distributions across organisms and quantify
+    which archetypes exist or are absent under comparable
+    windowing.</p></li>
+    </ol>
+    <h2
+    id="toward-organcontext-panels-without-changing-activity-grammar">Toward
+    organ/context panels (without changing activity grammar)</h2>
+    <p>Organ/context specificity should be introduced <em>without</em>
+    adding new activity types. Instead, it can be introduced by:</p>
+    <ul>
+    <li><p>defining MOTOR activation policies as explicit STATE inputs
+    (e.g., selecting subsets of TSS),</p></li>
+    <li><p>defining A5 STATE parameters for context-dependent
+    thresholds,</p></li>
+    <li><p>producing separate validated panels per context where
+    necessary.</p></li>
+    </ul>
+    <div class="remark">
+    <p><strong>Remark 17</strong> (Why this is compatible with the core
+    design). <em>The activity grammar remains fixed; context affects
+    only arrangement instantiation (which motors are active) and STATE
+    thresholds, both of which are recorded in DATA_LOCK and therefore
+    reproducible.</em></p>
+    </div>
+    <h2 id="versioning-strategy">Versioning strategy</h2>
+    <div class="definition">
+    <p><strong>Definition 48</strong> (Version bump policy). <em>A
+    version bump is required when:</em></p>
+    <ul>
+    <li><p><em>LOCK rules change (activity grammar, segmentation
+    algorithm, schema),</em></p></li>
+    <li><p><em>provenance sources change (assembly/annotation
+    releases),</em></p></li>
+    <li><p><em>output schema changes (fields
+    added/removed).</em></p></li>
+    </ul>
+    <p><em>STATE changes do not require a version bump but do require
+    new run_ids and explicit recording.</em></p>
+    </div>
+    <h2 id="long-term-scientific-directions-non-binding">Long-term
+    scientific directions (non-binding)</h2>
+    <ul>
+    <li><p>Improve physical interpretation of the stiffness proxy and
+    anchor strength without sacrificing auditability.</p></li>
+    <li><p>Introduce richer, still-auditable observables beyond
+    GC/CpG/softmask (e.g., k-mer spectra, methylation priors if
+    available).</p></li>
+    <li><p>Expand event catalogs (A1) only if justified and still
+    compatible with the 4-activity grammar (i.e., event <em>types</em>
+    expand but activity categories do not).</p></li>
+    </ul>
+    <h2 id="release-plan">Release plan</h2>
+    <p>A minimal publishable release includes:</p>
+    <ol>
+    <li><p>this manuscript (TeX),</p></li>
+    <li><p>a validated bundle corresponding to the reported
+    tables/figures,</p></li>
+    <li><p>scripts for autoscan, selection, STEP18 execution, and
+    validation,</p></li>
+    <li><p>a DOI registry with no missing DOI entries.</p></li>
+    </ol>
+    <p>This aligns with the contract baseline <span class="citation"
+    data-cites="zenodo17932567"></span>.</p>
+    <h1 id="file-formats-and-schemas">File formats and schemas</h1>
+    <p>This appendix summarizes the minimal file formats used by the
+    pipeline. All formats are versioned; schema changes require version
+    bumps under the contract <span class="citation"
+    data-cites="zenodo17932567"></span>.</p>
+    <h2 id="a5-priors-yaml">A5 priors YAML</h2>
+    <p>A5 is a YAML file that separates LOCK values (frozen priors) from
+    STATE values (allowed run-time parameters). A5 files should
+    include:</p>
+    <ul>
+    <li><p><code>meta</code>: name, version, created_utc,
+    purpose,</p></li>
+    <li><p><code>globals</code>: temperature-like constants, barrier
+    thresholds, derived invariants,</p></li>
+    <li><p>domain blocks (e.g., DNA/membrane/oocyte) with
+    <code>tag: LOCK</code> or <code>tag: STATE</code>.</p></li>
+    </ul>
+    <h2 id="a4-layout-yaml">A4 layout YAML</h2>
+    <p>The minimal <strong>A4</strong> YAML contains:</p>
+    <ul>
+    <li><p><code>meta</code>: key_version, created_utc, fasta_header,
+    length_bp,</p></li>
+    <li><p><code>anchors</code>: list of {anchor_id, pos, kind,
+    strength},</p></li>
+    <li><p><code>motors</code>: list of {motor_id, tss_local,
+    strand},</p></li>
+    <li><p><code>loops</code>: list of {loop_id, motor_id, anchor_id,
+    motor_pos, anchor_pos, distance_bp},</p></li>
+    <li><p><code>shells</code> (and in multiscale: , ),</p></li>
+    <li><p><code>boundaries</code> (or /).</p></li>
+    </ul>
+    <h2 id="tsv-outputs">TSV outputs</h2>
+    <p>KEY emits TSV tables with headers:</p>
+    <ul>
+    <li><p><code>shells.tsv</code>: shell_id, start, end, label,
+    mean_z,</p></li>
+    <li><p><code>boundaries.tsv</code>: left_shell, right_shell, pos,
+    strength,</p></li>
+    <li><p><code>anchors.tsv</code>: anchor_id, pos, kind,
+    strength,</p></li>
+    <li><p><code>motors.tsv</code>: motor_id, tss_local,
+    strand,</p></li>
+    <li><p><code>loops.tsv</code>: loop_id, motor_id, anchor_id,
+    motor_pos, anchor_pos, distance_bp.</p></li>
+    </ul>
+    <h2 id="pcts-outputs">PCTS outputs</h2>
+    <p>PCTS emits:</p>
+    <ul>
+    <li><p><code>snapshots.csv</code>: t_step, n_loops, n_locked, pres,
+    mean_distance_bp,</p></li>
+    <li><p>: run_id, created_utc, event_id, event_type, t_step,
+    anchor_ids, motor_ids, loop_ids, trigger_summary, deltaE_diss,
+    pres_pre, pres_post, lock_state_pre, lock_state_post,
+    notes,</p></li>
+    <li><p>: gate_id, status, notes,</p></li>
+    <li><p><code>verdict.json</code>: pass flag, T_end_steps, n_events,
+    Pi_T_proxy, n_loops, n_locked.</p></li>
+    </ul>
+    <h1 id="reproducibility-cookbook-exact-commands">Reproducibility
+    cookbook (exact commands)</h1>
+    <p>This appendix is written as an executable checklist. It describes
+    how to reproduce the artifacts used by this whitepaper:
+    <strong>A4</strong> outputs, <strong>J_LEDGER</strong> outputs, and
+    the mm39 autoscan panel evidence (Table <a
+    href="#tab:archetype_bins" data-reference-type="ref"
+    data-reference="tab:archetype_bins">3</a> and the external archetype
+    grid figure managed separately).</p>
+    <h2 id="b.0-what-you-should-obtain-at-the-end">B.0 What you should
+    obtain at the end</h2>
+    <p>At the end of this cookbook you should have:</p>
+    <ol>
+    <li><p>A directory containing:</p>
+    <ul>
+    <li><p>(per-region raw zips:
+    <code>region.fa</code>+<code>region.gtf</code>),</p></li>
+    <li><p>(one subdirectory per run_id with DATA_LOCK, DERIVED, OUTPUT,
+    MANIFEST),</p></li>
+    <li><p><code>INDEX.csv</code> (append-only run summaries),</p></li>
+    <li><p>(candidate window metrics and selected panel lists).</p></li>
+    </ul></li>
+    <li><p>A validated bundle zip that can be shared for third-party
+    verification: (name may vary by release).</p></li>
+    <li><p>A regenerated and corresponding .</p></li>
+    <li><p>A DOI registry audit that reports no missing DOI
+    entries.</p></li>
+    </ol>
+    <p>All steps follow the LOCK<span
+    class="math inline">→</span>Derive<span
+    class="math inline">→</span>Gate contract <span class="citation"
+    data-cites="zenodo17932567"></span>.</p>
+    <h2 id="b.1-environment-setup">B.1 Environment setup</h2>
+    <h4 id="bundlekit-root.">Bundlekit root.</h4>
+    <p>This whitepaper assumes you use the released end-to-end
+    bundlekit: . After extracting the zip, set:</p>
+    <pre><code>export KIT_DIR=$PWD/mouse_mm39_autoscan_END2END_bundlekit_v1_0
+cd &quot;$KIT_DIR&quot;</code></pre>
+    <p>All script paths below are relative to .</p>
+    <h4 id="minimum-tools.">Minimum tools.</h4>
+    <p>You need:</p>
+    <ul>
+    <li><p>Python 3.10+,</p></li>
+    <li><p>standard Unix tools: <code>bash</code>, <code>tar</code>,
+    <code>gzip</code>, <code>curl</code> (or
+    <code>wget</code>),</p></li>
+    <li><p>enough disk for mm39 inputs (gigabyte scale) and derived
+    outputs.</p></li>
+    </ul>
+    <h4 id="python-dependencies.">Python dependencies.</h4>
+    <p>The autoscan/selection scripts use common packages (CSV parsing,
+    YAML). A minimal install typically includes <code>pyyaml</code>,
+    <code>pandas</code> (optional), and standard library modules. If
+    your release bundle provides a <code>requirements.txt</code>,
+    install it:</p>
+    <pre><code>python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt</code></pre>
+    <h4 id="working-directory-convention.">Working directory
+    convention.</h4>
+    <p>Throughout this cookbook we use:</p>
+    <pre><code>export WORK_DIR=$PWD/WORK_MM39_AUTOSCAN
+mkdir -p &quot;$WORK_DIR&quot;</code></pre>
+    <h2 id="b.2-download-mm39-inputs-sequence-annotations">B.2 Download
+    mm39 inputs (sequence + annotations)</h2>
+    <h4 id="principle.">Principle.</h4>
+    <p>We cite UCSC as the distribution source for mm39 sequence and
+    refGene/RefSeq-style annotations <span class="citation"
+    data-cites="ucsc2025 ucsc2003"></span>. We also cite NCBI for
+    assembly identity/provenance <span class="citation"
+    data-cites="assembly2016"></span>.</p>
+    <h4 id="recommended-layout.">Recommended layout.</h4>
+    <p>Create a data cache directory:</p>
+    <pre><code>export DATA_DIR=$PWD/DATA_SOURCES
+mkdir -p &quot;$DATA_DIR/mm39&quot;</code></pre>
+    <h4 id="genome-sequence-soft-masked.">Genome sequence
+    (soft-masked).</h4>
+    <p>Download the soft-masked chromosome FASTA archive from UCSC and
+    extract:</p>
+    <pre><code>cd &quot;$DATA_DIR/mm39&quot;
+# Recommended: use the provided download helper (UCSC)
+./scripts/download_ucsc_mm39.sh
+
+# If you downloaded a tar.gz manually, extract with:
+tar -xzf mm39.chromFa.tar.gz
+# expected output: a directory like chromFa/ containing chr*.fa files</code></pre>
+    <p>If your release bundles a single merged FASTA, use that instead.
+    The key requirement is that repeat masking is present if you use the
+    softmask fraction axis.</p>
+    <h4 id="gene-annotation-refgenerefseq.">Gene annotation
+    (refGene/RefSeq).</h4>
+    <p>Download and decompress the refGene-derived GTF/GFF provided by
+    your release (or UCSC tables export). For example:</p>
+    <pre><code>cd &quot;$DATA_DIR/mm39&quot;
+# curl -L -o refGene.gtf.gz &lt;UCSC_URL&gt;/mm39/...
+gzip -d refGene.gtf.gz</code></pre>
+    <h4 id="hash-and-freeze-inputs.">Hash and freeze inputs.</h4>
+    <p>Compute and store sha256 hashes for the downloaded archives and
+    the final extracted files you will actually use:</p>
+    <pre><code>cd &quot;$DATA_DIR/mm39&quot;
+sha256sum mm39.chromFa.tar.gz &gt; SHA256SUMS.txt
+sha256sum refGene.gtf &gt;&gt; SHA256SUMS.txt</code></pre>
+    <h2 id="b.2.1-one-command-end-to-end-run-recommended">B.2.1
+    One-command end-to-end run (recommended)</h2>
+    <p>If you want the fully scripted end-to-end execution (download
+    <span class="math inline">→</span> autoscan <span
+    class="math inline">→</span> selection <span
+    class="math inline">→</span> extraction <span
+    class="math inline">→</span> STEP18 <span
+    class="math inline">→</span> validation), run the provided driver
+    script:</p>
+    <pre><code>cd &quot;$KIT_DIR&quot;
+./scripts/RUN_MM39_AUTOSCAN_END2END_v1_0.sh</code></pre>
+    <p>This script is the canonical reference for the v1.0 kit. It
+    records parameters, produces artifacts under a work directory, and
+    is intended to be used to reproduce the evidence bundle hashes
+    recorded in the Evidence lock.</p>
+    <h2
+    id="b.2.2-canonical-work_dir-tree-produced-by-the-end-to-end-script">B.2.2
+    Canonical WORK_DIR tree produced by the end-to-end script</h2>
+    <p>This subsection freezes the expected on-disk artifact layout
+    after running:</p>
+    <pre><code>./scripts/RUN_MM39_AUTOSCAN_END2END_v1_0.sh</code></pre>
+    <p>A run is considered <em>structurally complete</em> (schema-level
+    validation) only if the required nodes below exist. Optional nodes
+    are marked <code>(optional)</code>.</p>
+    <h4 id="canonical-tree-v1.0.">Canonical tree (v1.0).</h4>
+    <pre><code>WORK_DIR/
+  AUTOSCAN/
+    mm39_windows_metrics.csv
+    mm39_windows_archetyped.csv
+    archetype_bins.yaml
+    selected_regions.csv
+    coverage_report.json
+
+  EVIDENCE/
+    TABLE1_mm39_archetype_coverage_v0_1.csv
+    mm39_selected_regions_archetypeN80_v0_1.csv
+    mm39_archetype_coverage_matrix9x9_v0_1.csv
+    RUN_METADATA_mm39_archetype_coverage_v0_1.json
+    MANIFEST_mm39_archetype_coverage_v0_1.json
+    mm39_inputs_sha256_v0_1.txt
+    mm39_archetype_coverage_TABLE1_FIG1_bundle_v0_1.zip
+
+  RAW_REGIONS/
+    regions/
+      &lt;region_id_0001&gt;.zip
+      &lt;region_id_0002&gt;.zip
+      ...
+    raw_regions_index.csv
+
+  JOBS/
+    jobs_mm39_panel.jsonl
+    progress.csv
+    checkpoint.pkl
+
+  runs/
+    &lt;run_id_1&gt;/
+      DATA_LOCK/
+        data_lock.json
+      DERIVED/
+        KEY_v0_4/
+          A4_layout_min.yaml
+          anchors.tsv
+          motors.tsv
+          loops.tsv
+          shells_fine.tsv
+          shells_coarse.tsv
+          boundaries_fine.tsv
+          boundaries_coarse.tsv
+          KEY_RUN.json
+      OUTPUT/
+        PCTS_v0_2/
+          snapshots.csv
+          J_LEDGER.csv
+          gate_table.csv
+          verdict.json
+      MANIFEST.json
+    &lt;run_id_2&gt;/
+      ...
+  INDEX.csv
+
+  mouse_dna_mm39_autoscan_VALIDATED_bundle.zip   (optional)</code></pre>
+    <h4 id="notes.">Notes.</h4>
+    <ul>
+    <li><p>The directory is the canonical source for Table <a
+    href="#tab:archetype_bins" data-reference-type="ref"
+    data-reference="tab:archetype_bins">3</a> and Fig. <a
+    href="#fig:archetype_grid" data-reference-type="ref"
+    data-reference="fig:archetype_grid">[fig:archetype_grid]</a>. The
+    zipped evidence bundle in must match the Evidence lock hashes
+    (Section 0).</p></li>
+    <li><p>The archives are the direct inputs for STEP18. Each must
+    contain exactly one region FASTA and (optionally) one region
+    GTF.</p></li>
+    <li><p>The per-run directory layout under is fixed by the STEP18
+    pipeline implementation (KEY then PCTS then MANIFEST).</p></li>
+    <li><p>is optional and only exists if you choose to pack the full
+    work directory for sharing.</p></li>
+    </ul>
+    <div class="proposition">
+    <p><strong>Proposition 25</strong> (WORK_DIR tree conformance).
+    <em>For v1.0, if the end-to-end script exits successfully and all
+    jobs complete, then every selected region produces exactly one run
+    directory under , and the required files listed above exist. Missing
+    nodes indicate an incomplete or non-conformant run and must be
+    treated as FAIL/INCONCLUSIVE under the contract.</em></p>
+    </div>
+    <h2 id="b.3-autoscan-compute-candidate-window-metrics">B.3 Autoscan:
+    compute candidate window metrics</h2>
+    <h4 id="window-parameters.">Window parameters.</h4>
+    <p>Choose:</p>
+    <ul>
+    <li><p>window length <span class="math inline"><em>W</em></span>
+    (e.g., 5 Mb),</p></li>
+    <li><p>step <span class="math inline"><em>Δ</em></span> (often equal
+    to <span class="math inline"><em>W</em></span> for non-overlapping
+    tiling),</p></li>
+    <li><p>valid-base fraction threshold <span
+    class="math inline"><em>v</em><sub>min</sub></span> (e.g.,
+    0.8).</p></li>
+    </ul>
+    <h4 id="run-autoscan.">Run autoscan.</h4>
+    <p>Your release bundle should include an autoscan script (names may
+    vary). A typical invocation:</p>
+    <pre><code>python scripts/scan_mm39_windows.py \
+  --chrom_fa_dir &quot;$DATA_DIR/mm39/chromFa&quot; \
+  --gtf &quot;$DATA_DIR/mm39/refGene.gtf&quot; \
+  --win_bp 5000000 \
+  --step_bp 5000000 \
+  --valid_frac_min 0.80 \
+  --out_csv &quot;$WORK_DIR/AUTOSCAN/mm39_windows_metrics.csv&quot;</code></pre>
+    <h4 id="expected-outputs.">Expected outputs.</h4>
+    <p>The output CSV should contain (at minimum) columns:</p>
+    <pre><code>chrom, start, end, valid_frac,
+gc_frac, cpg_per_kb,
+softmask_frac,
+tss_count, gene_density_per_mb</code></pre>
+    <h4 id="sanity-checks-recommended-gates.">Sanity checks (recommended
+    gates).</h4>
+    <p>Compute simple checks before selection:</p>
+    <ul>
+    <li><p>number of candidate windows (<span
+    class="math inline">|𝒲|</span>) is nontrivial,</p></li>
+    <li><p>distributions of GC/CpG/softmask are not degenerate,</p></li>
+    <li><p>gene density axis is not all zero (if using
+    annotations).</p></li>
+    </ul>
+    <p>If any axis is degenerate, treat the autoscan as INCONCLUSIVE for
+    archetype evidence and fix provenance (Section <a
+    href="#sec:mm39_prov" data-reference-type="ref"
+    data-reference="sec:mm39_prov">7</a>).</p>
+    <h2
+    id="b.4-compute-tercile-cutoffs-and-assign-4-axis-archetypes">B.4
+    Compute tercile cutoffs and assign 4-axis archetypes</h2>
+    <h4 id="compute-q_1q_2-per-axis.">Compute <span
+    class="math inline"><em>q</em><sub>1</sub>, <em>q</em><sub>2</sub></span>
+    per axis.</h4>
+    <p>From , compute terciles for: gene density, softmask fraction, GC
+    fraction, CpG density.</p>
+    <p>A typical invocation (script name may vary):</p>
+    <pre><code># (implemented inside the kit&#39;s autoscan pipeline; see RUN_MM39_AUTOSCAN_END2END_v1_0.sh) \
+  --metrics_csv &quot;$WORK_DIR/AUTOSCAN/mm39_windows_metrics.csv&quot; \
+  --out_yaml &quot;$WORK_DIR/AUTOSCAN/archetype_bins.yaml&quot;</code></pre>
+    <h4 id="assign-bins-and-archetype-ids.">Assign bins and archetype
+    IDs.</h4>
+    <p>Then assign L/M/H per axis and an archetype tuple per window:</p>
+    <pre><code># (implemented inside the kit&#39;s autoscan pipeline; see RUN_MM39_AUTOSCAN_END2END_v1_0.sh) \
+  --metrics_csv &quot;$WORK_DIR/AUTOSCAN/mm39_windows_metrics.csv&quot; \
+  --bins_yaml &quot;$WORK_DIR/AUTOSCAN/archetype_bins.yaml&quot; \
+  --out_csv &quot;$WORK_DIR/AUTOSCAN/mm39_windows_archetyped.csv&quot;</code></pre>
+    <h2 id="b.5-select-a-representative-panel-n30100">B.5 Select a
+    representative panel (N=30–100)</h2>
+    <h4 id="selection-parameters.">Selection parameters.</h4>
+    <p>Choose:</p>
+    <ul>
+    <li><p>TARGET_N (e.g., 80),</p></li>
+    <li><p>minimum separation <span
+    class="math inline"><em>d</em><sub>min</sub></span> on same
+    chromosome (e.g., 5 Mb),</p></li>
+    <li><p>deterministic tie-breaking policy (recorded; may include a
+    seed).</p></li>
+    </ul>
+    <h4 id="run-selection.">Run selection.</h4>
+    <p>Example:</p>
+    <pre><code>python scripts/select_representative_windows.py \
+  --archetyped_csv &quot;$WORK_DIR/AUTOSCAN/mm39_windows_archetyped.csv&quot; \
+  --target_n 80 \
+  --min_sep_bp 5000000 \
+  --seed 0 \
+  --out_csv &quot;$WORK_DIR/AUTOSCAN/selected_regions.csv&quot;</code></pre>
+    <h4 id="coverage-report-recommended.">Coverage report
+    (recommended).</h4>
+    <p>Compute coverage relative to observed archetypes:</p>
+    <pre><code># (implemented inside the kit&#39;s autoscan pipeline; see RUN_MM39_AUTOSCAN_END2END_v1_0.sh) \
+  --archetyped_csv &quot;$WORK_DIR/AUTOSCAN/mm39_windows_archetyped.csv&quot; \
+  --selected_csv &quot;$WORK_DIR/AUTOSCAN/selected_regions.csv&quot; \
+  --out_json &quot;$WORK_DIR/AUTOSCAN/coverage_report.json&quot;</code></pre>
+    <p>If TARGET_N is smaller than the number of observed archetypes,
+    full coverage is impossible; report this explicitly (do not silently
+    change bins).</p>
+    <h2
+    id="b.6-extract-raw-regions-region.fa-region.gtf-and-pack-as-raw.zip">B.6
+    Extract raw regions (region.fa + region.gtf) and pack as
+    raw.zip</h2>
+    <p>For each selected window <span
+    class="math inline">(chrom,start,end)</span>:</p>
+    <ol>
+    <li><p>Extract the region sequence into
+    <code>region.fa</code>.</p></li>
+    <li><p>Extract annotations overlapping the window into
+    <code>region.gtf</code>.</p></li>
+    <li><p>Zip into <code>raw.zip</code>.</p></li>
+    </ol>
+    <p>Example driver (script name may vary):</p>
+    <pre><code>python scripts/extract_regions.py \
+  --selected_csv &quot;$WORK_DIR/AUTOSCAN/selected_regions.csv&quot; \
+  --chrom_fa_dir &quot;$DATA_DIR/mm39/chromFa&quot; \
+  --gtf &quot;$DATA_DIR/mm39/refGene.gtf&quot; \
+  --out_dir &quot;$WORK_DIR/RAW_REGIONS&quot;</code></pre>
+    <h4 id="required-properties-for-validation.">Required properties for
+    validation.</h4>
+    <p>Each raw zip must contain:</p>
+    <ul>
+    <li><p>exactly one FASTA file (<code>region.fa</code> or
+    <code>region.fasta</code>) with a single sequence,</p></li>
+    <li><p>one GTF/GFF file (<code>region.gtf</code>) or none (if
+    running structure-only).</p></li>
+    </ul>
+    <h2 id="b.7-run-step18-key-pcts-for-the-panel">B.7 Run STEP18 (KEY +
+    PCTS) for the panel</h2>
+    <h4 id="generate-jobs-jsonl.">Generate jobs JSONL.</h4>
+    <p>Create one job per region zip:</p>
+    <pre><code>python scripts/build_jobs_jsonl.py \
+  --raw_regions_dir &quot;$WORK_DIR/RAW_REGIONS&quot; \
+  --species_id mouse_mm39 \
+  --key_version KEY_v0_4 \
+  --seed 0 \
+  --work_dir &quot;$WORK_DIR&quot; \
+  --out_jsonl &quot;$WORK_DIR/JOBS/jobs_mm39_panel.jsonl&quot;</code></pre>
+    <h4 id="batch-run.">Batch run.</h4>
+    <p>Run the batch runner:</p>
+    <pre><code>python batch_run.py \
+  --jobs_jsonl &quot;$WORK_DIR/JOBS/jobs_mm39_panel.jsonl&quot; \
+  --checkpoint &quot;$WORK_DIR/JOBS/checkpoint.pkl&quot; \
+  --progress_csv &quot;$WORK_DIR/JOBS/progress.csv&quot; \
+  --save_every 1</code></pre>
+    <p>As runs complete, <code>INDEX.csv</code> under is appended
+    (append-only policy).</p>
+    <h2 id="b.8-validate-runs-and-pack-a-validated-bundle">B.8 Validate
+    runs and pack a validated bundle</h2>
+    <h4 id="per-run-validation-integrity.">Per-run validation
+    (integrity).</h4>
+    <p>For each run directory, verify:</p>
+    <ul>
+    <li><p>exists,</p></li>
+    <li><p><code>MANIFEST.json</code> exists,</p></li>
+    <li><p>manifest hashes match on re-check.</p></li>
+    </ul>
+    <p>A release typically includes a validator script. Example:</p>
+    <pre><code>python validate_bundle.py --work_root &quot;$WORK_DIR&quot; --strict</code></pre>
+    <h4 id="pack-runs-for-sharing.">Pack runs for sharing.</h4>
+    <p>After validation, pack the full work directory into a zip
+    (excluding raw extracted intermediates if desired):</p>
+    <pre><code>python pack_runs.py \
+  --work_dir &quot;$WORK_DIR&quot; \
+  --out_zip &quot;$WORK_DIR/mouse_dna_mm39_autoscan_VALIDATED_bundle.zip&quot;</code></pre>
+    <h2 id="b.9-regenerate-table-1-csv-and-latex">B.9 Regenerate Table 1
+    (CSV and LaTeX)</h2>
+    <h4 id="canonical-generator.">Canonical generator.</h4>
+    <p>The v1.0 kit includes which can regenerate: (i) Table 1 CSV, (ii)
+    the 9<span class="math inline">×</span>9 archetype occupancy matrix,
+    and (iii) the selected region catalog, from recorded autoscan
+    artifacts. Use that script as the canonical source of Table 1 / Fig
+    1 evidence for the whitepaper.</p>
+    <p>Table <a href="#tab:archetype_bins" data-reference-type="ref"
+    data-reference="tab:archetype_bins">3</a> is derived from the
+    autoscan bin definitions and the selected panel marginal counts. To
+    regenerate it deterministically:</p>
+    <h4 id="generate-the-csv.">Generate the CSV.</h4>
+    <pre><code>python make_table1_archetype_bins.py \
+  --bins_yaml &quot;$WORK_DIR/AUTOSCAN/archetype_bins.yaml&quot; \
+  --selected_csv &quot;$WORK_DIR/AUTOSCAN/selected_regions.csv&quot; \
+  --out_csv &quot;tables/TABLE1_mm39_archetype_coverage.csv&quot;</code></pre>
+    <h4 id="generate-sectionstable1.tex-from-the-csv.">Generate
+    sections/table1.tex from the CSV.</h4>
+    <p>If your release includes a converter script, use it. Otherwise, a
+    simple Python conversion is sufficient. The conversion must be
+    deterministic and should not perform hidden formatting
+    decisions.</p>
+    <h2
+    id="b.10-figure-management-policy-this-tex-project-embeds-no-images">B.10
+    Figure management policy (this TeX project embeds no images)</h2>
+    <p>This TeX project intentionally embeds no external figure files.
+    Instead:</p>
+    <ul>
+    <li><p>Figure <a href="#fig:archetype_grid"
+    data-reference-type="ref"
+    data-reference="fig:archetype_grid">[fig:archetype_grid]</a> is a
+    TeX-only placeholder.</p></li>
+    <li><p>The final archetype grid figure should be managed as a
+    separate asset bundle and inserted at release time.</p></li>
+    </ul>
+    <p>To regenerate the figure externally, use and and compute the
+    9<span class="math inline">×</span>9 flattened occupancy grid
+    described in Section 8.</p>
+    <h2 id="b.11-doi-audit">B.11 DOI audit</h2>
+    <p>A release should include a DOI registry file (e.g., ) and a DOI
+    audit script. Run:</p>
+    <pre><code>python doi_audit.py --registry CITATION_REGISTRY.yaml</code></pre>
+    <p>A passing audit is required for a validated release (no missing
+    DOI entries).</p>
+    <h2
+    id="b.12-minimal-acceptance-checklist-what-to-check-before-claiming-reproducibility">B.12
+    Minimal acceptance checklist (what to check before claiming
+    reproducibility)</h2>
+    <p>Before claiming that results are reproducible, verify:</p>
+    <ol>
+    <li><p>Input provenance is fixed and hashed (Section <a
+    href="#sec:mm39_prov" data-reference-type="ref"
+    data-reference="sec:mm39_prov">7</a>).</p></li>
+    <li><p>Autoscan metrics CSV exists and is deterministic under
+    re-run.</p></li>
+    <li><p>Archetype bins YAML and selected panel CSV reproduce exactly
+    under identical parameters and seed.</p></li>
+    <li><p>STEP18 runs produce the same run_ids and the same MANIFEST
+    hashes under re-run.</p></li>
+    <li><p>Gate tables PASS (or failures are explicitly labeled) and
+    INDEX reflects the counts.</p></li>
+    <li><p>Table <a href="#tab:archetype_bins" data-reference-type="ref"
+    data-reference="tab:archetype_bins">3</a> regenerates exactly from
+    recorded artifacts.</p></li>
+    <li><p>DOI audit passes.</p></li>
+    </ol>
+    <p>If any item fails, treat the claim as FAIL/INCONCLUSIVE,
+    diagnose, and re-run with explicit versioning rather than post-hoc
+    edits <span class="citation"
+    data-cites="zenodo17932567"></span>.</p>
+    </section>
+  </article>
+</main>
+
+<script src="/assets/whitepapers.js"></script>
+</body>
+</html>
