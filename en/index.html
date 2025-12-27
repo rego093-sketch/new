@@ -1,100 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jamming Physics (EN)</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Jamming Physics | VP Theory</title>
   <meta name="description" content="VP Theory whitepapers in HTML (EN/KR), DOI-backed reproducibility, and gate-based verification hub."/>
   <link rel="canonical" href="https://jamming-physics.org/en/"/>
   <link rel="alternate" hreflang="en" href="https://jamming-physics.org/en/"/>
   <link rel="alternate" hreflang="ko" href="https://jamming-physics.org/ko/"/>
-  <link rel="alternate" hreflang="x-default" href="https://jamming-physics.org/"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Jamming Physics (EN)"/>
+  <meta property="og:title" content="Jamming Physics | VP Theory"/>
   <meta property="og:description" content="VP Theory whitepapers in HTML (EN/KR), DOI-backed reproducibility, and gate-based verification hub."/>
   <meta property="og:url" content="https://jamming-physics.org/en/"/>
   <meta property="og:image" content="/assets/og.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <link rel="stylesheet" href="/assets/style.css"/>
   <link rel="stylesheet" href="/assets/whitepapers.css"/>
+  <script src="/assets/papers.js"></script>
+  <script src="/assets/whitepapers.js" defer></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="navbar">
   <a href="/" class="nav-logo">JAMMING PHYSICS</a>
-  <div class="nav-links">
-    <a href="/en/whitepapers/">Whitepapers</a>
-    <label class="paper-select-label" for="paperSelect">Select</label>
-    <select id="paperSelect" class="paper-select" aria-label="Select whitepaper"></select>
-  </div>
   <div class="nav-right">
+    <select id="paperSelect" class="select-paper" aria-label="Select whitepaper"></select>
     
     <div class="lang-switch"><a href="/ko/">한국어</a></div>
     <div class="lang-switch"><a href="/en/">English</a></div>
     
   </div>
 </nav>
-<main id="main" class="wp-hub">
+<main id="main" class="wp-shell">
+<article class='wp-content'>
+<header class="wp-header">
   <h1>VP Theory Whitepapers (HTML)</h1>
-  <p>Unified hub for VP Theory whitepapers and reproducibility packs. Choose a whitepaper below.</p>
-  <div class="wp-cards">
-    
-        <div class="wp-card">
-          <div class="tags"><span class="tag">Core VP</span><span class="tag">Reproducibility</span></div>
-          <h3>VP Whitepaper v2.0 (LOCK→Derive→Gate)</h3>
-          <div style="opacity:.85;font-size:.95rem;">DOI: <a href="https://doi.org/10.5281/zenodo.17932567">10.5281/zenodo.17932567</a> (on-site)</div>
-          <div class="wp-actions">
-            <a class="wp-btn primary" href="/en/whitepaper.html">Read</a>
-            <a class="wp-btn" href="/en/whitepapers/">All whitepapers</a>
-          </div>
-        </div>
-
-        <div class="wp-card">
-          <div class="tags"><span class="tag">DNA</span><span class="tag">LOCK–Derive–Gate</span><span class="tag">J_LEDGER</span></div>
-          <h3>Deterministic DNA Interpretation (Mouse/mm39) v1.2</h3>
-          <div style="opacity:.85;font-size:.95rem;">DOI: <a href="https://doi.org/10.5281/zenodo.17963127">10.5281/zenodo.17963127</a> </div>
-          <div class="wp-actions">
-            <a class="wp-btn primary" href="/en/whitepapers/dna-mm39/">Read</a>
-            <a class="wp-btn" href="/en/whitepapers/">All whitepapers</a>
-          </div>
-        </div>
-
-        <div class="wp-card">
-          <div class="tags"><span class="tag">Applications</span><span class="tag">KEY Ontology</span><span class="tag">U–J</span><span class="tag">Gate</span></div>
-          <h3>Deterministic Bio-Physical Applications v1.2</h3>
-          <div style="opacity:.85;font-size:.95rem;">DOI: <a href="https://doi.org/10.5281/zenodo.17979016">10.5281/zenodo.17979016</a> </div>
-          <div class="wp-actions">
-            <a class="wp-btn primary" href="/en/whitepapers/bio-physical-apps/">Read</a>
-            <a class="wp-btn" href="/en/whitepapers/">All whitepapers</a>
-          </div>
-        </div>
-
-        <div class="wp-card">
-          <div class="tags"><span class="tag">Fluid</span><span class="tag">Navier–Stokes</span></div>
-          <h3>Fluid Dynamics from Volume Particles (VP) v0.2.0</h3>
-          <div style="opacity:.85;font-size:.95rem;">DOI: <a href="https://doi.org/10.5281/zenodo.17972570">10.5281/zenodo.17972570</a> (DOI link)</div>
-          <div class="wp-actions">
-            <a class="wp-btn primary" href="/en/whitepapers/fluid-dynamics/">Read</a>
-            <a class="wp-btn" href="/en/whitepapers/">All whitepapers</a>
-          </div>
-        </div>
-
-        <div class="wp-card">
-          <div class="tags"><span class="tag">Cosmology</span><span class="tag">Lattice Optics</span></div>
-          <h3>VP Whitepaper: Cosmology & Lattice Optics v0.1.3r8</h3>
-          <div style="opacity:.85;font-size:.95rem;">DOI: <a href="https://doi.org/10.5281/zenodo.18012058">10.5281/zenodo.18012058</a> (DOI link)</div>
-          <div class="wp-actions">
-            <a class="wp-btn primary" href="/en/whitepapers/cosmology-optics/">Read</a>
-            <a class="wp-btn" href="/en/whitepapers/">All whitepapers</a>
-          </div>
-        </div>
-  </div>
+  <p>VP Theory whitepapers in HTML (EN/KR), DOI-backed reproducibility, and gate-based verification hub.</p>
+  <p><a href="/en/whitepapers/">Browse whitepapers</a></p>
+</header>
+</article>
 </main>
-<footer class="wp-footer">
-  <div>© 2025 Young Jae Lee · CC BY 4.0 (unless noted)</div>
-</footer>
-<script src="/assets/papers.js"></script>
-<script src="/assets/whitepapers.js"></script>
 </body>
 </html>

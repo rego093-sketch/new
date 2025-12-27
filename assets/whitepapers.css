@@ -1,49 +1,20 @@
-/* Whitepaper layout layer (additive; keeps existing /assets/style.css intact) */
-
-.wp-main { max-width: 1200px; margin: 0 auto; padding: 1.2rem; }
-.wp-hero { padding: 0.8rem 0 1rem 0; }
-.wp-breadcrumb { font-size: 0.95rem; opacity: 0.85; display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.wp-breadcrumb a { text-decoration: none; }
-.wp-meta { margin-top: 0.6rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.badge { font-size: 0.9rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 999px; padding: 0.25rem 0.6rem; background: rgba(0,0,0,0.03); }
-
-.wp-grid { display: grid; grid-template-columns: 280px 1fr; gap: 1.25rem; align-items: start; }
-.wp-toc { position: sticky; top: 0.8rem; max-height: calc(100vh - 1.6rem); overflow: auto; border: 1px solid rgba(0,0,0,0.12); border-radius: 12px; padding: 0.9rem; background: rgba(0,0,0,0.02); }
-.wp-toc ul { margin: 0.5rem 0 0 1rem; padding: 0; }
-.wp-toc li { margin: 0.2rem 0; }
-.wp-toc a { text-decoration: none; }
-.wp-toc-head { display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
-.wp-toc-toggle { display: none; border: 1px solid rgba(0,0,0,0.2); border-radius: 10px; padding: 0.2rem 0.6rem; background: transparent; cursor: pointer; }
-
-.wp-article { min-width: 0; }
-.wp-article img { max-width: 100%; height: auto; }
-.wp-article table { width: 100%; border-collapse: collapse; overflow-x: auto; display: block; }
-.wp-article pre { overflow-x: auto; padding: 0.8rem; border-radius: 10px; border: 1px solid rgba(0,0,0,0.12); background: rgba(0,0,0,0.02); }
-.wp-article code { font-size: 0.95em; }
-
-.wp-footer { max-width: 1200px; margin: 0 auto; padding: 1.2rem; opacity: 0.8; font-size: 0.95rem; }
-
-/* nav paper selector */
-.nav-links { display: flex; align-items: center; gap: 0.8rem; }
-.paper-select-label { font-size: 0.9rem; opacity: 0.9; }
-.paper-select { max-width: 320px; padding: 0.2rem 0.4rem; border-radius: 10px; border: 1px solid rgba(0,0,0,0.2); background: transparent; }
-
-/* hub pages */
-.wp-hub { max-width: 1200px; margin: 0 auto; padding: 1.2rem; }
-.wp-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-.wp-card { border: 1px solid rgba(0,0,0,0.12); border-radius: 14px; padding: 1rem; background: rgba(0,0,0,0.02); display: flex; flex-direction: column; gap: 0.5rem; }
-.wp-card h3 { margin: 0.2rem 0; }
-.wp-card .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-.tag { font-size: 0.8rem; border: 1px solid rgba(0,0,0,0.16); border-radius: 999px; padding: 0.1rem 0.5rem; opacity: 0.95; }
-.wp-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.4rem; }
-.wp-btn { display: inline-block; text-decoration: none; border: 1px solid rgba(0,0,0,0.2); border-radius: 12px; padding: 0.35rem 0.7rem; font-size: 0.9rem; }
-.wp-btn.primary { background: rgba(0,0,0,0.06); }
-
-@media (max-width: 980px) {
-  .wp-grid { grid-template-columns: 1fr; }
-  .wp-toc { position: relative; top: auto; max-height: none; display: none; }
-  body.toc-open .wp-toc { display: block; }
-  .wp-toc-toggle { display: inline-block; }
-  .wp-cards { grid-template-columns: 1fr; }
-  .paper-select { max-width: 180px; }
-}
+/* Minimal add-on layout for whitepaper pages */
+.wp-shell{max-width:1200px;margin:0 auto;padding:0 1rem 2rem}
+.wp-header{padding:1.25rem 0 0.5rem}
+.wp-meta{display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center}
+.wp-meta a.btn{display:inline-block;padding:0.45rem 0.7rem;border:1px solid rgba(0,0,0,0.2);border-radius:8px;text-decoration:none}
+.wp-grid{display:grid;grid-template-columns:280px 1fr;gap:1.25rem}
+@media (max-width: 980px){.wp-grid{grid-template-columns:1fr}.wp-toc{position:static;max-height:none}}
+.wp-toc{position:sticky;top:0.75rem;align-self:start;border:1px solid rgba(0,0,0,0.15);border-radius:10px;padding:0.75rem;background:rgba(0,0,0,0.02);max-height:80vh;overflow:auto}
+.wp-toc ul{padding-left:1.1rem;margin:0}
+.wp-toc li{margin:0.25rem 0}
+.wp-toc a{text-decoration:none}
+.wp-content{min-width:0}
+.wp-content img{max-width:100%;height:auto}
+.wp-cardgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem}
+.wp-card{border:1px solid rgba(0,0,0,0.15);border-radius:12px;padding:1rem;background:rgba(0,0,0,0.02)}
+.wp-card h3{margin-top:0}
+.wp-badges{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.5rem}
+.badge{display:inline-block;padding:0.2rem 0.45rem;border:1px solid rgba(0,0,0,0.2);border-radius:999px;font-size:0.85rem;text-decoration:none}
+.navbar .nav-right{display:flex;gap:0.75rem;align-items:center}
+.select-paper{padding:0.35rem 0.4rem;border-radius:8px;border:1px solid rgba(0,0,0,0.25)}

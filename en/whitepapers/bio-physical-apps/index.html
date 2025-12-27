@@ -1,44 +1,2091 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head> <meta charset="utf-8"/> <meta name="viewport" content="width=device-width, initial-scale=1"/> <title><strong>Deterministic Bio-Physical Applications
-Whitepaper</strong><br />
-KEY + U–J Dynamics + Gate Verification +
-<strong>Ω-LearnSim</strong> (<strong>IR PAM-Sensitizer</strong>)<br />
-v1.2 (2025-12-18) | Jamming Physics</title> <meta name="description" content="Deterministic Bio-Physical
-Applications: KEY ontology + U–J dynamics + Gate verification +
-reproducibility pack."/> <link rel="canonical" href="https://jamming-physics.org/en/whitepapers/bio-physical-apps/"/> <link rel="alternate" hreflang="en" href="https://jamming-physics.org/en/whitepapers/bio-physical-apps/"/><link rel="alternate" hreflang="ko" href="https://jamming-physics.org/ko/whitepapers/bio-physical-apps/"/> <meta property="og:type" content="article"/> <meta property="og:title" content="<strong>Deterministic Bio-Physical
-Applications Whitepaper</strong><br />
-KEY + U–J Dynamics + Gate Verification +
-<strong>Ω-LearnSim</strong> (<strong>IR PAM-Sensitizer</strong>)<br />
-v1.2 (2025-12-18)"/> <meta property="og:description" content="Deterministic Bio-Physical
-Applications: KEY ontology + U–J dynamics + Gate verification +
-reproducibility pack."/> <meta property="og:url" content="https://jamming-physics.org/en/whitepapers/bio-physical-apps/"/> <meta property="og:image" content="/assets/og.png"/> <meta name="twitter:card" content="summary_large_image"/> <link rel="stylesheet" href="/assets/style.css"/> <link rel="stylesheet" href="/assets/whitepapers.css"/> <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> </head>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Deterministic Bio-Physical Applications Whitepaper — v1.2</title>
+  <meta name="description" content="HTML build (EN) generated from LaTeX source. DOI: 10.5281/zenodo.17979016."/>
+  <link rel="canonical" href="https://jamming-physics.org/en/whitepapers/bio-physical-apps/"/>
+  <link rel="alternate" hreflang="en" href="https://jamming-physics.org/en/whitepapers/bio-physical-apps/"/>
+  <link rel="alternate" hreflang="ko" href="https://jamming-physics.org/ko/whitepapers/bio-physical-apps/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Deterministic Bio-Physical Applications Whitepaper — v1.2"/>
+  <meta property="og:description" content="HTML build (EN) generated from LaTeX source. DOI: 10.5281/zenodo.17979016."/>
+  <meta property="og:url" content="https://jamming-physics.org/en/whitepapers/bio-physical-apps/"/>
+  <meta property="og:image" content="/assets/og.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="stylesheet" href="/assets/style.css"/>
+  <link rel="stylesheet" href="/assets/whitepapers.css"/>
+  <script src="/assets/papers.js"></script>
+  <script src="/assets/whitepapers.js" defer></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a> <nav class="navbar"> <a href="/" class="nav-logo">JAMMING PHYSICS</a> <div class="nav-links"> <a href="/en/whitepapers/">Whitepapers</a> <label class="paper-select-label" for="paperSelect">Select</label> <select id="paperSelect" class="paper-select" aria-label="Select whitepaper"></select> </div> <div class="nav-right"> <div class="lang-switch"><a href="/ko/whitepapers/bio-physical-apps/">한국어</a></div> <div class="lang-switch"><a href="/en/whitepapers/bio-physical-apps/">English</a></div> </div>
-</nav> <main id="main" class="wp-main"> <header class="wp-hero"> <div class="wp-breadcrumb"> <a href="/en/">Home</a> <span>›</span> <a href="/en/whitepapers/">Whitepapers</a> <span>›</span> <span><strong>Deterministic Bio-Physical Applications
-Whitepaper</strong><br />
-KEY + U–J Dynamics + Gate Verification +
-<strong>Ω-LearnSim</strong> (<strong>IR PAM-Sensitizer</strong>)<br />
-v1.2 (2025-12-18)</span> </div> <div class="wp-meta"> <span class="badge">DOI: <a href="https://doi.org/10.5281/zenodo.17979016">10.5281/zenodo.17979016</a></span> <span class="badge">Version: v1.2</span> <span class="badge">Published: 2025-12-18</span> </div> </header> <div class="wp-grid"> <aside class="wp-toc" aria-label="Table of contents"> <div class="wp-toc-head"> <div>Contents</div> <button class="wp-toc-toggle" type="button" onclick="document.body.classList.toggle('toc-open')">TOC</button> </div> <ul> <li><a href="#front-matter">Front matter</a> <ul> <li><a href="#purpose-and-claim-boundary">Purpose and claim boundary</a></li> <li><a href="#reader-guide-tracks-verification-first">Reader guide (tracks + verification-first)</a></li> <li><a href="#policy-keywords-ascii">Policy keywords (ASCII)</a></li> <li><a href="#notation-and-symbol-conventions-mm39-compatible">Notation and symbol conventions (mm39-compatible)</a></li> </ul></li> <li><a href="#executive-summary-integrated-narrative">Executive summary (integrated narrative)</a> <ul> <li><a href="#what-this-release-adds-beyond-mm39-v1.2">What this release adds (beyond mm39 v1.2)</a></li> <li><a href="#evidence-snapshot-what-is-checkable-in-this-pack">Evidence snapshot (what is checkable in this pack)</a></li> <li><a href="#one-line-contract-what-the-whole-pack-asserts">One-line contract (what the whole pack asserts)</a></li> <li><a href="#what-deterministic-means-here-operational">What “deterministic” means here (operational)</a></li> <li><a href="#why-applications-are-possible-objects-not-metaphors">Why applications are possible (objects, not metaphors)</a></li> <li><a href="#axiom-map-a1a5-and-where-gates-attach">Axiom map (A1–A5) and where gates attach</a></li> <li><a href="#rapid-verification-protocol-reviewer-facing">Rapid verification protocol (reviewer-facing)</a></li> </ul></li> <li><a href="#scope-non-claims-safety-boundaries">Scope, non-claims, safety boundaries</a> <ul> <li><a href="#non-claims-important">Non-claims (important)</a></li> <li><a href="#safety-posture-public-view">Safety posture (public view)</a></li> </ul></li> <li><a href="#system-overview-and-data-contract-lockrightarrowderiverightarrowgate">System overview and data contract (LOCK<span class="math inline">\(\rightarrow\)</span>Derive<span class="math inline">\(\rightarrow\)</span>Gate)</a> <ul> <li><a href="#layered-architecture-and-canonical-outputs">Layered architecture and canonical outputs</a></li> <li><a href="#canonical-schema-snippets-public-schematic">Canonical schema snippets (public, schematic)</a></li> <li><a href="#gate-naming-standardization-global-normative">Gate naming standardization (global, normative)</a></li> <li><a href="#failure-labels-public-closed-set">Failure labels (public, closed set)</a></li> </ul></li> <li><a href="#key-full-specification-ontology-expanded">KEY full specification + ontology (expanded)</a> <ul> <li><a href="#ontology-lock-axiom-fix">Ontology lock (AXIOM-FIX)</a></li> <li><a href="#ω-dictionary-term-mapping-closure-deterministic-fallback">Ω-Dictionary term mapping (closure + deterministic fallback)</a></li> <li><a href="#key-classes-snapshot">KEY classes (snapshot)</a></li> <li><a href="#minimal-key-entry-schema-public-view">Minimal KEY entry schema (public view)</a></li> <li><a href="#ω-dictionary-dna-dictionary-layer-grammar-vs-registry">Ω-Dictionary (DNA dictionary) layer: grammar vs registry</a></li> <li><a href="#mapping-fallback-policy-when-an-exact-mapping-key-is-absent">Mapping fallback policy (when an exact mapping key is absent)</a></li> </ul></li> <li><a href="#uj-dynamics-gate-verification-expanded">U–J Dynamics + Gate verification (expanded)</a> <ul> <li><a href="#why-uj-is-useful-in-applications">Why U–J is useful in applications</a></li> <li><a href="#residual-pressure-and-incorrect-dynamics">Residual pressure and “incorrect dynamics”</a></li> <li><a href="#canonical-gate-families-registry-view">Canonical gate families (registry view)</a></li> <li><a href="#reproducibility-snapshot-bioem-computational-gates">Reproducibility snapshot (Bio–EM; computational gates)</a></li> </ul></li> <li><a href="#application-pattern-interpretation-assurance-template">Application pattern: interpretation → assurance (template)</a> <ul> <li><a href="#assurance-case-skeleton-public">Assurance case skeleton (public)</a></li> </ul></li> <li><a href="#cross-track-integration-dna-bioem-therapy">Cross-track integration: DNA → Bio–EM→ Therapy</a> <ul> <li><a href="#cross-track-translation-table-dna-bioem-therapy">Cross-track translation table (DNA / Bio–EM/ Therapy)</a></li> </ul></li> <li><a href="#application-a-bioem-neurodynamics-integrated-overview">Application A: Bio–EM/ neurodynamics (integrated overview)</a> <ul> <li><a href="#claim-boundary-what-is-and-is-not-claimed">Claim boundary (what is and is not claimed)</a></li> <li><a href="#conceptual-overview-interpretive-framing">Conceptual overview (interpretive framing)</a></li> <li><a href="#verification-layer-gate-first">Verification layer (gate-first)</a> <ul> <li><a href="#formal-invariants-and-observables-symbolic-reviewer-facing">Formal invariants and observables (symbolic, reviewer-facing)</a></li> <li><a href="#minimal-public-claim-set-gate-form">Minimal public claim set (gate-form)</a></li> <li><a href="#evidence-pointers-where-the-details-live">Evidence pointers (where the details live)</a></li> <li><a href="#fail-conditions-how-to-falsify-quickly">FAIL conditions (how to falsify quickly)</a></li> </ul></li> <li><a href="#assurance-card-bioem-public">Assurance card (Bio–EM, public)</a></li> </ul></li> <li><a href="#application-b-ω-learnsim-ir-pam-sensitizer-integrated-overview">Application B: <strong>Ω-LearnSim</strong> (<strong>IR PAM-Sensitizer</strong>) (integrated overview)</a> <ul> <li><a href="#claim-boundary-and-safety-posture-no-cal">Claim boundary and safety posture (NO-CAL)</a></li> <li><a href="#problem-statement-insulin-resistance-as-incorrect-dynamics">Problem statement (insulin resistance as incorrect dynamics)</a></li> <li><a href="#mechanism-snapshot-qualitative-public">Mechanism snapshot (qualitative, public)</a></li> <li><a href="#theory-deepening-qualitative-4d-arrangement-manifold-and-maps">Theory deepening (qualitative): 4D arrangement manifold and maps</a> <ul> <li><a href="#qualitative-invariants-reviewer-check-list">Qualitative invariants (reviewer check list)</a></li> </ul></li> <li><a href="#counter-arrangement-concept-path-a">Counter-arrangement concept (PATH-A)</a></li> <li><a href="#governance-note-public-interest-pledge-summary">Governance note (public-interest pledge, summary)</a></li> <li><a href="#evidence-snapshot-qualitative-versioned">Evidence snapshot (qualitative, versioned)</a></li> <li><a href="#qualitative-label-ontology-public-no-cal">Qualitative label ontology (public, NO-CAL)</a></li> <li><a href="#stop-rules-public-safety-rails">Stop-rules (public safety rails)</a></li> <li><a href="#assurance-card-public-reviewer-facing">Assurance card (public, reviewer-facing)</a></li> <li><a href="#disclaimer">Disclaimer</a></li> </ul></li> <li><a href="#release-pack-reproducibility-cookbook-zenodo-checklist">Release pack: reproducibility cookbook + Zenodo checklist</a> <ul> <li><a href="#minimal-reproducibility-steps">Minimal reproducibility steps</a></li> <li><a href="#doi-consistency-must">DOI consistency (MUST)</a></li> <li><a href="#zenodo-upload-checklist-suggested-before-publish">Zenodo upload checklist (suggested, before publish)</a></li> </ul></li> <li><a href="#roadmap-v1.2-vnext">Roadmap (v1.2 → vNext)</a></li> <li><a href="#limitations-and-threats-to-validity-academic">Limitations and threats to validity (academic)</a> <ul> <li><a href="#what-this-pack-does-not-establish">What this pack does <em>not</em> establish</a></li> <li><a href="#threat-model-where-errors-can-hide">Threat model (where errors can hide)</a></li> <li><a href="#falsification-triggers-fast-fail-list">Falsification triggers (fast FAIL list)</a></li> </ul></li> <li><a href="#references-selected">References (selected)</a></li> <li><a href="#appendix-a-deterministic-dna-interpretation-whitepaper-mousemm39-v1.2-english-full-text">Appendix A: Deterministic DNA Interpretation Whitepaper (Mouse/mm39) — v1.2 (English; full text)</a></li> <li><a href="#appendix-b-biophysical-electromagnetic-dynamics-english-archival-snapshot">Appendix B: Biophysical Electromagnetic Dynamics (English; archival snapshot)</a></li> <li><a href="#appendix-c-diabetes-therapeutic-drug-proposal-ω-learnsim-ir-pam-sensitizer-english-archival-snapshot">Appendix C: Diabetes Therapeutic Drug Proposal (<strong>Ω-LearnSim</strong> <strong>IR PAM-Sensitizer</strong>) (English; archival snapshot)</a></li> <li><a href="#appendix-d-integrated-dna-dictionary-english-ω-dictionary-key-mapping-snapshots">Appendix D: Integrated DNA Dictionary (English; Ω-Dictionary + KEY mapping snapshots)</a></li> <li><a href="#appendix-e-dna_experiment_en.txt-omega-genesis-execution-log-extracted-plain-text">Appendix E: DNA_experiment_EN.txt (Omega-Genesis execution log; extracted plain text)</a></li> <li><a href="#appendix-f-ω-dictionarykey-mapping-yaml-machine-readable-v1.2-active">Appendix F: Ω-Dictionary→KEY mapping YAML (machine-readable; v1.2 active)</a></li> <li><a href="#appendix-g-ω-dictionarykey-mapping-yaml-legacy-v1.1-archived">Appendix G: Ω-Dictionary→KEY mapping YAML (legacy v1.1; archived)</a></li> <li><a href="#appendix-h-ω-dictionarykey-mapping-yaml-legacy-v1.0-archived">Appendix H: Ω-Dictionary→KEY mapping YAML (legacy v1.0; archived)</a></li> <li><a href="#appendix-i-mapping-coverage-report-v1.2-generated">Appendix I: Mapping coverage report (v1.2; generated)</a></li> <li><a href="#appendix-j-key-ontology-yaml-machine-readable">Appendix J: KEY ontology YAML (machine-readable)</a></li> </ul> </aside> <article class="wp-article"> <div class="center"> <p>Zenodo DOI (this release, reserved): <code>10.5281/zenodo.17979016</code><br /> Related base DOI (mm39 v1.2): <code>10.5281/zenodo.17963127</code></p> </div> <p><strong>Keywords:</strong> deterministic interpretation; KEY; U–J dynamics; Gate verification; reproducibility; bio-electromagnetics; neurodynamics; insulin receptor; PAM-sensitizer.</p> <h1 id="front-matter">Front matter</h1> <p><strong>License.</strong> CC BY 4.0 (unless a file states otherwise).<br /> <strong>Funding/CoI.</strong> No funding; no conflict of interest.<br /> <strong>Related base record.</strong> Deterministic DNA Interpretation Whitepaper (Mouse/mm39) — v1.2 (Zenodo DOI: <code>10.5281/zenodo.17963127</code>).<br /> </p> <h2 id="purpose-and-claim-boundary">Purpose and claim boundary</h2> <p>This document is not an “introduction to the theory,” but is written to leave a <strong>verifiable public contract</strong>. Accordingly, the core is not <em>textual persuasion</em>, but whether the following artifacts exist and reproduce:</p> <ul> <li><p>A4 arrangement (arrangement object)</p></li> <li><p><strong>J_LEDGER</strong> (irreversible event ledger)</p></li> <li><p>Gate verdict ( / )</p></li> </ul> <div class="remark"> <p><strong>Remark 1</strong>. <em>This document does not declare a “correct answer.” Instead it fixes claims in a <strong>contestable form</strong> via .</em></p> </div> <h2 id="reader-guide-tracks-verification-first">Reader guide (tracks + verification-first)</h2> <ul> <li><p><strong>(Main) Integrated narrative (front matter).</strong> §2–§8 provide an integrated description of the applications volume’s design rationale (objects/contracts) and the adjudication structure for minimal claims. KEY <span class="math inline">\(\rightarrow\)</span> U–J<span class="math inline">\(\rightarrow\)</span> Gate <span class="math inline">\(\rightarrow\)</span> Applications is presented as a single flow.</p></li> <li><p><strong>Application A (Bio EM / neural).</strong> §9 organizes the Bio–EM track into (i) a conceptual overview and (ii) gate-based specifications (verification gates). Detailed original text follows Appendix B (text snapshot) and the bundled <code>UJ-REPRO-KIT</code>.</p></li> <li><p><strong>Application B (Therapeutic concept).</strong> §10 includes only the <code>AXIOM-FIX / NO-CAL</code> public scope (qualitative labels + stop rules). Detailed original text is traced via Appendix C and the bundled reproducibility bundle.</p></li> <li><p><strong>Appendices (traceability / preservation of originals).</strong> Appendix A–E preserve key originals and snapshots in service of the “integrative volume that includes all supporting material” goal. In vNext, core definitions/examples in the appendices will be progressively moved into the main body (rearranged) (§12).</p></li> </ul> <h2 id="policy-keywords-ascii">Policy keywords (ASCII)</h2> <ul> <li><p><code>AXIOM-FIX</code>: Freeze the meaning of definitions/terms/labels at the version level (core to reproducibility).</p></li> <li><p><code>NO-CAL</code>: (therapy track) does not include numerical tuning, dosing, experimental recipes, or clinical procedures. It discloses only <em>qualitative labels + guardrails + stop rules</em>.</p></li> <li><p><code>PUBLIC-REFERENCE</code>: (DNA examples) contains no personal genomes/patient data. Human DNA examples use only public standards (references) or publicly available specifications/examples.</p></li> <li><p><code>LOCK-DERIVE-GATE</code>: Lock inputs/priors/layouts (LOCK), derive outputs via fixed rules (DERIVE), and fix the verdict as an artifact (GATE).</p></li> </ul> <h2 id="notation-and-symbol-conventions-mm39-compatible">Notation and symbol conventions (mm39-compatible)</h2> <p>This document inherits the symbol system of mm39 v1.2-KO(v1.6) <strong>verbatim</strong>. Any newly introduced symbols/labels are defined <strong>without conflicts</strong> and used consistently throughout the document.</p> <h4 id="typography-rule-operational.">Typography rule (operational).</h4> <p>File names/field names/tokens are set in <code>monospace</code>, and mathematical symbols are set in math mode. Machine-readable tokens are, where possible, fixed as ASCII (uppercase + underscore), and when a document-friendly notation would conflict, an explicit <em>alias</em> is provided.</p> <table style="width:94%;"> <colgroup> <col style="width: 18%" /> <col style="width: 24%" /> <col style="width: 52%" /> </colgroup> <thead> <tr class="header"> <th style="text-align: left;"><strong>Notation</strong></th> <th style="text-align: left;"><strong>Category</strong></th> <th style="text-align: left;"><strong>Meaning / role (fixed)</strong></th> </tr> </thead> <tbody> <tr class="odd"> <td style="text-align: left;">LOCK<span class="math inline">\(\rightarrow\)</span>Derive<span class="math inline">\(\rightarrow\)</span>Gate</td> <td style="text-align: left;">contract</td> <td style="text-align: left;">Base contract that locks inputs (LOCK), derives outputs with fixed rules (DERIVE), and concludes with a Gate verdict (GATE).</td> </tr> <tr class="even"> <td style="text-align: left;">A4</td> <td style="text-align: left;">object</td> <td style="text-align: left;">Arrangement object. Example: ( + ).</td> </tr> <tr class="odd"> <td style="text-align: left;">A5</td> <td style="text-align: left;">object</td> <td style="text-align: left;">Priors/constraints object. Example: or an initial-condition lock under <code>DATA_LOCK</code>.</td> </tr> <tr class="even"> <td style="text-align: left;"><strong>J_LEDGER</strong></td> <td style="text-align: left;">artifact</td> <td style="text-align: left;">Irreversible event ledger (auditable). Example: { , , , , }.</td> </tr> <tr class="odd"> <td style="text-align: left;"></td> <td style="text-align: left;">activity tokens</td> <td style="text-align: left;">Canonical tokens of the 4-operation grammar fixed in mm39.</td> </tr> <tr class="even"> <td style="text-align: left;"></td> <td style="text-align: left;">gate verdict</td> <td style="text-align: left;">Gate verdict values. INCONCLUSIVE is a conservative label when adjudication is not possible due to environment/device factors.</td> </tr> <tr class="odd"> <td style="text-align: left;"><code>FAIL_LABEL</code></td> <td style="text-align: left;">label</td> <td style="text-align: left;">Explicit failure reason label for non-derivable output/verification failure (does not replace the gate verdict).</td> </tr> <tr class="even"> <td style="text-align: left;">U–J</td> <td style="text-align: left;">decomposition</td> <td style="text-align: left;">Decomposition into conservative paths (<span class="math inline">\(\mathcal{U}_2,\mathcal{U}_3\)</span>) and irreversible/dissipative path (<span class="math inline">\(\mathcal{J}\)</span>); events are recorded in <strong>J_LEDGER</strong>.</td> </tr> <tr class="odd"> <td style="text-align: left;"><span class="math inline">\(\Psi\)</span></td> <td style="text-align: left;">state</td> <td style="text-align: left;">Abstract state acted on by U/J operators (not a claim about molecular mechanisms; a bookkeeping state variable).</td> </tr> <tr class="even"> <td style="text-align: left;"><span class="math inline">\(\mathcal{U}_2,\mathcal{U}_3\)</span></td> <td style="text-align: left;">operators</td> <td style="text-align: left;">Qualitative conservative moves. <span class="math inline">\(\mathcal{U}_3\)</span> can be interpreted as a residual-pressure accumulation channel.</td> </tr> <tr class="odd"> <td style="text-align: left;"><span class="math inline">\(\mathcal{J}\)</span></td> <td style="text-align: left;">operator</td> <td style="text-align: left;">Dissipative/jump (irreversible) operator; observed as <code>JEVENT</code> occurrences in the ledger.</td> </tr> <tr class="even"> <td style="text-align: left;"><span class="math inline">\(U_3\)</span></td> <td style="text-align: left;">qualitative state</td> <td style="text-align: left;">Residual pressure state variable (qualitative), distinct from the operator <span class="math inline">\(\mathcal{U}_3\)</span>.</td> </tr> <tr class="odd"> <td style="text-align: left;"><span class="math inline">\(C\)</span></td> <td style="text-align: left;">operator</td> <td style="text-align: left;">Counter-arrangement operator (qualitative).</td> </tr> <tr class="even"> <td style="text-align: left;">Bio–EM</td> <td style="text-align: left;">track</td> <td style="text-align: left;">Bio-electromagnetic / neural dynamics application track (includes computational gate snapshot).</td> </tr> <tr class="odd"> <td style="text-align: left;"><strong>Ω-LearnSim</strong></td> <td style="text-align: left;">track</td> <td style="text-align: left;">Therapeutic concept track (<strong>IR PAM-Sensitizer</strong>). Only the <code>NO-CAL</code> scope (qualitative labels + guardrails + stop rules) is disclosed.</td> </tr> <tr class="even"> <td style="text-align: left;"><span class="math inline">\(\Pi_T,\Pi_L\)</span></td> <td style="text-align: left;">invariants</td> <td style="text-align: left;">Invariants/metrics used in Bio–EM verification (e.g., ToF/boundary/transfer stability).</td> </tr> <tr class="odd"> <td style="text-align: left;"><span class="math inline">\(\rho(G)\)</span></td> <td style="text-align: left;">stability indicator</td> <td style="text-align: left;">Stability indicator based on transfer gain / spectral radius (used as a gate condition).</td> </tr> </tbody> </table> <p><em>Notation compatibility note.</em> In Appendices B–D (source snapshots), the original source notation may denote the conservative channels as <span class="math inline">\(U_2/U_3\)</span>. In the integrated contract of the present release, the operator channels are denoted <span class="math inline">\(\mathcal{U}_2/\mathcal{U}_3\)</span>; the qualitative state variable <span class="math inline">\(U_3\)</span> is reserved for residual-pressure labeling.</p> <h4 id="alias-map-explicit.">Alias map (explicit).</h4> <p>In the bundles/originals, the following aliases may appear: <code>J_EVENT</code> <span class="math inline">\(\equiv\)</span> <code>JEVENT</code>; <code>CENTER★</code> <span class="math inline">\(\equiv\)</span> <code>CENTER_STAR</code>. When you encounter an alias, reduce it to the <strong>canonical token</strong> in this table for interpretation.</p> <h1 id="executive-summary-integrated-narrative">Executive summary (integrated narrative)</h1> <p>This whitepaper is an integrated applications volume that extends the deterministic interpretation contract (LOCK<span class="math inline">\(\rightarrow\)</span>Derive<span class="math inline">\(\rightarrow\)</span>Gate) defined in mm39 v1.2 to the application level. The core goal is to connect interpretation artifacts (A4, <strong>J_LEDGER</strong>) to (i) verification specifications (Gate) and (ii) application conclusions (assurance/risk/stop-rules), so that claims are fixed not by text but by artifacts.</p> <h2 id="what-this-release-adds-beyond-mm39-v1.2">What this release adds (beyond mm39 v1.2)</h2> <p>Where mm39 v1.2 presented A4 + <strong>J_LEDGER</strong> as “interpretation artifacts” and specified <strong>how to make them</strong> (a pipeline contract), this applications volume bundles, in the same package, what is needed to connect those artifacts to <strong>verification specifications and application conclusions</strong>.</p> <ul> <li><p><strong>Full KEY spec + ontology lock.</strong> With and the KEY bundle, the meaning of terms/labels is <strong>frozen at the version level (AXIOM-FIX)</strong>.</p></li> <li><p><strong>U–J dynamics + Gate specification.</strong> To ensure that “explanations” resolve not as text but as <strong>artifacts</strong>, the package includes gate-name/alias normalization, table headers, and adjudication rules as bundled artifacts.</p></li> <li><p><strong>Minimal-claim set for Applications A/B.</strong> The public scope of Bio–EM (waveguide/soliton/causality) and <strong>Ω-LearnSim</strong> (<strong>IR PAM-Sensitizer</strong>) is constrained and fixed as <strong>verifiable claims + stop rules</strong>.</p></li> <li><p><strong>Single-upload artifact.</strong> Uploading this single release zip to Zenodo is sufficient so that “document + source + bundles + integrity” are preserved together.</p></li> </ul> <h2 id="evidence-snapshot-what-is-checkable-in-this-pack">Evidence snapshot (what is checkable in this pack)</h2> <h4 id="bioem-neurodynamics-computational-reproducibility-screen-only.">Bio–EM/ neurodynamics (computational reproducibility; screen-only).</h4> <p>This release includes , and within it and provide a minimal demonstration that the <strong>Bio–EM interpretation frame is adjudicable via Gate</strong> . In summary, (i) waveguiding (TIR) conditions, (ii) causality (ToF), (iii) soliton stability, (iv) conservation (), (v) EEG beat matching, (vi) prohibition of calibration leakage (), and (vii) boundary conditions (phantom boundary) are recorded as <strong>PASS</strong>. However, this is a <strong>computational verification (screen mode)</strong>; FULL verification against measured data (ECoG/MEG, etc.) is left as a roadmap item in §12.</p> <h4 id="ω-learnsim-ir-pam-sensitizer-qualitative-versioned."><strong>Ω-LearnSim</strong> (<strong>IR PAM-Sensitizer</strong>; qualitative + versioned).</h4> <p>The therapy track discloses only <strong>qualitative labels and stop rules</strong> under the <code>NO-CAL</code> policy. Nevertheless, reproducibility is maintained not as “explanation” but as <strong>versioned artifacts</strong>: contains a summary card (), a risk log (), an assurance case (), etc., preserving a <strong>Claim–Evidence–Risk–Stop-rules</strong> structure. The public claim is restricted to: “sensitized only under insulin-present conditions (minimizing off-target), and if no-insulin agonism, IGF-1R/Hybrid activation, or tolerance signs are observed, immediately REVISE/HALT” (§10).</p> <h2 id="one-line-contract-what-the-whole-pack-asserts">One-line contract (what the whole pack asserts)</h2> <pre data-fontsize="\small"><code>KEY (language) -&gt; U-J (dynamics ledger) -&gt; Gate (\path{PASS/FAIL/INCONCLUSIVE}) -&gt; Applications A4 layout J_LEDGER verdict.json assurance / risk / stop-rules</code></pre> <h2 id="what-deterministic-means-here-operational">What “deterministic” means here (operational)</h2> <div class="claim"> <p><strong>Claim 1</strong> (Deterministic output contract). <em>If inputs satisfy the contract, the specified artifacts are produced (OK), or a failure label is returned (<code>FAIL_LABEL</code>).</em></p> </div> <div class="claim"> <p><strong>Claim 2</strong> (Audit trail and integrity). <em>All artifacts are listed in <code>MANIFEST.json</code> and integrity-checked via <code>CHECKSUMS.txt</code> (sha256).</em></p> </div> <div class="claim"> <p><strong>Claim 3</strong> (Gate decidability). <em>Core claims resolve not as text but as in / .</em></p> </div> <h2 id="why-applications-are-possible-objects-not-metaphors">Why applications are possible (objects, not metaphors)</h2> <p>In this framework, an “application” is not a metaphor but <strong>object reuse</strong>. That is, even across domains, if the same-shaped objects A4, <strong>J_LEDGER</strong>, and <code>verdict</code> can be shared as inputs/outputs, then the “connection” becomes not philosophy but a <strong>formal contract</strong>.</p> <table style="width:94%;"> <colgroup> <col style="width: 18%" /> <col style="width: 30%" /> <col style="width: 46%" /> </colgroup> <thead> <tr class="header"> <th style="text-align: left;"><strong>Object</strong></th> <th style="text-align: left;"><strong>Role</strong></th> <th style="text-align: left;"><strong>Minimal fields (public view)</strong></th> </tr> </thead> <tbody> <tr class="odd"> <td style="text-align: left;">A4 layout</td> <td style="text-align: left;">Standard input that locks the “arrangement”</td> <td style="text-align: left;"><code>anchors/motors/loops/shells</code> + <code>ontology_lock</code></td> </tr> <tr class="even"> <td style="text-align: left;"><strong>J_LEDGER</strong></td> <td style="text-align: left;">Record of irreversible transitions (auditable)</td> <td style="text-align: left;"><code>event_id, event_type, label, context, verdict</code></td> </tr> <tr class="odd"> <td style="text-align: left;">Gate verdict</td> <td style="text-align: left;">Fixed point of adjudication</td> <td style="text-align: left;"><code>gate, result, violated_rule, notes</code></td> </tr> </tbody> </table> <h2 id="axiom-map-a1a5-and-where-gates-attach">Axiom map (A1–A5) and where gates attach</h2> <p>The axioms (A1–A5) presented in Appendix A (preserved originals) are, in the applications volume, mapped to the following <strong>verification points (gates)</strong>. (We are not trying to prove the axioms “true/false” here; instead we fix which artifacts must fail (FAIL) if an axiom is violated.)</p> <table style="width:96%;"> <colgroup> <col style="width: 12%" /> <col style="width: 38%" /> <col style="width: 46%" /> </colgroup> <thead> <tr class="header"> <th style="text-align: left;"><strong>Axiom</strong></th> <th style="text-align: left;"><strong>Operational reading</strong></th> <th style="text-align: left;"><strong>Typical gate / artifact</strong></th> </tr> </thead> <tbody> <tr class="odd"> <td style="text-align: left;">A1</td> <td style="text-align: left;">Basic equations in the wave/field perspective (information transfer expressed as field propagation)</td> <td style="text-align: left;">, (EM track) ,</td> </tr> <tr class="even"> <td style="text-align: left;">A2</td> <td style="text-align: left;">Energy/conservation bookkeeping (no new energy injection; sign/path conservation)</td> <td style="text-align: left;">,</td> </tr> <tr class="odd"> <td style="text-align: left;">A3</td> <td style="text-align: left;"><span class="math inline">\(\mathcal{U}_2/\mathcal{U}_3/\mathcal{J}\)</span> decomposition (conservative vs dissipative; irreversible event ledger)</td> <td style="text-align: left;">,</td> </tr> <tr class="even"> <td style="text-align: left;">A4</td> <td style="text-align: left;">Physical constraints (stability/boundary/saturation, etc.)</td> <td style="text-align: left;"><code>Stability</code> family gates,</td> </tr> <tr class="odd"> <td style="text-align: left;">A5</td> <td style="text-align: left;">Initial conditions = arrangement; input locking is assumed</td> <td style="text-align: left;"><code>DATA_LOCK</code> / <code>ontology_lock</code> / <code>NONDETERMINISTIC_OUTPUT</code></td> </tr> </tbody> </table> <h2 id="rapid-verification-protocol-reviewer-facing">Rapid verification protocol (reviewer-facing)</h2> <p>A reviewer can quickly check the package’s stated minimal guarantees via the following steps.</p> <ol> <li><p><strong>Integrity</strong>: does <code>sha256sum -c CHECKSUMS.txt</code> report all OK?</p></li> <li><p><strong>DOI consistency</strong>: Do <code>DOI.txt / CITATION.cff / zenodo.json</code> all contain the same DOI?</p></li> <li><p><strong>Build</strong>: does build under XeLaTeX?</p></li> <li><p><strong>Form</strong>: are <em>format examples</em> for A4, <strong>J_LEDGER</strong>, and <code>verdict</code> explicitly shown in the document (§4.3)?</p></li> <li><p><strong>Adjudication</strong>: are core claims designed to be expressible as Gate (§6, §9, §10)?</p></li> </ol> <h4 id="traceability-anchors-where-the-evidence-is">Traceability anchors (where the evidence is)</h4> <ul> <li><p><strong>KEY definitions/labels</strong>: +</p></li> <li><p><strong>Ω-Dictionary + DNA_experiment.txt</strong>: Appendix D(Ω-Dictionary snapshot) + <code>DNA_experiment.txt</code>(Appendix E) + (Appendix F) + (Appendix I)</p></li> <li><p><strong>Gate specifications</strong>:</p></li> <li><p><strong>Repro kits</strong>: (Bio–EM) / (<strong>Ω-LearnSim</strong>)</p></li> <li><p><strong>Preserved originals</strong>: Appendix A–E (text snapshots; typeset for audit)</p></li> </ul> <h1 id="scope-non-claims-safety-boundaries">Scope, non-claims, safety boundaries</h1> <h2 id="non-claims-important">Non-claims (important)</h2> <ul> <li><p>No claim to “fully solve” biological function or the causes/treatments of disease.</p></li> <li><p>(therapy track) no provision of experimental recipes, clinical procedures, or dosing/administration guidance (<code>NO-CAL</code>).</p></li> <li><p>No provision of concrete combinatorial optimization guidance that could facilitate potential misuse (e.g., pathogen design).</p></li> </ul> <h2 id="safety-posture-public-view">Safety posture (public view)</h2> <p>This release controls risk transparently—without “hiding” it—via <strong>warnings, guardrails, and stop rules</strong>. In particular, the therapy track is designed to satisfy both of the following:</p> <ul> <li><p><strong>Knowledge disclosure (public benefit).</strong> Disclose qualitative labels/evidence/risks/stop rules to increase verifiability.</p></li> <li><p><strong>No action guidance (safety).</strong> Do not include dosages, experimental procedures, clinical protocols, or manufacturing recipes.</p></li> </ul> <h1 id="system-overview-and-data-contract-lockrightarrowderiverightarrowgate">System overview and data contract (LOCK<span class="math inline">\(\rightarrow\)</span>Derive<span class="math inline">\(\rightarrow\)</span>Gate)</h1> <h2 id="layered-architecture-and-canonical-outputs">Layered architecture and canonical outputs</h2> <table style="width:94%;"> <colgroup> <col style="width: 16%" /> <col style="width: 36%" /> <col style="width: 42%" /> </colgroup> <thead> <tr class="header"> <th style="text-align: left;"><strong>Layer</strong></th> <th style="text-align: left;"><strong>Role</strong></th> <th style="text-align: left;"><strong>Canonical outputs (examples)</strong></th> </tr> </thead> <tbody> <tr class="odd"> <td style="text-align: left;">KEY</td> <td style="text-align: left;">1D sequence/specification <span class="math inline">\(\rightarrow\)</span> 4D arrangement + dictionary entry</td> <td style="text-align: left;"><code>A4_layout.json</code>, <code>KEY entry</code>, <code>KEY_ONTOLOGY.yaml</code></td> </tr> <tr class="even"> <td style="text-align: left;">U–J</td> <td style="text-align: left;">Conservative/dissipative decomposition + irreversible event ledger</td> <td style="text-align: left;">,</td> </tr> <tr class="odd"> <td style="text-align: left;">Gate</td> <td style="text-align: left;">verification spec</td> <td style="text-align: left;">, ,</td> </tr> <tr class="even"> <td style="text-align: left;">Applications</td> <td style="text-align: left;">Application conclusions (design/risk/governance)</td> <td style="text-align: left;"><code>assurance_case.md</code>, <code>risk_log.csv</code>, <code>proposal.md</code></td> </tr> </tbody> </table> <h2 id="canonical-schema-snippets-public-schematic">Canonical schema snippets (public, schematic)</h2> <p>The example below is a sketch to illustrate the “format,” and does not include actual values (coordinates/numerics/experimental conditions). When needed, redacted fields are denoted <code>&lt;redacted&gt;</code>.</p> <h4 id="a4-layout-schematic">A4 layout (schematic)</h4> <pre data-fontsize="\small"><code>{ &quot;anchors&quot;: [{&quot;id&quot;:&quot;ANCHOR-00001&quot;,&quot;role&quot;:&quot;boundary&quot;,&quot;pos&quot;:&quot;&lt;redacted&gt;&quot;}], &quot;motors&quot;: [{&quot;id&quot;:&quot;MOTOR-00001&quot;,&quot;role&quot;:&quot;driver&quot;,&quot;pos&quot;:&quot;&lt;redacted&gt;&quot;}], &quot;loops&quot;: [{&quot;id&quot;:&quot;LOOP-00001&quot;,&quot;from&quot;:&quot;ANCHOR-00001&quot;,&quot;to&quot;:&quot;ANCHOR-00002&quot;,&quot;state&quot;:&quot;ACTIVE&quot;}], &quot;shells&quot;: [{&quot;id&quot;:&quot;SHELL-00001&quot;,&quot;type&quot;:&quot;domain&quot;,&quot;members&quot;:[&quot;&lt;redacted&gt;&quot;]}], &quot;ontology_lock&quot;: &quot;KEYO-v1.0 / AXIOM-FIX&quot;
-}</code></pre> <h4 id="j_ledger-schematic"><strong>J_LEDGER</strong> (schematic)</h4> <pre data-fontsize="\small"><code>event_id,event_type,label,context,verdict
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="navbar">
+  <a href="/" class="nav-logo">JAMMING PHYSICS</a>
+  <div class="nav-right">
+    <select id="paperSelect" class="select-paper" aria-label="Select whitepaper"></select>
+    
+    <div class="lang-switch"><a href="/ko/whitepapers/bio-physical-apps/">한국어</a></div>
+    <div class="lang-switch"><a href="/en/whitepapers/bio-physical-apps/">English</a></div>
+    
+  </div>
+</nav>
+<main id="main" class="wp-shell">
+
+  <div class="wp-grid">
+    <aside class="wp-toc"><div id="autoTOC"></div></aside>
+    <article class="wp-content">
+<div class="wp-header">
+  <h1>Deterministic Bio-Physical Applications Whitepaper — v1.2</h1>
+  <div class="wp-meta">
+    <a class="btn" href="https://doi.org/10.5281/zenodo.17979016">DOI</a>
+    <a class="btn" href="/en/whitepapers/">Whitepapers</a>
+  </div>
+</div>
+<div class="center">
+<p>Zenodo DOI (this release, reserved):
+<code>10.5281/zenodo.17979016</code><br />
+Related base DOI (mm39 v1.2): <code>10.5281/zenodo.17963127</code></p>
+</div>
+<p><strong>Keywords:</strong> deterministic interpretation; KEY; U–J
+dynamics; Gate verification; reproducibility; bio-electromagnetics;
+neurodynamics; insulin receptor; PAM-sensitizer.</p>
+<section id="front-matter" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Front
+matter</h1>
+<p><strong>License.</strong> CC BY 4.0 (unless a file states
+otherwise).<br />
+<strong>Funding/CoI.</strong> No funding; no conflict of interest.<br />
+<strong>Related base record.</strong> Deterministic DNA Interpretation
+Whitepaper (Mouse/mm39) — v1.2 (Zenodo DOI:
+<code>10.5281/zenodo.17963127</code>).<br />
+</p>
+<section id="purpose-and-claim-boundary" class="level2"
+data-number="1.1">
+<h2 data-number="1.1"><span class="header-section-number">1.1</span>
+Purpose and claim boundary</h2>
+<p>This document is not an “introduction to the theory,” but is written
+to leave a <strong>verifiable public contract</strong>. Accordingly, the
+core is not <em>textual persuasion</em>, but whether the following
+artifacts exist and reproduce:</p>
+<ul>
+<li><p>A4 arrangement (arrangement object)</p></li>
+<li><p><strong>J_LEDGER</strong> (irreversible event ledger)</p></li>
+<li><p>Gate verdict ( / )</p></li>
+</ul>
+<div class="remark">
+<p><strong>Remark 1</strong>. <em>This document does not declare a
+“correct answer.” Instead it fixes claims in a <strong>contestable
+form</strong> via .</em></p>
+</div>
+</section>
+<section id="reader-guide-tracks-verification-first" class="level2"
+data-number="1.2">
+<h2 data-number="1.2"><span class="header-section-number">1.2</span>
+Reader guide (tracks + verification-first)</h2>
+<ul>
+<li><p><strong>(Main) Integrated narrative (front matter).</strong>
+§2–§8 provide an integrated description of the applications volume’s
+design rationale (objects/contracts) and the adjudication structure for
+minimal claims. KEY <span class="math inline">\(\rightarrow\)</span>
+U–J<span class="math inline">\(\rightarrow\)</span> Gate <span
+class="math inline">\(\rightarrow\)</span> Applications is presented as
+a single flow.</p></li>
+<li><p><strong>Application A (Bio EM / neural).</strong> §9 organizes
+the Bio–EM track into (i) a conceptual overview and (ii) gate-based
+specifications (verification gates). Detailed original text follows
+Appendix B (text snapshot) and the bundled
+<code>UJ-REPRO-KIT</code>.</p></li>
+<li><p><strong>Application B (Therapeutic concept).</strong> §10
+includes only the <code>AXIOM-FIX / NO-CAL</code> public scope
+(qualitative labels + stop rules). Detailed original text is traced via
+Appendix C and the bundled reproducibility bundle.</p></li>
+<li><p><strong>Appendices (traceability / preservation of
+originals).</strong> Appendix A–E preserve key originals and snapshots
+in service of the “integrative volume that includes all supporting
+material” goal. In vNext, core definitions/examples in the appendices
+will be progressively moved into the main body (rearranged)
+(§12).</p></li>
+</ul>
+</section>
+<section id="policy-keywords-ascii" class="level2" data-number="1.3">
+<h2 data-number="1.3"><span class="header-section-number">1.3</span>
+Policy keywords (ASCII)</h2>
+<ul>
+<li><p><code>AXIOM-FIX</code>: Freeze the meaning of
+definitions/terms/labels at the version level (core to
+reproducibility).</p></li>
+<li><p><code>NO-CAL</code>: (therapy track) does not include numerical
+tuning, dosing, experimental recipes, or clinical procedures. It
+discloses only <em>qualitative labels + guardrails + stop
+rules</em>.</p></li>
+<li><p><code>PUBLIC-REFERENCE</code>: (DNA examples) contains no
+personal genomes/patient data. Human DNA examples use only public
+standards (references) or publicly available
+specifications/examples.</p></li>
+<li><p><code>LOCK-DERIVE-GATE</code>: Lock inputs/priors/layouts (LOCK),
+derive outputs via fixed rules (DERIVE), and fix the verdict as an
+artifact (GATE).</p></li>
+</ul>
+</section>
+<section id="notation-and-symbol-conventions-mm39-compatible"
+class="level2" data-number="1.4">
+<h2 data-number="1.4"><span class="header-section-number">1.4</span>
+Notation and symbol conventions (mm39-compatible)</h2>
+<p>This document inherits the symbol system of mm39 v1.2-KO(v1.6)
+<strong>verbatim</strong>. Any newly introduced symbols/labels are
+defined <strong>without conflicts</strong> and used consistently
+throughout the document.</p>
+<section id="typography-rule-operational." class="level4"
+data-number="1.4.0.1">
+<h4 data-number="1.4.0.1"><span
+class="header-section-number">1.4.0.1</span> Typography rule
+(operational).</h4>
+<p>File names/field names/tokens are set in <code>monospace</code>, and
+mathematical symbols are set in math mode. Machine-readable tokens are,
+where possible, fixed as ASCII (uppercase + underscore), and when a
+document-friendly notation would conflict, an explicit <em>alias</em> is
+provided.</p>
+<table style="width:94%;">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 24%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Notation</strong></th>
+<th style="text-align: left;"><strong>Category</strong></th>
+<th style="text-align: left;"><strong>Meaning / role
+(fixed)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">LOCK<span
+class="math inline">\(\rightarrow\)</span>Derive<span
+class="math inline">\(\rightarrow\)</span>Gate</td>
+<td style="text-align: left;">contract</td>
+<td style="text-align: left;">Base contract that locks inputs (LOCK),
+derives outputs with fixed rules (DERIVE), and concludes with a Gate
+verdict (GATE).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A4</td>
+<td style="text-align: left;">object</td>
+<td style="text-align: left;">Arrangement object. Example: ( + ).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A5</td>
+<td style="text-align: left;">object</td>
+<td style="text-align: left;">Priors/constraints object. Example: or an
+initial-condition lock under <code>DATA_LOCK</code>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>J_LEDGER</strong></td>
+<td style="text-align: left;">artifact</td>
+<td style="text-align: left;">Irreversible event ledger (auditable).
+Example: { , , , , }.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">activity tokens</td>
+<td style="text-align: left;">Canonical tokens of the 4-operation
+grammar fixed in mm39.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">gate verdict</td>
+<td style="text-align: left;">Gate verdict values. INCONCLUSIVE is a
+conservative label when adjudication is not possible due to
+environment/device factors.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>FAIL_LABEL</code></td>
+<td style="text-align: left;">label</td>
+<td style="text-align: left;">Explicit failure reason label for
+non-derivable output/verification failure (does not replace the gate
+verdict).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">U–J</td>
+<td style="text-align: left;">decomposition</td>
+<td style="text-align: left;">Decomposition into conservative paths
+(<span class="math inline">\(\mathcal{U}_2,\mathcal{U}_3\)</span>) and
+irreversible/dissipative path (<span
+class="math inline">\(\mathcal{J}\)</span>); events are recorded in
+<strong>J_LEDGER</strong>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span
+class="math inline">\(\Psi\)</span></td>
+<td style="text-align: left;">state</td>
+<td style="text-align: left;">Abstract state acted on by U/J operators
+(not a claim about molecular mechanisms; a bookkeeping state
+variable).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span
+class="math inline">\(\mathcal{U}_2,\mathcal{U}_3\)</span></td>
+<td style="text-align: left;">operators</td>
+<td style="text-align: left;">Qualitative conservative moves. <span
+class="math inline">\(\mathcal{U}_3\)</span> can be interpreted as a
+residual-pressure accumulation channel.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span
+class="math inline">\(\mathcal{J}\)</span></td>
+<td style="text-align: left;">operator</td>
+<td style="text-align: left;">Dissipative/jump (irreversible) operator;
+observed as <code>JEVENT</code> occurrences in the ledger.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span
+class="math inline">\(U_3\)</span></td>
+<td style="text-align: left;">qualitative state</td>
+<td style="text-align: left;">Residual pressure state variable
+(qualitative), distinct from the operator <span
+class="math inline">\(\mathcal{U}_3\)</span>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span
+class="math inline">\(C\)</span></td>
+<td style="text-align: left;">operator</td>
+<td style="text-align: left;">Counter-arrangement operator
+(qualitative).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bio–EM</td>
+<td style="text-align: left;">track</td>
+<td style="text-align: left;">Bio-electromagnetic / neural dynamics
+application track (includes computational gate snapshot).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Ω-LearnSim</strong></td>
+<td style="text-align: left;">track</td>
+<td style="text-align: left;">Therapeutic concept track (<strong>IR
+PAM-Sensitizer</strong>). Only the <code>NO-CAL</code> scope
+(qualitative labels + guardrails + stop rules) is disclosed.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span
+class="math inline">\(\Pi_T,\Pi_L\)</span></td>
+<td style="text-align: left;">invariants</td>
+<td style="text-align: left;">Invariants/metrics used in
+Bio–EM verification (e.g., ToF/boundary/transfer stability).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span
+class="math inline">\(\rho(G)\)</span></td>
+<td style="text-align: left;">stability indicator</td>
+<td style="text-align: left;">Stability indicator based on transfer gain
+/ spectral radius (used as a gate condition).</td>
+</tr>
+</tbody>
+</table>
+<p><em>Notation compatibility note.</em> In Appendices B–D (source
+snapshots), the original source notation may denote the conservative
+channels as <span class="math inline">\(U_2/U_3\)</span>. In the
+integrated contract of the present release, the operator channels are
+denoted <span
+class="math inline">\(\mathcal{U}_2/\mathcal{U}_3\)</span>; the
+qualitative state variable <span class="math inline">\(U_3\)</span> is
+reserved for residual-pressure labeling.</p>
+</section>
+<section id="alias-map-explicit." class="level4" data-number="1.4.0.2">
+<h4 data-number="1.4.0.2"><span
+class="header-section-number">1.4.0.2</span> Alias map (explicit).</h4>
+<p>In the bundles/originals, the following aliases may appear:
+<code>J_EVENT</code> <span class="math inline">\(\equiv\)</span>
+<code>JEVENT</code>; <code>CENTER★</code> <span
+class="math inline">\(\equiv\)</span> <code>CENTER_STAR</code>. When you
+encounter an alias, reduce it to the <strong>canonical token</strong> in
+this table for interpretation.</p>
+</section>
+</section>
+</section>
+<section id="executive-summary-integrated-narrative" class="level1"
+data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span>
+Executive summary (integrated narrative)</h1>
+<p>This whitepaper is an integrated applications volume that extends the
+deterministic interpretation contract (LOCK<span
+class="math inline">\(\rightarrow\)</span>Derive<span
+class="math inline">\(\rightarrow\)</span>Gate) defined in mm39 v1.2 to
+the application level. The core goal is to connect interpretation
+artifacts (A4, <strong>J_LEDGER</strong>) to (i) verification
+specifications (Gate) and (ii) application conclusions
+(assurance/risk/stop-rules), so that claims are fixed not by text but by
+artifacts.</p>
+<section id="what-this-release-adds-beyond-mm39-v1.2" class="level2"
+data-number="2.1">
+<h2 data-number="2.1"><span class="header-section-number">2.1</span>
+What this release adds (beyond mm39 v1.2)</h2>
+<p>Where mm39 v1.2 presented A4 + <strong>J_LEDGER</strong> as
+“interpretation artifacts” and specified <strong>how to make
+them</strong> (a pipeline contract), this applications volume bundles,
+in the same package, what is needed to connect those artifacts to
+<strong>verification specifications and application
+conclusions</strong>.</p>
+<ul>
+<li><p><strong>Full KEY spec + ontology lock.</strong> With and the KEY
+bundle, the meaning of terms/labels is <strong>frozen at the version
+level (AXIOM-FIX)</strong>.</p></li>
+<li><p><strong>U–J dynamics + Gate specification.</strong> To ensure
+that “explanations” resolve not as text but as
+<strong>artifacts</strong>, the package includes gate-name/alias
+normalization, table headers, and adjudication rules as bundled
+artifacts.</p></li>
+<li><p><strong>Minimal-claim set for Applications A/B.</strong> The
+public scope of Bio–EM (waveguide/soliton/causality) and
+<strong>Ω-LearnSim</strong> (<strong>IR PAM-Sensitizer</strong>) is
+constrained and fixed as <strong>verifiable claims + stop
+rules</strong>.</p></li>
+<li><p><strong>Single-upload artifact.</strong> Uploading this single
+release zip to Zenodo is sufficient so that “document + source + bundles
++ integrity” are preserved together.</p></li>
+</ul>
+</section>
+<section id="evidence-snapshot-what-is-checkable-in-this-pack"
+class="level2" data-number="2.2">
+<h2 data-number="2.2"><span class="header-section-number">2.2</span>
+Evidence snapshot (what is checkable in this pack)</h2>
+<section
+id="bioem-neurodynamics-computational-reproducibility-screen-only."
+class="level4" data-number="2.2.0.1">
+<h4 data-number="2.2.0.1"><span
+class="header-section-number">2.2.0.1</span> Bio–EM/ neurodynamics
+(computational reproducibility; screen-only).</h4>
+<p>This release includes , and within it and provide a minimal
+demonstration that the <strong>Bio–EM interpretation frame is
+adjudicable via Gate</strong> . In summary, (i) waveguiding (TIR)
+conditions, (ii) causality (ToF), (iii) soliton stability, (iv)
+conservation (), (v) EEG beat matching, (vi) prohibition of calibration
+leakage (), and (vii) boundary conditions (phantom boundary) are
+recorded as <strong>PASS</strong>. However, this is a
+<strong>computational verification (screen mode)</strong>; FULL
+verification against measured data (ECoG/MEG, etc.) is left as a roadmap
+item in §12.</p>
+</section>
+<section id="ω-learnsim-ir-pam-sensitizer-qualitative-versioned."
+class="level4" data-number="2.2.0.2">
+<h4 data-number="2.2.0.2"><span
+class="header-section-number">2.2.0.2</span>
+<strong>Ω-LearnSim</strong> (<strong>IR PAM-Sensitizer</strong>;
+qualitative + versioned).</h4>
+<p>The therapy track discloses only <strong>qualitative labels and stop
+rules</strong> under the <code>NO-CAL</code> policy. Nevertheless,
+reproducibility is maintained not as “explanation” but as
+<strong>versioned artifacts</strong>: contains a summary card (), a risk
+log (), an assurance case (), etc., preserving a
+<strong>Claim–Evidence–Risk–Stop-rules</strong> structure. The public
+claim is restricted to: “sensitized only under insulin-present
+conditions (minimizing off-target), and if no-insulin agonism,
+IGF-1R/Hybrid activation, or tolerance signs are observed, immediately
+REVISE/HALT” (§10).</p>
+</section>
+</section>
+<section id="one-line-contract-what-the-whole-pack-asserts"
+class="level2" data-number="2.3">
+<h2 data-number="2.3"><span class="header-section-number">2.3</span>
+One-line contract (what the whole pack asserts)</h2>
+<pre data-fontsize="\small"><code>KEY (language)  -&gt;  U-J (dynamics ledger)  -&gt;  Gate (\path{PASS/FAIL/INCONCLUSIVE})  -&gt;  Applications
+   A4 layout           J_LEDGER                 verdict.json         assurance / risk / stop-rules</code></pre>
+</section>
+<section id="what-deterministic-means-here-operational" class="level2"
+data-number="2.4">
+<h2 data-number="2.4"><span class="header-section-number">2.4</span>
+What “deterministic” means here (operational)</h2>
+<div class="claim">
+<p><strong>Claim 1</strong> (Deterministic output contract). <em>If
+inputs satisfy the contract, the specified artifacts are produced (OK),
+or a failure label is returned (<code>FAIL_LABEL</code>).</em></p>
+</div>
+<div class="claim">
+<p><strong>Claim 2</strong> (Audit trail and integrity). <em>All
+artifacts are listed in <code>MANIFEST.json</code> and integrity-checked
+via <code>CHECKSUMS.txt</code> (sha256).</em></p>
+</div>
+<div class="claim">
+<p><strong>Claim 3</strong> (Gate decidability). <em>Core claims resolve
+not as text but as in / .</em></p>
+</div>
+</section>
+<section id="why-applications-are-possible-objects-not-metaphors"
+class="level2" data-number="2.5">
+<h2 data-number="2.5"><span class="header-section-number">2.5</span> Why
+applications are possible (objects, not metaphors)</h2>
+<p>In this framework, an “application” is not a metaphor but
+<strong>object reuse</strong>. That is, even across domains, if the
+same-shaped objects A4, <strong>J_LEDGER</strong>, and
+<code>verdict</code> can be shared as inputs/outputs, then the
+“connection” becomes not philosophy but a <strong>formal
+contract</strong>.</p>
+<table style="width:94%;">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 30%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Object</strong></th>
+<th style="text-align: left;"><strong>Role</strong></th>
+<th style="text-align: left;"><strong>Minimal fields (public
+view)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A4 layout</td>
+<td style="text-align: left;">Standard input that locks the
+“arrangement”</td>
+<td style="text-align: left;"><code>anchors/motors/loops/shells</code> +
+<code>ontology_lock</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>J_LEDGER</strong></td>
+<td style="text-align: left;">Record of irreversible transitions
+(auditable)</td>
+<td
+style="text-align: left;"><code>event_id, event_type, label, context, verdict</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gate verdict</td>
+<td style="text-align: left;">Fixed point of adjudication</td>
+<td
+style="text-align: left;"><code>gate, result, violated_rule, notes</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="axiom-map-a1a5-and-where-gates-attach" class="level2"
+data-number="2.6">
+<h2 data-number="2.6"><span class="header-section-number">2.6</span>
+Axiom map (A1–A5) and where gates attach</h2>
+<p>The axioms (A1–A5) presented in Appendix A (preserved originals) are,
+in the applications volume, mapped to the following <strong>verification
+points (gates)</strong>. (We are not trying to prove the axioms
+“true/false” here; instead we fix which artifacts must fail (FAIL) if an
+axiom is violated.)</p>
+<table style="width:96%;">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 38%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Axiom</strong></th>
+<th style="text-align: left;"><strong>Operational reading</strong></th>
+<th style="text-align: left;"><strong>Typical gate /
+artifact</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A1</td>
+<td style="text-align: left;">Basic equations in the wave/field
+perspective (information transfer expressed as field propagation)</td>
+<td style="text-align: left;">, (EM track) ,</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A2</td>
+<td style="text-align: left;">Energy/conservation bookkeeping (no new
+energy injection; sign/path conservation)</td>
+<td style="text-align: left;">,</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A3</td>
+<td style="text-align: left;"><span
+class="math inline">\(\mathcal{U}_2/\mathcal{U}_3/\mathcal{J}\)</span>
+decomposition (conservative vs dissipative; irreversible event
+ledger)</td>
+<td style="text-align: left;">,</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A4</td>
+<td style="text-align: left;">Physical constraints
+(stability/boundary/saturation, etc.)</td>
+<td style="text-align: left;"><code>Stability</code> family gates,</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A5</td>
+<td style="text-align: left;">Initial conditions = arrangement; input
+locking is assumed</td>
+<td style="text-align: left;"><code>DATA_LOCK</code> /
+<code>ontology_lock</code> / <code>NONDETERMINISTIC_OUTPUT</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rapid-verification-protocol-reviewer-facing" class="level2"
+data-number="2.7">
+<h2 data-number="2.7"><span class="header-section-number">2.7</span>
+Rapid verification protocol (reviewer-facing)</h2>
+<p>A reviewer can quickly check the package’s stated minimal guarantees
+via the following steps.</p>
+<ol>
+<li><p><strong>Integrity</strong>: does
+<code>sha256sum -c CHECKSUMS.txt</code> report all OK?</p></li>
+<li><p><strong>DOI consistency</strong>: Do
+<code>DOI.txt / CITATION.cff / zenodo.json</code> all contain the same
+DOI?</p></li>
+<li><p><strong>Build</strong>: does build under XeLaTeX?</p></li>
+<li><p><strong>Form</strong>: are <em>format examples</em> for A4,
+<strong>J_LEDGER</strong>, and <code>verdict</code> explicitly shown in
+the document (§4.3)?</p></li>
+<li><p><strong>Adjudication</strong>: are core claims designed to be
+expressible as Gate (§6, §9, §10)?</p></li>
+</ol>
+<section id="traceability-anchors-where-the-evidence-is" class="level4"
+data-number="2.7.0.1">
+<h4 data-number="2.7.0.1"><span
+class="header-section-number">2.7.0.1</span> Traceability anchors (where
+the evidence is)</h4>
+<ul>
+<li><p><strong>KEY definitions/labels</strong>: +</p></li>
+<li><p><strong>Ω-Dictionary + DNA_experiment.txt</strong>: Appendix
+D(Ω-Dictionary snapshot) + <code>DNA_experiment.txt</code>(Appendix E) +
+(Appendix F) + (Appendix I)</p></li>
+<li><p><strong>Gate specifications</strong>:</p></li>
+<li><p><strong>Repro kits</strong>: (Bio–EM) /
+(<strong>Ω-LearnSim</strong>)</p></li>
+<li><p><strong>Preserved originals</strong>: Appendix A–E (text
+snapshots; typeset for audit)</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="scope-non-claims-safety-boundaries" class="level1"
+data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Scope,
+non-claims, safety boundaries</h1>
+<section id="non-claims-important" class="level2" data-number="3.1">
+<h2 data-number="3.1"><span class="header-section-number">3.1</span>
+Non-claims (important)</h2>
+<ul>
+<li><p>No claim to “fully solve” biological function or the
+causes/treatments of disease.</p></li>
+<li><p>(therapy track) no provision of experimental recipes, clinical
+procedures, or dosing/administration guidance
+(<code>NO-CAL</code>).</p></li>
+<li><p>No provision of concrete combinatorial optimization guidance that
+could facilitate potential misuse (e.g., pathogen design).</p></li>
+</ul>
+</section>
+<section id="safety-posture-public-view" class="level2"
+data-number="3.2">
+<h2 data-number="3.2"><span class="header-section-number">3.2</span>
+Safety posture (public view)</h2>
+<p>This release controls risk transparently—without “hiding” it—via
+<strong>warnings, guardrails, and stop rules</strong>. In particular,
+the therapy track is designed to satisfy both of the following:</p>
+<ul>
+<li><p><strong>Knowledge disclosure (public benefit).</strong> Disclose
+qualitative labels/evidence/risks/stop rules to increase
+verifiability.</p></li>
+<li><p><strong>No action guidance (safety).</strong> Do not include
+dosages, experimental procedures, clinical protocols, or manufacturing
+recipes.</p></li>
+</ul>
+</section>
+</section>
+<section
+id="system-overview-and-data-contract-lockrightarrowderiverightarrowgate"
+class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> System
+overview and data contract (LOCK<span
+class="math inline">\(\rightarrow\)</span>Derive<span
+class="math inline">\(\rightarrow\)</span>Gate)</h1>
+<section id="layered-architecture-and-canonical-outputs" class="level2"
+data-number="4.1">
+<h2 data-number="4.1"><span class="header-section-number">4.1</span>
+Layered architecture and canonical outputs</h2>
+<table style="width:94%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 36%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Layer</strong></th>
+<th style="text-align: left;"><strong>Role</strong></th>
+<th style="text-align: left;"><strong>Canonical outputs
+(examples)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">KEY</td>
+<td style="text-align: left;">1D sequence/specification <span
+class="math inline">\(\rightarrow\)</span> 4D arrangement + dictionary
+entry</td>
+<td style="text-align: left;"><code>A4_layout.json</code>,
+<code>KEY entry</code>, <code>KEY_ONTOLOGY.yaml</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">U–J</td>
+<td style="text-align: left;">Conservative/dissipative decomposition +
+irreversible event ledger</td>
+<td style="text-align: left;">,</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gate</td>
+<td style="text-align: left;">verification spec</td>
+<td style="text-align: left;">, ,</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">Application conclusions
+(design/risk/governance)</td>
+<td style="text-align: left;"><code>assurance_case.md</code>,
+<code>risk_log.csv</code>, <code>proposal.md</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canonical-schema-snippets-public-schematic" class="level2"
+data-number="4.2">
+<h2 data-number="4.2"><span class="header-section-number">4.2</span>
+Canonical schema snippets (public, schematic)</h2>
+<p>The example below is a sketch to illustrate the “format,” and does
+not include actual values (coordinates/numerics/experimental
+conditions). When needed, redacted fields are denoted
+<code>&lt;redacted&gt;</code>.</p>
+<section id="a4-layout-schematic" class="level4" data-number="4.2.0.1">
+<h4 data-number="4.2.0.1"><span
+class="header-section-number">4.2.0.1</span> A4 layout (schematic)</h4>
+<pre data-fontsize="\small"><code>{
+  &quot;anchors&quot;: [{&quot;id&quot;:&quot;ANCHOR-00001&quot;,&quot;role&quot;:&quot;boundary&quot;,&quot;pos&quot;:&quot;&lt;redacted&gt;&quot;}],
+  &quot;motors&quot;:  [{&quot;id&quot;:&quot;MOTOR-00001&quot;,&quot;role&quot;:&quot;driver&quot;,&quot;pos&quot;:&quot;&lt;redacted&gt;&quot;}],
+  &quot;loops&quot;:   [{&quot;id&quot;:&quot;LOOP-00001&quot;,&quot;from&quot;:&quot;ANCHOR-00001&quot;,&quot;to&quot;:&quot;ANCHOR-00002&quot;,&quot;state&quot;:&quot;ACTIVE&quot;}],
+  &quot;shells&quot;:  [{&quot;id&quot;:&quot;SHELL-00001&quot;,&quot;type&quot;:&quot;domain&quot;,&quot;members&quot;:[&quot;&lt;redacted&gt;&quot;]}],
+  &quot;ontology_lock&quot;: &quot;KEYO-v1.0 / AXIOM-FIX&quot;
+}</code></pre>
+</section>
+<section id="j_ledger-schematic" class="level4" data-number="4.2.0.2">
+<h4 data-number="4.2.0.2"><span
+class="header-section-number">4.2.0.2</span>
+<strong>J_LEDGER</strong> (schematic)</h4>
+<pre data-fontsize="\small"><code>event_id,event_type,label,context,verdict
 J0001,transition,&quot;lock_event&quot;,&quot;baseline&quot;,OK
-J0002,transition,&quot;boundary_flag&quot;,&quot;stress&quot;,FAIL_LABEL</code></pre> <h4 id="gate-table-verdict-schematic">Gate table + verdict (schematic)</h4> <pre data-fontsize="\small"><code># gate_table.csv header (normative)
-test_id,test_name,gate,result,metric,value,threshold,unit,notes # verdict.json skeleton
-{&quot;gate&quot;:&quot;ToF_GATE&quot;,&quot;result&quot;:&quot;PASS&quot;,&quot;violated_rule&quot;:null,&quot;notes&quot;:&quot;causal direction preserved (qual.)&quot;}</code></pre> <h2 id="gate-naming-standardization-global-normative">Gate naming standardization (global, normative)</h2> <p>The moment the same concept is called by different names across documents, reproducibility breaks. Therefore, Gate names are normalized via an <strong>alias map</strong> (example; the full set is preserved in the Appendix B snapshot).</p> <pre data-fontsize="\small"><code>gate_alias_map: CENTER★: CENTER_STAR CENTER_OPT_AX: CENTER_OPT_AX CENTER_D_Bridge: CENTER_D_BRIDGE</code></pre> <h2 id="failure-labels-public-closed-set">Failure labels (public, closed set)</h2> <p>The KEY ontology does not leave failures as “silence”; it fixes them as a <strong>closed label set</strong>. (The full label set is included in .)</p> <ul> <li><p>Input/schema: <code>FASTA_EMPTY</code>, <code>ANNOTATION_MISSING</code>, <code>SCHEMA_INVALID</code></p></li> <li><p>Reproducibility: <code>NONDETERMINISTIC_OUTPUT</code>, <code>DOI_AUDIT_FAIL</code></p></li> <li><p>Ontology: <code>CLOSED_VOCAB_FAIL</code>, <code>REFERENTIAL_INTEGRITY_FAIL</code></p></li> </ul> <h1 id="key-full-specification-ontology-expanded">KEY full specification + ontology (expanded)</h1> <p>KEY is not the “DNA dictionary” itself; it is the <strong>grammar book</strong> that constructs the dictionary. That is, KEY provides (i) an entry ID scheme, (ii) arrangement description rules, (iii) U–J dynamics linkage rules, and (iv) conventions for describing operational meaning.</p> <h2 id="ontology-lock-axiom-fix">Ontology lock (AXIOM-FIX)</h2> <p>The included freezes terms/labels at the version level. For applications, what matters is not “how much data” but <strong>consistency of definitions</strong>.</p> <ul> <li><p>Keep label values as a <strong>closed value set</strong>.</p></li> <li><p>Do not change the meaning of existing labels.</p></li> <li><p>Extend only by adding new labels (no reinterpretation of existing ones).</p></li> </ul> <h2 id="ω-dictionary-term-mapping-closure-deterministic-fallback">Ω-Dictionary term mapping (closure + deterministic fallback)</h2> <p>This release includes, in the main body/appendices, the <strong>Ω-Dictionary (integrated DNA dictionary)</strong> and a <strong>DNA experiment log</strong> as <em>public-reference-based</em> material (not personal genomes/patient data). As this layer grows, terminology becomes easier to drift; therefore this release fixes as the <strong>Ω-token<span class="math inline">\(\rightarrow\)</span>KEY object</strong> mapping and <strong>substitution (fallback) rules</strong>. (v1.1/v1.0 are preserved alongside for provenance.)</p> <h4 id="deterministic-substitution-rule">Deterministic substitution rule</h4> <p>When an exact key is missing, substitute only in the following <strong>deterministic order</strong>: <code>annotation_first → structure_first → sequence_only_fallback → unknown_label_only</code>. At the final step, <strong>estimation/hallucination is forbidden</strong>: keep <code>unknown/derived</code> labels, and when necessary, explicitly set entry-level failure labels (e.g., <code>ANNOTATION_MISSING</code>).</p> <h4 id="instance-tokens-typed-suffixes-not-new-primitives">Instance tokens (typed suffixes; not new primitives)</h4> <p>In the Ω-Dictionary and execution logs, tokens like <code>MOTOR_PROX</code>, <code>MOTOR_DIST</code>, <code>ANCHOR_A</code> may appear in a <em>“type + suffix”</em> form. These are not new primitives; they are <strong>instance labels</strong> of existing primitives (ANCHOR/MOTOR/LOOP). Therefore, the mapping first reduces such tokens to a <strong>canonical form</strong> (e.g., MOTOR, ANCHOR) by stripping/normalizing suffixes, then maps to a KEYO class, and preserves the suffix only as an “explanatory tag” within the entry. This rule is included in the alias/substitution rules of .</p> <h4 id="key-point-deterministic_decay">Key point: DETERMINISTIC_DECAY</h4> <p>The Ω-Dictionary token <code>DETERMINISTIC_DECAY</code> is not a new KEYO class; it is an <strong>application-level negative label</strong>. Accordingly, in this release it is described only in traceable terms via <strong>J_LEDGER</strong> and Gates—e.g., “monotonic increase of residual pressure + repeated FAIL + <code>JEVENT</code> restoration failure” (see the v1.2 mapping file for details).</p> <table style="width:94%;"> <colgroup> <col style="width: 26%" /> <col style="width: 28%" /> <col style="width: 40%" /> </colgroup> <thead> <tr class="header"> <th style="text-align: left;"><strong>Ω-Dictionary token</strong></th> <th style="text-align: left;"><strong>KEY encoding</strong></th> <th style="text-align: left;"><strong>Notes / substitute mapping</strong></th> </tr> </thead> <tbody> <tr class="odd"> <td style="text-align: left;"><code>ANCHOR</code></td> <td style="text-align: left;"><code>KEYO:Anchor</code></td> <td style="text-align: left;">Assign <code>gamma_anchor_label</code> as a qualitative label from motif/boundary cues.</td> </tr> <tr class="even"> <td style="text-align: left;"><code>MOTOR</code></td> <td style="text-align: left;"><code>KEYO:Motor</code></td> <td style="text-align: left;">Assign <code>u3_force_label</code> as a qualitative label from activity/transcription cues.</td> </tr> <tr class="odd"> <td style="text-align: left;"><code>LOOP</code></td> <td style="text-align: left;"><code>KEYO:Loop</code></td> <td style="text-align: left;">Loops must reference existing Anchor/Motor IDs (referential integrity).</td> </tr> <tr class="even"> <td style="text-align: left;"><code>J_EVENT</code> (canonical: <code>JEVENT</code>; aliases: <code>J-Event</code> / <code>J event</code>, etc.)</td> <td style="text-align: left;"><code>KEYO:JEvent</code></td> <td style="text-align: left;">Choose only the closest among allowed <code>j_event_type</code> values (do not add new subtypes).</td> </tr> <tr class="odd"> <td style="text-align: left;"><code>COMBINATORIAL_MODULE</code></td> <td style="text-align: left;"><code>(module set) + J_EVENT</code></td> <td style="text-align: left;">Combinatorial explosions such as V(D)J are fixed as “module selection + cleavage/rearrangement <code>JEVENT</code> ledger”.</td> </tr> <tr class="even"> <td style="text-align: left;"><code>DIFFERENTIATED_ASSEMBLY</code></td> <td style="text-align: left;">applications label</td> <td style="text-align: left;">The essence is a convention that locks “arranged heterogeneous parts <span class="math inline">\(\rightarrow\)</span> macroscopic self-assembly” via gates/ledger.</td> </tr> <tr class="odd"> <td style="text-align: left;"><code>SYNCHRONIZED_EMERGENCE</code></td> <td style="text-align: left;">applications label</td> <td style="text-align: left;">Synchronized function is approved only via Gates as “phase-locking/coupling” (adjudication over explanation).</td> </tr> <tr class="even"> <td style="text-align: left;"><code>INTERACTIVE_INDUCTION</code></td> <td style="text-align: left;">applications label</td> <td style="text-align: left;">Interactions among multiple arranged systems are tracked only as “mutual-lock events” in the ledger.</td> </tr> <tr class="odd"> <td style="text-align: left;"><code>DETERMINISTIC_DECAY</code></td> <td style="text-align: left;">applications label</td> <td style="text-align: left;">Aging/decline are expressed as “monotonic drift + repeated FAIL”; treatment/intervention must comply with NO-CAL/stop rules.</td> </tr> <tr class="even"> <td style="text-align: left;"><code>CONSCIOUS_FIELD</code></td> <td style="text-align: left;">applications label</td> <td style="text-align: left;">Metaphysical claims are prohibited; in this release they are handled only as <em>high-level labels</em>.</td> </tr> </tbody> </table> <h2 id="key-classes-snapshot">KEY classes (snapshot)</h2> <table style="width:96%;"> <colgroup> <col style="width: 30%" /> <col style="width: 66%" /> </colgroup> <thead> <tr class="header"> <th style="text-align: left;"><strong>Class</strong></th> <th style="text-align: left;"><strong>Meaning (public, operational)</strong></th> </tr> </thead> <tbody> <tr class="odd"> <td style="text-align: left;"><code>Region</code></td> <td style="text-align: left;">Input 1D interval (including coordinate conventions)</td> </tr> <tr class="even"> <td style="text-align: left;"><code>Arrangement</code></td> <td style="text-align: left;">1D<span class="math inline">\(\rightarrow\)</span>4D arrangement representation (A4)</td> </tr> <tr class="odd"> <td style="text-align: left;"><code>Anchor/Motor/Loop/Shell</code></td> <td style="text-align: left;">Minimal objects of an arrangement (boundary/drive/link/compartment)</td> </tr> <tr class="even"> <td style="text-align: left;"><code>JEvent</code></td> <td style="text-align: left;">Irreversible event (lock/transition)</td> </tr> <tr class="odd"> <td style="text-align: left;"><code>FailureLabel</code></td> <td style="text-align: left;">Failure label (closed set)</td> </tr> </tbody> </table> <h2 id="minimal-key-entry-schema-public-view">Minimal KEY entry schema (public view)</h2> <pre data-fontsize="\small"><code>KEY_ENTRY: id: TYPE-NNNNN type: {DNA_SITE, RNA, PROTEIN, COMPLEX, CELL_EVENT, FIELD_MODE, ...} label: short human name arrangement: anchors: [...] motors: [...] loops: [...] shells: [...] dynamics: U2: {increased|decreased|normalized|...} # qualitative U3: {high|medium|low|...} # qualitative J_events: [ ... ] # named irreversible events meaning: operational_instruction: &quot;what to check / what it implies&quot; provenance: sources: [ ... ] version_lock: &quot;KEYO-v1.0 / AXIOM-FIX&quot;</code></pre> <h2 id="ω-dictionary-dna-dictionary-layer-grammar-vs-registry">Ω-Dictionary (DNA dictionary) layer: grammar vs registry</h2> <p>If KEY is a “grammar book,” then the <strong>Ω-Dictionary (DNA dictionary)</strong> is a “word list (registry).” That is, KEY fixes the format of <em>how</em> to write a 1D sequence/annotation as an A4 arrangement object, and the Ω-Dictionary records, in <strong>public form</strong>, <em>which words (genes/proteins/modules/phenomena)</em> are registered to which <strong>arrangement/dynamics labels</strong>.</p> <p>This release provides the following together: (i) Ω-Dictionary text snapshot (Appendix D), (ii) Omega-Genesis execution log (<code>DNA_experiment.txt</code>; Appendix E), (iii) Ω-Dictionary<span class="math inline">\(\rightarrow\)</span>KEY mapping guide (; Appendix F), (iv) mapping coverage report (; Appendix I).</p> <p><em>Legacy/provenance note.</em> Prior mapping files (v1.1/v1.0) are preserved <strong>as-is</strong> in the package to prevent definition drift, and can be viewed as-is in Appendix G/H.</p> <h2 id="mapping-fallback-policy-when-an-exact-mapping-key-is-absent">Mapping fallback policy (when an exact mapping key is absent)</h2> <p>In real data, situations where “the exact key does not exist” (e.g., organisms without CTCF, empty-annotation regions, mismatched domain definitions) necessarily occur. The stance of this integrative volume is simple: <strong>do not hide the mapping; fix priorities and fallback rules in public files</strong>.</p> <ol> <li><p><strong>Annotation-first.</strong> Prefer public annotations (ENCODE/IMGT/PDB, etc.) or curated markers.</p></li> <li><p><strong>Structure-first.</strong> If boundary/contact evidence exists (e.g., Hi-C boundaries), use it as the next priority.</p></li> <li><p><strong>Sequence-only fallback.</strong> Use qualitative mapping possible from sequence cues alone (AT/GC, repeats, etc.), and must mark it as <code>source=derived</code>.</p></li> <li><p><strong>Unknown label only.</strong> Do not fill by guesswork. Leave empty fields as <code>ANNOTATION_MISSING</code> or <code>unknown</code>.</p></li> </ol> <p>These rules are fixed in machine-readable form in the Appendix F mapping guide, and thereby prevent irreproducibility of the form “we interpreted arbitrarily because no mapping existed.”</p> <h1 id="uj-dynamics-gate-verification-expanded">U–J Dynamics + Gate verification (expanded)</h1> <h2 id="why-uj-is-useful-in-applications">Why U–J is useful in applications</h2> <p>In applications, the U–J decomposition is less a “causal explanation” than a <strong>verifiable bookkeeping device</strong>. That is, by separating how the system moved (conservative moves) from what changed irreversibly (<code>JEVENT</code>), and recording it as an <strong>event ledger</strong>, one can verify whether others obtain the same ledger from the same locked inputs.</p> <p><span class="math display">\[\dot{\Psi} = \mathcal{U}_2[\Psi] + \mathcal{U}_3[\Psi] - \mathcal{J}[\Psi],\]</span></p> <p>Here, <span class="math inline">\(\mathcal{U}_2,\mathcal{U}_3\)</span> are interpreted as conservative paths, and <span class="math inline">\(\mathcal{J}\)</span> as the dissipative (irreversible) path.</p> <div id="def:residual-pressure" class="definition"> <p><strong>Definition 1</strong> (Residual pressure (qualitative)). <em>In this applications volume, <strong>residual pressure</strong> summarizes, as a <strong>qualitative label</strong>, how far the “current arrangement” is from a “stable arrangement.”</em></p> <p><em>Even when causes differ (inflammation/lipids/ER-stress/damage accumulation, etc.), adjudication is designed to reduce to <em>(i) the direction of residual pressure (increasing/relieving)</em> and (ii) whether transitions can be restored in the <strong>J_LEDGER</strong>.</em></p> </div> <div id="clm:ledger-first" class="claim"> <p><strong>Claim 4</strong> (Ledger-first application rule). <em>No application conclusion is accepted unless it is <strong>traceable</strong> to <strong>J_LEDGER</strong> events (transitions/locks) and Gate . That is, “explanation” attaches not as <em>narrative</em> but as <em>artifacts (ledger + verdict)</em>.</em></p> </div> <h2 id="residual-pressure-and-incorrect-dynamics">Residual pressure and “incorrect dynamics”</h2> <p>The residual pressure in Definition <a href="#def:residual-pressure" data-reference-type="ref" data-reference="def:residual-pressure">1</a> is introduced to avoid long “cause narratives” and instead <strong>summarize the result of accumulated stress/damage/inflammation/lipid signals as a single qualitative state variable</strong>. Accordingly, “incorrect dynamics” is compressed into the following <strong>ledger-based description</strong>.</p> <blockquote> <p><strong>Incorrect dynamics</strong> = residual-pressure accumulation <span class="math inline">\(\Rightarrow\)</span> degraded <code>JEVENT</code> efficiency <span class="math inline">\(\Rightarrow\)</span> functional collapse.</p> </blockquote> <p>In the therapeutic concept, a “counter-arrangement” is defined as an intervention that <strong>restores normal transitions (<code>JEVENT</code>)</strong> or <strong>returns the system to the Gate PASS region</strong>.</p> <h2 id="canonical-gate-families-registry-view">Canonical gate families (registry view)</h2> <ul> <li><p><strong>Physics / causality</strong>: , (EM) ,</p></li> <li><p><strong>Conservation / bookkeeping</strong>: ,</p></li> <li><p><strong>Stability</strong>: prevent runaway transfer gain (e.g., qualitative/quantitative adjudication of <span class="math inline">\(\rho(G)&lt;1\)</span>)</p></li> <li><p><strong>Identifiability / leakage</strong>: <code>IDENTIFIABILITY</code>,</p></li> <li><p><strong>Domain safety (therapy)</strong>: selectivity/no-agonism/tolerance (resolves into stop rules)</p></li> </ul> <h2 id="reproducibility-snapshot-bioem-computational-gates">Reproducibility snapshot (Bio–EM; computational gates)</h2> <p>This section summarizes minimal results that are checkable not as “words” but as <strong>artifacts</strong>. All originals are included in , and for reviewer convenience the same contents are also provided as copies under (redundant, but reduces review cost).</p> <h4 id="gate-table-extract">Gate table (extract)</h4> <p>The following table extracts key rows from .</p> <table style="width:94%;"> <colgroup> <col style="width: 19%" /> <col style="width: 15%" /> <col style="width: 15%" /> <col style="width: 11%" /> <col style="width: 12%" /> <col style="width: 8%" /> <col style="width: 14%" /> </colgroup> <thead> <tr class="header"> <th style="text-align: left;"><strong>Test</strong></th> <th style="text-align: left;"><strong>Gate</strong></th> <th style="text-align: left;"><strong>Metric</strong></th> <th style="text-align: left;"><strong>Value</strong></th> <th style="text-align: left;"><strong>Threshold</strong></th> <th style="text-align: left;"><strong>Result</strong></th> <th style="text-align: left;"><strong>Notes</strong></th> </tr> </thead> <tbody> <tr class="odd"> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;">0.9998</td> <td style="text-align: left;"><code>&gt;=0.999</code></td> <td style="text-align: left;">PASS</td> <td style="text-align: left;">TIR above threshold L*</td> </tr> <tr class="even"> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;">1.000e-02</td> <td style="text-align: left;"><code>&gt;=0.0</code></td> <td style="text-align: left;">PASS</td> <td style="text-align: left;">Causality margin satisfied</td> </tr> <tr class="odd"> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;">8.100e-07</td> <td style="text-align: left;"><code>&lt;=1e-6</code></td> <td style="text-align: left;">PASS</td> <td style="text-align: left;">Shape preserved</td> </tr> <tr class="even"> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;">7.500e-11</td> <td style="text-align: left;"><code>&lt;=1e-10</code></td> <td style="text-align: left;">PASS</td> <td style="text-align: left;">Energy conserved</td> </tr> <tr class="odd"> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;">1.800e-02</td> <td style="text-align: left;"><code>&lt;0.02</code></td> <td style="text-align: left;">PASS</td> <td style="text-align: left;">Beat spectrum reproduced</td> </tr> <tr class="even"> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;">0.95</td> <td style="text-align: left;"><code>&gt;=0.9</code></td> <td style="text-align: left;">PASS</td> <td style="text-align: left;">Phase locking</td> </tr> <tr class="odd"> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;">1.200e-11</td> <td style="text-align: left;"><code>&lt;=1e-9</code></td> <td style="text-align: left;">PASS</td> <td style="text-align: left;">Cross-bridge accurate</td> </tr> <tr class="even"> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;">1.000e-04</td> <td style="text-align: left;"><code>&lt;=1e-3</code></td> <td style="text-align: left;">PASS</td> <td style="text-align: left;">No leakage</td> </tr> <tr class="odd"> <td style="text-align: left;"></td> <td style="text-align: left;"></td> <td style="text-align: left;"><span class="math inline">\(\Delta\)</span></td> <td style="text-align: left;">0</td> <td style="text-align: left;"><code>=0.0</code></td> <td style="text-align: left;">PASS</td> <td style="text-align: left;">Boundary conditions match</td> </tr> </tbody> </table> <h4 id="verdict-uncertainty-budget-extract">Verdict + uncertainty budget (extract)</h4> <p>records that the final overall verdict is <code>PASS</code>, and summarizes uncertainty contributions.</p> <table style="width:94%;"> <colgroup> <col style="width: 16%" /> <col style="width: 38%" /> <col style="width: 14%" /> <col style="width: 26%" /> </colgroup> <thead> <tr class="header"> <th style="text-align: left;"><strong>Source</strong></th> <th style="text-align: left;"><strong>Type</strong></th> <th style="text-align: left;"><strong>Contrib. (%)</strong></th> <th style="text-align: left;"><strong>Notes</strong></th> </tr> </thead> <tbody> <tr class="odd"> <td style="text-align: left;"><code>U_stat</code></td> <td style="text-align: left;">Statistical (Noise, Finite Samples)</td> <td style="text-align: left;">15.2</td> <td style="text-align: left;">Measurement noise / finite time</td> </tr> <tr class="even"> <td style="text-align: left;"><code>U_sys</code></td> <td style="text-align: left;">Systematic (Model Imperfection)</td> <td style="text-align: left;">5.5</td> <td style="text-align: left;">Model imperfection</td> </tr> <tr class="odd"> <td style="text-align: left;"><code>U_cal</code></td> <td style="text-align: left;">Calibration (Input Parameters)</td> <td style="text-align: left;">79.3</td> <td style="text-align: left;">Dominated by input-parameter uncertainty</td> </tr> </tbody> </table> <h4 id="fail-fast-checks-extract">Fail-fast checks (extract)</h4> <p>Below is a summary of <code>FAIL_FAST_LOG.json</code> (all recorded as <code>OK</code>).</p> <ul> <li><p><code>Non-stationarity</code>: <code>OK</code> — Windowed <span class="math inline">\(\delta_{\mathrm{ST}} &lt; 10^{-2}\)</span></p></li> <li><p><code>Calibration leakage</code>: <code>OK</code> — CAL/EVAL split hash mismatch verified</p></li> <li><p><code>Identifiability</code>: <code>OK</code> — Condition number &lt; 1e3</p></li> <li><p><code>Boundary domination</code>: <code>OK</code> — <span class="math inline">\(\lambda_1\)</span> within expected range (pred <span class="math inline">\(C_{\alpha} \approx 1 \pm 0.05\)</span>)</p></li> </ul> <div class="remark"> <p><strong>Remark 2</strong>. <em>The tables/logs above do not prove “complete biological truth.” Instead, they demonstrate that a <strong>formal contract with verifiable failure conditions</strong> exists as concrete artifacts.</em></p> </div> <h1 id="application-pattern-interpretation-assurance-template">Application pattern: interpretation → assurance (template)</h1> <p>The common pattern across applications is as follows.</p> <ol> <li><p><strong>Interpret.</strong> Convert sequence/specification into an A4 arrangement + <strong>J_LEDGER</strong> (or obtain equivalent arrangement/event objects).</p></li> <li><p><strong>Diagnose.</strong> Describe incorrect dynamics as qualitative labels centered on “which <code>JEVENT</code> was blocked?”</p></li> <li><p><strong>Counter-arrange.</strong> Define candidate interventions as “counter-arrangements” and state the goal of restoring normal transitions.</p></li> <li><p><strong>Gate.</strong> If physical/causal/stability/identifiability/leakage/safety gates fail, <strong>REVISE/HALT</strong>.</p></li> <li><p><strong>Package.</strong> Fix claim–evidence–risk–stop rules as <em>artifacts</em> (assurance case, risk log).</p></li> </ol> <h2 id="assurance-case-skeleton-public">Assurance case skeleton (public)</h2> <pre data-fontsize="\small"><code>CLAIM: &lt;what should be true, stated qualitatively&gt;
+J0002,transition,&quot;boundary_flag&quot;,&quot;stress&quot;,FAIL_LABEL</code></pre>
+</section>
+<section id="gate-table-verdict-schematic" class="level4"
+data-number="4.2.0.3">
+<h4 data-number="4.2.0.3"><span
+class="header-section-number">4.2.0.3</span> Gate table + verdict
+(schematic)</h4>
+<pre data-fontsize="\small"><code># gate_table.csv header (normative)
+test_id,test_name,gate,result,metric,value,threshold,unit,notes
+
+# verdict.json skeleton
+{&quot;gate&quot;:&quot;ToF_GATE&quot;,&quot;result&quot;:&quot;PASS&quot;,&quot;violated_rule&quot;:null,&quot;notes&quot;:&quot;causal direction preserved (qual.)&quot;}</code></pre>
+</section>
+</section>
+<section id="gate-naming-standardization-global-normative"
+class="level2" data-number="4.3">
+<h2 data-number="4.3"><span class="header-section-number">4.3</span>
+Gate naming standardization (global, normative)</h2>
+<p>The moment the same concept is called by different names across
+documents, reproducibility breaks. Therefore, Gate names are normalized
+via an <strong>alias map</strong> (example; the full set is preserved in
+the Appendix B snapshot).</p>
+<pre data-fontsize="\small"><code>gate_alias_map:
+  CENTER★: CENTER_STAR
+  CENTER_OPT_AX: CENTER_OPT_AX
+  CENTER_D_Bridge: CENTER_D_BRIDGE</code></pre>
+</section>
+<section id="failure-labels-public-closed-set" class="level2"
+data-number="4.4">
+<h2 data-number="4.4"><span class="header-section-number">4.4</span>
+Failure labels (public, closed set)</h2>
+<p>The KEY ontology does not leave failures as “silence”; it fixes them
+as a <strong>closed label set</strong>. (The full label set is included
+in .)</p>
+<ul>
+<li><p>Input/schema: <code>FASTA_EMPTY</code>,
+<code>ANNOTATION_MISSING</code>, <code>SCHEMA_INVALID</code></p></li>
+<li><p>Reproducibility: <code>NONDETERMINISTIC_OUTPUT</code>,
+<code>DOI_AUDIT_FAIL</code></p></li>
+<li><p>Ontology: <code>CLOSED_VOCAB_FAIL</code>,
+<code>REFERENTIAL_INTEGRITY_FAIL</code></p></li>
+</ul>
+</section>
+</section>
+<section id="key-full-specification-ontology-expanded" class="level1"
+data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> KEY
+full specification + ontology (expanded)</h1>
+<p>KEY is not the “DNA dictionary” itself; it is the <strong>grammar
+book</strong> that constructs the dictionary. That is, KEY provides (i)
+an entry ID scheme, (ii) arrangement description rules, (iii) U–J
+dynamics linkage rules, and (iv) conventions for describing operational
+meaning.</p>
+<section id="ontology-lock-axiom-fix" class="level2" data-number="5.1">
+<h2 data-number="5.1"><span class="header-section-number">5.1</span>
+Ontology lock (AXIOM-FIX)</h2>
+<p>The included freezes terms/labels at the version level. For
+applications, what matters is not “how much data” but
+<strong>consistency of definitions</strong>.</p>
+<ul>
+<li><p>Keep label values as a <strong>closed value
+set</strong>.</p></li>
+<li><p>Do not change the meaning of existing labels.</p></li>
+<li><p>Extend only by adding new labels (no reinterpretation of existing
+ones).</p></li>
+</ul>
+</section>
+<section id="ω-dictionary-term-mapping-closure-deterministic-fallback"
+class="level2" data-number="5.2">
+<h2 data-number="5.2"><span class="header-section-number">5.2</span>
+Ω-Dictionary term mapping (closure + deterministic fallback)</h2>
+<p>This release includes, in the main body/appendices, the
+<strong>Ω-Dictionary (integrated DNA dictionary)</strong> and a
+<strong>DNA experiment log</strong> as <em>public-reference-based</em>
+material (not personal genomes/patient data). As this layer grows,
+terminology becomes easier to drift; therefore this release fixes as the
+<strong>Ω-token<span class="math inline">\(\rightarrow\)</span>KEY
+object</strong> mapping and <strong>substitution (fallback)
+rules</strong>. (v1.1/v1.0 are preserved alongside for provenance.)</p>
+<section id="deterministic-substitution-rule" class="level4"
+data-number="5.2.0.1">
+<h4 data-number="5.2.0.1"><span
+class="header-section-number">5.2.0.1</span> Deterministic substitution
+rule</h4>
+<p>When an exact key is missing, substitute only in the following
+<strong>deterministic order</strong>:
+<code>annotation_first → structure_first → sequence_only_fallback → unknown_label_only</code>.
+At the final step, <strong>estimation/hallucination is
+forbidden</strong>: keep <code>unknown/derived</code> labels, and when
+necessary, explicitly set entry-level failure labels (e.g.,
+<code>ANNOTATION_MISSING</code>).</p>
+</section>
+<section id="instance-tokens-typed-suffixes-not-new-primitives"
+class="level4" data-number="5.2.0.2">
+<h4 data-number="5.2.0.2"><span
+class="header-section-number">5.2.0.2</span> Instance tokens (typed
+suffixes; not new primitives)</h4>
+<p>In the Ω-Dictionary and execution logs, tokens like
+<code>MOTOR_PROX</code>, <code>MOTOR_DIST</code>, <code>ANCHOR_A</code>
+may appear in a <em>“type + suffix”</em> form. These are not new
+primitives; they are <strong>instance labels</strong> of existing
+primitives (ANCHOR/MOTOR/LOOP). Therefore, the mapping first reduces
+such tokens to a <strong>canonical form</strong> (e.g., MOTOR, ANCHOR)
+by stripping/normalizing suffixes, then maps to a KEYO class, and
+preserves the suffix only as an “explanatory tag” within the entry. This
+rule is included in the alias/substitution rules of .</p>
+</section>
+<section id="key-point-deterministic_decay" class="level4"
+data-number="5.2.0.3">
+<h4 data-number="5.2.0.3"><span
+class="header-section-number">5.2.0.3</span> Key point:
+DETERMINISTIC_DECAY</h4>
+<p>The Ω-Dictionary token <code>DETERMINISTIC_DECAY</code> is not a new
+KEYO class; it is an <strong>application-level negative label</strong>.
+Accordingly, in this release it is described only in traceable terms via
+<strong>J_LEDGER</strong> and Gates—e.g., “monotonic increase of
+residual pressure + repeated FAIL + <code>JEVENT</code> restoration
+failure” (see the v1.2 mapping file for details).</p>
+<table style="width:94%;">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 28%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Ω-Dictionary token</strong></th>
+<th style="text-align: left;"><strong>KEY encoding</strong></th>
+<th style="text-align: left;"><strong>Notes / substitute
+mapping</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>ANCHOR</code></td>
+<td style="text-align: left;"><code>KEYO:Anchor</code></td>
+<td style="text-align: left;">Assign <code>gamma_anchor_label</code> as
+a qualitative label from motif/boundary cues.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>MOTOR</code></td>
+<td style="text-align: left;"><code>KEYO:Motor</code></td>
+<td style="text-align: left;">Assign <code>u3_force_label</code> as a
+qualitative label from activity/transcription cues.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>LOOP</code></td>
+<td style="text-align: left;"><code>KEYO:Loop</code></td>
+<td style="text-align: left;">Loops must reference existing Anchor/Motor
+IDs (referential integrity).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>J_EVENT</code> (canonical:
+<code>JEVENT</code>; aliases: <code>J-Event</code> /
+<code>J event</code>, etc.)</td>
+<td style="text-align: left;"><code>KEYO:JEvent</code></td>
+<td style="text-align: left;">Choose only the closest among allowed
+<code>j_event_type</code> values (do not add new subtypes).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>COMBINATORIAL_MODULE</code></td>
+<td style="text-align: left;"><code>(module set) + J_EVENT</code></td>
+<td style="text-align: left;">Combinatorial explosions such as V(D)J are
+fixed as “module selection + cleavage/rearrangement <code>JEVENT</code>
+ledger”.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>DIFFERENTIATED_ASSEMBLY</code></td>
+<td style="text-align: left;">applications label</td>
+<td style="text-align: left;">The essence is a convention that locks
+“arranged heterogeneous parts <span
+class="math inline">\(\rightarrow\)</span> macroscopic self-assembly”
+via gates/ledger.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>SYNCHRONIZED_EMERGENCE</code></td>
+<td style="text-align: left;">applications label</td>
+<td style="text-align: left;">Synchronized function is approved only via
+Gates as “phase-locking/coupling” (adjudication over explanation).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>INTERACTIVE_INDUCTION</code></td>
+<td style="text-align: left;">applications label</td>
+<td style="text-align: left;">Interactions among multiple arranged
+systems are tracked only as “mutual-lock events” in the ledger.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>DETERMINISTIC_DECAY</code></td>
+<td style="text-align: left;">applications label</td>
+<td style="text-align: left;">Aging/decline are expressed as “monotonic
+drift + repeated FAIL”; treatment/intervention must comply with
+NO-CAL/stop rules.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>CONSCIOUS_FIELD</code></td>
+<td style="text-align: left;">applications label</td>
+<td style="text-align: left;">Metaphysical claims are prohibited; in
+this release they are handled only as <em>high-level labels</em>.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="key-classes-snapshot" class="level2" data-number="5.3">
+<h2 data-number="5.3"><span class="header-section-number">5.3</span> KEY
+classes (snapshot)</h2>
+<table style="width:96%;">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Class</strong></th>
+<th style="text-align: left;"><strong>Meaning (public,
+operational)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Region</code></td>
+<td style="text-align: left;">Input 1D interval (including coordinate
+conventions)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Arrangement</code></td>
+<td style="text-align: left;">1D<span
+class="math inline">\(\rightarrow\)</span>4D arrangement representation
+(A4)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Anchor/Motor/Loop/Shell</code></td>
+<td style="text-align: left;">Minimal objects of an arrangement
+(boundary/drive/link/compartment)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>JEvent</code></td>
+<td style="text-align: left;">Irreversible event (lock/transition)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>FailureLabel</code></td>
+<td style="text-align: left;">Failure label (closed set)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="minimal-key-entry-schema-public-view" class="level2"
+data-number="5.4">
+<h2 data-number="5.4"><span class="header-section-number">5.4</span>
+Minimal KEY entry schema (public view)</h2>
+<pre data-fontsize="\small"><code>KEY_ENTRY:
+  id: TYPE-NNNNN
+  type: {DNA_SITE, RNA, PROTEIN, COMPLEX, CELL_EVENT, FIELD_MODE, ...}
+  label: short human name
+  arrangement:
+    anchors: [...]
+    motors:  [...]
+    loops:   [...]
+    shells:  [...]
+  dynamics:
+    U2: {increased|decreased|normalized|...}   # qualitative
+    U3: {high|medium|low|...}                 # qualitative
+    J_events: [ ... ]                         # named irreversible events
+  meaning:
+    operational_instruction: &quot;what to check / what it implies&quot;
+  provenance:
+    sources: [ ... ]
+    version_lock: &quot;KEYO-v1.0 / AXIOM-FIX&quot;</code></pre>
+</section>
+<section id="ω-dictionary-dna-dictionary-layer-grammar-vs-registry"
+class="level2" data-number="5.5">
+<h2 data-number="5.5"><span class="header-section-number">5.5</span>
+Ω-Dictionary (DNA dictionary) layer: grammar vs registry</h2>
+<p>If KEY is a “grammar book,” then the <strong>Ω-Dictionary (DNA
+dictionary)</strong> is a “word list (registry).” That is, KEY fixes the
+format of <em>how</em> to write a 1D sequence/annotation as an
+A4 arrangement object, and the Ω-Dictionary records, in <strong>public
+form</strong>, <em>which words (genes/proteins/modules/phenomena)</em>
+are registered to which <strong>arrangement/dynamics
+labels</strong>.</p>
+<p>This release provides the following together: (i) Ω-Dictionary text
+snapshot (Appendix D), (ii) Omega-Genesis execution log
+(<code>DNA_experiment.txt</code>; Appendix E), (iii) Ω-Dictionary<span
+class="math inline">\(\rightarrow\)</span>KEY mapping guide (; Appendix
+F), (iv) mapping coverage report (; Appendix I).</p>
+<p><em>Legacy/provenance note.</em> Prior mapping files (v1.1/v1.0) are
+preserved <strong>as-is</strong> in the package to prevent definition
+drift, and can be viewed as-is in Appendix G/H.</p>
+</section>
+<section
+id="mapping-fallback-policy-when-an-exact-mapping-key-is-absent"
+class="level2" data-number="5.6">
+<h2 data-number="5.6"><span class="header-section-number">5.6</span>
+Mapping fallback policy (when an exact mapping key is absent)</h2>
+<p>In real data, situations where “the exact key does not exist” (e.g.,
+organisms without CTCF, empty-annotation regions, mismatched domain
+definitions) necessarily occur. The stance of this integrative volume is
+simple: <strong>do not hide the mapping; fix priorities and fallback
+rules in public files</strong>.</p>
+<ol>
+<li><p><strong>Annotation-first.</strong> Prefer public annotations
+(ENCODE/IMGT/PDB, etc.) or curated markers.</p></li>
+<li><p><strong>Structure-first.</strong> If boundary/contact evidence
+exists (e.g., Hi-C boundaries), use it as the next priority.</p></li>
+<li><p><strong>Sequence-only fallback.</strong> Use qualitative mapping
+possible from sequence cues alone (AT/GC, repeats, etc.), and must mark
+it as <code>source=derived</code>.</p></li>
+<li><p><strong>Unknown label only.</strong> Do not fill by guesswork.
+Leave empty fields as <code>ANNOTATION_MISSING</code> or
+<code>unknown</code>.</p></li>
+</ol>
+<p>These rules are fixed in machine-readable form in the Appendix F
+mapping guide, and thereby prevent irreproducibility of the form “we
+interpreted arbitrarily because no mapping existed.”</p>
+</section>
+</section>
+<section id="uj-dynamics-gate-verification-expanded" class="level1"
+data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> U–J
+Dynamics + Gate verification (expanded)</h1>
+<section id="why-uj-is-useful-in-applications" class="level2"
+data-number="6.1">
+<h2 data-number="6.1"><span class="header-section-number">6.1</span> Why
+U–J is useful in applications</h2>
+<p>In applications, the U–J decomposition is less a “causal explanation”
+than a <strong>verifiable bookkeeping device</strong>. That is, by
+separating how the system moved (conservative moves) from what changed
+irreversibly (<code>JEVENT</code>), and recording it as an <strong>event
+ledger</strong>, one can verify whether others obtain the same ledger
+from the same locked inputs.</p>
+<p><span class="math display">\[\dot{\Psi} = \mathcal{U}_2[\Psi] +
+\mathcal{U}_3[\Psi] - \mathcal{J}[\Psi],\]</span></p>
+<p>Here, <span
+class="math inline">\(\mathcal{U}_2,\mathcal{U}_3\)</span> are
+interpreted as conservative paths, and <span
+class="math inline">\(\mathcal{J}\)</span> as the dissipative
+(irreversible) path.</p>
+<div id="def:residual-pressure" class="definition">
+<p><strong>Definition 1</strong> (Residual pressure (qualitative)).
+<em>In this applications volume, <strong>residual pressure</strong>
+summarizes, as a <strong>qualitative label</strong>, how far the
+“current arrangement” is from a “stable arrangement.”</em></p>
+<p><em>Even when causes differ (inflammation/lipids/ER-stress/damage
+accumulation, etc.), adjudication is designed to reduce to <em>(i) the
+direction of residual pressure (increasing/relieving)</em> and (ii)
+whether transitions can be restored in the
+<strong>J_LEDGER</strong>.</em></p>
+</div>
+<div id="clm:ledger-first" class="claim">
+<p><strong>Claim 4</strong> (Ledger-first application rule). <em>No
+application conclusion is accepted unless it is
+<strong>traceable</strong> to <strong>J_LEDGER</strong> events
+(transitions/locks) and Gate . That is, “explanation” attaches not as
+<em>narrative</em> but as <em>artifacts (ledger +
+verdict)</em>.</em></p>
+</div>
+</section>
+<section id="residual-pressure-and-incorrect-dynamics" class="level2"
+data-number="6.2">
+<h2 data-number="6.2"><span class="header-section-number">6.2</span>
+Residual pressure and “incorrect dynamics”</h2>
+<p>The residual pressure in Definition <a href="#def:residual-pressure"
+data-reference-type="ref" data-reference="def:residual-pressure">1</a>
+is introduced to avoid long “cause narratives” and instead
+<strong>summarize the result of accumulated
+stress/damage/inflammation/lipid signals as a single qualitative state
+variable</strong>. Accordingly, “incorrect dynamics” is compressed into
+the following <strong>ledger-based description</strong>.</p>
+<blockquote>
+<p><strong>Incorrect dynamics</strong> = residual-pressure accumulation
+<span class="math inline">\(\Rightarrow\)</span> degraded
+<code>JEVENT</code> efficiency <span
+class="math inline">\(\Rightarrow\)</span> functional collapse.</p>
+</blockquote>
+<p>In the therapeutic concept, a “counter-arrangement” is defined as an
+intervention that <strong>restores normal transitions
+(<code>JEVENT</code>)</strong> or <strong>returns the system to the Gate
+PASS region</strong>.</p>
+</section>
+<section id="canonical-gate-families-registry-view" class="level2"
+data-number="6.3">
+<h2 data-number="6.3"><span class="header-section-number">6.3</span>
+Canonical gate families (registry view)</h2>
+<ul>
+<li><p><strong>Physics / causality</strong>: , (EM) ,</p></li>
+<li><p><strong>Conservation / bookkeeping</strong>: ,</p></li>
+<li><p><strong>Stability</strong>: prevent runaway transfer gain (e.g.,
+qualitative/quantitative adjudication of <span
+class="math inline">\(\rho(G)&lt;1\)</span>)</p></li>
+<li><p><strong>Identifiability / leakage</strong>:
+<code>IDENTIFIABILITY</code>,</p></li>
+<li><p><strong>Domain safety (therapy)</strong>:
+selectivity/no-agonism/tolerance (resolves into stop rules)</p></li>
+</ul>
+</section>
+<section id="reproducibility-snapshot-bioem-computational-gates"
+class="level2" data-number="6.4">
+<h2 data-number="6.4"><span class="header-section-number">6.4</span>
+Reproducibility snapshot (Bio–EM; computational gates)</h2>
+<p>This section summarizes minimal results that are checkable not as
+“words” but as <strong>artifacts</strong>. All originals are included in
+, and for reviewer convenience the same contents are also provided as
+copies under (redundant, but reduces review cost).</p>
+<section id="gate-table-extract" class="level4" data-number="6.4.0.1">
+<h4 data-number="6.4.0.1"><span
+class="header-section-number">6.4.0.1</span> Gate table (extract)</h4>
+<p>The following table extracts key rows from .</p>
+<table style="width:94%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 11%" />
+<col style="width: 12%" />
+<col style="width: 8%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Test</strong></th>
+<th style="text-align: left;"><strong>Gate</strong></th>
+<th style="text-align: left;"><strong>Metric</strong></th>
+<th style="text-align: left;"><strong>Value</strong></th>
+<th style="text-align: left;"><strong>Threshold</strong></th>
+<th style="text-align: left;"><strong>Result</strong></th>
+<th style="text-align: left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.9998</td>
+<td style="text-align: left;"><code>&gt;=0.999</code></td>
+<td style="text-align: left;">PASS</td>
+<td style="text-align: left;">TIR above threshold L*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">1.000e-02</td>
+<td style="text-align: left;"><code>&gt;=0.0</code></td>
+<td style="text-align: left;">PASS</td>
+<td style="text-align: left;">Causality margin satisfied</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">8.100e-07</td>
+<td style="text-align: left;"><code>&lt;=1e-6</code></td>
+<td style="text-align: left;">PASS</td>
+<td style="text-align: left;">Shape preserved</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">7.500e-11</td>
+<td style="text-align: left;"><code>&lt;=1e-10</code></td>
+<td style="text-align: left;">PASS</td>
+<td style="text-align: left;">Energy conserved</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">1.800e-02</td>
+<td style="text-align: left;"><code>&lt;0.02</code></td>
+<td style="text-align: left;">PASS</td>
+<td style="text-align: left;">Beat spectrum reproduced</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.95</td>
+<td style="text-align: left;"><code>&gt;=0.9</code></td>
+<td style="text-align: left;">PASS</td>
+<td style="text-align: left;">Phase locking</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">1.200e-11</td>
+<td style="text-align: left;"><code>&lt;=1e-9</code></td>
+<td style="text-align: left;">PASS</td>
+<td style="text-align: left;">Cross-bridge accurate</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">1.000e-04</td>
+<td style="text-align: left;"><code>&lt;=1e-3</code></td>
+<td style="text-align: left;">PASS</td>
+<td style="text-align: left;">No leakage</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span
+class="math inline">\(\Delta\)</span></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;"><code>=0.0</code></td>
+<td style="text-align: left;">PASS</td>
+<td style="text-align: left;">Boundary conditions match</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="verdict-uncertainty-budget-extract" class="level4"
+data-number="6.4.0.2">
+<h4 data-number="6.4.0.2"><span
+class="header-section-number">6.4.0.2</span> Verdict + uncertainty
+budget (extract)</h4>
+<p>records that the final overall verdict is <code>PASS</code>, and
+summarizes uncertainty contributions.</p>
+<table style="width:94%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 38%" />
+<col style="width: 14%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Source</strong></th>
+<th style="text-align: left;"><strong>Type</strong></th>
+<th style="text-align: left;"><strong>Contrib. (%)</strong></th>
+<th style="text-align: left;"><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>U_stat</code></td>
+<td style="text-align: left;">Statistical (Noise, Finite Samples)</td>
+<td style="text-align: left;">15.2</td>
+<td style="text-align: left;">Measurement noise / finite time</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>U_sys</code></td>
+<td style="text-align: left;">Systematic (Model Imperfection)</td>
+<td style="text-align: left;">5.5</td>
+<td style="text-align: left;">Model imperfection</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>U_cal</code></td>
+<td style="text-align: left;">Calibration (Input Parameters)</td>
+<td style="text-align: left;">79.3</td>
+<td style="text-align: left;">Dominated by input-parameter
+uncertainty</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fail-fast-checks-extract" class="level4"
+data-number="6.4.0.3">
+<h4 data-number="6.4.0.3"><span
+class="header-section-number">6.4.0.3</span> Fail-fast checks
+(extract)</h4>
+<p>Below is a summary of <code>FAIL_FAST_LOG.json</code> (all recorded
+as <code>OK</code>).</p>
+<ul>
+<li><p><code>Non-stationarity</code>: <code>OK</code> — Windowed <span
+class="math inline">\(\delta_{\mathrm{ST}} &lt;
+10^{-2}\)</span></p></li>
+<li><p><code>Calibration leakage</code>: <code>OK</code> — CAL/EVAL
+split hash mismatch verified</p></li>
+<li><p><code>Identifiability</code>: <code>OK</code> — Condition number
+&lt; 1e3</p></li>
+<li><p><code>Boundary domination</code>: <code>OK</code> — <span
+class="math inline">\(\lambda_1\)</span> within expected range (pred
+<span class="math inline">\(C_{\alpha} \approx 1 \pm
+0.05\)</span>)</p></li>
+</ul>
+<div class="remark">
+<p><strong>Remark 2</strong>. <em>The tables/logs above do not prove
+“complete biological truth.” Instead, they demonstrate that a
+<strong>formal contract with verifiable failure conditions</strong>
+exists as concrete artifacts.</em></p>
+</div>
+</section>
+</section>
+</section>
+<section id="application-pattern-interpretation-assurance-template"
+class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span>
+Application pattern: interpretation → assurance (template)</h1>
+<p>The common pattern across applications is as follows.</p>
+<ol>
+<li><p><strong>Interpret.</strong> Convert sequence/specification into
+an A4 arrangement + <strong>J_LEDGER</strong> (or obtain equivalent
+arrangement/event objects).</p></li>
+<li><p><strong>Diagnose.</strong> Describe incorrect dynamics as
+qualitative labels centered on “which <code>JEVENT</code> was
+blocked?”</p></li>
+<li><p><strong>Counter-arrange.</strong> Define candidate interventions
+as “counter-arrangements” and state the goal of restoring normal
+transitions.</p></li>
+<li><p><strong>Gate.</strong> If
+physical/causal/stability/identifiability/leakage/safety gates fail,
+<strong>REVISE/HALT</strong>.</p></li>
+<li><p><strong>Package.</strong> Fix claim–evidence–risk–stop rules as
+<em>artifacts</em> (assurance case, risk log).</p></li>
+</ol>
+<section id="assurance-case-skeleton-public" class="level2"
+data-number="7.1">
+<h2 data-number="7.1"><span class="header-section-number">7.1</span>
+Assurance case skeleton (public)</h2>
+<pre data-fontsize="\small"><code>CLAIM: &lt;what should be true, stated qualitatively&gt;
 EVIDENCE: &lt;artifact pointers: gate_table/verdict + doc section + bundle id&gt;
 RISKS: &lt;what could go wrong&gt;
-STOP_RULES: &lt;conditions that force REVISE/HALT&gt;</code></pre> <h1 id="cross-track-integration-dna-bioem-therapy">Cross-track integration: DNA → Bio–EM→ Therapy</h1> <h2 id="cross-track-translation-table-dna-bioem-therapy">Cross-track translation table (DNA / Bio–EM/ Therapy)</h2> <p>The table below does not aim to claim “identity”; it is a <strong>translation convention</strong> for locking different domains into the same object shapes.</p> <table style="width:90%;"> <colgroup> <col style="width: 15%" /> <col style="width: 25%" /> <col style="width: 25%" /> <col style="width: 25%" /> </colgroup> <thead> <tr class="header"> <th style="text-align: left;"><strong>Concept</strong></th> <th style="text-align: left;"><strong>DNA track</strong></th> <th style="text-align: left;"><strong>Bio–EM track</strong></th> <th style="text-align: left;"><strong><strong>Ω-LearnSim</strong> track</strong></th> </tr> </thead> <tbody> <tr class="odd"> <td style="text-align: left;">Anchor</td> <td style="text-align: left;">CTCF/boundary/fixed point</td> <td style="text-align: left;">myelin/boundary/reflection conditions</td> <td style="text-align: left;">L1–αCT–FnIII-1 (epitope)</td> </tr> <tr class="even"> <td style="text-align: left;">Motor</td> <td style="text-align: left;">transcription/torque/active site</td> <td style="text-align: left;">ion/charge drive (carrier)</td> <td style="text-align: left;">allosteric binding (sensitization)</td> </tr> <tr class="odd"> <td style="text-align: left;">Loop</td> <td style="text-align: left;">chromatin loop/state</td> <td style="text-align: left;">resonance/feedback loop</td> <td style="text-align: left;">signaling/internalization feedback</td> </tr> <tr class="even"> <td style="text-align: left;">Shell</td> <td style="text-align: left;">nucleus/domain/compartment</td> <td style="text-align: left;">tissue/layer/boundary conditions</td> <td style="text-align: left;">membrane microdomain/cluster</td> </tr> <tr class="odd"> <td style="text-align: left;"><code>JEVENT</code></td> <td style="text-align: left;">rearrangement/lock event</td> <td style="text-align: left;">synchronization/transition (lock)</td> <td style="text-align: left;">IR activation transition (tilted_T)</td> </tr> <tr class="even"> <td style="text-align: left;">Residual pressure (<span class="math inline">\(U_3\)</span>)</td> <td style="text-align: left;">damage/stress accumulation</td> <td style="text-align: left;">noise/demyelination/damage</td> <td style="text-align: left;">inflammation/lipids/ER-stress</td> </tr> <tr class="odd"> <td style="text-align: left;">Counter-arrangement</td> <td style="text-align: left;">repair/replacement arrangement</td> <td style="text-align: left;">entrainment/waveform correction</td> <td style="text-align: left;">PAM-sensitizer</td> </tr> <tr class="even"> <td style="text-align: left;">Gates</td> <td style="text-align: left;">ABC/ToF/identifiability/leakage</td> <td style="text-align: left;">TIR/soliton + ABC/ToF</td> <td style="text-align: left;">selectivity/no-agonism/tolerance</td> </tr> </tbody> </table> <h1 id="application-a-bioem-neurodynamics-integrated-overview">Application A: Bio–EM/ neurodynamics (integrated overview)</h1> <h2 id="claim-boundary-what-is-and-is-not-claimed">Claim boundary (what is and is not claimed)</h2> <p>This track does not aim to “explain the entire brain.” The publicly sharable minimal claim is restricted to the following single sentence:</p> <blockquote> <p><strong>With a specific arrangement (A4) and priors (A5) locked, the conditions required by the Bio–EM interpretation are designed to be adjudicable via Gate .</strong></p> </blockquote> <p>That is, “success” of this track is measured not by rhetorical persuasion, but by whether <strong>(i) gate definitions exist</strong> and <strong>(ii) artifacts are produced,</strong> and <strong>(iii) failures are returned as FAIL_LABEL</strong>.</p> <h2 id="conceptual-overview-interpretive-framing">Conceptual overview (interpretive framing)</h2> <p>This track reframes signal transfer not as microscopic ion trajectories but as a <strong>propagation problem of an effective field</strong>. Under certain boundary (axon/myelin) conditions, the axon–myelin composite can be approximated by a waveguide model, and total internal reflection (TIR) provides a qualitative frame for minimizing leakage. A balance of nonlinearity and dispersion can be expressed as a soliton-form stable propagation hypothesis, and low-frequency EEG/MEG components can be observed as envelope/beat phenomena of high-frequency carrier interactions—forming a set of <em>testable hypotheses</em>.</p> <p>However, the “approval” criterion adopted here is not narrative persuasiveness but the <strong>Gate verdict</strong>. Under input locking (A4, A5), relevant conditions are reduced to , and if <code>FAIL</code> or <code>INCONCLUSIVE</code> is returned, the interpretation is not approved.</p> <h2 id="verification-layer-gate-first">Verification layer (gate-first)</h2> <p>The public claim of this track is limited to whether it <strong>passes the defined Gates</strong>. Representative Gates (summary):</p> <ul> <li><p>: does information transfer respect the causal direction?</p></li> <li><p>: is there no contradiction in energy/conservation bookkeeping?</p></li> <li><p>: does a waveguiding (TIR) feasible region exist under boundary conditions?</p></li> <li><p>: can shape be preserved during propagation without waveform collapse?</p></li> <li><p><code>IDENTIFIABILITY / CAL_LEAKAGE</code>: is it identifiable without “custom tuning” (leakage)?</p></li> </ul> <h3 id="formal-invariants-and-observables-symbolic-reviewer-facing">Formal invariants and observables (symbolic, reviewer-facing)</h3> <p>In the Appendix B (PROOF snapshot), invariants such as <span class="math inline">\(\Pi_T\)</span>, <span class="math inline">\(\Pi_L\)</span>, and <span class="math inline">\(\rho(G)\)</span> appear. In this main body, we fix not “numerical computation” but <strong>what the Gates look at and how they yield</strong> at the <em>symbolic level</em> only.</p> <table style="width:94%;"> <colgroup> <col style="width: 20%" /> <col style="width: 74%" /> </colgroup> <thead> <tr class="header"> <th style="text-align: left;"><strong>Symbol</strong></th> <th style="text-align: left;"><strong>Operational meaning (public)</strong></th> </tr> </thead> <tbody> <tr class="odd"> <td style="text-align: left;"><span class="math inline">\(\Pi_T\)</span></td> <td style="text-align: left;">Time invariant (form). Example: <span class="math inline">\(\Pi_T := T\langle \varepsilon_{\mathrm{bind}}\rangle/\Delta F_{\mathrm{crit}}\)</span>. Used to check consistency of causality/time direction (ToF) and transition-cost accounting.</td> </tr> <tr class="even"> <td style="text-align: left;"><span class="math inline">\(\Pi_L\)</span></td> <td style="text-align: left;">Space invariant (form). Example: <span class="math inline">\(\Pi_L := \frac{L^{1+\alpha}\varepsilon_{\mathrm{bind}}}{C_{\alpha}\sigma_{\mathrm{eff}}}\)</span>. Used to check whether boundary/scale effects dominate (boundary domination).</td> </tr> <tr class="odd"> <td style="text-align: left;"><span class="math inline">\(\alpha\)</span></td> <td style="text-align: left;">Dynamics index (scale relation). Identified by spectral slope and used to assess stability of scale coupling.</td> </tr> <tr class="even"> <td style="text-align: left;"><span class="math inline">\(C_{\alpha}\)</span></td> <td style="text-align: left;">Boundary/geometry correction constant. Used as a correction factor for effective dissipation/coupling induced by boundary conditions.</td> </tr> <tr class="odd"> <td style="text-align: left;"><span class="math inline">\(\Gamma\)</span></td> <td style="text-align: left;">Inter-scale coupling matrix (summary). In weighted form, appears as <span class="math inline">\(G=W_{\alpha}\Gamma W_{\alpha}\)</span>.</td> </tr> <tr class="even"> <td style="text-align: left;"><span class="math inline">\(\rho(G)\)</span></td> <td style="text-align: left;">Coupling stability indicator (spectral radius). <span class="math inline">\(\rho(G)&lt;1\)</span> is a minimal condition to prevent runaway (stability gate).</td> </tr> </tbody> </table> <div class="remark"> <p><strong>Remark 3</strong>. <em>This section fixes only the “definitions.” Actual numerics, fits, proofs, and error bounds are traced via the Appendix B snapshot and the artifacts in .</em></p> </div> <h3 id="minimal-public-claim-set-gate-form">Minimal public claim set (gate-form)</h3> <div class="claim"> <p><strong>Claim 5</strong> (EM-C1: Verifiable waveguide condition). <em>For locked inputs (A4, A5), if is not <code>PASS</code>, the “waveguide frame” is <strong>immediately rejected</strong> for that input.</em></p> </div> <div class="claim"> <p><strong>Claim 6</strong> (EM-C2: Stable propagation is not asserted without gates). <em>If or stability-family gates <code>FAIL</code>, the “stable propagation” (shape preservation) claim is not accepted.</em></p> </div> <div class="claim"> <p><strong>Claim 7</strong> (EM-C3: No causality bypass). <em>If <code>FAIL</code>s, all “information transfer” interpretations in this track are <strong>logically halted (HALT)</strong>.</em></p> </div> <h3 id="evidence-pointers-where-the-details-live">Evidence pointers (where the details live)</h3> <ul> <li><p>Appendix B preserves the Bio–EM original-text snapshot (abbreviations/symbols/gate definitions/data-pack conventions).</p></li> <li><p>contains the Gate specifications.</p></li> <li><p>contains the reproducibility kit (artifacts/checksums/manifest).</p></li> </ul> <h3 id="fail-conditions-how-to-falsify-quickly">FAIL conditions (how to falsify quickly)</h3> <ul> <li><p>(F-EM1) If is observed: treat as “tuning dependence” and <strong>REVISE/HALT</strong>.</p></li> <li><p>(F-EM2) If <code>IDENTIFIABILITY</code> fails: conclusion is not identifiable under input lock, so <strong>REVISE</strong>.</p></li> <li><p>(F-EM3) If any gate definition is ambiguous or irreproducible (alias drift): treat as an <strong><code>AXIOM-FIX</code> violation</strong>.</p></li> </ul> <h2 id="assurance-card-bioem-public">Assurance card (Bio–EM, public)</h2> <pre data-fontsize="\small"><code>CLAIM(EM): &quot;Waveguide/soliton interpretation is accepted only if core gates PASS under locked inputs.&quot;
+STOP_RULES: &lt;conditions that force REVISE/HALT&gt;</code></pre>
+</section>
+</section>
+<section id="cross-track-integration-dna-bioem-therapy" class="level1"
+data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span>
+Cross-track integration: DNA → Bio–EM→ Therapy</h1>
+<section id="cross-track-translation-table-dna-bioem-therapy"
+class="level2" data-number="8.1">
+<h2 data-number="8.1"><span class="header-section-number">8.1</span>
+Cross-track translation table (DNA / Bio–EM/ Therapy)</h2>
+<p>The table below does not aim to claim “identity”; it is a
+<strong>translation convention</strong> for locking different domains
+into the same object shapes.</p>
+<table style="width:90%;">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Concept</strong></th>
+<th style="text-align: left;"><strong>DNA track</strong></th>
+<th style="text-align: left;"><strong>Bio–EM track</strong></th>
+<th
+style="text-align: left;"><strong><strong>Ω-LearnSim</strong> track</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Anchor</td>
+<td style="text-align: left;">CTCF/boundary/fixed point</td>
+<td style="text-align: left;">myelin/boundary/reflection conditions</td>
+<td style="text-align: left;">L1–αCT–FnIII-1 (epitope)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Motor</td>
+<td style="text-align: left;">transcription/torque/active site</td>
+<td style="text-align: left;">ion/charge drive (carrier)</td>
+<td style="text-align: left;">allosteric binding (sensitization)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Loop</td>
+<td style="text-align: left;">chromatin loop/state</td>
+<td style="text-align: left;">resonance/feedback loop</td>
+<td style="text-align: left;">signaling/internalization feedback</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Shell</td>
+<td style="text-align: left;">nucleus/domain/compartment</td>
+<td style="text-align: left;">tissue/layer/boundary conditions</td>
+<td style="text-align: left;">membrane microdomain/cluster</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>JEVENT</code></td>
+<td style="text-align: left;">rearrangement/lock event</td>
+<td style="text-align: left;">synchronization/transition (lock)</td>
+<td style="text-align: left;">IR activation transition (tilted_T)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Residual pressure (<span
+class="math inline">\(U_3\)</span>)</td>
+<td style="text-align: left;">damage/stress accumulation</td>
+<td style="text-align: left;">noise/demyelination/damage</td>
+<td style="text-align: left;">inflammation/lipids/ER-stress</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Counter-arrangement</td>
+<td style="text-align: left;">repair/replacement arrangement</td>
+<td style="text-align: left;">entrainment/waveform correction</td>
+<td style="text-align: left;">PAM-sensitizer</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gates</td>
+<td style="text-align: left;">ABC/ToF/identifiability/leakage</td>
+<td style="text-align: left;">TIR/soliton + ABC/ToF</td>
+<td style="text-align: left;">selectivity/no-agonism/tolerance</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="application-a-bioem-neurodynamics-integrated-overview"
+class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span>
+Application A: Bio–EM/ neurodynamics (integrated overview)</h1>
+<section id="claim-boundary-what-is-and-is-not-claimed" class="level2"
+data-number="9.1">
+<h2 data-number="9.1"><span class="header-section-number">9.1</span>
+Claim boundary (what is and is not claimed)</h2>
+<p>This track does not aim to “explain the entire brain.” The publicly
+sharable minimal claim is restricted to the following single
+sentence:</p>
+<blockquote>
+<p><strong>With a specific arrangement (A4) and priors (A5) locked, the
+conditions required by the Bio–EM interpretation are designed to be
+adjudicable via Gate .</strong></p>
+</blockquote>
+<p>That is, “success” of this track is measured not by rhetorical
+persuasion, but by whether <strong>(i) gate definitions exist</strong>
+and <strong>(ii) artifacts are produced,</strong> and <strong>(iii)
+failures are returned as FAIL_LABEL</strong>.</p>
+</section>
+<section id="conceptual-overview-interpretive-framing" class="level2"
+data-number="9.2">
+<h2 data-number="9.2"><span class="header-section-number">9.2</span>
+Conceptual overview (interpretive framing)</h2>
+<p>This track reframes signal transfer not as microscopic ion
+trajectories but as a <strong>propagation problem of an effective
+field</strong>. Under certain boundary (axon/myelin) conditions, the
+axon–myelin composite can be approximated by a waveguide model, and
+total internal reflection (TIR) provides a qualitative frame for
+minimizing leakage. A balance of nonlinearity and dispersion can be
+expressed as a soliton-form stable propagation hypothesis, and
+low-frequency EEG/MEG components can be observed as envelope/beat
+phenomena of high-frequency carrier interactions—forming a set of
+<em>testable hypotheses</em>.</p>
+<p>However, the “approval” criterion adopted here is not narrative
+persuasiveness but the <strong>Gate verdict</strong>. Under input
+locking (A4, A5), relevant conditions are reduced to , and if
+<code>FAIL</code> or <code>INCONCLUSIVE</code> is returned, the
+interpretation is not approved.</p>
+</section>
+<section id="verification-layer-gate-first" class="level2"
+data-number="9.3">
+<h2 data-number="9.3"><span class="header-section-number">9.3</span>
+Verification layer (gate-first)</h2>
+<p>The public claim of this track is limited to whether it
+<strong>passes the defined Gates</strong>. Representative Gates
+(summary):</p>
+<ul>
+<li><p>: does information transfer respect the causal
+direction?</p></li>
+<li><p>: is there no contradiction in energy/conservation
+bookkeeping?</p></li>
+<li><p>: does a waveguiding (TIR) feasible region exist under boundary
+conditions?</p></li>
+<li><p>: can shape be preserved during propagation without waveform
+collapse?</p></li>
+<li><p><code>IDENTIFIABILITY / CAL_LEAKAGE</code>: is it identifiable
+without “custom tuning” (leakage)?</p></li>
+</ul>
+<section id="formal-invariants-and-observables-symbolic-reviewer-facing"
+class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1"><span class="header-section-number">9.3.1</span>
+Formal invariants and observables (symbolic, reviewer-facing)</h3>
+<p>In the Appendix B (PROOF snapshot), invariants such as <span
+class="math inline">\(\Pi_T\)</span>, <span
+class="math inline">\(\Pi_L\)</span>, and <span
+class="math inline">\(\rho(G)\)</span> appear. In this main body, we fix
+not “numerical computation” but <strong>what the Gates look at and how
+they yield</strong> at the <em>symbolic level</em> only.</p>
+<table style="width:94%;">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 74%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Symbol</strong></th>
+<th style="text-align: left;"><strong>Operational meaning
+(public)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span
+class="math inline">\(\Pi_T\)</span></td>
+<td style="text-align: left;">Time invariant (form). Example: <span
+class="math inline">\(\Pi_T := T\langle
+\varepsilon_{\mathrm{bind}}\rangle/\Delta F_{\mathrm{crit}}\)</span>.
+Used to check consistency of causality/time direction (ToF) and
+transition-cost accounting.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span
+class="math inline">\(\Pi_L\)</span></td>
+<td style="text-align: left;">Space invariant (form). Example: <span
+class="math inline">\(\Pi_L :=
+\frac{L^{1+\alpha}\varepsilon_{\mathrm{bind}}}{C_{\alpha}\sigma_{\mathrm{eff}}}\)</span>.
+Used to check whether boundary/scale effects dominate (boundary
+domination).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span
+class="math inline">\(\alpha\)</span></td>
+<td style="text-align: left;">Dynamics index (scale relation).
+Identified by spectral slope and used to assess stability of scale
+coupling.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span
+class="math inline">\(C_{\alpha}\)</span></td>
+<td style="text-align: left;">Boundary/geometry correction constant.
+Used as a correction factor for effective dissipation/coupling induced
+by boundary conditions.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span
+class="math inline">\(\Gamma\)</span></td>
+<td style="text-align: left;">Inter-scale coupling matrix (summary). In
+weighted form, appears as <span class="math inline">\(G=W_{\alpha}\Gamma
+W_{\alpha}\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span
+class="math inline">\(\rho(G)\)</span></td>
+<td style="text-align: left;">Coupling stability indicator (spectral
+radius). <span class="math inline">\(\rho(G)&lt;1\)</span> is a minimal
+condition to prevent runaway (stability gate).</td>
+</tr>
+</tbody>
+</table>
+<div class="remark">
+<p><strong>Remark 3</strong>. <em>This section fixes only the
+“definitions.” Actual numerics, fits, proofs, and error bounds are
+traced via the Appendix B snapshot and the artifacts in .</em></p>
+</div>
+</section>
+<section id="minimal-public-claim-set-gate-form" class="level3"
+data-number="9.3.2">
+<h3 data-number="9.3.2"><span class="header-section-number">9.3.2</span>
+Minimal public claim set (gate-form)</h3>
+<div class="claim">
+<p><strong>Claim 5</strong> (EM-C1: Verifiable waveguide condition).
+<em>For locked inputs (A4, A5), if is not <code>PASS</code>, the
+“waveguide frame” is <strong>immediately rejected</strong> for that
+input.</em></p>
+</div>
+<div class="claim">
+<p><strong>Claim 6</strong> (EM-C2: Stable propagation is not asserted
+without gates). <em>If or stability-family gates <code>FAIL</code>, the
+“stable propagation” (shape preservation) claim is not
+accepted.</em></p>
+</div>
+<div class="claim">
+<p><strong>Claim 7</strong> (EM-C3: No causality bypass). <em>If
+<code>FAIL</code>s, all “information transfer” interpretations in this
+track are <strong>logically halted (HALT)</strong>.</em></p>
+</div>
+</section>
+<section id="evidence-pointers-where-the-details-live" class="level3"
+data-number="9.3.3">
+<h3 data-number="9.3.3"><span class="header-section-number">9.3.3</span>
+Evidence pointers (where the details live)</h3>
+<ul>
+<li><p>Appendix B preserves the Bio–EM original-text snapshot
+(abbreviations/symbols/gate definitions/data-pack conventions).</p></li>
+<li><p>contains the Gate specifications.</p></li>
+<li><p>contains the reproducibility kit
+(artifacts/checksums/manifest).</p></li>
+</ul>
+</section>
+<section id="fail-conditions-how-to-falsify-quickly" class="level3"
+data-number="9.3.4">
+<h3 data-number="9.3.4"><span class="header-section-number">9.3.4</span>
+FAIL conditions (how to falsify quickly)</h3>
+<ul>
+<li><p>(F-EM1) If is observed: treat as “tuning dependence” and
+<strong>REVISE/HALT</strong>.</p></li>
+<li><p>(F-EM2) If <code>IDENTIFIABILITY</code> fails: conclusion is not
+identifiable under input lock, so <strong>REVISE</strong>.</p></li>
+<li><p>(F-EM3) If any gate definition is ambiguous or irreproducible
+(alias drift): treat as an <strong><code>AXIOM-FIX</code>
+violation</strong>.</p></li>
+</ul>
+</section>
+</section>
+<section id="assurance-card-bioem-public" class="level2"
+data-number="9.4">
+<h2 data-number="9.4"><span class="header-section-number">9.4</span>
+Assurance card (Bio–EM, public)</h2>
+<pre data-fontsize="\small"><code>CLAIM(EM): &quot;Waveguide/soliton interpretation is accepted only if core gates PASS under locked inputs.&quot;
 EVIDENCE: bundles/UJ_GATE_SPEC_RELEASE_PACK_v1_0.zip + bundles/UJ-REPRO-KIT_2025-10-22.zip + Appendix B
 RISKS: identifiability failure, calibration leakage, alias drift (gate naming), stability violations
-STOP_RULES: ToF_GATE FAIL or CAL_LEAKAGE observed =&gt; HALT (do not interpret)</code></pre> <h1 id="application-b-ω-learnsim-ir-pam-sensitizer-integrated-overview">Application B: <strong>Ω-LearnSim</strong> (<strong>IR PAM-Sensitizer</strong>) (integrated overview)</h1> <h2 id="claim-boundary-and-safety-posture-no-cal">Claim boundary and safety posture (NO-CAL)</h2> <p>This track provides no therapeutic “prescription.” The public scope is restricted by <code>NO-CAL</code> to the following:</p> <ul> <li><p><strong>Qualitative labels (qualitative labels)</strong>: increased/decreased/normalized/minimal, etc.</p></li> <li><p><strong>Stop-rules</strong>: rules that resolve to <strong>REVISE/HALT</strong> upon risk signals</p></li> <li><p><strong>Gate framing</strong>: a structure that treats selectivity/no-agonism/tolerance risks via</p></li> </ul> <p>Therefore, the purpose of this track is not “to propose a therapy,” but to <strong>fix conceptual claims (what) and safety boundaries (how to stop) in an adjudicable form</strong>.</p> <h2 id="problem-statement-insulin-resistance-as-incorrect-dynamics">Problem statement (insulin resistance as incorrect dynamics)</h2> <p>In this framework, insulin resistance is reframed not as “a lack of insulin,” but as a state where micro-arrangement changes of the receptor (IR) and accumulated residual pressure make <strong>normal transitions (<code>JEVENT</code>) difficult to complete</strong>. That is, even when insulin binds, conformational transitions may fail to complete or proceed with low efficiency, collapsing metabolic signaling (AKT) bias as an instance of “incorrect dynamics”.</p> <h2 id="mechanism-snapshot-qualitative-public">Mechanism snapshot (qualitative, public)</h2> <p>Below is a mechanism snapshot that fixes, <strong>qualitatively</strong>, “what is being claimed” (it does not include detailed numerics, experimental procedures, or recipes).</p> <pre data-fontsize="\small"><code>insulin present -&gt; IR single-insulin state stabilized (qual.) -&gt; FnIII-3 approach increased -&gt; activation-loop progression normalized -&gt; signaling bias shifted toward metabolic (AKT &gt;&gt; ERK) # qualitative direction only -&gt; if selectivity gates PASS and stop-rules not triggered: ACCEPT (concept-level)</code></pre> <h2 id="theory-deepening-qualitative-4d-arrangement-manifold-and-maps">Theory deepening (qualitative): 4D arrangement manifold and maps</h2> <p>To treat the therapy track not as “narrative” but as <strong>objects + a map</strong>, we lift the minimal definitions used in the bundled <strong>Ω-LearnSim</strong> pack (v3) into the main text (qualitative).</p> <div class="definition"> <p><strong>Definition 2</strong> (Arrangement manifold <span class="math inline">\(\mathcal{M}\)</span> (therapy view)). <em>We can view <span class="math inline">\(\mathcal{M}\)</span> as a product space: IR-domain geometry (relative arrangement) <span class="math inline">\(\times\)</span> membrane microdomains (raft/glycan, etc.) <span class="math inline">\(\times\)</span> ligand occupancy (insulin/PAM). Each state can be represented (qualitatively) as an A4 object describing “which arrangements are allowed.”</em></p> </div> <div class="definition"> <p><strong>Definition 3</strong> (Transition map <span class="math inline">\(J:\mathcal{M}\rightarrow\mathcal{M}\)</span>). <em><span class="math inline">\(J\)</span> maps insulin-induced transitions (e.g., T-shape <span class="math inline">\(\rightarrow\)</span> active state) and, records, as <strong>J_LEDGER</strong> events, whether those transitions complete (or are blocked).</em></p> </div> <div class="definition"> <p><strong>Definition 4</strong> (Residual pressure <span class="math inline">\(U_3\)</span> and counter-arrangement <span class="math inline">\(C\)</span>). <em><span class="math inline">\(U_3\)</span> is a qualitative pressure state variable representing accumulated stress factors (inflammation/lipids/ER-stress, etc.) that oppose transitions, and</em></p> <p><em>the counter-arrangement operator <span class="math inline">\(C\)</span> denotes an intervention (qualitative) in which a PAM reweights the local free-energy landscape, stabilizing the <em>single-insulin basin</em> and lowering transition-path costs.</em></p> </div> <h3 id="qualitative-invariants-reviewer-check-list">Qualitative invariants (reviewer check list)</h3> <p>The <strong>Ω-LearnSim</strong> track sets the following as <strong>invariant guardrails</strong> (details traced in Appendix C and the bundle):</p> <ol> <li><p><strong>No insulin <span class="math inline">\(\Rightarrow\)</span> no agonism.</strong> If activity is observed under no-insulin conditions, immediately <strong>HALT</strong>.<br /> </p></li> <li><p><strong>Positive cooperativity is necessary.</strong> If cooperativity under insulin-present conditions breaks, <strong>REVISE</strong> the conceptual claim.<br /> </p></li> <li><p><strong>Selectivity guardrail.</strong> If IGF-1R/Hybrid activation signs rise, <strong>HALT</strong>(S1).<br /> </p></li> <li><p><strong>Intermittent exposure reversibility.</strong> If tolerance signs under continuous exposure are irreversible, <strong>HALT</strong>(S3).<br /> </p></li> <li><p><strong>Context dependence acknowledged.</strong> Under severe ER/glycan stress, boundary effects may appear; in that case, <strong>REVISE</strong> toward auxiliary/alternative strategies.</p></li> </ol> <blockquote> <p>(Public summary card v4) “Positive allosteric sensitization at L1-<span class="math inline">\(\alpha\)</span>CT-FnIII-1 restores normal transitions (<code>JEVENT</code>) together with insulin. Qualitatively: no no-insulin agonism, minimal IGF-1R/Hybrid activity, and resilience under intermittent exposure.”</p> </blockquote> <h2 id="counter-arrangement-concept-path-a">Counter-arrangement concept (PATH-A)</h2> <p>The counter-arrangement in the <strong>Ω-LearnSim</strong> track is defined as follows (qualitative):</p> <ul> <li><p><strong>Target</strong>: IR interface (L1-<span class="math inline">\(\alpha\)</span>CT-FnIII-1).</p></li> <li><p><strong>Goal</strong>: <em>in the presence of insulin</em>, stabilize the single-insulin state to <strong>normalize</strong> FnIII-3 approach/activation-loop progression, and thereby <strong>qualitatively strengthen</strong> metabolic bias (AKT <span class="math inline">\(\gg\)</span> ERK).</p></li> <li><p><strong>Prohibited</strong>: operation (agonism) under no-insulin conditions and IGF-1R/Hybrid activation (selectivity failure).</p></li> </ul> <h2 id="governance-note-public-interest-pledge-summary">Governance note (public-interest pledge, summary)</h2> <p>This track asserts not only an “idea” but also <strong>public governance</strong>. The Appendix C original includes the following principles, which are retained here at a summary level:</p> <ul> <li><p><strong>Free distribution / affordability duty</strong>: aim for distribution that does not compromise affordability.</p></li> <li><p><strong>Open governance</strong>: update the version log in a Claim–Evidence–Risk–Stop-rules structure.</p></li> <li><p><strong>Safety first</strong>: if selectivity/no-agonism/tolerance stop rules trigger, immediately <strong>REVISE/HALT</strong>.</p></li> </ul> <h2 id="evidence-snapshot-qualitative-versioned">Evidence snapshot (qualitative, versioned)</h2> <p>This proposal assumes <strong>versioned accumulation</strong> of qualitative labels (v3→v4→vN). That is, rather than a “one-shot narrative,” it is organized so that, per scenario code (A1–D3, N1–N3, E1–E4, etc.), one can check whether label directionality <strong>matches/mismatches</strong>, and if mismatched, <strong>REVISE/HALT</strong> is possible. (Details are traced in the Appendix C snapshot and bundled reproducibility bundle.)</p> <h2 id="qualitative-label-ontology-public-no-cal">Qualitative label ontology (public, NO-CAL)</h2> <p>Representative labels (summary; full list in Appendix C):</p> <table style="width:92%;"> <colgroup> <col style="width: 36%" /> <col style="width: 56%" /> </colgroup> <thead> <tr class="header"> <th style="text-align: left;"><strong>Label</strong></th> <th style="text-align: left;"><strong>Value set (qualitative)</strong></th> </tr> </thead> <tbody> <tr class="odd"> <td style="text-align: left;"><code>fnIII3_approach</code></td> <td style="text-align: left;">{increased, unchanged, decreased}</td> </tr> <tr class="even"> <td style="text-align: left;"><code>activation_loop_progression</code></td> <td style="text-align: left;">{normalized, partial, impaired}</td> </tr> <tr class="odd"> <td style="text-align: left;"><code>signaling_bias (AKT:ERK)</code></td> <td style="text-align: left;">{increased, unchanged, decreased}</td> </tr> <tr class="even"> <td style="text-align: left;"><code>igf1r_activity</code></td> <td style="text-align: left;">{none, minimal, elevated}</td> </tr> <tr class="odd"> <td style="text-align: left;"><code>hybrid_receptor_signal</code></td> <td style="text-align: left;">{none, minimal, elevated}</td> </tr> <tr class="even"> <td style="text-align: left;"><code>hypoglycemia_flag</code></td> <td style="text-align: left;">{false, true}</td> </tr> <tr class="odd"> <td style="text-align: left;"><code>tolerance_flag</code></td> <td style="text-align: left;">{false, true}</td> </tr> <tr class="even"> <td style="text-align: left;"><code>tolerance_reversibility</code></td> <td style="text-align: left;">{reversible_with_rest, partial, none}</td> </tr> </tbody> </table> <h2 id="stop-rules-public-safety-rails">Stop-rules (public safety rails)</h2> <p>The following conditions imply <strong>REVISE/HALT</strong> (qualitative):</p> <ul> <li><p>(S1) <code>igf1r_activity</code> or <code>hybrid_receptor_signal</code> is <code>elevated</code>.</p></li> <li><p>(S2) Under no-insulin conditions, activity signs corresponding to <code>hypoglycemia_flag=true</code> (agonism).</p></li> <li><p>(S3) Under continuous exposure, <code>tolerance_flag=true</code> with <code>tolerance_reversibility=none</code>.</p></li> </ul> <h2 id="assurance-card-public-reviewer-facing">Assurance card (public, reviewer-facing)</h2> <pre data-fontsize="\small"><code>CLAIM(THERAPY): &quot;IR is sensitized only under insulin-present condition, with minimal off-target.&quot;
+STOP_RULES: ToF_GATE FAIL or CAL_LEAKAGE observed =&gt; HALT (do not interpret)</code></pre>
+</section>
+</section>
+<section
+id="application-b-ω-learnsim-ir-pam-sensitizer-integrated-overview"
+class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span>
+Application B: <strong>Ω-LearnSim</strong> (<strong>IR
+PAM-Sensitizer</strong>) (integrated overview)</h1>
+<section id="claim-boundary-and-safety-posture-no-cal" class="level2"
+data-number="10.1">
+<h2 data-number="10.1"><span class="header-section-number">10.1</span>
+Claim boundary and safety posture (NO-CAL)</h2>
+<p>This track provides no therapeutic “prescription.” The public scope
+is restricted by <code>NO-CAL</code> to the following:</p>
+<ul>
+<li><p><strong>Qualitative labels (qualitative labels)</strong>:
+increased/decreased/normalized/minimal, etc.</p></li>
+<li><p><strong>Stop-rules</strong>: rules that resolve to
+<strong>REVISE/HALT</strong> upon risk signals</p></li>
+<li><p><strong>Gate framing</strong>: a structure that treats
+selectivity/no-agonism/tolerance risks via</p></li>
+</ul>
+<p>Therefore, the purpose of this track is not “to propose a therapy,”
+but to <strong>fix conceptual claims (what) and safety boundaries (how
+to stop) in an adjudicable form</strong>.</p>
+</section>
+<section id="problem-statement-insulin-resistance-as-incorrect-dynamics"
+class="level2" data-number="10.2">
+<h2 data-number="10.2"><span class="header-section-number">10.2</span>
+Problem statement (insulin resistance as incorrect dynamics)</h2>
+<p>In this framework, insulin resistance is reframed not as “a lack of
+insulin,” but as a state where micro-arrangement changes of the receptor
+(IR) and accumulated residual pressure make <strong>normal transitions
+(<code>JEVENT</code>) difficult to complete</strong>. That is, even when
+insulin binds, conformational transitions may fail to complete or
+proceed with low efficiency, collapsing metabolic signaling (AKT) bias
+as an instance of “incorrect dynamics”.</p>
+</section>
+<section id="mechanism-snapshot-qualitative-public" class="level2"
+data-number="10.3">
+<h2 data-number="10.3"><span class="header-section-number">10.3</span>
+Mechanism snapshot (qualitative, public)</h2>
+<p>Below is a mechanism snapshot that fixes,
+<strong>qualitatively</strong>, “what is being claimed” (it does not
+include detailed numerics, experimental procedures, or recipes).</p>
+<pre data-fontsize="\small"><code>insulin present
+  -&gt; IR single-insulin state stabilized (qual.)
+  -&gt; FnIII-3 approach increased
+  -&gt; activation-loop progression normalized
+  -&gt; signaling bias shifted toward metabolic (AKT &gt;&gt; ERK)  # qualitative direction only
+  -&gt; if selectivity gates PASS and stop-rules not triggered: ACCEPT (concept-level)</code></pre>
+</section>
+<section
+id="theory-deepening-qualitative-4d-arrangement-manifold-and-maps"
+class="level2" data-number="10.4">
+<h2 data-number="10.4"><span class="header-section-number">10.4</span>
+Theory deepening (qualitative): 4D arrangement manifold and maps</h2>
+<p>To treat the therapy track not as “narrative” but as <strong>objects
++ a map</strong>, we lift the minimal definitions used in the bundled
+<strong>Ω-LearnSim</strong> pack (v3) into the main text
+(qualitative).</p>
+<div class="definition">
+<p><strong>Definition 2</strong> (Arrangement manifold <span
+class="math inline">\(\mathcal{M}\)</span> (therapy view)). <em>We can
+view <span class="math inline">\(\mathcal{M}\)</span> as a product
+space: IR-domain geometry (relative arrangement) <span
+class="math inline">\(\times\)</span> membrane microdomains
+(raft/glycan, etc.) <span class="math inline">\(\times\)</span> ligand
+occupancy (insulin/PAM). Each state can be represented (qualitatively)
+as an A4 object describing “which arrangements are allowed.”</em></p>
+</div>
+<div class="definition">
+<p><strong>Definition 3</strong> (Transition map <span
+class="math inline">\(J:\mathcal{M}\rightarrow\mathcal{M}\)</span>).
+<em><span class="math inline">\(J\)</span> maps insulin-induced
+transitions (e.g., T-shape <span
+class="math inline">\(\rightarrow\)</span> active state) and, records,
+as <strong>J_LEDGER</strong> events, whether those transitions complete
+(or are blocked).</em></p>
+</div>
+<div class="definition">
+<p><strong>Definition 4</strong> (Residual pressure <span
+class="math inline">\(U_3\)</span> and counter-arrangement <span
+class="math inline">\(C\)</span>). <em><span
+class="math inline">\(U_3\)</span> is a qualitative pressure state
+variable representing accumulated stress factors
+(inflammation/lipids/ER-stress, etc.) that oppose transitions,
+and</em></p>
+<p><em>the counter-arrangement operator <span
+class="math inline">\(C\)</span> denotes an intervention (qualitative)
+in which a PAM reweights the local free-energy landscape, stabilizing
+the <em>single-insulin basin</em> and lowering transition-path
+costs.</em></p>
+</div>
+<section id="qualitative-invariants-reviewer-check-list" class="level3"
+data-number="10.4.1">
+<h3 data-number="10.4.1"><span
+class="header-section-number">10.4.1</span> Qualitative invariants
+(reviewer check list)</h3>
+<p>The <strong>Ω-LearnSim</strong> track sets the following as
+<strong>invariant guardrails</strong> (details traced in Appendix C and
+the bundle):</p>
+<ol>
+<li><p><strong>No insulin <span
+class="math inline">\(\Rightarrow\)</span> no agonism.</strong> If
+activity is observed under no-insulin conditions, immediately
+<strong>HALT</strong>.<br />
+</p></li>
+<li><p><strong>Positive cooperativity is necessary.</strong> If
+cooperativity under insulin-present conditions breaks,
+<strong>REVISE</strong> the conceptual claim.<br />
+</p></li>
+<li><p><strong>Selectivity guardrail.</strong> If IGF-1R/Hybrid
+activation signs rise, <strong>HALT</strong>(S1).<br />
+</p></li>
+<li><p><strong>Intermittent exposure reversibility.</strong> If
+tolerance signs under continuous exposure are irreversible,
+<strong>HALT</strong>(S3).<br />
+</p></li>
+<li><p><strong>Context dependence acknowledged.</strong> Under severe
+ER/glycan stress, boundary effects may appear; in that case,
+<strong>REVISE</strong> toward auxiliary/alternative
+strategies.</p></li>
+</ol>
+<blockquote>
+<p>(Public summary card v4) “Positive allosteric sensitization at
+L1-<span class="math inline">\(\alpha\)</span>CT-FnIII-1 restores normal
+transitions (<code>JEVENT</code>) together with insulin. Qualitatively:
+no no-insulin agonism, minimal IGF-1R/Hybrid activity, and resilience
+under intermittent exposure.”</p>
+</blockquote>
+</section>
+</section>
+<section id="counter-arrangement-concept-path-a" class="level2"
+data-number="10.5">
+<h2 data-number="10.5"><span class="header-section-number">10.5</span>
+Counter-arrangement concept (PATH-A)</h2>
+<p>The counter-arrangement in the <strong>Ω-LearnSim</strong> track is
+defined as follows (qualitative):</p>
+<ul>
+<li><p><strong>Target</strong>: IR interface (L1-<span
+class="math inline">\(\alpha\)</span>CT-FnIII-1).</p></li>
+<li><p><strong>Goal</strong>: <em>in the presence of insulin</em>,
+stabilize the single-insulin state to <strong>normalize</strong> FnIII-3
+approach/activation-loop progression, and thereby <strong>qualitatively
+strengthen</strong> metabolic bias (AKT <span
+class="math inline">\(\gg\)</span> ERK).</p></li>
+<li><p><strong>Prohibited</strong>: operation (agonism) under no-insulin
+conditions and IGF-1R/Hybrid activation (selectivity failure).</p></li>
+</ul>
+</section>
+<section id="governance-note-public-interest-pledge-summary"
+class="level2" data-number="10.6">
+<h2 data-number="10.6"><span class="header-section-number">10.6</span>
+Governance note (public-interest pledge, summary)</h2>
+<p>This track asserts not only an “idea” but also <strong>public
+governance</strong>. The Appendix C original includes the following
+principles, which are retained here at a summary level:</p>
+<ul>
+<li><p><strong>Free distribution / affordability duty</strong>: aim for
+distribution that does not compromise affordability.</p></li>
+<li><p><strong>Open governance</strong>: update the version log in a
+Claim–Evidence–Risk–Stop-rules structure.</p></li>
+<li><p><strong>Safety first</strong>: if
+selectivity/no-agonism/tolerance stop rules trigger, immediately
+<strong>REVISE/HALT</strong>.</p></li>
+</ul>
+</section>
+<section id="evidence-snapshot-qualitative-versioned" class="level2"
+data-number="10.7">
+<h2 data-number="10.7"><span class="header-section-number">10.7</span>
+Evidence snapshot (qualitative, versioned)</h2>
+<p>This proposal assumes <strong>versioned accumulation</strong> of
+qualitative labels (v3→v4→vN). That is, rather than a “one-shot
+narrative,” it is organized so that, per scenario code (A1–D3, N1–N3,
+E1–E4, etc.), one can check whether label directionality
+<strong>matches/mismatches</strong>, and if mismatched,
+<strong>REVISE/HALT</strong> is possible. (Details are traced in the
+Appendix C snapshot and bundled reproducibility bundle.)</p>
+</section>
+<section id="qualitative-label-ontology-public-no-cal" class="level2"
+data-number="10.8">
+<h2 data-number="10.8"><span class="header-section-number">10.8</span>
+Qualitative label ontology (public, NO-CAL)</h2>
+<p>Representative labels (summary; full list in Appendix C):</p>
+<table style="width:92%;">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Label</strong></th>
+<th style="text-align: left;"><strong>Value set
+(qualitative)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>fnIII3_approach</code></td>
+<td style="text-align: left;">{increased, unchanged, decreased}</td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><code>activation_loop_progression</code></td>
+<td style="text-align: left;">{normalized, partial, impaired}</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>signaling_bias (AKT:ERK)</code></td>
+<td style="text-align: left;">{increased, unchanged, decreased}</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>igf1r_activity</code></td>
+<td style="text-align: left;">{none, minimal, elevated}</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>hybrid_receptor_signal</code></td>
+<td style="text-align: left;">{none, minimal, elevated}</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>hypoglycemia_flag</code></td>
+<td style="text-align: left;">{false, true}</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>tolerance_flag</code></td>
+<td style="text-align: left;">{false, true}</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>tolerance_reversibility</code></td>
+<td style="text-align: left;">{reversible_with_rest, partial, none}</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stop-rules-public-safety-rails" class="level2"
+data-number="10.9">
+<h2 data-number="10.9"><span class="header-section-number">10.9</span>
+Stop-rules (public safety rails)</h2>
+<p>The following conditions imply <strong>REVISE/HALT</strong>
+(qualitative):</p>
+<ul>
+<li><p>(S1) <code>igf1r_activity</code> or
+<code>hybrid_receptor_signal</code> is <code>elevated</code>.</p></li>
+<li><p>(S2) Under no-insulin conditions, activity signs corresponding to
+<code>hypoglycemia_flag=true</code> (agonism).</p></li>
+<li><p>(S3) Under continuous exposure, <code>tolerance_flag=true</code>
+with <code>tolerance_reversibility=none</code>.</p></li>
+</ul>
+</section>
+<section id="assurance-card-public-reviewer-facing" class="level2"
+data-number="10.10">
+<h2 data-number="10.10"><span class="header-section-number">10.10</span>
+Assurance card (public, reviewer-facing)</h2>
+<pre data-fontsize="\small"><code>CLAIM(THERAPY): &quot;IR is sensitized only under insulin-present condition, with minimal off-target.&quot;
 EVIDENCE: Appendix C + bundles/OmegaLearnSim_IR-PAM_v4_FINAL_Reproducibility.zip + Gate framing in §6
 RISKS: off-target activation (IGF-1R/Hybrid), hypoglycemia-like behavior, tolerance
-STOP_RULES: (S1)-(S3) =&gt; REVISE/HALT (public)</code></pre> <h2 id="disclaimer">Disclaimer</h2> <p>This track is a research/concept disclosure and is not medical advice. This document does not provide dosages, clinical procedures, or experimental protocols (<code>NO-CAL</code>). Safety/efficacy evaluation must be conducted separately within regulatory and ethical processes.</p> <h1 id="release-pack-reproducibility-cookbook-zenodo-checklist">Release pack: reproducibility cookbook + Zenodo checklist</h1> <h2 id="minimal-reproducibility-steps">Minimal reproducibility steps</h2> <pre data-fontsize="\small"><code># 1) Verify integrity (must be all OK)
-sha256sum -c CHECKSUMS.txt # 2) Build the PDF (XeLaTeX)
+STOP_RULES: (S1)-(S3) =&gt; REVISE/HALT (public)</code></pre>
+</section>
+<section id="disclaimer" class="level2" data-number="10.11">
+<h2 data-number="10.11"><span class="header-section-number">10.11</span>
+Disclaimer</h2>
+<p>This track is a research/concept disclosure and is not medical
+advice. This document does not provide dosages, clinical procedures, or
+experimental protocols (<code>NO-CAL</code>). Safety/efficacy evaluation
+must be conducted separately within regulatory and ethical
+processes.</p>
+</section>
+</section>
+<section id="release-pack-reproducibility-cookbook-zenodo-checklist"
+class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span>
+Release pack: reproducibility cookbook + Zenodo checklist</h1>
+<section id="minimal-reproducibility-steps" class="level2"
+data-number="11.1">
+<h2 data-number="11.1"><span class="header-section-number">11.1</span>
+Minimal reproducibility steps</h2>
+<pre data-fontsize="\small"><code># 1) Verify integrity (must be all OK)
+sha256sum -c CHECKSUMS.txt
+
+# 2) Build the PDF (XeLaTeX)
 xelatex -interaction=nonstopmode -halt-on-error Deterministic_Applications_Whitepaper_v1_2.tex
-xelatex -interaction=nonstopmode -halt-on-error Deterministic_Applications_Whitepaper_v1_2.tex</code></pre> <h2 id="doi-consistency-must">DOI consistency (MUST)</h2> <ul> <li><p><code>DOI.txt</code> contains: <code>10.5281/zenodo.17979016</code></p></li> <li><p><code>CITATION.cff</code> contains the same DOI</p></li> <li><p><code>zenodo.json</code> contains the same DOI and links base DOI <code>10.5281/zenodo.17963127</code> as <code>isSupplementTo</code></p></li> </ul> <h2 id="zenodo-upload-checklist-suggested-before-publish">Zenodo upload checklist (suggested, before publish)</h2> <ul> <li><p>upload_type: <code>publication</code> (publication_type: <code>report</code>)</p></li> <li><p>license: <code>CC BY 4.0</code></p></li> <li><p>keywords/description mention: “integrated applications (KEY + U–J+ Gate + repro)”.</p></li> <li><p>Attach the release zip <em>as-is</em> (single upload artifact).</p></li> </ul> <h1 id="roadmap-v1.2-vnext">Roadmap (v1.2 → vNext)</h1> <p>Post-v1.2 expansion will center on “rearranging appendices into the main body.”</p> <ul> <li><p><strong>Main-body expansion</strong>: progressively move key definitions/summaries/examples from Appendix A–C into the main body (strengthen narrative, reduce redundancy).</p></li> <li><p><strong>Measurement interface</strong>: separate a measurement interface specification (devices/units/calibration) to connect Gates to physical measurement.</p></li> <li><p><strong>KEY governance</strong>: formalize a standard ID registry, editing policy, and community PR rules (no meaning changes).</p></li> <li><p><strong>Applications</strong>: (i) additional tracks, (ii) stronger misuse-prevention governance (risk assessment / adjustments of public scope).</p></li> </ul> <h1 id="limitations-and-threats-to-validity-academic">Limitations and threats to validity (academic)</h1> <h2 id="what-this-pack-does-not-establish">What this pack does <em>not</em> establish</h2> <p>This release demonstrates that “applications are possible” via <strong>formal contracts and reproducibility artifacts</strong>, but explicitly states that the following are <em>not yet</em> established.</p> <ul> <li><p><strong>Measurement-based FULL verification.</strong> The Bio–EM track is currently centered on computational “screen” artifacts, and external validation with real ECoG/MEG/in-situ measurement data is a subsequent step.</p></li> <li><p><strong>Independent reproduction (by other researchers) logs.</strong> The package is designed so third parties can reproduce , but multi-institution independent logs are still in the accumulation stage.</p></li> <li><p><strong>Clinical conclusions on therapeutic efficacy/safety.</strong> The <strong>Ω-LearnSim</strong> track is a <code>NO-CAL</code>-scope concept disclosure and does not replace evaluation under regulatory/ethical procedures.</p></li> </ul> <h2 id="threat-model-where-errors-can-hide">Threat model (where errors can hide)</h2> <ul> <li><p><strong>Alias drift.</strong> If Gate names/aliases vary across documents, reproducibility collapses immediately (normalization required).</p></li> <li><p><strong>Calibration leakage.</strong> If calibration parameters leak into evaluation, it becomes “custom tuning” ( gate).</p></li> <li><p><strong>Boundary domination.</strong> If one generalizes interpretations in boundary-dominated regimes, errors grow (§6.5 fail-fast checks).</p></li> <li><p><strong>Category error.</strong> Misuse risk: confusing qualitative labels with “clinical guidance” (<code>NO-CAL</code> fixed).</p></li> </ul> <h2 id="falsification-triggers-fast-fail-list">Falsification triggers (fast FAIL list)</h2> <ul> <li><p>Bio–EM: <code>ToF_GATE FAIL</code> or observed <span class="math inline">\(\Rightarrow\)</span> <strong>Halt</strong>.</p></li> <li><p>Bio–EM: <code>TIR_Threshold FAIL</code> <span class="math inline">\(\Rightarrow\)</span> the waveguide frame is <strong>rejected</strong> for that input.</p></li> <li><p>Therapy: (S1) IGF-1R/Hybrid activation rise, (S2) no-insulin agonism, (S3) irreversible tolerance signs <span class="math inline">\(\Rightarrow\)</span> <strong>Halt</strong>.</p></li> </ul> <div class="remark"> <p><strong>Remark 4</strong>. <em>The “next academic steps” are not more narrative, but (1) external review of Gate definitions, (2) accumulation of independent reproduction logs, and (3) public updates of misuse-prevention governance.</em></p> </div> <h1 id="references-selected">References (selected)</h1> <div class="thebibliography"> <p><span>99</span></p> <p>Y. J. Lee. <em>Deterministic Bio-Physical Applications Whitepaper — KEY + U-J Dynamics + Gate Verification + Ω-LearnSim (<strong>IR PAM-Sensitizer</strong>)</em>, v1.2 (2025-12-18). Zenodo (reserved) DOI: <a href="https://doi.org/10.5281/zenodo.17979016">10.5281/zenodo.17979016</a>.</p> <p>Y. J. Lee. <em>Deterministic DNA Interpretation Whitepaper (Mouse/mm39)</em>, v1.2. Zenodo DOI: <a href="https://doi.org/10.5281/zenodo.17963127">10.5281/zenodo.17963127</a>.</p> <p>A. L. Hodgkin and A. F. Huxley. <em>A quantitative description of membrane current and its application to conduction and excitation in nerve</em>. Journal of Physiology, 117, 1952.</p> <p>N. J. Zabusky and M. D. Kruskal. <em>Interaction of “solitons” in a collisionless plasma and the recurrence of initial states</em>. Physical Review Letters, 15, 1965.</p> <p>E. Lieberman-Aiden et al. <em>Comprehensive mapping of long-range interactions reveals folding principles of the human genome</em>. Science, 326, 2009.</p> <p>J. R. Dixon et al. <em>Topological domains in mammalian genomes identified by analysis of chromatin interactions</em>. Nature, 485, 2012.</p> <p>S. S. P. Rao et al. <em>A 3D map of the human genome at kilobase resolution reveals principles of chromatin looping</em>. Cell, 159, 2014.</p> <p>T. Heimburg and A. D. Jackson. <em>On soliton propagation in biomembranes and nerves</em> (soliton model of pulses; conceptual background). PNAS, 2005.</p> <p>A. R. Saltiel and C. R. Kahn. <em>Insulin signalling and the regulation of glucose and lipid metabolism</em>. Nature, 414, 2001.</p> </div> <p><strong>Editorial note (appendices; archival snapshots).</strong> Appendix A–D preserve source snapshots integrated for audit and traceability. For camera-ready consistency with the main body and the mm39 v1.2 symbol system, these snapshots are <strong>academically normalized</strong>: conversational/promotional phrasing is replaced with neutral technical wording, and any potentially actionable clinical/procedural guidance is reframed as <strong>non-actionable scope boundaries, guardrails, and stop-rules</strong>. Where a snapshot contains quantitative tokens that are not required for the public contract, they are treated as <strong>symbolic placeholders</strong> or replaced by <strong>qualitative labels</strong> under <code>NO-CAL</code>. No semantic extension is intended beyond normalization for readability and policy compliance.</p> <h1 id="appendix-a-deterministic-dna-interpretation-whitepaper-mousemm39-v1.2-english-full-text">Appendix A: Deterministic DNA Interpretation Whitepaper (Mouse/mm39) — v1.2 (English; full text)</h1> <p>This appendix embeds the full English <em>Deterministic DNA Interpretation Whitepaper (Mouse/mm39)</em> v1.2 as the authoritative reference for terminology and the <code>AXIOM-FIX</code> symbol system used throughout this applications volume.</p> <h1 id="appendix-b-biophysical-electromagnetic-dynamics-english-archival-snapshot">Appendix B: Biophysical Electromagnetic Dynamics (English; archival snapshot)</h1> <p><strong>[MISSING APPENDIX]</strong> The file <code>appendix_BIO_EM_DYNAMICS_EN.tex</code> was referenced with <code> input...</code> but is not included in this HTML build package. Upload the appendix <code>.tex</code> file alongside the main <code>.tex</code> to include it.</p> <h1 id="appendix-c-diabetes-therapeutic-drug-proposal-ω-learnsim-ir-pam-sensitizer-english-archival-snapshot">Appendix C: Diabetes Therapeutic Drug Proposal (<strong>Ω-LearnSim</strong> <strong>IR PAM-Sensitizer</strong>) (English; archival snapshot)</h1> <p><strong>[MISSING APPENDIX]</strong> The file <code>appendix_OMEGALEARNSIM_IR_PAM_EN.tex</code> was referenced with <code> input...</code> but is not included in this HTML build package. Upload the appendix <code>.tex</code> file alongside the main <code>.tex</code> to include it.</p> <h1 id="appendix-d-integrated-dna-dictionary-english-ω-dictionary-key-mapping-snapshots">Appendix D: Integrated DNA Dictionary (English; Ω-Dictionary + KEY mapping snapshots)</h1> <p><strong>[MISSING APPENDIX]</strong> The file <code>appendix_DNA_DICTIONARY_EN.tex</code> was referenced with <code> input...</code> but is not included in this HTML build package. Upload the appendix <code>.tex</code> file alongside the main <code>.tex</code> to include it.</p> <h1 id="appendix-e-dna_experiment_en.txt-omega-genesis-execution-log-extracted-plain-text">Appendix E: DNA_experiment_EN.txt (Omega-Genesis execution log; extracted plain text)</h1> <h1 id="appendix-f-ω-dictionarykey-mapping-yaml-machine-readable-v1.2-active">Appendix F: Ω-Dictionary→KEY mapping YAML (machine-readable; v1.2 active)</h1> <h1 id="appendix-g-ω-dictionarykey-mapping-yaml-legacy-v1.1-archived">Appendix G: Ω-Dictionary→KEY mapping YAML (legacy v1.1; archived)</h1> <h1 id="appendix-h-ω-dictionarykey-mapping-yaml-legacy-v1.0-archived">Appendix H: Ω-Dictionary→KEY mapping YAML (legacy v1.0; archived)</h1> <h1 id="appendix-i-mapping-coverage-report-v1.2-generated">Appendix I: Mapping coverage report (v1.2; generated)</h1> <h1 id="appendix-j-key-ontology-yaml-machine-readable">Appendix J: KEY ontology YAML (machine-readable)</h1> </article> </div>
-</main> <footer class="wp-footer"> <div>© 2025 Young Jae Lee · CC BY 4.0 (unless noted)</div>
-</footer> <script src="/assets/papers.js"></script>
-<script src="/assets/whitepapers.js"></script>
+xelatex -interaction=nonstopmode -halt-on-error Deterministic_Applications_Whitepaper_v1_2.tex</code></pre>
+</section>
+<section id="doi-consistency-must" class="level2" data-number="11.2">
+<h2 data-number="11.2"><span class="header-section-number">11.2</span>
+DOI consistency (MUST)</h2>
+<ul>
+<li><p><code>DOI.txt</code> contains:
+<code>10.5281/zenodo.17979016</code></p></li>
+<li><p><code>CITATION.cff</code> contains the same DOI</p></li>
+<li><p><code>zenodo.json</code> contains the same DOI and links base DOI
+<code>10.5281/zenodo.17963127</code> as
+<code>isSupplementTo</code></p></li>
+</ul>
+</section>
+<section id="zenodo-upload-checklist-suggested-before-publish"
+class="level2" data-number="11.3">
+<h2 data-number="11.3"><span class="header-section-number">11.3</span>
+Zenodo upload checklist (suggested, before publish)</h2>
+<ul>
+<li><p>upload_type: <code>publication</code> (publication_type:
+<code>report</code>)</p></li>
+<li><p>license: <code>CC BY 4.0</code></p></li>
+<li><p>keywords/description mention: “integrated applications (KEY +
+U–J+ Gate + repro)”.</p></li>
+<li><p>Attach the release zip <em>as-is</em> (single upload
+artifact).</p></li>
+</ul>
+</section>
+</section>
+<section id="roadmap-v1.2-vnext" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span>
+Roadmap (v1.2 → vNext)</h1>
+<p>Post-v1.2 expansion will center on “rearranging appendices into the
+main body.”</p>
+<ul>
+<li><p><strong>Main-body expansion</strong>: progressively move key
+definitions/summaries/examples from Appendix A–C into the main body
+(strengthen narrative, reduce redundancy).</p></li>
+<li><p><strong>Measurement interface</strong>: separate a measurement
+interface specification (devices/units/calibration) to connect Gates to
+physical measurement.</p></li>
+<li><p><strong>KEY governance</strong>: formalize a standard ID
+registry, editing policy, and community PR rules (no meaning
+changes).</p></li>
+<li><p><strong>Applications</strong>: (i) additional tracks, (ii)
+stronger misuse-prevention governance (risk assessment / adjustments of
+public scope).</p></li>
+</ul>
+</section>
+<section id="limitations-and-threats-to-validity-academic"
+class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span>
+Limitations and threats to validity (academic)</h1>
+<section id="what-this-pack-does-not-establish" class="level2"
+data-number="13.1">
+<h2 data-number="13.1"><span class="header-section-number">13.1</span>
+What this pack does <em>not</em> establish</h2>
+<p>This release demonstrates that “applications are possible” via
+<strong>formal contracts and reproducibility artifacts</strong>, but
+explicitly states that the following are <em>not yet</em>
+established.</p>
+<ul>
+<li><p><strong>Measurement-based FULL verification.</strong> The Bio–EM
+track is currently centered on computational “screen” artifacts, and
+external validation with real ECoG/MEG/in-situ measurement data is a
+subsequent step.</p></li>
+<li><p><strong>Independent reproduction (by other researchers)
+logs.</strong> The package is designed so third parties can reproduce ,
+but multi-institution independent logs are still in the accumulation
+stage.</p></li>
+<li><p><strong>Clinical conclusions on therapeutic
+efficacy/safety.</strong> The <strong>Ω-LearnSim</strong> track is a
+<code>NO-CAL</code>-scope concept disclosure and does not replace
+evaluation under regulatory/ethical procedures.</p></li>
+</ul>
+</section>
+<section id="threat-model-where-errors-can-hide" class="level2"
+data-number="13.2">
+<h2 data-number="13.2"><span class="header-section-number">13.2</span>
+Threat model (where errors can hide)</h2>
+<ul>
+<li><p><strong>Alias drift.</strong> If Gate names/aliases vary across
+documents, reproducibility collapses immediately (normalization
+required).</p></li>
+<li><p><strong>Calibration leakage.</strong> If calibration parameters
+leak into evaluation, it becomes “custom tuning” ( gate).</p></li>
+<li><p><strong>Boundary domination.</strong> If one generalizes
+interpretations in boundary-dominated regimes, errors grow (§6.5
+fail-fast checks).</p></li>
+<li><p><strong>Category error.</strong> Misuse risk: confusing
+qualitative labels with “clinical guidance” (<code>NO-CAL</code>
+fixed).</p></li>
+</ul>
+</section>
+<section id="falsification-triggers-fast-fail-list" class="level2"
+data-number="13.3">
+<h2 data-number="13.3"><span class="header-section-number">13.3</span>
+Falsification triggers (fast FAIL list)</h2>
+<ul>
+<li><p>Bio–EM: <code>ToF_GATE FAIL</code> or observed <span
+class="math inline">\(\Rightarrow\)</span>
+<strong>Halt</strong>.</p></li>
+<li><p>Bio–EM: <code>TIR_Threshold FAIL</code> <span
+class="math inline">\(\Rightarrow\)</span> the waveguide frame is
+<strong>rejected</strong> for that input.</p></li>
+<li><p>Therapy: (S1) IGF-1R/Hybrid activation rise, (S2) no-insulin
+agonism, (S3) irreversible tolerance signs <span
+class="math inline">\(\Rightarrow\)</span>
+<strong>Halt</strong>.</p></li>
+</ul>
+<div class="remark">
+<p><strong>Remark 4</strong>. <em>The “next academic steps” are not more
+narrative, but (1) external review of Gate definitions, (2) accumulation
+of independent reproduction logs, and (3) public updates of
+misuse-prevention governance.</em></p>
+</div>
+</section>
+</section>
+<section id="references-selected" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span>
+References (selected)</h1>
+<div class="thebibliography">
+<p><span>99</span></p>
+<p>Y. J. Lee. <em>Deterministic Bio-Physical Applications Whitepaper —
+KEY + U-J Dynamics + Gate Verification + Ω-LearnSim (<strong>IR
+PAM-Sensitizer</strong>)</em>, v1.2 (2025-12-18). Zenodo (reserved) DOI:
+<a
+href="https://doi.org/10.5281/zenodo.17979016">10.5281/zenodo.17979016</a>.</p>
+<p>Y. J. Lee. <em>Deterministic DNA Interpretation Whitepaper
+(Mouse/mm39)</em>, v1.2. Zenodo DOI: <a
+href="https://doi.org/10.5281/zenodo.17963127">10.5281/zenodo.17963127</a>.</p>
+<p>A. L. Hodgkin and A. F. Huxley. <em>A quantitative description of
+membrane current and its application to conduction and excitation in
+nerve</em>. Journal of Physiology, 117, 1952.</p>
+<p>N. J. Zabusky and M. D. Kruskal. <em>Interaction of “solitons” in a
+collisionless plasma and the recurrence of initial states</em>. Physical
+Review Letters, 15, 1965.</p>
+<p>E. Lieberman-Aiden et al. <em>Comprehensive mapping of long-range
+interactions reveals folding principles of the human genome</em>.
+Science, 326, 2009.</p>
+<p>J. R. Dixon et al. <em>Topological domains in mammalian genomes
+identified by analysis of chromatin interactions</em>. Nature, 485,
+2012.</p>
+<p>S. S. P. Rao et al. <em>A 3D map of the human genome at kilobase
+resolution reveals principles of chromatin looping</em>. Cell, 159,
+2014.</p>
+<p>T. Heimburg and A. D. Jackson. <em>On soliton propagation in
+biomembranes and nerves</em> (soliton model of pulses; conceptual
+background). PNAS, 2005.</p>
+<p>A. R. Saltiel and C. R. Kahn. <em>Insulin signalling and the
+regulation of glucose and lipid metabolism</em>. Nature, 414, 2001.</p>
+</div>
+<p><strong>Editorial note (appendices; archival snapshots).</strong>
+Appendix A–D preserve source snapshots integrated for audit and
+traceability. For camera-ready consistency with the main body and the
+mm39 v1.2 symbol system, these snapshots are <strong>academically
+normalized</strong>: conversational/promotional phrasing is replaced
+with neutral technical wording, and any potentially actionable
+clinical/procedural guidance is reframed as <strong>non-actionable scope
+boundaries, guardrails, and stop-rules</strong>. Where a snapshot
+contains quantitative tokens that are not required for the public
+contract, they are treated as <strong>symbolic placeholders</strong> or
+replaced by <strong>qualitative labels</strong> under
+<code>NO-CAL</code>. No semantic extension is intended beyond
+normalization for readability and policy compliance.</p>
+</section>
+<section
+id="appendix-a-deterministic-dna-interpretation-whitepaper-mousemm39-v1.2-english-full-text"
+class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span>
+Appendix A: Deterministic DNA Interpretation Whitepaper (Mouse/mm39) —
+v1.2 (English; full text)</h1>
+<p>This appendix embeds the full English <em>Deterministic DNA
+Interpretation Whitepaper (Mouse/mm39)</em> v1.2 as the authoritative
+reference for terminology and the <code>AXIOM-FIX</code> symbol system
+used throughout this applications volume.</p>
+</section>
+<section
+id="appendix-b-biophysical-electromagnetic-dynamics-english-archival-snapshot"
+class="level1" data-number="16">
+<h1 data-number="16"><span class="header-section-number">16</span>
+Appendix B: Biophysical Electromagnetic Dynamics (English; archival
+snapshot)</h1>
+</section>
+<section
+id="appendix-c-diabetes-therapeutic-drug-proposal-ω-learnsim-ir-pam-sensitizer-english-archival-snapshot"
+class="level1" data-number="17">
+<h1 data-number="17"><span class="header-section-number">17</span>
+Appendix C: Diabetes Therapeutic Drug Proposal
+(<strong>Ω-LearnSim</strong> <strong>IR PAM-Sensitizer</strong>)
+(English; archival snapshot)</h1>
+</section>
+<section
+id="appendix-d-integrated-dna-dictionary-english-ω-dictionary-key-mapping-snapshots"
+class="level1" data-number="18">
+<h1 data-number="18"><span class="header-section-number">18</span>
+Appendix D: Integrated DNA Dictionary (English; Ω-Dictionary + KEY
+mapping snapshots)</h1>
+</section>
+<section
+id="appendix-e-dna_experiment_en.txt-omega-genesis-execution-log-extracted-plain-text"
+class="level1" data-number="19">
+<h1 data-number="19"><span class="header-section-number">19</span>
+Appendix E: DNA_experiment_EN.txt (Omega-Genesis execution log;
+extracted plain text)</h1>
+</section>
+<section
+id="appendix-f-ω-dictionarykey-mapping-yaml-machine-readable-v1.2-active"
+class="level1" data-number="20">
+<h1 data-number="20"><span class="header-section-number">20</span>
+Appendix F: Ω-Dictionary→KEY mapping YAML (machine-readable; v1.2
+active)</h1>
+</section>
+<section
+id="appendix-g-ω-dictionarykey-mapping-yaml-legacy-v1.1-archived"
+class="level1" data-number="21">
+<h1 data-number="21"><span class="header-section-number">21</span>
+Appendix G: Ω-Dictionary→KEY mapping YAML (legacy v1.1; archived)</h1>
+</section>
+<section
+id="appendix-h-ω-dictionarykey-mapping-yaml-legacy-v1.0-archived"
+class="level1" data-number="22">
+<h1 data-number="22"><span class="header-section-number">22</span>
+Appendix H: Ω-Dictionary→KEY mapping YAML (legacy v1.0; archived)</h1>
+</section>
+<section id="appendix-i-mapping-coverage-report-v1.2-generated"
+class="level1" data-number="23">
+<h1 data-number="23"><span class="header-section-number">23</span>
+Appendix I: Mapping coverage report (v1.2; generated)</h1>
+</section>
+<section id="appendix-j-key-ontology-yaml-machine-readable"
+class="level1" data-number="24">
+<h1 data-number="24"><span class="header-section-number">24</span>
+Appendix J: KEY ontology YAML (machine-readable)</h1>
+</section>
+</article>
+  </div>
+
+</main>
 </body>
 </html>
