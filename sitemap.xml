@@ -1,63 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
   <url>
     <loc>https://jamming-physics.org/</loc>
-    <lastmod>2025-12-27</lastmod>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
+
   <url>
     <loc>https://jamming-physics.org/en/</loc>
-    <lastmod>2025-12-27</lastmod>
-  </url>
-  <url>
-    <loc>https://jamming-physics.org/ko/</loc>
-    <lastmod>2025-12-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://jamming-physics.org/ko/"/>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jamming-physics.org/en/whitepapers/</loc>
-    <lastmod>2025-12-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://jamming-physics.org/ko/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jamming-physics.org/en/"/>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jamming-physics.org/ko/whitepapers/</loc>
-    <lastmod>2025-12-27</lastmod>
+    <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://jamming-physics.org/en/whitepapers/dna-mm39/</loc>
-    <lastmod>2025-12-27</lastmod>
-  </url>
-  <url>
-    <loc>https://jamming-physics.org/ko/whitepapers/dna-mm39/</loc>
-    <lastmod>2025-12-27</lastmod>
-  </url>
-  <url>
-    <loc>https://jamming-physics.org/en/whitepapers/bio-physical-apps/</loc>
-    <lastmod>2025-12-27</lastmod>
-  </url>
-  <url>
-    <loc>https://jamming-physics.org/ko/whitepapers/bio-physical-apps/</loc>
-    <lastmod>2025-12-27</lastmod>
-  </url>
-  <url>
-    <loc>https://jamming-physics.org/en/whitepapers/fluid-dynamics/</loc>
-    <lastmod>2025-12-27</lastmod>
-  </url>
-  <url>
-    <loc>https://jamming-physics.org/ko/whitepapers/fluid-dynamics/</loc>
-    <lastmod>2025-12-27</lastmod>
-  </url>
-  <url>
-    <loc>https://jamming-physics.org/en/whitepapers/cosmology-optics/</loc>
-    <lastmod>2025-12-27</lastmod>
-  </url>
-  <url>
-    <loc>https://jamming-physics.org/ko/whitepapers/cosmology-optics/</loc>
-    <lastmod>2025-12-27</lastmod>
-  </url>
-  <url>
-    <loc>https://jamming-physics.org/en/whitepaper.html</loc>
-    <lastmod>2025-12-27</lastmod>
-  </url>
-  <url>
-    <loc>https://jamming-physics.org/ko/whitepaper.html</loc>
-    <lastmod>2025-12-27</lastmod>
-  </url>
+
+  <url><loc>https://jamming-physics.org/en/whitepapers/physics/</loc><priority>0.7</priority></url>
+  <url><loc>https://jamming-physics.org/en/whitepapers/dna/</loc><priority>0.7</priority></url>
+  <url><loc>https://jamming-physics.org/en/whitepapers/fluid-dynamics/</loc><priority>0.7</priority></url>
+
 </urlset>
