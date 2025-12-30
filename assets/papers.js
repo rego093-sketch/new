@@ -23,9 +23,9 @@ window.JP_PAPERS = {
     {
       "key": "fluid-dynamics",
       "title_en": "Fluid Dynamics from Volume Particles (VP)",
-      "title_ko": "부피입자 기반 유체역학 (VP)",
-      "abstract_en": "Derives fluid dynamics from volume particles/jamming: continuity + Navier–Stokes emergence, stability criteria, and testable scaling predictions.",
-      "abstract_ko": "부피입자 잼밍에서 유체역학을 유도: 연속식·Navier–Stokes의 출현, 안정성 기준, 검증 가능한 스케일링 예측을 포함합니다.",
+      "title_ko": "부피입자(Volume-Particle, VP)로부터의 유체역학",
+      "abstract_en": "\\noindent\\DERIVE\\ (D1) Continuum balance laws. From a VP micro/meso state $\\{(\\xv_i(t),\\vv_i(t),m_i)\\}_{i=1}^N$ and a smoothing kernel $W_\\ell$, define coarse-grained continuum fields: \\[ \\rho(\\xv,t),\\quad \\uv(\\xv,t),\\quad e(\\xv,t), \\] and derive (under minimal regularity) the exact identities: \\begin{align}…",
+      "abstract_ko": "\\noindent\\DERIVE\\ (D1) 연속체 보존(수지) 법칙. VP 미시/메조 상태 $\\{(\\xv_i(t),\\vv_i(t),m_i)\\}_{i=1}^N$와 평활화 커널 $W_\\ell$이 주어졌다고 하자. 다음과 같은 조대화(coarse-grained) 연속장들을 정의한다: \\[ \\rho(\\xv,t),\\quad \\uv(\\xv,t),\\quad e(\\xv,t), \\] 그리고 (최소한의 정칙성 가정 하에) 다음의 정확한 항등식을 유도한다: \\begin{align} \\partial_t \\rho + \\nabla\\!\\cdot(\\rho\\uv) &= 0, \\\\…",
       "path_en": "/en/whitepapers/fluid-dynamics/",
       "path_ko": "/ko/whitepapers/fluid-dynamics/",
       "doi": "10.5281/zenodo.17972570"
@@ -54,8 +54,8 @@ window.JP_PAPERS = {
       "key": "atlantic-expansion",
       "title_en": "Atlantic Expansion Concept (Upgrade) — White Paper (v1.34 r16)",
       "title_ko": "대서양 확장 개념(업그레이드) 백서 (v1.34 r16)",
-      "abstract_en": "Falsifiable geodynamic mechanism for episodic Atlantic opening via pressure-deficit \u201cvoid suction\u201d + lubrication/hydroplaning; pre-registered PASS/HOLD/FAIL tests.",
-      "abstract_ko": "압력결손 \u2018공간 흡인\u2019과 윤활/하이드로플래닝으로 대서양의 사건성 확장을 설명하는 반증가능 지구동역학 모델(사전등록 PASS/HOLD/FAIL)을 제시합니다.",
+      "abstract_en": "Falsifiable geodynamic mechanism for episodic Atlantic opening via pressure-deficit “void suction” + lubrication/hydroplaning; pre-registered PASS/HOLD/FAIL tests.",
+      "abstract_ko": "압력결손 ‘공간 흡인’과 윤활/하이드로플래닝으로 대서양의 사건성 확장을 설명하는 반증가능 지구동역학 모델(사전등록 PASS/HOLD/FAIL)을 제시합니다.",
       "path_en": "/en/whitepapers/atlantic-expansion/",
       "path_ko": "/ko/whitepapers/atlantic-expansion/",
       "doi": "10.5281/zenodo.17978935"

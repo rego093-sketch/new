@@ -3,47 +3,1827 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Fluid Dynamics from Volume Particles (VP)</title>
-  <meta name="description" content="Hub entry. Full HTML build can be added when LaTeX source is uploaded."/>
+  <title>Fluid Dynamics from Volume Particles (VP) | JAMMING PHYSICS</title>
+  <meta name="description" content="\noindent\DERIVE\ (D1) Continuum balance laws. From a VP micro/meso state $\{(\xv_i(t),\vv_i(t),m_i)\}_{i=1}^N$ and a smoothing kernel $W_\ell$, define coarse-grained continuum fields: \[ \rho(\xv,t),\quad \uv(\xv,t),\quad e(\xv,t), \] and derive (under minimal regularity) the exact identities: \begin{align}…"/>
   <link rel="canonical" href="https://jamming-physics.org/en/whitepapers/fluid-dynamics/"/>
-  <link rel="alternate" hreflang="en" href="https://jamming-physics.org/en/whitepapers/fluid-dynamics/"/>
-  <link rel="alternate" hreflang="ko" href="https://jamming-physics.org/ko/whitepapers/fluid-dynamics/"/>
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Fluid Dynamics from Volume Particles (VP)"/>
-  <meta property="og:description" content="Hub entry. Full HTML build can be added when LaTeX source is uploaded."/>
-  <meta property="og:url" content="https://jamming-physics.org/en/whitepapers/fluid-dynamics/"/>
+  <meta property="og:description" content="\noindent\DERIVE\ (D1) Continuum balance laws. From a VP micro/meso state $\{(\xv_i(t),\vv_i(t),m_i)\}_{i=1}^N$ and a smoothing kernel $W_\ell$, define coarse-grained continuum fields: \[ \rho(\xv,t),\quad \uv(\xv,t),\quad e(\xv,t), \] and derive (under minimal regularity) the exact identities: \begin{align}…"/>
   <meta property="og:image" content="/assets/og.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="icon" href="/assets/favicon.ico"/>
   <link rel="stylesheet" href="/assets/style.css"/>
   <link rel="stylesheet" href="/assets/whitepapers.css"/>
+  <script>
+window.MathJax = window.MathJax || {};
+window.MathJax.tex = window.MathJax.tex || {};
+window.MathJax.tex.macros = Object.assign({}, window.MathJax.tex.macros || {}, {
+  "LOCK":"\\textbf{[LOCK]}", "DERIVE":"\\textbf{[DERIVE]}", "GATE":"\\textbf{[GATE]}", "PoissonOp":"\\mathbb{J}", "MetricOp":"\\mathbb{G}", "uv":"\\mathbf u", "xv":"\\mathbf x", "rv":"\\mathbf r", "vv":"\\mathbf v", "cv":"\\mathbf c", "Fv":"\\mathbf F", "Id":"\\mathbf I", "Rey":"\\mathrm{Re}", "Pe":"\\mathrm{Pe}", "Pran":"\\mathrm{Pr}", "Ra":"\\mathrm{Ra}"
+});
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script src="/assets/papers.js"></script>
   <script src="/assets/whitepapers.js" defer></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="navbar">
   <a href="/" class="nav-logo">JAMMING PHYSICS</a>
   <div class="nav-right">
-    <select id="paperSelect" class="select-paper" aria-label="Select whitepaper"></select>
-    
-    <div class="lang-switch"><a href="/ko/whitepapers/fluid-dynamics/">한국어</a></div>
-    <div class="lang-switch"><a href="/en/whitepapers/fluid-dynamics/">English</a></div>
-    
+    <select id="paperSelect" aria-label="Select whitepaper">
+      <option value="">Select whitepaper</option>
+    </select>
+    <div class="lang-toggle">
+      <a href="/ko/whitepapers/fluid-dynamics/" class="">한국어</a>
+      <a href="/en/whitepapers/fluid-dynamics/" class="active">English</a>
+    </div>
   </div>
 </nav>
+
 <main id="main" class="wp-shell">
-<article class='wp-content'>
-<div class="wp-header">
-  <h1>Fluid Dynamics from Volume Particles (VP)</h1>
-  <div class="wp-meta">
-    <a class="btn" href="https://doi.org/10.5281/zenodo.17972570">DOI</a>
-    <a class="btn" href="/en/whitepapers/">Whitepapers</a>
+  <div class="wp-grid">
+    <aside class="wp-toc"><div id="autoTOC"></div></aside>
+    <article class="wp-content">
+      <div class="wp-header">
+        <h1>Fluid Dynamics from Volume Particles (VP)</h1>
+        
+        <div class="wp-meta">
+          <a class="btn" href="/ko/whitepapers/fluid-dynamics/">한국어</a>
+          <a class="btn" href="https://doi.org/10.5281/zenodo.17972570">DOI</a>
+          <a class="btn" href="/en/whitepapers/">Whitepapers</a>
+        </div>
+        <p class="wp-abstract">\noindent\DERIVE\ (D1) Continuum balance laws. From a VP micro/meso state $\{(\xv_i(t),\vv_i(t),m_i)\}_{i=1}^N$ and a smoothing kernel $W_\ell$, define coarse-grained continuum fields: \[ \rho(\xv,t),\quad \uv(\xv,t),\quad e(\xv,t), \] and derive (under minimal regularity) the exact identities: \begin{align}…</p>
+      </div>
+
+      <div class="wp-body">
+<p>\begin{center} <strong>This document (VP Volume III: Fluid Dynamics):</strong> DOI <a href="\FDURL">\FDDOI</a>.<br/> <strong>Companion reference (VP master white paper):</strong> DOI <a href="\VPURL">\VPDOI</a>. \end{center}</p>
+<p>\noindent<strong>Status.</strong> This is a <em>standalone</em> fluid-dynamics white paper. It keeps notation compatible with the VP master document but does not require the reader to follow the entire VP ontology.</p>
+<p>\vspace{0.5em} \noindent<strong>What this document tries to finish.</strong> Starting from VP primitives (finite-volume ``particles'', jamming/unjamming events, and an event-frequency fluidity index $\phi$), we derive the continuum balance laws and the Newtonian (Navier--Stokes) closure, and then add an <em>event-dissipation</em> extension intended to remain nonzero in an inviscid limit.</p>
+<h2>F. Executive Summary</h2>
+<h3>F.1 Target statement</h3>
+<p>\noindent\DERIVE\ <strong>(D1) Continuum balance laws.</strong> From a VP micro/meso state $\{(\xv_i(t),\vv_i(t),m_i)\}_{i=1}^N$ and a smoothing kernel $W_\ell$, define coarse-grained continuum fields:</p>
+<div class="math-block">$$
+\rho(\xv,t),\quad \uv(\xv,t),\quad e(\xv,t),
+$$</div>
+<p>and derive (under minimal regularity) the exact identities:</p>
+<div class="math-block">$$\begin{align}
+\partial_t \rho + \nabla\!\cdot(\rho\uv) &= 0, \label{eq:conti}\\
+\partial_t(\rho\uv) + \nabla\!\cdot(\rho\uv\otimes\uv) &= -\nabla p + \nabla\!\cdot\tau + \rho \mathbf f.
+\label{eq:mom_conservative}
+\end{align}$$</div>
+<p>The only nontrivial object is the <em>stress</em> $\sigma=-p\Id+\tau$, which is defined exactly by an Irving--Kirkwood type formula (Appendix~A).</p>
+<p>\vspace{0.25em} \noindent\DERIVE\ <strong>(D2) Newtonian (Navier--Stokes) closure.</strong> If the VP stress responds to deformation by <em>local isotropic linear response</em> (a closure assumption), then</p>
+<div class="math-block">$$
+\tau = 2\mu S + \lambda (\nabla\!\cdot\uv)\Id,
+\qquad
+S:=\frac12\big(\nabla\uv+(\nabla\uv)^\top\big) - \frac{1}{3}(\nabla\!\cdot\uv)\Id,
+\label{eq:newtonian_stress}
+$$</div>
+<p>and \eqref{eq:conti}--\eqref{eq:mom_conservative} become the compressible Navier--Stokes equations. In the incompressible limit ($\rho=\rho_0$, $\nabla\!\cdot\uv=0$), this reduces to</p>
+<div class="math-block">$$
+\partial_t\uv + \uv\!\cdot\nabla \uv = -\frac{1}{\rho_0}\nabla p + \nu\nabla^2\uv + \mathbf f,
+\qquad \nu:=\mu/\rho_0.
+\label{eq:NS_incompressible}
+$$</div>
+<p>\vspace{0.25em} \noindent\DERIVE\ <strong>(D3) Event-dissipation extension and inviscid limit.</strong> VP contains discrete jamming/unjamming (or merger-like) events with a well-defined released energy. We introduce an internal reservoir $H_{\rm int}$ collecting event-released energy and define an <em>event dissipation rate</em> as the (possibly distributional) growth rate of this reservoir:</p>
+<div class="math-block">$$
+\varepsilon_{\rm events}(t):=\frac{1}{|\Omega|}\,\dot H_{\rm int}(t)\ \ge\ 0.
+$$</div>
+<p>(Here $|\Omega|$ is the domain volume; using a spatial mean keeps units consistent with the reference simulations.) The resolved-flow energy balance over a time window $W=[t_0,t_1]$ takes the form</p>
+<div class="math-block">$$
+\left\langle \varepsilon_{\rm inj}\right\rangle_W
+=
+\left\langle \varepsilon_{\nu}\right\rangle_W
++
+\left\langle \varepsilon_{\rm events}\right\rangle_W
+\quad\text{(steady window, periodic or controlled boundaries),}
+\label{eq:budget_window}
+$$</div>
+<p>and admits a scenario where $\nu\to 0$ while $\langle \varepsilon_{\rm events}\rangle_W\to\varepsilon_*>0$ (an Onsager-type anomalous dissipation channel).</p>
+<h3>F.2 What is \LOCK\ and what is left as \GATE</h3>
+<ul>
+<li>\LOCK\ <strong>(L1) VP primitives and units.</strong> VP lattice scale $a$, reference speed $c_{\rm ref}$, and measurement/window conventions are treated as locked. We only use (i) a well-defined mass $m_i$, (ii) finite-volume localization, and (iii) well-defined event records (time, participants, released energy).</li>
+<li>\LOCK\ <strong>(L2) Fluidity $\phi$.</strong> We reuse the VP master definition $\phi=\frac{N_{\rm unjam}}{N_{\rm total}}\in[0,1]$ inside a declared observation window.</li>
+<li>\GATE\ <strong>(G1) Newtonian regime.</strong> The closure \eqref{eq:newtonian_stress} is not automatic. It must be validated in a declared regime by measuring (i) stress--strain-rate linearity, (ii) effective isotropy (after window averaging), and (iii) a small Maxwell time / Deborah number ($\tau_M$ and $\mathrm{De}\ll 1$).</li>
+<li>\GATE\ <strong>(G2) Event anomaly.</strong> The claim \eqref{eq:budget_window} with $\nu\to 0$ and $\varepsilon_{\rm events}\to\varepsilon_*>0$ is a falsifiable statement requiring a parameter scan and budget closure tests.</li>
+</ul>
+<h3>F.3 Revision notes for v0.2.0 (EOS + thermal mapping + a priori scaling modules)</h3>
+<p>\noindent<strong>DOI/metadata.</strong> This standalone document is archived under DOI <a href="\FDURL">\FDDOI</a> (Zenodo). The companion VP master white paper remains at DOI <a href="\VPURL">\VPDOI</a>. In this volume the DOI is treated as the stable citation handle for the <em>fluid-dynamics specification layer</em> of VP.</p>
+<p>\medskip \noindent<strong>What changed in v0.2.0.</strong> The balance-law derivations (continuity + Irving--Kirkwood momentum balance) remain unchanged. This version adds the three ``full closure'' modules needed to turn the document from a theoretical bridge into a <em>predictive specification</em>:</p>
+<ul>
+<li><strong>EOS / pressure module (Section~2.3).</strong> We connect the isotropic part of the Irving--Kirkwood stress to a virial pressure estimator and \LOCK\ a stiff-fluid Tait--Murnaghan EOS for quasi-incompressible compressible-NS closure, including the sound-speed constraint needed for engineering design and numerical stability.</li>
+<li><strong>Micro--macro thermal mapping (Section~3.1.2).</strong> We define a kinetic temperature from peculiar velocities and show how a discrete VP mixing / exchange step converges to Fourier heat conduction in the continuum limit, providing a thermodynamically admissible $\kappa>0$.</li>
+<li><strong>A priori parameter scaling (Section~4.4.2).</strong> We provide order-of-magnitude scaling laws linking VP microparameters $(m,a,k_{\rm spr})$ and event statistics (Maxwell time / unjamming rate) to macroscopic transport coefficients $(\nu,\kappa)$. These formulas are intended as <em>design knobs</em> for targeting Reynolds and Prandtl numbers <em>before</em> running large simulations.</li>
+</ul>
+<p>\medskip \noindent<strong>Retained engineering endpoints.</strong> The Chapman--Enskog / relaxation-time skeleton for Newtonian closure (Section~2.1), the 67\,nm bridge-scale discussion, the frozen-VP wall protocol (Section~2.5), and the event-dissipation / defect-measure dictionary (Sections~3--5 and Appendix~C/H) are retained.</p>
+<h3>F.4 Proof-status map (exact vs.\ conditional vs.\ gated)</h3>
+<p>To avoid category errors, we summarize the logical status of each link in the VP$\to$fluid bridge. The coarse-grained balance laws are <em>exact identities</em> once the Irving--Kirkwood stress is adopted. By contrast, the Newtonian Navier--Stokes closure is a <em>conditional implication</em>: it follows from representation theorems and Markovian linear response <em>after</em> the relevant regime is declared and passes the Gate suite.</p>
+<h2>0. Interface contract with the VP master white paper</h2>
+<h3>0.1 Notation compatibility and ``do-not-use'' symbols</h3>
+<p>\noindent<strong>Compatibility constraint.</strong> The VP master document uses $\mathcal{J}$ for a jet/anisotropy index. We therefore avoid using $\mathcal{J}$ for (i) current density, (ii) Poisson operators, (iii) metric operators. We adopt:</p>
+<div class="math-block">$$
+\text{mass flux / momentum density: }\mathbf j=\rho\uv,
+\qquad
+\text{Poisson operator: }\PoissonOp,
+\qquad
+\text{metric operator: }\MetricOp.
+$$</div>
+<h3>0.2 Minimal VP inputs used here</h3>
+<ul>
+<li>A set of VP carriers indexed by $i=1,\dots,N$ with position $\xv_i(t)$, velocity $\vv_i(t)$, and mass $m_i$.</li>
+<li>An interaction model that can be written as forces $\Fv_i^{\rm int}$ plus body-force $m_i\mathbf f$.</li>
+<li>An event log: events $n=1,\dots,N_{\rm total}(W)$ with a classification $\chi_{\rm ST}\in\{0,1\}$ and an energy release $\Delta E_n\ge 0$ (event type dependent).</li>
+<li>Fluidity in a window $W$:</li>
+<div class="math-block">$$
+\phi(W)=\frac{N_{\rm unjam}(W)}{N_{\rm total}(W)}\in[0,1].
+$$</div>
+</ul>
+<h3>0.3 Windowing and averaging conventions (protocol-locked)</h3>
+<p>Many VP quantities (fluidity $\phi$, event rates, and the anomaly budget) are <em>windowed</em> by design. To avoid ambiguity we lock the following conventions.</p>
+<p>\medskip \noindent\LOCK\ <strong>Spatial mean.</strong> Let $\Omega$ be the spatial domain (typically periodic) with volume $|\Omega|$. For an integrable scalar field $g(\xv,t)$ define the spatial mean</p>
+<div class="math-block">$$
+\langle g(\cdot,t)\rangle_\Omega := \frac{1}{|\Omega|}\int_\Omega g(\xv,t)\,d\xv .
+$$</div>
+<p>\medskip \noindent\LOCK\ <strong>Time window mean.</strong> For a time window $W=[t_0,t_1]$ of length $|W|:=t_1-t_0$, define the time mean of a scalar signal $a(t)$ by</p>
+<div class="math-block">$$
+\langle a\rangle_W := \frac{1}{|W|}\int_{t_0}^{t_1} a(t)\,dt.
+$$</div>
+<p>When both are needed we use the spatio--temporal mean</p>
+<div class="math-block">$$
+\langle g\rangle_{\Omega\times W}:=\frac{1}{|\Omega||W|}\int_{t_0}^{t_1}\int_\Omega g(\xv,t)\,d\xv\,dt.
+$$</div>
+<p>\begin{remark}[Total vs mean budgets] Any global balance law can be written either in integral form (total) or in mean form (per unit volume); they differ only by the constant factor $|\Omega|$. In Sections~5--6 and in the shipped reference simulations, dissipation rates are reported as <em>spatial means</em> to avoid carrying $|\Omega|$. \end{remark}</p>
+<p>\begin{remark}[Steady window (resolved-flow sense)] A ``steady window'' $W=[t_0,t_1]$ for the resolved flow energy $H_{\rm flow}(t)$ means that the net drift of $H_{\rm flow}$ over the window is small compared to the injected power:</p>
+<div class="math-block">$$
+\left|\frac{H_{\rm flow}(t_1)-H_{\rm flow}(t_0)}{|W|}\right| \ll \langle\varepsilon_{\rm inj}\rangle_W.
+$$</div>
+<p>Operationally this is enforced by the budget-residual gate in Section~6.3. \end{remark}</p>
+<p>\begin{remark}[Why we do not redevelop VP here] The VP master document (DOI <a href="\VPURL">\VPDOI</a>) contains the full ontology, lock discipline, and gate logic. This white paper is a fluid-dynamics ``projection'': it aims to be readable by a standard fluid mechanician while staying symbol-compatible. \end{remark}</p>
+<h2>1. From VP states to continuum fields</h2>
+<h3>1.1 Coarse graining and definition of fields</h3>
+<p>Fix a smooth, nonnegative kernel $W_\ell:\mathbb R^3\to\mathbb R$ of width $\ell>0$ such that</p>
+<div class="math-block">$$
+\int_{\mathbb R^3} W_\ell(\xv)\,d\xv = 1,
+\qquad
+W_\ell(\xv)=\ell^{-3}W(\xv/\ell)
+$$</div>
+<p>for some compactly supported or rapidly decaying template $W$.</p>
+<p>\begin{remark}[Two scale requirements for a continuum ``VP fluid''] The identities in this section are <em>exact</em> for any smoothing length $\ell>0$. However, to interpret $(\rho,\uv,\sigma)$ as continuum fields admitting a <em>local</em> closure, one needs a separation between (i) the microscopic correlation scales of the VP lattice/force-chain network, and (ii) the macroscopic flow scales. We denote by $D^\ast$ a mesoscopic ``bridge scale'' (introduced in Section~2.5) and by $\tau_M$ a Maxwell stress-relaxation time (Section~2.1).</p>
+<p>A Newtonian Navier--Stokes window is expected only when</p>
+<div class="math-block">$$
+D^\ast \ll \ell_{\rm cg} \ll L,
+\qquad
+\tau_M \ll \Delta t_{\rm cg} \ll T_{\rm flow},
+$$</div>
+<p>equivalently $\mathrm{Kn}_{\rm VP}=D^\ast/L\ll 1$ and $\mathrm{De}=\tau_M/T_{\rm flow}\ll 1$. If these inequalities fail (for example near a jamming criticality where $D^\ast$ grows), the coarse-grained balance laws remain valid but the closure must be nonlocal and/or non-Newtonian.</p>
+<p>\medskip \noindent<strong>How to read ``Navier--Stokes'' in VP language.</strong> In a declared Newtonian window, the constitutive law should be understood as a <em>small-parameter expansion</em> rather than an identity:</p>
+<div class="math-block">$$
+\sigma
+=
+-p\Id
++2\mu S
++\lambda(\nabla\!\cdot\uv)\Id
++\mathcal R,
+\qquad
+\|\mathcal R\| \,=\,\mathcal O(\mathrm{Kn}_{\rm VP})+\mathcal O(\mathrm{De})+\mathcal O(|\nabla\uv|^2),
+\label{eq:closure_remainder_scaling}
+$$</div>
+<p>where $\mathcal R$ collects (i) spatial nonlocality/gradient corrections (finite $D^\ast$), (ii) memory effects (finite $\tau_M$), and (iii) nonlinear response. The purpose of the Gate suite (Section~6) is to bound $\mathcal R$ empirically in the intended regime. \end{remark}</p>
+<p>\begin{remark}[Quantitative locality from a finite correlation length] The condition $D^\ast\ll \ell_{\rm cg}$ is often stated qualitatively. A minimal quantitative interpretation is the standard ``correlation-volume over averaging-volume'' estimate.</p>
+<p>Let $\sigma^{\rm micro}(\xv,t)$ denote the microscopic (IK) stress field and define the coarse-grained stress $\sigma_\ell := W_\ell * \sigma^{\rm micro}$. Assume that the stress fluctuations about their local mean have a finite correlation length $D^\ast$ in the sense that the two-point covariance decays rapidly for $|\rv|\gg D^\ast$. Then the variance of the kernel average satisfies a mixing bound of the form</p>
+<div class="math-block">$$
+\mathrm{Var}\big(\sigma_\ell(\xv,t)\big)\ \lesssim\ \|W\|_{L^2}^2\left(\frac{D^\ast}{\ell}\right)^3,
+\label{eq:locality_variance_bound}
+$$</div>
+<p>so that the typical fluctuation amplitude scales like $(D^\ast/\ell)^{3/2}$. In particular, taking $\ell_{\rm cg}$ a few (at least one) orders of magnitude larger than $D^\ast$ suppresses micro anisotropy/heterogeneity into the remainder $\mathcal R$ in \eqref{eq:closure_remainder_scaling}.</p>
+<p>\medskip \noindent<strong>Interpretation.</strong> Equation \eqref{eq:locality_variance_bound} is not claimed as a theorem of VP by itself: it is a precise way to state what must be empirically true (rapid decorrelation) for a local Newtonian closure to hold. Near jamming criticality, where $D^\ast$ can grow, this bound predicts the breakdown of locality and the onset of nonlocal/non-Newtonian behavior. \end{remark}</p>
+<p>\begin{proposition}[Conditional locality convergence (stress fluctuations vanish as $D^\ast/\ell_{\rm cg}\to 0$)] Assume the mixing/covariance hypothesis behind \eqref{eq:locality_variance_bound} holds so that $\mathrm{Var}(\sigma_\ell(\xv,t))\le C(D^\ast/\ell)^3$ for some constant $C$ independent of $\ell$. Let $\bar\sigma_\ell(\xv,t):=\mathbb E[\sigma_\ell(\xv,t)]$ denote the corresponding local mean. Then for any tolerance $\delta>0$,</p>
+<div class="math-block">$$
+\mathbb P\big(\|\sigma_\ell(\xv,t)-\bar\sigma_\ell(\xv,t)\|\ge \delta\big)
+\le \frac{C}{\delta^2}\left(\frac{D^\ast}{\ell}\right)^3.
+$$</div>
+<p>In particular, along any continuum limit in which $\ell=\ell_{\rm cg}\to 0$ while $D^\ast/\ell_{\rm cg}\to 0$, the coarse-grained stress converges in probability to its local mean and micro-fluctuations enter only through a remainder whose RMS size scales like $(D^\ast/\ell_{\rm cg})^{3/2}$. \end{proposition}</p>
+<p>\noindent\DERIVE\ Define coarse-grained mass density and momentum density:</p>
+<div class="math-block">$$\begin{align}
+\rho(\xv,t) &:= \sum_{i=1}^N m_i\,W_\ell(\xv-\xv_i(t)), \label{eq:rho_def}\\
+\mathbf j(\xv,t) &:= \sum_{i=1}^N m_i\,\vv_i(t)\,W_\ell(\xv-\xv_i(t)), \label{eq:j_def}\\
+\uv(\xv,t) &:= \frac{\mathbf j(\xv,t)}{\rho(\xv,t)}\quad\text{where }\rho>0.
+\label{eq:u_def}
+\end{align}$$</div>
+<p>When $\rho$ vanishes, one may treat $\uv$ as undefined or use a weak formulation.</p>
+<h3>1.2 Continuity equation (exact identity)</h3>
+<p>\begin{lemma}[Coarse-grained continuity]\label{lem:continuity} Assume $\xv_i(t)$ are differentiable in $t$. Then $\rho,\mathbf j$ defined in \eqref{eq:rho_def}--\eqref{eq:j_def} satisfy the exact identity</p>
+<div class="math-block">$$
+\partial_t\rho+\nabla\!\cdot\mathbf j=0,
+$$</div>
+<p>which is equivalent (where $\rho>0$) to $\partial_t\rho+\nabla\!\cdot(\rho\uv)=0$. \end{lemma}</p>
+<p>\begin{proof} Differentiate \eqref{eq:rho_def} and use $\dot \xv_i=\vv_i$:</p>
+<div class="math-block">$$
+\partial_t\rho(\xv,t)
+=
+\sum_i m_i\,\partial_t W_\ell(\xv-\xv_i)
+=
+\sum_i m_i\,(-\vv_i\cdot\nabla)W_\ell(\xv-\xv_i)
+=
+-\nabla\cdot\sum_i m_i \vv_i W_\ell(\xv-\xv_i)
+=
+-\nabla\!\cdot \mathbf j.
+$$</div>
+<p>\end{proof}</p>
+<h3>1.3 Momentum balance and the VP stress</h3>
+<p>Assume a VP translational dynamics of the form</p>
+<div class="math-block">$$
+m_i\dot{\vv}_i=\Fv_i^{\rm int} + m_i \mathbf f(\xv_i,t),
+\label{eq:vp_newton}
+$$</div>
+<p>where $\mathbf f$ is a body force per unit mass and $\Fv_i^{\rm int}$ is the net internal force.</p>
+<p>\begin{proposition}[Coarse-grained momentum equation]\label{prop:momentum} Under \eqref{eq:vp_newton} and mild regularity, there exists a stress tensor field $\sigma(\xv,t)$ such that the exact balance law holds:</p>
+<div class="math-block">$$
+\partial_t(\rho\uv)+\nabla\!\cdot(\rho\uv\otimes\uv)=\nabla\!\cdot\sigma+\rho\mathbf f.
+\label{eq:mom_sigma}
+$$</div>
+<p>Moreover, $\sigma$ admits an explicit Irving--Kirkwood representation (kinetic part + interaction part), given in Appendix~A. \end{proposition}</p>
+<h3>1.3.1 Jammed regime: why the interaction stress dominates</h3>
+<p>In many VP applications the relevant micro/meso state is <em>jammed</em> (solid-like contact network, ``State 4'' in the VP ontology). In that regime the Irving--Kirkwood stress splits as</p>
+<div class="math-block">$$
+\sigma=\sigma^{\rm kin}+\sigma^{\rm int}
+$$</div>
+<p>(Appendix~A), but the <em>interaction</em> part is typically dominant:</p>
+<ul>
+<li>The kinetic contribution scales like a Reynolds stress of peculiar velocities, $ \sigma^{\rm kin}\sim -\rho\,\delta v^2, $ and becomes small when relative fluctuations $\delta v$ are small.</li>
+<li>The interaction contribution is set by contact forces transmitted along force chains, see \eqref{eq:appA_sigma_int}. It remains large whenever the contact network carries finite compressive load.</li>
+</ul>
+<p>Thus in the jammed window it is mechanically natural to treat $\sigma^{\rm int}$ as the primary carrier of stress, and to view unjamming events as intermittent <em>reorganizations</em> of this force-chain network. This perspective is essential when mapping VP parameters to measurable stresses and to effective viscosity.</p>
+<p>\begin{remark}[Operational jamming diagnostic: interaction/kinetic stress ratio] To make ``interaction-dominated stress'' testable in data, define a dimensionless ratio</p>
+<div class="math-block">$$
+\mathrm{Jm}(\xv,t)
+:=\frac{\|\sigma^{\rm int}(\xv,t)\|}{\|\sigma^{\rm kin}(\xv,t)\|+\epsilon_{\rm reg}},
+$$</div>
+<p>where $\|\cdot\|$ is any consistent tensor norm (e.g.\ Frobenius norm) and $\epsilon_{\rm reg}>0$ is a small regularizer used only to avoid division by zero in near-vacuum regions. A declared <em>jammed</em> continuum window corresponds to $\mathrm{Jm}\gg 1$ in the region of interest. This provides an objective criterion for when force-chain stress controls $\mu_{\rm eff}$ and when a kinetic (gas-like) picture may be more appropriate. \end{remark} \begin{remark}[Stress symmetry and angular momentum] The Navier--Stokes equations assume a symmetric Cauchy stress. In the Irving--Kirkwood representation, symmetry follows if internal forces are pairwise, antisymmetric ($\Fv_{ij}=-\Fv_{ji}$), <em>and central</em> (parallel to the separation vector $\xv_i-\xv_j$), so that the internal torque vanishes. If VP microdynamics includes internal spins, non-central contact laws, or explicit body couples, then the appropriate macroscopic limit is a micropolar/Cosserat extension with couple stresses. The standard Navier--Stokes form is recovered when those extra moments relax on scales shorter than the declared coarse-graining window (rapid spin relaxation / negligible couple-stress regime). \end{remark}</p>
+<p>\begin{remark}[Sign convention] Many fluid texts write \eqref{eq:mom_sigma} as $\partial_t(\rho\uv)+\nabla\cdot(\rho\uv\otimes\uv)=-\nabla p+\nabla\cdot\tau+\rho\mathbf f$ with $\sigma=-p\Id+\tau$. \end{remark}</p>
+<h3>1.4 Euler limit as ``no-stress'' or ``pressure-only'' limit</h3>
+<p>If $\sigma=-p\Id$ (no deviatoric stress), then \eqref{eq:mom_sigma} reduces to the compressible Euler equation:</p>
+<div class="math-block">$$
+\partial_t(\rho\uv)+\nabla\!\cdot(\rho\uv\otimes\uv)=-\nabla p + \rho\mathbf f.
+$$</div>
+<p>Within VP this corresponds to a regime in which the coarse-grained deviatoric stress is negligible (e.g., near inviscid flow with no persistent sub-grid event dissipation).</p>
+<h2>2. Newtonian closure and the Navier--Stokes equations</h2>
+<h3>2.1 Stress, objectivity, and a controlled route to Newtonian closure</h3>
+<p>Write the Cauchy stress as</p>
+<div class="math-block">$$
+\sigma = -p\Id + \tau,
+$$</div>
+<p>where $p$ is the mechanical (thermodynamic) pressure and $\tau$ is the viscous (symmetric) stress. In compressible flow, $\tau$ may have a nonzero trace (bulk viscosity); the trace-free deviatoric part is $2\mu S$.</p>
+<p>\begin{remark}[Pressure as the isotropic part of the Irving--Kirkwood stress] Given the exact coarse-grained stress $\sigma$ (Irving--Kirkwood, Section~1 / Appendix~A), it is always consistent to define the pressure and deviatoric part by</p>
+<div class="math-block">$$
+p(\xv,t):= -\frac13\operatorname{tr}\sigma(\xv,t),
+\qquad
+\tau(\xv,t):=\sigma(\xv,t)+p(\xv,t)\Id,
+$$</div>
+<p>so that $\operatorname{tr}\tau=0$ by construction. With the exact split $\sigma=\sigma^{\rm kin}+\sigma^{\rm int}$ (Appendix~A), one may correspondingly write $p=p^{\rm kin}+p^{\rm int}$ with</p>
+<div class="math-block">$$
+p^{\rm kin}:= -\frac13\operatorname{tr}\sigma^{\rm kin},
+\qquad
+p^{\rm int}:= -\frac13\operatorname{tr}\sigma^{\rm int}.
+$$</div>
+<p>In incompressible Navier--Stokes, $p$ also plays the role of a Lagrange multiplier enforcing $\nabla\!\cdot\uv=0$, but the above identification ensures that the PDE pressure remains consistent with the underlying microscopic stress tensor. \end{remark}</p>
+<h5>What is exact and what is not.</h5>
+<p>Section~1 derived \eqref{eq:conti} and \eqref{eq:mom_sigma} as <em>exact</em> coarse-grained identities once $\sigma$ is defined by Irving--Kirkwood averaging. The remaining step is to replace the exact but microscopic $\sigma$ by a closed constitutive law expressed in terms of coarse fields.</p>
+<h5>General linear objective response (memory kernel form).</h5>
+<p>A convenient ``middle ground'' between micro-dynamics and a purely phenomenological law is the linear-response / projection-operator picture: for small departures from a local equilibrium and under frame indifference, the <em>linear</em> deviatoric stress response takes the convolution form</p>
+<div class="math-block">$$
+\tau(\xv,t)
+=
+2\int_{0}^{\infty}G(s;\xv,t)\,S(\xv,t-s)\,ds
+\;+\;\text{(bulk part)}
+\;+\;\text{(higher order / nonlocal corrections)},
+\label{eq:linear_memory_stress}
+$$</div>
+<p>where $S$ is the symmetric strain-rate tensor</p>
+<div class="math-block">$$
+S:=\frac12\big(\nabla\uv+(\nabla\uv)^\top\big) - \frac{1}{3}(\nabla\!\cdot\uv)\Id,
+$$</div>
+<p>and $G(s;\xv,t)$ is a (possibly slowly varying) <em>stress-relaxation kernel</em> (shear modulus relaxation function).</p>
+<p>\begin{remark}[Projection-operator origin of the memory kernel (Mori--Zwanzig / Kubo, schematic)] In the Mori--Zwanzig projection formalism, eliminating unresolved VP degrees of freedom produces a generalized Langevin structure for coarse observables: a drift term, a memory integral, and a fluctuating (orthogonal) force. In linear response around a local equilibrium, the memory kernel is linked to fluctuation statistics via a fluctuation--dissipation relation. In an isotropic Newtonian window this reduces to a scalar shear kernel, and one may write schematically</p>
+<div class="math-block">$$
+\tau(t)=2\int_0^\infty G(s)\,S(t-s)\,ds + \eta(t),
+\qquad
+G(s)=\frac{1}{\Theta V_{\rm cg}}\langle \eta_{xy}(0)\,\eta_{xy}(s)\rangle_{\rm le}\ \ge\ 0.
+$$</div>
+<p>The positivity of the correlation kernel is a direct route to $\mu=\int_0^\infty G(s)\,ds\ge 0$ and is consistent with the Green--Kubo formula \eqref{eq:green_kubo_mu}. \end{remark}</p>
+<p>\noindent\LOCK\ <strong>Thermodynamic admissibility at the kernel level.</strong> A sufficient condition for the Clausius--Duhem inequality (nonnegative viscous dissipation) is that the kernel $G$ be causal and positive in the sense that for any test $S(t)$,</p>
+<div class="math-block">$$
+\int_{-\infty}^{\infty}\!\!\int_{-\infty}^{\infty} S(t):G(t-t')\,S(t')\,dt\,dt' \ \ge\ 0.
+$$</div>
+<p>This is the time-domain analog of ``$\widehat G(\omega)\succeq 0$'' in the frequency domain.</p>
+<h5>Newtonian (Markovian) limit and the Maxwell time.</h5>
+<p>If $G(s)$ decays rapidly on a characteristic <em>Maxwell relaxation time</em> $\tau_M$ and if the macroscopic flow varies on times $T_{\rm flow}\gg\tau_M$, then \eqref{eq:linear_memory_stress} reduces to the Newtonian form:</p>
+<div class="math-block">$$
+\tau \approx 2\mu\,S,
+\qquad
+\mu := \int_0^\infty G(s)\,ds\ \ge\ 0.
+\label{eq:newtonian_from_memory}
+$$</div>
+<p>The corresponding dimensionless small parameter is the Deborah number $\mathrm{De}:=\tau_M/T_{\rm flow}$.</p>
+<p>\begin{remark}[A quantitative Markovian-error bound (what ``$\mathrm{De}\ll 1$'' really means)] To make the Newtonian reduction in \eqref{eq:newtonian_from_memory} operational, it is useful to define a <em>measurable</em> relaxation time directly from the kernel. Assume for clarity that $G(s)$ is scalar-valued and nonnegative (the matrix-valued case is analogous with operator norms). Define</p>
+<div class="math-block">$$
+\tau_M
+:=
+\frac{\int_0^\infty s\,G(s)\,ds}{\int_0^\infty G(s)\,ds}
+\qquad\text{(first-moment/area ratio).}
+\label{eq:tauM_first_moment}
+$$</div>
+<p>If $S(t)$ is differentiable in time, then</p>
+<div class="math-block">$$\begin{align}
+\|\tau(t)-2\mu S(t)\|
+&\le 2\int_0^\infty G(s)\,\|S(t-s)-S(t)\|\,ds\\
+&\le 2\|\partial_t S\|_{L^\infty}\int_0^\infty s\,G(s)\,ds
+= 2\mu\,\tau_M\,\|\partial_t S\|_{L^\infty}.
+\label{eq:markovian_error_bound}
+\end{align}$$</div>
+<p>Thus the Newtonian approximation is controlled by the dimensionless ratio $\tau_M\,\|\partial_t S\|/\|S\|$. A convenient flow time scale is therefore $T_{\rm flow}\sim \|S\|/\|\partial_t S\|$, which reproduces $\mathrm{De}=\tau_M/T_{\rm flow}$. \end{remark}</p>
+<h5>Constructive micro-bridge: Relaxation-Time Approximation (RTA) / Chapman--Enskog skeleton.</h5>
+<p>The conditional closure statement above is intentionally phrased as ``if the gates pass''. To make the Newtonian limit less mysterious, it is useful to exhibit a minimal mesoscopic model that produces the memory-kernel law \eqref{eq:linear_memory_stress} from a relaxation dynamics of jammed interaction stress.</p>
+<p>Let $A(\xv,t)$ be a symmetric trace-free internal variable representing the coarse anisotropy of the interaction-stress/force-chain network (equivalently, a scaled fabric tensor). Assume that, in a declared Newtonian window, the dynamics linearized about an isotropic local equilibrium takes a BGK/RTA form</p>
+<div class="math-block">$$
+\frac{D A}{D t}
+:=
+(\partial_t+\uv\cdot\nabla)A
+=
+-\frac{1}{\tau_M}\,A
++\alpha\,S
++\eta,
+\label{eq:RTA_A}
+$$</div>
+<p>where $\tau_M>0$ is a relaxation time, $\alpha>0$ is a modulus-like coupling, and $\eta$ is a rapidly decorrelating fluctuation term.</p>
+<p>If the observed deviatoric stress is proportional to $A$, $\tau = 2G_0 A$ with $G_0>0$, then solving \eqref{eq:RTA_A} formally yields</p>
+<div class="math-block">$$
+\tau(\xv,t)
+=
+2\int_0^\infty (G_0\alpha)\,e^{-s/\tau_M}\,S(\xv,t-s)\,ds
+\;+\;\text{(fluctuation/noise)},
+$$</div>
+<p>so the relaxation kernel is $G(s)=G_0\alpha\,e^{-s/\tau_M}$ and the Newtonian viscosity is</p>
+<div class="math-block">$$
+\mu=\int_0^\infty G(s)\,ds = G_0\alpha\,\tau_M\ \ge\ 0.
+\label{eq:RTA_mu}
+$$</div>
+<p>The Markovian (Newtonian) regime corresponds to $S$ varying slowly on $\tau_M$, recovering $\tau\approx 2\mu S$.</p>
+<p>\medskip \noindent<strong>Chapman--Enskog viewpoint.</strong> Equation \eqref{eq:RTA_A} is the analog of a BGK collision operator: the ``collision'' (unjamming) sector drives $A$ back toward isotropy, while the shear $S$ drives it away. A formal expansion in small $\mathrm{De}$ gives $A=\alpha\tau_M S + \mathcal O(\mathrm{De})$ and hence a Newtonian stress at leading order. This is not claimed as an identity of VP; it is an explicit micro-closure <em>candidate</em> explaining why linearity and positivity of $\mu$ are structurally natural once a fast-relaxation window exists.</p>
+<p>\begin{remark}[Isotropy from random force-chain orientations (one-line fact)] If $\hat{\mathbf n}$ is uniformly distributed on $S^2$, then $\langle \hat{\mathbf n}\otimes\hat{\mathbf n}\rangle = \frac13\Id$, hence the fabric deviator $Q=0$. Deviatoric stress therefore arises only from a <em>small shear-induced bias</em> of the orientation distribution, which is why linearization around isotropy naturally yields $\tau\propto S$. \end{remark}</p>
+<p>\begin{proposition}[Conditional Newtonian closure (what is actually proved once the gates pass)] Fix a coarse-graining window where the exact Cauchy stress $\sigma$ is defined by Irving--Kirkwood averaging. Assume that, <em>conditional on the local coarse state</em> at $(\xv,t)$, the deviatoric stress $\tau$ satisfies all of the following in that window:</p>
+<ol>
+<li><strong>Local linear response with memory:</strong> $\tau$ obeys the objective convolution form \eqref{eq:linear_memory_stress} with a causal relaxation kernel $G(s)$.</li>
+<li><strong>Fast decay (Maxwell time):</strong> $G$ has a finite first moment and $\tau_M$ defined by \eqref{eq:tauM_first_moment} is small compared to the flow time scale $T_{\rm flow}$ (i.e.\ $\mathrm{De}\ll 1$).</li>
+<li><strong>Isotropy/objectivity of the linear map:</strong> after window averaging, the linear map $S\mapsto \tau$ is rotation-equivariant (no preferred directions remain at the coarse scale).</li>
+</ol>
+<p>Then there exist scalar coefficients $\mu\ge 0$ and $\lambda$ such that the stress admits the Newtonian form</p>
+<div class="math-block">$$
+\sigma = -p\Id + 2\mu S + \lambda(\nabla\!\cdot\uv)\Id + \mathcal R,
+$$</div>
+<p>where the remainder $\mathcal R$ satisfies the Markovian bound</p>
+<div class="math-block">$$
+\|\mathcal R\| \ \le\ 2\mu\,\tau_M\,\|\partial_t S\|_{L^\infty} \;+\; \text{(nonlocal / nonlinear corrections)}.
+$$</div>
+<p>In particular, in the formal Markovian limit $\mathrm{De}\to 0$ with nonlocal/nonlinear corrections negligible, $\mathcal R\to 0$ and the balance laws reduce to compressible Navier--Stokes. \end{proposition}</p>
+<p>\begin{proof} Assumptions (1)--(2) imply the Markovian approximation $\tau\approx 2\mu S$ with $\mu=\int_0^\infty G(s)\,ds$ and the explicit error bound \eqref{eq:markovian_error_bound}. Assumption (3) ensures that the resulting linear map from $\nabla\uv$ to $\tau$ is objective and isotropic, so by the standard representation theorem (Appendix~B.1) the only possible instantaneous form is the Newtonian constitutive law \eqref{eq:newtonian_stress}, up to the remainder $\mathcal R$ collecting non-Markovian (memory), nonlocal (finite $D^\ast$), and nonlinear-response effects. \end{proof}</p>
+<h5>Jamming vs.\ isotropy: force chains and anisotropy relaxation.</h5>
+<p>In the jammed VP regime (State~4), the interaction part of the Irving--Kirkwood stress dominates and is instantaneously anisotropic (force-chain networks). Introduce an orientational/fabric tensor (schematic)</p>
+<div class="math-block">$$
+Q(\xv,t):=\big\langle \hat{\mathbf n}\otimes\hat{\mathbf n} \big\rangle_{\xv,t} - \frac{1}{3}\Id,
+$$</div>
+<p>where $\hat{\mathbf n}$ denotes local force-chain directions and $\langle\cdot\rangle_{\xv,t}$ is the coarse-graining average in the window $W_{\xv,t}$. A minimal (Maxwell-type) relaxation model is</p>
+<div class="math-block">$$
+\frac{D Q}{D t} = -\frac{1}{\tau_M}\,Q + \mathcal O(S),
+\label{eq:fabric_relax}
+$$</div>
+<p>so that $Q$ becomes small after time-averaging over windows $\Delta t_{\rm cg}\gg\tau_M$. If $\Delta t_{\rm cg}\lesssim\tau_M$ (or $\mathrm{De}\gtrsim 1$), the medium is <em>viscoelastic / non-Newtonian</em> and a Navier--Stokes closure is not expected to hold.</p>
+<p>\begin{remark}[Window-averaged anisotropy bound (making ``isotropizes by averaging'' explicit)] Treating \eqref{eq:fabric_relax} as a linear relaxation model, one has the variation-of-constants formula</p>
+<div class="math-block">$$
+Q(t)=e^{-(t-t_0)/\tau_M}Q(t_0)+\int_{t_0}^{t}e^{-(t-s)/\tau_M}\,\mathcal O(S(s))\,ds.
+$$</div>
+<p>Two useful consequences follow.</p>
+<ul>
+<li>If the driving term is negligible (quiescent relaxation), then the window mean satisfies $\|\langle Q\rangle_W\|\le (\tau_M/|W|)\,\|Q(t_0)\|$.</li>
+<li>If the flow is slowly varying, the steady response is $Q=\mathcal O(\tau_M S)$. Thus a practical isotropy criterion is $\tau_M\,\|S\|\ll 1$ (a Deborah-number condition).</li>
+</ul>
+<p>These bounds explain why force-chain anisotropy and Newtonian isotropy are not logically inconsistent: anisotropy is real at the micro/meso level, but it must relax quickly compared to the declared continuum window. \end{remark}</p>
+<p>\begin{remark}[Event-driven estimate for $\tau_M$ (VP link: unjamming rate)] A practical VP hypothesis is that <em>unjamming events randomize local force-chain orientation</em>. If unjamming events in a coarse cell occur as a Poisson process with intensity $\lambda_{\rm unjam}(\xv,t)$ and each event ``resets'' the fabric tensor toward isotropy, then the mean anisotropy obeys a relaxation law</p>
+<div class="math-block">$$
+\partial_t \langle Q\rangle \approx -\lambda_{\rm unjam}\,\langle Q\rangle + \text{(strain-driven term)}.
+$$</div>
+<p>This identifies the Maxwell time as</p>
+<div class="math-block">$$
+\tau_M(\xv,t)\ \approx\ \lambda_{\rm unjam}(\xv,t)^{-1},
+\label{eq:tauM_event_estimate}
+$$</div>
+<p>which connects directly to VP observables via \eqref{eq:lambda_unjam_local}. In particular, frequent unjamming (large $\lambda_{\rm unjam}$, high fluidity) implies rapid isotropization and supports the Newtonian-window requirement $\Delta t_{\rm cg}\gg\tau_M$. \end{remark}</p>
+<p>\medskip \noindent\GATE\ <strong>Closure gate (Newtonian local linear response).</strong> We declare a ``Navier--Stokes window'' only if the following are met:</p>
+<ol>
+<li><strong>Spatial locality</strong>: the micro correlation length (bridge scale) is small, $D^\ast\ll \ell_{\rm cg}$.</li>
+<li><strong>Fast relaxation</strong>: $\mathrm{De}=\tau_M/T_{\rm flow}\ll 1$ and $Q$ is small after window averaging.</li>
+<li><strong>Linearity</strong>: $\tau_{ij}\propto S_{ij}$ in the measured range.</li>
+<li><strong>Isotropy</strong>: the proportionality is rotation-equivariant after averaging.</li>
+</ol>
+<p>Under these assumptions, representation theorems imply the Newtonian stress \eqref{eq:newtonian_stress} (Appendix~B), and the balance laws reduce to Navier--Stokes.</p>
+<h3>2.2 Compressible Navier--Stokes</h3>
+<p>Combining \eqref{eq:conti} with \eqref{eq:mom_sigma} and \eqref{eq:newtonian_stress} yields the compressible Navier--Stokes equations:</p>
+<div class="math-block">$$\begin{align}
+\partial_t\rho+\nabla\!\cdot(\rho\uv) &= 0,\\
+\partial_t(\rho\uv)+\nabla\!\cdot(\rho\uv\otimes\uv)
+&=
+-\nabla p
++\nabla\!\cdot\!\Big(2\mu S + \lambda (\nabla\!\cdot\uv)\Id\Big)
++\rho\mathbf f,
+\end{align}$$</div>
+<p>together with an equation of state (or an internal-energy closure) for $p$.</p>
+<h3>2.3 Equation of state and thermodynamic pressure</h3>
+<p>A <em>closed</em> compressible Navier--Stokes system requires a relation between the thermodynamic variables and the isotropic stress. Mechanically, VP can always define pressure as the isotropic part of the exact Irving--Kirkwood stress (Section~2.1), i.e.\ $p=-\tfrac13\operatorname{tr}\sigma$. However, for predictive compressible closure and engineering design, it is often convenient to specify an explicit <em>equation of state</em> (EOS) linking $p$ to density (and possibly temperature).</p>
+<h4>2.3.1 From virial stress to macroscopic pressure</h4>
+<p>Assume VP interactions are dominated by a pairwise repulsive potential $U(r_{ij})$ between particles $i$ and $j$, with $r_{ij}:=|\xv_i-\xv_j|$ and pair force $\Fv_{ij}=-\nabla_{\xv_i}U(r_{ij})$. In a coarse-graining cell of volume $V_{\rm cg}$, the interaction (virial) contribution to pressure is</p>
+<div class="math-block">$$
+p_{\rm int}
+=
+\frac{1}{3V_{\rm cg}}
+\sum_{i<j}
+(\xv_i-\xv_j)\cdot \Fv_{ij}.
+\label{eq:virial_pressure}
+$$</div>
+<p>This is consistent with the trace of the Irving--Kirkwood interaction stress (Appendix~A) after averaging. In the jammed (stiff) VP regime the interaction sector typically dominates, so $p\simeq p_{\rm int}+p_{\rm kin}$ with a smaller kinetic/thermal part $p_{\rm kin}$.</p>
+<h4>2.3.2 The Tait--Murnaghan equation of state (recommended \LOCK)</h4>
+<p>For a quasi-incompressible ``stiff fluid'' regime with small density fluctuations $\delta\rho/\rho_0\ll 1$, the virial pressure is well approximated by a Tait/Murnaghan-type EOS. We \LOCK\ the following compressible closure for use when a stiff-pressure model is desired:</p>
+<div class="math-block">$$
+p(\rho)
+=
+B\Big[\Big(\frac{\rho}{\rho_0}\Big)^{\gamma}-1\Big] + p_{\rm back}.
+\label{eq:tait_eos}
+$$</div>
+<p>Here $\rho_0$ is a reference density (in VP, $\rho_0\sim m/a^3$ with lattice spacing $a$ and particle mass $m$), $\gamma>1$ is a stiffness exponent (often $\gamma\simeq 7$ for water-like quasi-incompressible modeling, but it can be matched to the curvature of the chosen VP repulsive potential), $B>0$ is a bulk-modulus parameter, and $p_{\rm back}$ is a background offset pressure.</p>
+<h4>2.3.3 Numerical sound speed and stability (engineering constraint)</h4>
+<p>The isentropic speed of sound implied by \eqref{eq:tait_eos} is</p>
+<div class="math-block">$$
+c_s^2(\rho)
+=
+\frac{dp}{d\rho}
+=
+\frac{B\gamma}{\rho_0}\Big(\frac{\rho}{\rho_0}\Big)^{\gamma-1}.
+\label{eq:soundspeed_tait}
+$$</div>
+<p>To remain in a quasi-incompressible regime one enforces a small Mach number $\mathrm{Ma}:=\max|\uv|/c_s\lesssim 0.1$ (rule of thumb). A practical design choice is therefore</p>
+<div class="math-block">$$
+c_s \ \ge\ 10\,\max|\uv|,
+\qquad
+B \ =\ \frac{\rho_0 c_s^2}{\gamma},
+\label{eq:cs_choice}
+$$</div>
+<p>which ties the stiffness parameter $B$ to the target velocity scale. In explicit time stepping one must also respect the usual acoustic CFL stability constraint $\Delta t \lesssim \mathrm{CFL}\,\Delta x/(|\uv|+c_s)$.</p>
+<h3>2.4 Incompressible Navier--Stokes</h3>
+<p>In the incompressible limit, $\rho=\rho_0$ is constant and $\nabla\!\cdot\uv=0$. Then</p>
+<div class="math-block">$$
+\nabla\!\cdot\big(2\mu S\big)=\mu\nabla^2\uv
+\quad\text{(for constant $\mu$),}
+$$</div>
+<p>and \eqref{eq:NS_incompressible} follows.</p>
+<h3>2.5 Relating viscosity to VP: a minimal, falsifiable mapping</h3>
+<p>This white paper separates what can be derived exactly from what is a modeling identification.</p>
+<ul>
+<li>\DERIVE: $\mu$ and $\lambda$ are <em>not</em> arbitrary once VP is fixed: they are summaries of the coarse-grained stress response.</li>
+<li>\GATE: the map from VP microparameters and event statistics $(\phi,\text{event rate},\text{core size},\dots)$ to $(\mu,\lambda)$ must be empirically or numerically identified.</li>
+</ul>
+<p>A useful minimal mapping is via a Maxwell-type relaxation picture:</p>
+<div class="math-block">$$
+\tau_{\rm relax}^{-1}(\xv,t) \;\propto\; \text{(unjamming frequency)} \;\approx\; \phi(\xv,t)\,\nu_{\rm tot}(\xv,t),
+\qquad
+\mu_{\rm eff}(\xv,t)\;\approx\; G(\xv,t)\,\tau_{\rm relax}(\xv,t),
+\label{eq:maxwell_mapping}
+$$</div>
+<p>where $G$ is a local elastic modulus of the transient jammed network and $\nu_{\rm tot}$ is the total event rate. This predicts that higher unjamming activity (higher $\phi\nu_{\rm tot}$) lowers viscosity.</p>
+<p>\begin{remark}[Physical anchor: a mesoscopic bridge scale $D^\ast$] To physically ground the effective viscosity $\mu_{\rm eff}$ in a way that is relevant to nano--micro hardware, it is useful to introduce a mesoscopic <em>bridge scale</em> $D^\ast$---the correlation length of VP ``unjamming chains'' (or, more generally, the length beyond which the VP lattice can be treated as a continuum).</p>
+<ul>
+<li><strong>Continuum criterion (VP Knudsen number).</strong> Define</li>
+<div class="math-block">$$
+\mathrm{Kn}_{\rm VP}:=\frac{D^\ast}{L},
+$$</div>
+<li><strong>A practical numerical anchor (67\,nm).</strong> For ordinary air at STP the molecular mean free path is $\lambda_{\rm air}\approx 67\,\mathrm{nm}$, which is a familiar benchmark for the onset of non-continuum effects in micro/nano flows. In this white paper we <em>do not</em> equate $D^\ast$ with $\lambda_{\rm air}$ as a matter of derivation; rather, $\lambda_{\rm air}$ provides an order-of-magnitude <em>reference scale</em> for designing and interpreting calibration experiments.</li>
+<li><strong>Hardware implication.</strong> If a device feature size $L_{\rm feat}\lesssim D^\ast$, the VP medium is expected to exhibit discrete transport (slip, ballistic segments, event-dominated dissipation). If $L_{\rm feat}\gg D^\ast$, the same medium should admit a classical continuum description with effective $(\mu,\lambda)$.</li>
+</ul>
+<p>where $L$ is the characteristic system length. The Navier--Stokes closure is expected to be accurate when $\mathrm{Kn}_{\rm VP}\ll 1$, while $\mathrm{Kn}_{\rm VP}\sim \mathcal O(1)$ signals a slip/ballistic regime where non-continuum corrections may be required.</p>
+<p>\noindent<strong>Gate note.</strong> $D^\ast$ is a <em>measurable parameter</em>: it can be inferred from the crossover between no-slip and slip behavior (or from the onset of scale-dependent $\mu_{\rm eff}$) in a controlled geometry. \end{remark}</p>
+<p>\begin{remark}[Wall protocol (Option A locked): frozen-VP no-slip boundary]\label{rem:wall_protocol} The bulk derivation of Navier--Stokes in Sections~1--2 is an <em>interior</em> statement. However, any hardware-facing calibration of $\mu_{\rm eff}$ or inference of the bridge scale $D^\ast$ necessarily involves walls, and therefore requires an explicit boundary protocol.</p>
+<p>\medskip \noindent\LOCK\ <strong>BC-W1 (Declare the boundary regime).</strong> Whenever $\mu_{\rm eff}$ is inferred from a wall-driven experiment or simulation (Couette/Poiseuille), we must either: (i) enforce a <em>no-slip</em> regime (full tangential momentum accommodation), or (ii) measure the <em>slip length</em> $b$ and use a partial-slip (Navier) boundary condition. Otherwise wall slip can masquerade as a reduced $\mu_{\rm eff}$.</p>
+<p>\medskip \noindent\LOCK\ <strong>BC-W2A (Option A, chosen standard in this volume: frozen-VP wall).</strong> We represent a solid wall by one or more layers of <em>fixed</em> VPs that act as a rough, momentum-accommodating surface. This is the VP analog of a diffuse-reflection / full-accommodation wall and is intended to enforce macroscopic no-slip ($b\approx 0$) in the Newtonian window.</p>
+<ul>
+<li><strong>Geometry.</strong> Choose an integer $n_w\ge 2$ and build a wall of thickness $h_w:=n_w a$, where $a$ is the VP lattice spacing. Place wall VPs on a near-lattice arrangement and add a small random jitter (roughness) of amplitude $\delta\in[0.05,0.2]a$ to break specular symmetries.</li>
+<li><strong>Kinematics.</strong> Prescribe a wall velocity $\uv_w$ (e.g.\ $\pm \tfrac12\Delta U\,\hat{\mathbf x}$ for Couette). Wall VPs are treated as infinite-mass carriers: they do not accelerate under collisions. Operationally this means that collisions transfer momentum to the fluid while the wall velocity remains imposed.</li>
+<li><strong>Interaction.</strong> Fluid VPs interact with wall VPs via the same repulsive/contact law as the bulk, optionally with a stiffer wall coefficient $\kappa_w\ge 1$ to suppress penetration. Because the wall is rough and momentum-accommodating, tangential momentum is efficiently exchanged and slip is reduced.</li>
+</ul>
+<p>\medskip \noindent\GATE\ <strong>BC-W3 (No-slip verification; separate bulk $\mu$ from wall slip).</strong> Even with BC-W2A, finite slip can occur if the wall is too smooth or the interaction is too specular. Therefore, in any Couette/Poiseuille calibration we <em>measure</em> the slip length $b$ from the near-wall profile. A convenient estimator is obtained by linear fitting of the tangential velocity in the boundary layer:</p>
+<div class="math-block">$$
+b \;=\; \frac{(\uv_t-\uv_w)_t}{\partial_n \uv_t}\Big|_{\partial\Omega}.
+$$</div>
+<p>A ``no-slip'' calibration regime is declared when $b/h\le b_{\rm tol}$ with $b_{\rm tol}\sim 10^{-2}$, or (more VP-natively) when $b\le 0.1\,D^\ast$. If this gate fails, one must either report a partial-slip model or redesign the wall roughness/stickiness.</p>
+<p>\medskip \noindent\GATE\ <strong>BC-W2B (Option B, optional: force-field wall).</strong> A smooth wall can be represented by an external repulsive potential. If near-wall interactions are predominantly specular, tangential momentum is only weakly exchanged and partial slip occurs. This option is useful for deliberately exploring slip regimes ($b\gtrsim D^\ast$), but it must <em>not</em> be used to infer bulk $\mu_{\rm eff}$ unless $b$ is measured and included in the fit.</p>
+<p>\medskip \noindent<strong>Continuum parametrization (Navier slip).</strong> In the partial-slip case, a minimal macroscopic description is</p>
+<div class="math-block">$$
+(\uv-\uv_w)_t = b\,\partial_n \uv_t \quad \text{on } \partial\Omega,
+\qquad b\ge 0,
+$$</div>
+<p>where $\uv_w$ is the wall velocity, $(\cdot)_t$ denotes the tangential component, and $\partial_n$ is the outward normal derivative.</p>
+<p>For a plane Couette cell of gap $h$ with equal slip length $b$ at both walls, the shear rate is $\partial_y u=\Delta U/(h+2b)$ (instead of $\Delta U/h$). Consequently, the thermal calibration in Gate~G5-A modifies to</p>
+<div class="math-block">$$
+\Delta T_{\max}=\frac{\mu\,\Delta U^2}{8k_{\rm eff}}\Big(\frac{h}{h+2b}\Big)^2,
+\label{eq:couette_slip_temp}
+$$</div>
+<p>so wall slip must be controlled or measured to identify $\mu$.</p>
+<p>\medskip \noindent<strong>Bridge-scale diagnostic.</strong> In micro/nano devices one expects $b=\mathcal O(D^\ast)$ in the absence of intentional roughness, so the ratio $b/D^\ast$ provides an additional diagnostic of the bridge scale. \end{remark}</p>
+<h4>2.5.1 Viscosity identification: Green--Kubo (formal) and dissipation matching (operational)</h4>
+<p>A direct (and falsifiable) way to connect VP event statistics to Navier--Stokes transport coefficients is to match the <em>irreversible power sink</em>.</p>
+<h5>Green--Kubo / linear-response identification of $\mu$ (formal).</h5>
+<p>Equation \eqref{eq:newtonian_from_memory} already suggests a first-principles route: $\mu$ is the <em>area under the stress-relaxation kernel</em>. Under a local-equilibrium assumption with an effective temperature $\Theta$, linear response yields an equivalent Green--Kubo representation for the shear viscosity:</p>
+<div class="math-block">$$
+\mu(\xv,t)
+=
+\frac{1}{\Theta\,V_{\rm cg}}
+\int_{0}^{\infty}
+\Big\langle \tau_{xy}(0)\,\tau_{xy}(s)\Big\rangle_{\rm le(\xv,t)}\,ds,
+\qquad
+\mu\ge 0,
+\label{eq:green_kubo_mu}
+$$</div>
+<p>where $\langle\cdot\rangle_{\rm le(\xv,t)}$ denotes a local-equilibrium ensemble conditioned on the coarse state at $(\xv,t)$, and $\tau_{xy}$ may be taken as the <em>interaction-dominated</em> shear stress in the jammed regime. In practice \eqref{eq:green_kubo_mu} is useful in two ways: (i) it shows that $\mu$ is <em>intrinsic</em> (not an arbitrary fit parameter) once the VP microdynamics is fixed, and (ii) it provides an explicit calibration protocol if stress autocorrelations can be measured in simulation.</p>
+<h5>Consistency with the Maxwell picture.</h5>
+<p>If the stress relaxation is approximately single-exponential, $G(s)\approx G_0 e^{-s/\tau_M}$, then $\mu=\int_0^\infty G(s)\,ds \approx G_0\tau_M$, which recovers the Maxwell mapping \eqref{eq:maxwell_mapping} (with $G_0$ interpreted as a transient shear modulus).</p>
+<h5>Local event rate and event dissipation density.</h5>
+<p>Fix a coarse-graining volume $V_{\rm cg}\sim \ell_{\rm cg}^3$ and a local time window of length $\Delta t_{\rm cg}$. Let $N_{\rm unjam}(W_{\xv,t})$ be the number of unjamming-type events recorded in the local window $W_{\xv,t}$. Define the corresponding event rate</p>
+<div class="math-block">$$
+\lambda_{\rm unjam}(\xv,t)
+:=\frac{N_{\rm unjam}(W_{\xv,t})}{V_{\rm cg}\,\Delta t_{\rm cg}},
+\label{eq:lambda_unjam_local}
+$$</div>
+<p>and let $\langle \Delta E_{\rm bind}\rangle_{\xv,t}$ denote the mean energy release per event in the same window (protocol-locked). Then the event dissipation density is</p>
+<div class="math-block">$$
+\epsilon_{\rm events}(\xv,t)
+:= \lambda_{\rm unjam}(\xv,t)\,\langle \Delta E_{\rm bind}\rangle_{\xv,t}\ \ge\ 0.
+\label{eq:eps_events_density}
+$$</div>
+<h5>Incompressible shear-dominated regime.</h5>
+<p>If $\nabla\!\cdot\uv\approx 0$ locally, the Newtonian viscous dissipation density reduces to</p>
+<div class="math-block">$$
+\epsilon_\nu(\xv,t)=2\mu\,S:S.
+$$</div>
+<p>In a regime where VP dissipation is dominated by events and the Newtonian closure applies, a minimal matching principle is</p>
+<div class="math-block">$$
+\epsilon_\nu(\xv,t)\ \approx\ \epsilon_{\rm events}(\xv,t),
+\qquad\text{(declared Newtonian window).}
+\label{eq:dissipation_matching_local}
+$$</div>
+<p>This yields an <em>operational</em> viscosity estimator:</p>
+<div class="math-block">$$
+\mu_{\rm eff}(\xv,t)\ \approx\ \frac{\epsilon_{\rm events}(\xv,t)}{2\,S(\xv,t):S(\xv,t)}.
+\label{eq:mu_eff_from_events}
+$$</div>
+<p>The Newtonian gate condition is that $\mu_{\rm eff}$ is approximately rate-independent and isotropic over the declared window and forcing class.</p>
+<h5>Relation to fluidity $\phi$.</h5>
+<p>Under a fixed VP update protocol with a micro time step $\Delta t_{\rm micro}$, the windowed fluidity $\phi=N_{\rm unjam}/N_{\rm total}$ implies $\lambda_{\rm unjam}\sim \phi/(V_{\rm cg}\,\Delta t_{\rm micro})$ up to a protocol-dependent conversion between ``update steps'' and physical time. This makes the VP notion of fluidity directly measurable in the continuum dissipation balance.</p>
+<p>\begin{remark}[Why this is still ``Navier--Stokes''] Navier--Stokes uses $\mu,\lambda$ as phenomenological inputs. Equation \eqref{eq:maxwell_mapping} is an optional identification that becomes part of the VP-to-NS bridge only after it passes a declared gate (stress--strain measurement, see Section~6). \end{remark}</p>
+<h3>2.6 Viscous dissipation and thermodynamic admissibility</h3>
+<p>The Navier--Stokes closure is only meaningful as a VP bridge if it is <em>thermodynamically admissible</em>: the irreversible mechanical power density must be nonnegative.</p>
+<p>\begin{proposition}[Viscous dissipation identity and positivity]\label{prop:visc_pos} Assume the compressible Newtonian closure \eqref{eq:newtonian_stress} with coefficients $\mu,\lambda\in\mathbb R$. Define the bulk viscosity</p>
+<div class="math-block">$$
+\zeta:=\lambda+\frac{2}{3}\mu.
+$$</div>
+<p>Then the viscous dissipation density is the identity</p>
+<div class="math-block">$$
+\epsilon_\nu(\xv,t)
+:=
+\tau(\xv,t):\nabla\uv(\xv,t)
+=
+2\mu\,S:S
++
+\zeta\,(\nabla\!\cdot\uv)^2,
+\label{eq:visc_dissipation_density}
+$$</div>
+<p>where $S$ is the trace-free strain-rate tensor in \eqref{eq:newtonian_stress}. Moreover, $\epsilon_\nu(\xv,t)\ge 0$ for all velocity gradients $\nabla\uv$ if and only if</p>
+<div class="math-block">$$
+\mu\ge 0,
+\qquad
+\zeta\ge 0.
+\label{eq:admissibility_conditions}
+$$</div>
+<p>\end{proposition}</p>
+<p>\begin{proof} Write $\nabla\uv = S + \frac13(\nabla\!\cdot\uv)\Id + A$ with $A:=\frac12(\nabla\uv-(\nabla\uv)^\top)$ skew. Because $\tau$ is symmetric, $\tau:A=0$ and only the symmetric part contributes. Using $\tau=2\mu S+\lambda(\nabla\!\cdot\uv)\Id$ and $S:\Id=0$ gives $\tau:\nabla\uv = 2\mu\,S:S + (\lambda+\frac23\mu)(\nabla\!\cdot\uv)^2$. If $\mu<0$, choose a pure shear with $\nabla\!\cdot\uv=0$ and $S\neq 0$ to make $\epsilon_\nu<0$. If $\zeta<0$, choose a pure dilation $\nabla\uv=\alpha\Id$ to make $\epsilon_\nu=3\zeta\alpha^2<0$. Thus \eqref{eq:admissibility_conditions} is necessary. If \eqref{eq:admissibility_conditions} holds, both terms in \eqref{eq:visc_dissipation_density} are nonnegative, so $\epsilon_\nu\ge 0$ pointwise, proving sufficiency. \end{proof}</p>
+<p>\noindent\GATE\ <strong>(Thermodynamic check).</strong> When fitting $(\mu,\lambda)$ from VP data, report $\zeta=\lambda+\frac23\mu$ and verify \eqref{eq:admissibility_conditions}. Violations indicate either (i) a closure breakdown (non-Newtonian response) or (ii) a mismatch between the measurement window and the assumed continuum regime.</p>
+<p>\begin{remark}[Stokes hypothesis is optional] Some texts impose $\lambda=-\tfrac{2}{3}\mu$ (so that $\zeta=0$). This is an <em>additional modeling choice</em>, not a derivation. In the VP-to-continuum bridge, $\lambda$ should be treated as an empirical summary of volumetric relaxation until proven otherwise by a dedicated calibration. \end{remark}</p>
+<h2>3. Energy and entropy budgets with event dissipation</h2>
+<h3>3.0 Budget bookkeeping: what is ``dissipated''</h3>
+<p>In this document, ``dissipation'' is always meant <em>with respect to the resolved flow (mechanical) energy</em>. Both classical viscosity and VP events remove energy from the resolved flow and transfer it to unresolved/internal degrees of freedom (heat, core deformation, binding rearrangements, \dots). This is the correct level of description for the Onsager-type anomaly question: <em>can the resolved-flow energy decay remain nonzero as $\nu\to 0$?</em></p>
+<p>\medskip \noindent\LOCK\ <strong>Resolved flow energy.</strong> For an incompressible constant-density regime ($\rho=\rho_0$), define the resolved kinetic energy density</p>
+<div class="math-block">$$
+e_{\rm flow}(\xv,t):=\frac{\rho_0}{2}|\uv(\xv,t)|^2,
+$$</div>
+<p>and its spatial mean and total energy</p>
+<div class="math-block">$$
+E_{\rm flow}(t):=\langle e_{\rm flow}(\cdot,t)\rangle_\Omega,
+\qquad
+H_{\rm flow}(t):=\int_\Omega e_{\rm flow}(\xv,t)\,d\xv = |\Omega|\,E_{\rm flow}(t).
+$$</div>
+<p>\medskip \noindent\LOCK\ <strong>Dissipation rates (mean form).</strong> We use the following <em>spatial-mean</em> power densities (per unit volume):</p>
+<div class="math-block">$$
+\varepsilon_{\rm inj}(t):=\left\langle \rho_0\,\mathbf f\cdot\uv\right\rangle_\Omega,
+\qquad
+\varepsilon_{\nu}(t):=\left\langle \epsilon_\nu(\xv,t)\right\rangle_\Omega,
+\qquad
+\varepsilon_{\rm events}(t):=\left\langle \epsilon_{\rm events}(\xv,t)\right\rangle_\Omega.
+$$</div>
+<p>(Integral forms are obtained by multiplying by $|\Omega|$.)</p>
+<h3>3.1 Classical kinetic-energy budget (incompressible)</h3>
+<p>Assume $\uv$ is a smooth solution of incompressible Navier--Stokes on $\Omega$ with either periodic boundaries or boundary conditions such that the mechanical energy flux through the boundary vanishes. Multiply \eqref{eq:NS_incompressible} by $\rho_0\uv$, integrate over $\Omega$, and use $\nabla\!\cdot\uv=0$ together with integration by parts to obtain the exact identity</p>
+<div class="math-block">$$
+\frac{d}{dt}E_{\rm flow}(t)
+=
+\varepsilon_{\rm inj}(t)
+-
+\varepsilon_{\nu}(t),
+\label{eq:energy_NS}
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+\epsilon_\nu(\xv,t)=2\mu\,S:S=\mu\,|\nabla\uv|^2
+\quad\text{(incompressible, constant $\mu$),}
+$$</div>
+<p>so that $\varepsilon_\nu(t)\ge 0$.</p>
+<p>\begin{remark}[Weak solutions and energy inequality] For Leray weak solutions the equality \eqref{eq:energy_NS} becomes an inequality</p>
+<div class="math-block">$$
+E_{\rm flow}(t_1)-E_{\rm flow}(t_0)
+\le
+\int_{t_0}^{t_1}\big(\varepsilon_{\rm inj}(t)-\varepsilon_\nu(t)\big)\,dt,
+$$</div>
+<p>with a possible additional nonnegative ``defect'' term when taking inviscid limits. Section~5 reviews the Duchon--Robert defect language for this purpose. \end{remark}</p>
+<h3>3.1.1 Compressible energy and entropy equations (reference form)</h3>
+<p>While this white paper focuses on the incompressible resolved-energy balance \eqref{eq:energy_NS}, it is useful to record the standard compressible reference form, because VP ``event heat'' naturally enters through an internal-energy channel.</p>
+<p>Let $e(\xv,t)$ be the internal energy per unit mass and define the total specific energy $E:=e+\frac12|\uv|^2$. With heat flux $\mathbf q$ (e.g.\ Fourier $\mathbf q=-\kappa\nabla T$) the compressible Navier--Stokes total-energy equation can be written as</p>
+<div class="math-block">$$
+\partial_t(\rho E)+\nabla\!\cdot\big[(\rho E+p)\uv\big]
+=
+\nabla\!\cdot(\tau\cdot\uv - \mathbf q)
++
+\rho\,\mathbf f\cdot\uv.
+\label{eq:compressible_energy}
+$$</div>
+<p>Equivalently, the internal-energy equation (first law) reads</p>
+<div class="math-block">$$
+\rho\,\frac{De}{Dt} = -p\,\nabla\!\cdot\uv + \tau:\nabla\uv - \nabla\!\cdot\mathbf q.
+$$</div>
+<p>Thermodynamic admissibility requires the viscous contribution $\tau:\nabla\uv=\epsilon_\nu$ to be nonnegative, which holds under the conditions of Proposition~\ref{prop:visc_pos}. A compatible entropy balance reads schematically</p>
+<div class="math-block">$$
+\partial_t(\rho s)+\nabla\!\cdot(\rho s\,\uv + \mathbf q/T)
+=
+\frac{1}{T}\Big( \epsilon_\nu + \kappa\,\frac{|\nabla T|^2}{T} \Big)
+\;\ge\;0,
+\label{eq:entropy_balance_reference}
+$$</div>
+<p>where $s$ is the specific entropy. Equation \eqref{eq:entropy_balance_reference} is the continuum ``second law'' target that any VP projection must respect in the macroscopic limit.</p>
+<h3>3.1.2 Micro--macro thermal mapping (VP $\leftrightarrow$ temperature and heat flux)</h3>
+<p>Section~3.1.1 recorded the standard compressible energy/entropy forms with temperature $T$ and heat flux $\mathbf q$. For VP-based engineering, it is useful to state explicitly how $T$ and $\mathbf q$ arise from VP statistics.</p>
+<h5>Kinetic temperature from peculiar velocity.</h5>
+<p>Define the <em>peculiar</em> velocity of particle $i$ relative to the coarse flow as</p>
+<div class="math-block">$$
+\cv_i := \vv_i - \uv(\xv,t),
+$$</div>
+<p>where $\uv(\xv,t)$ is the coarse-grained velocity at the evaluation point. We then define the local kinetic temperature by the standard kinetic-theory mapping</p>
+<div class="math-block">$$
+\frac{3}{2}k_B\,T(\xv,t)
+:=
+\left\langle \frac{1}{2}m_i|\cv_i|^2\right\rangle_{\xv,t},
+\label{eq:kinetic_temperature}
+$$</div>
+<p>where $\langle\cdot\rangle_{\xv,t}$ denotes the kernel/window average and $k_B$ is Boltzmann's constant (or its simulation-unit analogue). (For strictly 2D simulations, replace the factor $3/2$ by $d/2$ with $d=2$.)</p>
+<h5>Heat flux and the Fourier limit.</h5>
+<p>Let $T_i$ denote a particle-level temperature proxy (peculiar kinetic energy). A minimal VP ``mixing'' model is a relaxation/exchange step of the form</p>
+<div class="math-block">$$
+\frac{dT_i}{dt}\ \approx\ \sum_{j} (T_j-T_i)\,W_{ij},
+\label{eq:discrete_temp_exchange}
+$$</div>
+<p>where $W_{ij}$ is a symmetric nonnegative weight induced by the coarse-graining kernel $W_\ell$. In the continuum limit, a Taylor expansion $T_j\simeq T_i+(\xv_j-\xv_i)\cdot\nabla T$ and symmetry of $W_{ij}$ yield a diffusion operator, leading to the macroscopic heat equation</p>
+<div class="math-block">$$
+\rho\,c_v\,\frac{DT}{Dt}
+=
+\nabla\!\cdot(\kappa\nabla T)
+\quad (\kappa>0).
+\label{eq:fourier_heat}
+$$</div>
+<p>Positivity $\kappa>0$ is guaranteed when the mixing step is entropy producing (a metric/second-law sector), so that the discrete exchange \eqref{eq:discrete_temp_exchange} is a contraction in variance.</p>
+<h5>Where VP events enter.</h5>
+<p>Event dissipation $\epsilon_{\rm events}$ (Section~3.2) is an additional internal-energy source. In a compressible closure one may therefore write schematically</p>
+<div class="math-block">$$
+\rho\,c_v\,\frac{DT}{Dt}
+=
+\nabla\!\cdot(\kappa\nabla T)
++\epsilon_\nu
++\epsilon_{\rm events}
+\;+\;\text{(pressure work / volumetric terms),}
+$$</div>
+<p>consistent with the reference first-law form in Section~3.1.1.</p>
+<h3>3.2 VP internal reservoir and event dissipation</h3>
+<p>VP includes discrete events (unjam/merge/reconnect) that release a well-defined energy $\Delta E_n\ge 0$ into unresolved degrees of freedom (core deformation, filamentation, sub-grid heat, \dots). The key point is that these transfers are <em>recorded</em>.</p>
+<h5>Event log.</h5>
+<p>We assume an event list $\{(t_n,\xv_n,\Delta E_n)\}_{n=1}^{N_{\rm total}}$, where $t_n$ is the event time, $\xv_n$ is a representative event location (e.g.\ centroid of participants), and $\Delta E_n$ is the released energy (protocol-locked).</p>
+<h5>Internal reservoir (global).</h5>
+<p>Define the cumulative reservoir energy</p>
+<div class="math-block">$$
+H_{\rm int}(t) := \sum_{n:\,t_n\le t} \Delta E_n,
+\qquad
+h_{\rm int}(t):=\frac{H_{\rm int}(t)}{|\Omega|}.
+$$</div>
+<p>The (mean) event-dissipation rate is then the distributional derivative</p>
+<div class="math-block">$$
+\varepsilon_{\rm events}(t)
+:=
+\dot h_{\rm int}(t)
+=
+\frac{1}{|\Omega|}\sum_n \Delta E_n\,\delta(t-t_n)\ \ge\ 0.
+$$</div>
+<p>\begin{remark}[Event dissipation as a positive measure in time] The map $t\mapsto h_{\rm int}(t)$ is nondecreasing and of bounded variation. It therefore defines a positive Radon measure $\mu_{\rm events}$ on time such that $dh_{\rm int}=d\mu_{\rm events}$ in the sense of distributions. Concretely, for any test function $\varphi\in C_c^\infty(\mathbb R)$,</p>
+<div class="math-block">$$
+\int_{\mathbb R} \varphi(t)\,d\mu_{\rm events}(t)
+=
+\frac{1}{|\Omega|}\sum_n \Delta E_n\,\varphi(t_n).
+$$</div>
+<p>In this language, $\varepsilon_{\rm events}$ is not assumed to be an ordinary function of time; it is the (possibly singular) measure density of $\mu_{\rm events}$, and may contain Dirac spikes. \end{remark}</p>
+<h5>Internal reservoir (local density).</h5>
+<p>A compatible coarse-grained density is obtained by spreading each event over space with $W_\ell$:</p>
+<div class="math-block">$$
+h_{\rm int}(\xv,t):=\sum_{n:\,t_n\le t}\Delta E_n\,W_\ell(\xv-\xv_n),
+\qquad
+\epsilon_{\rm events}(\xv,t):=\partial_t h_{\rm int}(\xv,t)
+=
+\sum_n \Delta E_n\,\delta(t-t_n)\,W_\ell(\xv-\xv_n)\ge 0.
+$$</div>
+<p>By construction, $\langle \epsilon_{\rm events}(\cdot,t)\rangle_\Omega=\varepsilon_{\rm events}(t)$.</p>
+<h5>Window averages.</h5>
+<p>For a time window $W=[t_0,t_1]$,</p>
+<div class="math-block">$$
+\langle \varepsilon_{\rm events}\rangle_W
+=
+\frac{1}{|W|}\int_{t_0}^{t_1}\varepsilon_{\rm events}(t)\,dt
+=
+\frac{1}{|\Omega|\,|W|}\sum_{n:\,t_n\in W}\Delta E_n.
+$$</div>
+<h3>3.3 Extended resolved-flow budget and the steady-window closure</h3>
+<p>\noindent\LOCK\ <strong>Event bookkeeping (first-law at event times).</strong> At each event time $t_n$, the resolved flow loses energy and the reservoir gains the same amount:</p>
+<div class="math-block">$$
+\Delta H_{\rm flow}(t_n) + \Delta H_{\rm int}(t_n)=0,
+\qquad
+\Delta H_{\rm int}(t_n)=\Delta E_n\ge 0.
+$$</div>
+<p>This rule ensures that any ``event dissipation'' measured in the resolved flow budget is not a numerical artifact; it is a recorded physical transfer.</p>
+<p>\medskip \noindent\DERIVE\ <strong>Resolved-flow budget (mean form).</strong> Combining the smooth viscous evolution \eqref{eq:energy_NS} with the jump losses at events yields the following exact identity. It is understood in the distributional sense in time: between events it reduces to \eqref{eq:energy_NS}, while at event times it contains Dirac spikes that encode the jump losses (Appendix~H).</p>
+<div class="math-block">$$
+\frac{d}{dt}E_{\rm flow}(t)
+=
+\varepsilon_{\rm inj}(t)
+-
+\varepsilon_{\nu}(t)
+-
+\varepsilon_{\rm events}(t)
+\qquad\text{(periodic / no-flux boundaries).}
+\label{eq:resolved_flow_budget}
+$$</div>
+<p>Integrating \eqref{eq:resolved_flow_budget} over a window $W=[t_0,t_1]$ gives the exact identity</p>
+<div class="math-block">$$
+\frac{E_{\rm flow}(t_1)-E_{\rm flow}(t_0)}{|W|}
+=
+\left\langle \varepsilon_{\rm inj}\right\rangle_W
+-
+\left\langle \varepsilon_{\nu}\right\rangle_W
+-
+\left\langle \varepsilon_{\rm events}\right\rangle_W.
+$$</div>
+<p>Therefore, on a <em>steady</em> window (Section~0.3) the drift term is negligible and we recover the closure \eqref{eq:budget_window}:</p>
+<div class="math-block">$$
+\left\langle \varepsilon_{\rm inj}\right\rangle_W
+=
+\left\langle \varepsilon_{\nu}\right\rangle_W
++
+\left\langle \varepsilon_{\rm events}\right\rangle_W
+\quad\text{(steady window).}
+$$</div>
+<p>\begin{remark}[What survives as $\nu\to 0$] Equation \eqref{eq:resolved_flow_budget} shows that, for the resolved-flow energy, the <em>total</em> dissipation is $\varepsilon_{\rm tot}:=\varepsilon_\nu+\varepsilon_{\rm events}$. In a vanishing-viscosity scan, $\varepsilon_\nu$ may go to zero, but a nonzero limit $\langle\varepsilon_{\rm events}\rangle_W\to\varepsilon_*>0$ is precisely an Onsager-type anomalous dissipation channel carried by events. \end{remark}</p>
+<h2>4. Metriplectic / GENERIC structure for VP-based fluid dynamics</h2>
+<h3>4.1 Algebraic template</h3>
+<p>A metriplectic (GENERIC-like) template writes the evolution of any functional $F[\Psi]$ as</p>
+<div class="math-block">$$
+\frac{dF}{dt} = \{F,H\} + (F,S),
+\label{eq:metriplectic_template}
+$$</div>
+<p>where $H$ is total energy and $S$ is entropy. The brackets satisfy:</p>
+<ul>
+<li>$\{\cdot,\cdot\}$ is a Poisson bracket generated by a skew operator $\PoissonOp$.</li>
+<li>$(\cdot,\cdot)$ is a metric bracket generated by a symmetric positive semi-definite operator $\MetricOp$.</li>
+</ul>
+<p>Written in operator form:</p>
+<div class="math-block">$$
+\{A,B\}=\left\langle \frac{\delta A}{\delta \Psi},\, \PoissonOp\,\frac{\delta B}{\delta \Psi}\right\rangle,
+\qquad
+(A,B)=\left\langle \frac{\delta A}{\delta \Psi},\, \MetricOp\,\frac{\delta B}{\delta \Psi}\right\rangle.
+$$</div>
+<h3>4.1.1 Incompressible Euler as a Lie--Poisson system (orientation)</h3>
+<p>The advective (inviscid) part of fluid mechanics is naturally Hamiltonian. For incompressible Euler, one may formulate the dynamics on the Lie algebra of divergence-free vector fields. In two dimensions, writing the state as vorticity $\omega=\nabla\times\uv$ (a scalar), a standard Lie--Poisson bracket is</p>
+<div class="math-block">$$
+\{F,G\}(\omega) = -\int_\Omega \omega\,
+\Big[\frac{\delta F}{\delta\omega},\,\frac{\delta G}{\delta\omega}\Big]\;d\xv,
+\label{eq:2D_LP_bracket}
+$$</div>
+<p>where $[\cdot,\cdot]$ is the Jacobian (Poisson bracket) on the plane. Choosing the Hamiltonian $H(\omega)=\frac12\int |\uv|^2\,d\xv$ (with $\uv$ obtained from $\omega$ via the Biot--Savart law) yields the Euler equation.</p>
+<p>This section is included to emphasize a point that is central for VP: <em>advection is reversible and should be modeled by a skew (Poisson) operator</em>, whereas irreversibility (viscosity, event dissipation) must enter through a symmetric positive semi-definite sector.</p>
+<h3>4.2 Degeneracy conditions (thermodynamic consistency)</h3>
+<p>Thermodynamic consistency is ensured by degeneracy:</p>
+<div class="math-block">$$\begin{align}
+\{S,H\} &= 0 \quad \text{(adiabaticity / Liouville preservation)},\\
+(H,S) &= 0 \quad \text{(energy conservation under metric flow)}.
+\end{align}$$</div>
+<p>The second condition is precisely the statement that ``dissipation'' redistributes energy into internal modes without changing the total.</p>
+<h3>4.3 Event channels as jump terms</h3>
+<p>In VP, events are naturally modeled as jump processes on top of smooth advection. A hybrid description is:</p>
+<div class="math-block">$$
+d\Psi_t = \Big(\PoissonOp\,\nabla H(\Psi_t) + \MetricOp\,\nabla S(\Psi_t)\Big)\,dt
+\;+\; \sum_r \zeta_r(\Psi_{t^-})\,dN_r(t),
+$$</div>
+<p>where $N_r$ are counting processes (merger/unjam channels) and $\zeta_r$ are jump maps.</p>
+<h3>4.4.1 H-theorem via generalized detailed balance</h3>
+<p>A standard route to an H-theorem is to impose <em>generalized detailed balance</em> (GDB) on the effective transition rates of the event kernel. Then entropy production takes a relative-entropy form</p>
+<div class="math-block">$$
+\frac{dS}{dt} = \frac12\int (J^+ - J^-)\,\ln\!\left(\frac{J^+}{J^-}\right)\,dZ \ge 0,
+$$</div>
+<p>with $J^\pm$ forward/backward fluxes. This structure guarantees that net reactions proceed in the direction of increasing entropy.</p>
+<h3>4.4.2 A priori parameter scaling (the engineering bridge)</h3>
+<p>The VP$\to$NS bridge is not complete for engineering unless one can <em>choose</em> VP parameters to target macroscopic transport coefficients <em>before</em> large simulations. This subsection records order-of-magnitude scaling laws linking VP microparameters to continuum coefficients. These relations are not exact identities; they are intended as design heuristics that can be validated (or rejected) by the Gate suite in Section~6.</p>
+<h5>Microparameters.</h5>
+<p>We write $m$ for a representative particle mass, $a$ for lattice spacing, and $k_{\rm spr}$ for a repulsive/contact stiffness (spring constant in a local quadratic approximation of the pair potential near contact). We use $\tau_M$ for the Maxwell relaxation time of the jammed network and $\lambda_{\rm event}$ for a local unjamming rate (Section~2.5.1), so that $\tau_M\sim 1/\lambda_{\rm event}$ in the simplest Poisson-reset picture.</p>
+<p>\subsubsection*{4.4.2.1 Regime A: unjammed / collisional (gas-like)}</p>
+<p>In a high-fluidity regime where momentum transport is dominated by particle translation and mixing, a kinetic-theory estimate gives</p>
+<div class="math-block">$$
+\nu_{\rm gas}\ \sim\ \alpha\,v_{\rm th}\,a,
+\qquad
+v_{\rm th}:=\sqrt{\frac{k_B T}{m}},
+\label{eq:nu_gas_scaling}
+$$</div>
+<p>where $\alpha$ is a geometric prefactor (order $1/3$ in 3D) and $v_{\rm th}$ is the thermal velocity associated with the kinetic temperature \eqref{eq:kinetic_temperature}. This scaling is the analog of $\nu\sim v_{\rm th}\ell_{\rm mfp}$ with mean free path $\ell_{\rm mfp}\sim a$.</p>
+<p>\subsubsection*{4.4.2.2 Regime B: jammed / network (liquid/solid-like Maxwell regime)}</p>
+<p>In the jammed limit (force-chain dominated), the effective shear viscosity is controlled by stress relaxation:</p>
+<div class="math-block">$$
+\mu_{\rm jam}\ \sim\ G_{\rm eff}\,\tau_M,
+\label{eq:mu_jam_scaling}
+$$</div>
+<p>with an effective shear modulus scaling as</p>
+<div class="math-block">$$
+G_{\rm eff}\ \sim\ \frac{k_{\rm spr}}{a}.
+\label{eq:Geff_scaling}
+$$</div>
+<p>If unjamming events randomize anisotropy with rate $\lambda_{\rm event}$, then a minimal estimate is</p>
+<div class="math-block">$$
+\tau_M\ \sim\ \frac{1}{\beta\,\lambda_{\rm event}},
+\label{eq:tauM_scaling}
+$$</div>
+<p>where $\beta$ is a protocol-dependent efficiency factor (order unity).</p>
+<p>\subsubsection*{4.4.2.3 ``Knobs'' for targeting Reynolds number}</p>
+<p>Combining \eqref{eq:mu_jam_scaling}--\eqref{eq:tauM_scaling} with $\nu=\mu/\rho$ and $\rho_0\sim m/a^3$ gives the jammed-regime kinematic viscosity scaling</p>
+<div class="math-block">$$
+\nu_{\rm jam}
+\ \sim\
+\frac{\mu_{\rm jam}}{\rho_0}
+\ \sim\
+\frac{k_{\rm spr}\,a^2}{m}\,\tau_M
+\ \sim\
+\frac{k_{\rm spr}\,a^2}{m}\,\Delta t_{\rm event},
+\label{eq:nu_eff_knob}
+$$</div>
+<p>where $\Delta t_{\rm event}\sim\tau_M$ is the mean time between unjamming events. Equation \eqref{eq:nu_eff_knob} is the practical ``design knob'': to target a Reynolds number $\Rey=UL/\nu_{\rm eff}$ one may tune either (i) stiffness $k_{\rm spr}$ or (ii) event sensitivity (which sets $\lambda_{\rm event}$ and hence $\tau_M$), while keeping the bridge-scale gate $D^\ast\ll L$ satisfied.</p>
+<p>\begin{remark}[Dimensional note and simulation units] The scalings above are written in physical dimensions. In nondimensional simulation units with $a=1$ and $m=1$, \eqref{eq:nu_eff_knob} reduces to $\nu_{\rm jam}\sim k_{\rm spr}\tau_M$ up to order-one factors. \end{remark}</p>
+<h2>5. Inviscid limit, defect measures, and Onsager-type anomalous dissipation</h2>
+<h3>5.1 Continuum language: weak Euler, coarse graining, and the Duchon--Robert defect</h3>
+<p>In the inviscid limit, the Euler equations may admit weak solutions that do not conserve kinetic energy. A precise way to encode this is through <em>coarse graining</em> and the associated nonlinear energy flux.</p>
+<h5>Filtered energy balance.</h5>
+<p>Let $G$ be a smooth mollifier with $\int G=1$ and define $G_\ell(\rv)=\ell^{-3}G(\rv/\ell)$. For a velocity field $\uv$ define the filtered field $\uv_\ell:=G_\ell*\uv$ and the subscale stress</p>
+<div class="math-block">$$
+\tau_\ell := (\uv\otimes\uv)_\ell - \uv_\ell\otimes\uv_\ell.
+$$</div>
+<p>For a weak Euler solution $\uv$ (incompressible, $\nabla\!\cdot \uv=0$), the filtered kinetic-energy balance reads</p>
+<div class="math-block">$$
+\partial_t\Big(\tfrac12|\uv_\ell|^2\Big)
++
+\nabla\!\cdot\Big[\Big(\tfrac12|\uv_\ell|^2+p_\ell\Big)\uv_\ell\Big]
+=
+-\Pi_\ell,
+\qquad
+\Pi_\ell := -\,\nabla\uv_\ell : \tau_\ell.
+\label{eq:filtered_energy_balance}
+$$</div>
+<p>The scalar $\Pi_\ell(\xv,t)$ is the <em>local energy flux across the scale $\ell$</em>.</p>
+<h5>Duchon--Robert defect.</h5>
+<p>Duchon and Robert showed that for suitable weak solutions (e.g.\ $\uv\in L^3_{\rm loc}$), $\Pi_\ell$ admits a distributional limit as $\ell\to 0$,</p>
+<div class="math-block">$$
+\mathcal D(\uv):=\lim_{\ell\to 0}\Pi_\ell \ \ge\ 0,
+$$</div>
+<p>and the local energy balance becomes</p>
+<div class="math-block">$$
+\partial_t \left(\tfrac12|\uv|^2\right)
++\nabla\!\cdot\left[\left(\tfrac12|\uv|^2+p\right)\uv\right]
+= -\mathcal{D}(\uv).
+\label{eq:DR_local_energy}
+$$</div>
+<p>A convenient increment representation is</p>
+<div class="math-block">$$
+\Pi_\ell(\xv,t)
+=
+\frac14\int_{\mathbb R^3}
+\big(\nabla G_\ell(\rv)\cdot \delta \uv(\rv)\big)\,|\delta \uv(\rv)|^2\,d\rv,
+\qquad
+\delta\uv(\rv):=\uv(\xv+\rv,t)-\uv(\xv,t).
+\label{eq:DR_increment_formula}
+$$</div>
+<p>\begin{lemma}[H\"older bound: no defect above $1/3$]\label{lem:holder_DR} If $\uv$ is locally H\"older continuous with exponent $h>1/3$, i.e.\ $|\delta\uv(\rv)|\le C|\rv|^h$ for $|\rv|$ small, then $\mathcal D(\uv)=0$. \end{lemma} \begin{proof} Using $|\nabla G_\ell(\rv)|\lesssim \ell^{-4}$ supported on $|\rv|\lesssim \ell$, \eqref{eq:DR_increment_formula} yields $|\Pi_\ell|\lesssim \ell^{-4}\int_{|\rv|\lesssim \ell}|\rv|^{3h}\,d\rv \lesssim \ell^{3h-1}\to 0$ as $\ell\to 0$ when $h>1/3$. \end{proof}</p>
+<p>Therefore an Onsager-type anomalous dissipation channel ($\mathcal D(\uv)\not\equiv 0$) is compatible only with velocity roughness at or below the $1/3$ threshold.</p>
+<h3>5.2 VP language: event dissipation as a discrete defect</h3>
+<p>VP provides an explicit, discrete candidate for the defect measure: the cumulative binding-energy release in unjamming/merger-type events.</p>
+<h5>Event dissipation as a measure in space--time.</h5>
+<p>If an event $k$ occurs at $(\xv_k,t_k)$ with released energy $\Delta E_{{\rm bind},k}\ge 0$, define the <em>space--time event measure</em></p>
+<div class="math-block">$$
+\mu_{\rm events} := \sum_k \Delta E_{{\rm bind},k}\,\delta_{(\xv,t)=(\xv_k,t_k)}.
+$$</div>
+<p>Its time-marginal is Appendix~C.2. A local event dissipation density $\epsilon_{\rm events}(\xv,t)$ exists only after choosing a coarse-graining volume and window; the measure formulation avoids ambiguity when events are discrete.</p>
+<h5>Consistency statement (limit of energy identities).</h5>
+<p>Let $\uv^\nu$ denote a family of VP-informed flows with viscosity $\nu$ (possibly $\nu\to 0$), with an energy balance of the form (in distributions)</p>
+<div class="math-block">$$
+\partial_t\Big(\tfrac12|\uv^\nu|^2\Big)+\nabla\!\cdot\Big[\Big(\tfrac12|\uv^\nu|^2+p^\nu\Big)\uv^\nu\Big]
+=
+-\nu|\nabla\uv^\nu|^2
+-\frac{d\mu_{\rm events}^\nu}{dt\,d\xv},
+$$</div>
+<p>where $\mu_{\rm events}^\nu$ is a nonnegative space--time measure. Assume $\uv^\nu\to \uv$ in $L^3_{\rm loc}$ and that the measures $\nu|\nabla\uv^\nu|^2\,d\xv dt \rightharpoonup \mu_{\rm visc}$ and $\mu_{\rm events}^\nu \rightharpoonup \mu_{\rm evt}$ weakly. Then the limiting $\uv$ satisfies a weak Euler energy balance with defect</p>
+<div class="math-block">$$
+\mathcal D(\uv)=\mu_{\rm visc}+\mu_{\rm evt}.
+$$</div>
+<p>In particular, if $\mu_{\rm visc}\to 0$ (vanishing viscous channel) but $\mu_{\rm evt}\not\equiv 0$, then the remaining defect is purely event-driven.</p>
+<h5>Support localization as a falsifiable gate.</h5>
+<p>A stronger claim sometimes desired is that the spatial support of event activity converges to the singular set of the limiting Euler solution. In this white paper that statement is treated as a \GATE\ item: it is accepted only if diagnostics show that event locations concentrate in regions where velocity increments violate the $1/3$ H\"older threshold (Lemma~\ref{lem:holder_DR}), and that this concentration persists under resolution/seed scans. A <em>discrete--continuum dictionary</em> is summarized in Appendix~C.</p>
+<h3>5.3 Practical anomaly statement (falsifiable)</h3>
+<p>A typical falsifiable claim is:</p>
+<p>\medskip \noindent<strong>Anomaly claim.</strong> In a steady window with fixed injection $\langle \varepsilon_{\rm inj}\rangle=I>0$, there exists a scan parameter (e.g.\ viscosity $\nu\to 0$ or an event-core size $r_c\to 0$) such that</p>
+<div class="math-block">$$
+\langle \varepsilon_\nu\rangle \to 0,
+\qquad
+\langle \varepsilon_{\rm events}\rangle \to I > 0,
+$$</div>
+<p>while the budget closure \eqref{eq:budget_window} holds within tolerance.</p>
+<h3>5.3.1 Robustness: point-vortex number and seed ensembles (metriplectic reference)</h3>
+<p>The dissipation-saturation plot (Figure~\ref{fig:dissipation_saturation}) is generated by the reproducibility package shipped in the all-in-one DOI bundle (<code>metriplectic\_onsager\_repro/</code>). In that package, the event-driven dissipation is reported as $\varepsilon_{\rm bind}\equiv\langle \varepsilon_{\rm events}\rangle_W$ (binding/merger events).</p>
+<p>Two minimal robustness diagnostics are provided:</p>
+<ul>
+<li><strong>Point-vortex number scan (``$N_{\rm v</strong>$-scan'').} Vary the number of discrete point vortices $N_{\rm v}$ (degrees of freedom) in the discrete-vortex metriplectic model and report the resulting $\varepsilon_{\rm bind}(Re_{\rm eff})$.</li>
+<li><strong>Seed ensemble spread.</strong> At fixed model parameters (e.g.\ merger core $r_c$), repeat over random initial seeds to quantify the intrinsic scatter.</li>
+</ul>
+<p>\begin{remark}[Avoiding symbol collision: $N_{\rm v}$ vs grid resolution $N$] In Section~6, $N$ denotes the spectral grid resolution used in Navier--Stokes reference simulations. In this subsection, $N_{\rm v}$ denotes the number of discrete point vortices in the metriplectic event model. \end{remark}</p>
+<h3>5.4 Example: 2D vortex-merger scenario and an effective Reynolds number</h3>
+<p>A concrete realization of the event-defect idea is a 2D vortex model in which the inviscid limit corresponds not to $\nu\to 0$ directly, but to a shrinking event-core scale $r_c\to 0$ that plays the role of an <em>effective</em> viscosity. One introduces an effective Reynolds number</p>
+<div class="math-block">$$
+\Rey_{\rm eff} \sim \frac{U_{\rm rms}\,L}{\nu_{\rm eff}(r_c)},
+\label{eq:Re_eff_def}
+$$</div>
+<p>where $U_{\rm rms}$ is the rms velocity and $L$ is the box size. Increasing $\Rey_{\rm eff}$ corresponds to shrinking $r_c$ while keeping large-scale statistics fixed.</p>
+<p>In such models one often observes two regimes:</p>
+<ul>
+<li><strong>Region 1 (low/moderate $\Rey_{\rm eff</strong>$):} event dissipation follows the classical viscous trend.</li>
+<li><strong>Region 2 (large $\Rey_{\rm eff</strong>$):} event dissipation saturates to a nonzero plateau, consistent with Onsager-type anomaly.</li>
+</ul>
+<h3>5.5 Reference viscous trend from 2D Navier--Stokes (vorticity form)</h3>
+<p>For comparison and calibration, one may generate a ``reference'' viscous trend using the 2D vorticity equation</p>
+<div class="math-block">$$
+\partial_t\omega + \uv\cdot\nabla\omega = \nu\nabla^2\omega,
+\label{eq:2D_vorticity_NS}
+$$</div>
+<p>on a periodic box of side $L=2\pi$ with pseudo-spectral discretization and dealiasing.</p>
+<p>Define enstrophy and viscous dissipation rate by</p>
+<div class="math-block">$$
+Z(t):=\frac12\langle \omega^2\rangle,
+\qquad
+\varepsilon_\nu(t):=2\nu Z(t),
+\label{eq:enstrophy_dissip}
+$$</div>
+<p>and define $\Rey_{\rm eff}(t):=U_{\rm rms}(t)\,L/\nu$. A convenient summary statistic is then the pair $\big(\max_t\varepsilon_\nu(t),\ \langle\Rey_{\rm eff}\rangle_{t\in W}\big)$ for each viscosity $\nu$.</p>
+<p>This diagnostic is deliberately ``laptop-scale'': it is intended as a reproducible reference curve, not an asymptotic high-$\Rey$ test.</p>
+<h2>6. Verification and reproducibility program (Gate suite)</h2>
+<h3>6.1 Gate G1: balance-law sanity</h3>
+<p>\noindent\GATE\ <strong>G1 (mass).</strong> Verify that the discretization of VP (or any derived solver) conserves total mass and that \eqref{eq:conti} holds in weak form.</p>
+<p>\noindent\GATE\ <strong>G1 (momentum).</strong> Verify that internal forces satisfy Newton's third law (or the appropriate antisymmetry) so that a stress representation exists (Appendix~A).</p>
+<h3>6.2 Gate G2: Newtonian regime identification</h3>
+<p>\noindent\GATE\ <strong>G2 (stress--strain test).</strong> Measure $\tau$ and $S$ in homogeneous shear (or oscillatory shear) and test:</p>
+<ul>
+<li>linearity: $\tau_{ij}\propto S_{ij}$,</li>
+<li>isotropy: the proportionality is the same under rotated frames,</li>
+<li>locality: no strong dependence on higher gradients in the tested regime,</li>
+<li><strong>Maxwell time</strong>: measure the stress relaxation kernel $G(s)$ (step strain or oscillatory shear), extract $\tau_M$, and confirm $\mathrm{De}=\tau_M/T_{\rm flow}\ll 1$ in the declared window,</li>
+<li><strong>Anisotropy decay</strong>: measure a fabric tensor $Q$ (or equivalent anisotropy index) and verify that $Q$ is small after window averaging ($\Delta t_{\rm cg}\gg\tau_M$).</li>
+<li><strong>Viscosity cross-check</strong>: in the same window, compare $\mu_{\rm GK}$ from \eqref{eq:green_kubo_mu}, $\mu_{\rm events}$ from \eqref{eq:mu_eff_from_events}, and the Maxwell estimate $\mu_{\rm Maxwell}\approx G\,\tau_M$ from \eqref{eq:maxwell_mapping}. Require agreement within a declared tolerance; disagreement flags non-Newtonian response or mis-windowing.</li>
+</ul>
+<p>Declare the regime of validity and the fitted $\mu_{\rm eff},\lambda_{\rm eff}$.</p>
+<h3>6.3 Gate G3: anomaly scan and budget closure</h3>
+<p>\noindent\GATE\ <strong>G3 (scan).</strong> Perform $\nu\to 0$ (or core-size) scans and compute window averages of $\varepsilon_\nu$, $\varepsilon_{\rm events}$, $\varepsilon_{\rm inj}$. Require the resolved-flow budget \eqref{eq:resolved_flow_budget} in window form:</p>
+<div class="math-block">$$
+\mathrm{Res}(W):=
+\frac{\left|
+\left\langle\varepsilon_{\rm inj}\right\rangle_W
+-
+\left\langle\varepsilon_\nu+\varepsilon_{\rm events}\right\rangle_W
+-
+\frac{E_{\rm flow}(t_1)-E_{\rm flow}(t_0)}{|W|}
+\right|}
+{\left\langle\varepsilon_{\rm inj}\right\rangle_W}
+\le \text{tolerance}.
+$$</div>
+<p>On a steady window the drift term is negligible, reducing to \eqref{eq:budget_window}, and then test whether $\langle\varepsilon_{\rm events}\rangle$ saturates.</p>
+<h3>6.4 Gate G4: reference Navier--Stokes curve (optional, but strongly recommended)</h3>
+<p>This gate constructs a reproducible viscous benchmark that the VP/event model can be compared against.</p>
+<h5>Reference PDE (2D, periodic).</h5>
+<p>Solve the vorticity form \eqref{eq:2D_vorticity_NS} on a doubly periodic square domain of side $L=2\pi$. Recover $\uv$ from $\omega$ by solving $\nabla^2\psi=\omega$ and setting $\uv=\nabla^\perp\psi$.</p>
+<h5>Numerics (minimal).</h5>
+<p>A standard choice is pseudo-spectral discretization with $N^2$ collocation points and $2/3$ dealiasing. Time stepping may be RK4 or an exponential-time-differencing scheme.</p>
+<h5>Initial condition (turbulence-like, laptop-friendly).</h5>
+<p>A simple reproducible option is a sum of a small number of Gaussian vortices (random positions and signs), or a band-limited random vorticity field. The goal is not to engineer an asymptotic inertial range, but to obtain a stable decay curve.</p>
+<h5>Parameter scan.</h5>
+<p>Choose a small set of viscosities (e.g.\ $\nu\in\{0.05,0.02,0.01,0.005\}$) and for each run compute:</p>
+<ul>
+<li>enstrophy $Z(t)=\frac12\langle\omega^2\rangle$,</li>
+<li>viscous dissipation $\varepsilon_\nu(t)=2\nu Z(t)$,</li>
+<li>effective Reynolds number $\Rey_{\rm eff}(t)=U_{\rm rms}(t)L/\nu$.</li>
+</ul>
+<p>A representative pair for the curve is $\big(\max_t\varepsilon_\nu(t),\ \langle\Rey_{\rm eff}\rangle_{t\in W}\big)$.</p>
+<h5>Resolution check (optional).</h5>
+<p>Repeat one or two viscosities at higher resolutions (e.g.\ $256^2$ and $512^2$) to verify that the extracted pairs are insensitive to grid resolution in the overlap range.</p>
+<h3>6.5 Included Navier--Stokes reference data and what ``low resolution'' means</h3>
+<p>This white paper is primarily analytical, but it also <em>ships</em> a minimal Navier--Stokes reference dataset and scripts (via the companion reproducibility archive) to support the Gate logic of Section~6.4.</p>
+<p>\begin{remark}[Notation note] In this section, $N$ denotes the spectral grid resolution (collocation points per direction) of the Navier--Stokes solver. It is unrelated to the point-vortex number $N_{\rm v}$ used in the metriplectic robustness plots of Section~5.3.1. \end{remark}</p>
+<h5>Meaning of ``low resolution''.</h5>
+<p>In pseudo-spectral 2D Navier--Stokes, ``resolution'' typically means the number of collocation points $N^2$. With standard $2/3$ dealiasing, the highest retained wavenumber is $k_{\max}\approx N/3$, so that $N=64$ implies $k_{\max}\approx 21$ active Fourier modes per direction. This is <em>far</em> below what would be required for precision inertial-range turbulence studies. However, for the specific diagnostic used here---the extracted pair \( (Re_{\rm eff}, \max_t\varepsilon_\nu(t)) \) in a modest viscosity scan---$N=64$ can serve as a fast, laptop-scale calibration curve.</p>
+<h5>Reference pairs and a resolution overlay.</h5>
+<p>Table~\ref{tab:NS_ref_pairs} lists the extracted $(Re_{\rm eff},\max_t\varepsilon_\nu)$ pairs. Figure~\ref{fig:NS_resolution_overlay} overlays $N=64$ with high-resolution checks at $N=256$ and $N=512$. In the overlapping point $\nu=0.005$, the relative differences between $N=64$ and $N=512$ are small (\(\approx 1.15\%\) in $Re_{\rm eff}$ and \(\approx 0.72\%\) in $\max_t\varepsilon_\nu\)), indicating that the baseline curve is effectively converged for this limited purpose.</p>
+<h3>6.6 Gate G5: Hardware-in-the-loop mapping (optional)</h3>
+<p>This gate connects the continuum parameters of this white paper to <em>measurable</em> observables in a hardware testbed (e.g.\ ``Black Copper'' heat extraction, photonic/solid-state VQC elements, microchannel rigs). It is not required to validate the derivation of Navier--Stokes, but it makes the bridge engineering-ready.</p>
+<p>\noindent\GATE\ <strong>G5-A (Viscosity $\to$ viscous heating / thermal signature).</strong> In any Newtonian regime, the irreversible mechanical power density is</p>
+<div class="math-block">$$
+\epsilon_\nu(\xv,t)=2\mu\,S(\xv,t):S(\xv,t).
+$$</div>
+<p>A minimal thermal scaling (steady conduction with effective conductivity $k_{\rm eff}$ and thermal length $L_T$) is</p>
+<div class="math-block">$$
+\Delta T \ \sim\ \frac{\varepsilon_\nu\,L_T^2}{k_{\rm eff}}
+\ \sim\ \frac{2\mu\, (S:S)\,L_T^2}{k_{\rm eff}}.
+\label{eq:G5A_scaling}
+$$</div>
+<p>In a simple plane-Couette calibration cell of gap $h$ and wall speed jump $\Delta U$, one has $S:S=\tfrac12(\Delta U/h)^2$ and the exact conduction solution with isothermal walls gives</p>
+<div class="math-block">$$
+\Delta T_{\max}=\frac{\mu\,\Delta U^2}{8k_{\rm eff}}.
+$$</div>
+<p>\noindent<strong>Wall note.</strong> The Couette scaling above assumes a no-slip regime. In this volume the default micro protocol is BC-W2A (frozen-VP wall), designed to enforce $b\approx 0$; nevertheless BC-W3 requires measuring $b$ to confirm the regime. If partial slip occurs with slip length $b$, use the slip-corrected formula \eqref{eq:couette_slip_temp} (or fit $(\mu,b)$ jointly from velocity-profile / flow-rate data); see Remark~\ref{rem:wall_protocol}.</p>
+<p><strong>Pass criteria (example).</strong> Fit $\mu_{\rm eff}$ from the measured $\Delta T(\Delta U)$ and verify that $\mu_{\rm eff}$ is rate-independent over the declared Newtonian window. A design target such as $\Delta T<10\,\mathrm{mK}$ can be used to flag an operational ``low-$\mu_{\rm eff}$'' regime, but the numerical threshold must be declared per device and thermal path.</p>
+<p>\medskip \noindent\GATE\ <strong>G5-B (Anomaly $\to$ event-burst signature).</strong> If an event channel exists beyond classical viscosity, then after subtracting the viscous contribution from the power budget, the residual</p>
+<div class="math-block">$$
+\varepsilon_{\rm events}(t)
+:=
+\varepsilon_{\rm inj}(t)-\varepsilon_\nu(t)-\varepsilon_{\rm leak}(t)
+$$</div>
+<p>should remain nonnegative and can exhibit <em>bursty</em> statistics (intermittent spikes) rather than Gaussian noise. Operationally this can be detected by: (i) budget closure in a steady window, and (ii) non-Gaussian increment statistics or thresholded ``burst'' events in temperature/noise/power traces. <strong>Pass criteria (example).</strong> Under a control scan that reduces the fitted $\mu_{\rm eff}$ (or $\nu_{\rm eff}$), test whether the time-averaged residual $\langle \varepsilon_{\rm events}\rangle_W$ saturates to a nonzero plateau while $\langle\varepsilon_\nu\rangle_W\to 0$. This is the hardware analog of an Onsager-type anomalous dissipation claim.</p>
+<p>\medskip \noindent<strong>Energy-accounting note.</strong> Claims of ``self-cooling'' must be stated with a full energy balance: a decrease in a <em>measured</em> temperature can occur if energy is redirected to an internal reservoir or exported through an unmonitored channel, but the total budget must still close.</p>
+<h2>7. $\Pi$-invariants and RG contact diagnostics (optional but recommended)</h2>
+<p>This section imports a set of <em>dimensionless invariants</em> that are useful for diagnosing quasi-steady turbulent windows and for organizing event-dissipation claims in a scale-aware way. They are not required to derive Navier--Stokes, but they are recommended if this white paper is used as a ``final'' fluid-mechanics closure document.</p>
+<h3>7.1 Definitions: $\Pi_T$, $\Pi_L$, and $\Pi_{ST</h3>
+<p>Let $\varepsilon_{\rm bind}$ denote a window-averaged event/binding dissipation rate (we use $\varepsilon_{\rm bind}\equiv \langle \varepsilon_{\rm events}\rangle_W$ when the event channel is binding-like). Let $\Delta F_{\rm crit}$ be a declared ``critical'' free-energy gap associated with a transition cycle, and let $\sigma_{\rm eff}$ be an effective entropy-production scale (power$\times$length$^{1+\alpha}$).</p>
+<p>Define the <em>time</em> and <em>length</em> invariants</p>
+<div class="math-block">$$\begin{align}
+\Pi_T &:= \frac{T\,\langle \varepsilon_{\rm bind}\rangle}{\Delta F_{\rm crit}}, \label{eq:PiT_def}\\
+\Pi_L &:= \frac{L^{1+\alpha}\,\varepsilon_{\rm bind}}{C_\alpha\,\sigma_{\rm eff}}, \label{eq:PiL_def}
+\end{align}$$</div>
+<p>where $T$ is a window length, $L$ is the system or outer scale, $\alpha$ is a scaling exponent, and $C_\alpha$ is a dimensionless calibration constant.</p>
+<p>A combined invariant is</p>
+<div class="math-block">$$
+\Pi_{ST} := \Pi_T^{\,a}\,\Pi_L^{\,b},
+\qquad
+\delta_{ST}:=\left|\frac{d}{dt}\log \Pi_{ST}\right|,
+\label{eq:PiST_def}
+$$</div>
+<p>with user-chosen weights $a,b>0$. A small $\delta_{ST}$ indicates a straight ``contact line'' in $(\log\Pi_T,\log\Pi_L)$ space.</p>
+<h3>7.2 RG contact condition</h3>
+<p>Consider a scale transformation $L\mapsto \lambda L$ with $\lambda>1$ and assume scaling laws</p>
+<div class="math-block">$$
+\varepsilon_{\rm bind}\mapsto \lambda^{-\chi}\varepsilon_{\rm bind},
+\qquad
+\sigma_{\rm eff}\mapsto \lambda^{\psi}\sigma_{\rm eff},
+\qquad
+\alpha\mapsto \alpha(\lambda).
+$$</div>
+<p>Then invariance of $\Pi_L$ at a fixed point implies the <em>contact</em> (fixed point) condition</p>
+<div class="math-block">$$
+(1+\alpha^*)-\psi^*-\chi^* = 0.
+\label{eq:RG_contact}
+$$</div>
+<p>The sign of $(1+\alpha)-\psi-\chi$ away from the fixed point indicates the monotone trend of $\Pi_L$ under coarse-graining.</p>
+<h3>7.3 Anomaly closure theorem (window form)</h3>
+<p>The following proposition summarizes the event-dissipation anomaly statement in a budget-closed quasi-steady window.</p>
+<p>\begin{proposition}[Event anomaly in the vanishing-viscosity limit (window form)] Assume there exists a family of VP/flow states indexed by $(\nu,\gamma)$ (viscosity/friction-like parameters) such that:</p>
+<ol>
+<li><strong>Positive injection:</strong> $\langle\varepsilon_{\rm inj}\rangle_W \to I>0$ as $(\nu,\gamma)\to (0,0)$.</li>
+<li><strong>Energy tightness:</strong> $\sup_{\nu,\gamma}\sup_{t\in W}\mathbb{E}[H_{\rm flow}(t)]<\infty$.</li>
+<li><strong>Budget closure:</strong> $\langle\varepsilon_{\rm inj}\rangle_W= \langle\varepsilon_\nu+\varepsilon_\gamma+\varepsilon_{\rm events}\rangle_W$ within declared tolerance.</li>
+</ol>
+<p>Then if $\langle\varepsilon_\nu+\varepsilon_\gamma\rangle_W\to 0$ as $(\nu,\gamma)\to(0,0)$, it follows that</p>
+<div class="math-block">$$
+\langle\varepsilon_{\rm events}\rangle_W \to I>0,
+$$</div>
+<p>i.e.\ total dissipation is carried by the event channel in the inviscid/frictionless limit. \end{proposition}</p>
+<h3>7.4 Gate usage</h3>
+<p>\noindent\GATE\ <strong>(G6) $\Pi$-diagnostics.</strong> If this white paper claims quasi-steady universality or RG contact, report $(\Pi_T,\Pi_L,\Pi_{ST},\delta_{ST})$ as standard diagnostics and enforce pass/fail criteria such as</p>
+<div class="math-block">$$
+|\Pi_T-1|\le \varepsilon_T,\qquad |\Pi_L-1|\le \varepsilon_L,\qquad \delta_{ST}\le \varepsilon_{ST}.
+$$</div>
+<p>The tolerances $\varepsilon_T,\varepsilon_L,\varepsilon_{ST}$ must be declared per experiment/simulation suite.</p>
+<p>\appendix</p>
+<h2>Appendix A. Irving--Kirkwood stress for VP coarse graining (detailed derivation)</h2>
+<p>This appendix provides the step-by-step coarse-graining derivation of Proposition~\ref{prop:momentum}. The result is an <em>identity</em>: no continuum closure is assumed. The only inputs are (i) differentiable VP trajectories, and (ii) a Newton-type VP balance with internal forces.</p>
+<p>\subsection*{A.0 Shorthand}</p>
+<p>For brevity write</p>
+<div class="math-block">$$
+W_i(\xv,t):=W_\ell(\xv-\xv_i(t)).
+$$</div>
+<p>Recall</p>
+<div class="math-block">$$
+\rho=\sum_i m_i W_i,\qquad \mathbf j=\sum_i m_i\vv_i W_i,\qquad \rho\uv=\mathbf j.
+$$</div>
+<p>\subsection*{A.1 Time derivative of momentum density}</p>
+<p>Start from $\mathbf j(\xv,t)=\sum_i m_i\vv_i W_i$ and differentiate:</p>
+<div class="math-block">$$\begin{align}
+\partial_t \mathbf j(\xv,t)
+&=
+\sum_i m_i\dot{\vv}_i\,W_i
++
+\sum_i m_i \vv_i\,\partial_t W_i
+\\
+&=
+\sum_i m_i\dot{\vv}_i\,W_i
+-
+\sum_i m_i \vv_i\,(\vv_i\cdot\nabla)W_i
+\\
+&=
+\sum_i m_i\dot{\vv}_i\,W_i
+-
+\nabla\!\cdot \left(\sum_i m_i\vv_i\otimes\vv_i\,W_i\right),
+\label{eq:appA_dtj}
+\end{align}$$</div>
+<p>where we used $\partial_t W_i = -\dot{\xv}_i\cdot\nabla W_i = -\vv_i\cdot\nabla W_i$ and the identity $\nabla\cdot(\vv_i\otimes\vv_i W_i)=\vv_i(\vv_i\cdot\nabla W_i)$ because $\vv_i$ is independent of $\xv$.</p>
+<p>Now impose the VP translational dynamics $m_i\dot{\vv}_i = \Fv_i^{\rm int}+ m_i\mathbf f(\xv_i,t)$ to obtain</p>
+<div class="math-block">$$
+\partial_t \mathbf j
++
+\nabla\!\cdot\left(\sum_i m_i\vv_i\otimes\vv_i\,W_i\right)
+=
+\sum_i \Fv_i^{\rm int} W_i
++
+\rho\,\mathbf f.
+\label{eq:appA_preflux}
+$$</div>
+<p>\subsection*{A.2 Convective flux and kinetic stress}</p>
+<p>Define the microscopic momentum-flux tensor</p>
+<div class="math-block">$$
+\Pi(\xv,t):=\sum_i m_i\vv_i\otimes\vv_i\,W_i.
+$$</div>
+<p>Introduce the peculiar velocity $\mathbf c_i:=\vv_i - \uv(\xv,t)$. Then $\sum_i m_i\mathbf c_i W_i = \mathbf j - \rho\uv = 0$, and we obtain the exact decomposition</p>
+<div class="math-block">$$\begin{align}
+\Pi
+&= \sum_i m_i(\uv+\mathbf c_i)\otimes(\uv+\mathbf c_i)\,W_i \\
+&= \rho\uv\otimes\uv + \sum_i m_i \mathbf c_i\otimes\mathbf c_i\,W_i.
+\end{align}$$</div>
+<p>Define the kinetic stress</p>
+<div class="math-block">$$
+\sigma^{\rm kin}(\xv,t)
+:=
+-\sum_i m_i \mathbf c_i\otimes\mathbf c_i\,W_i,
+$$</div>
+<p>so that $\Pi = \rho\uv\otimes\uv - \sigma^{\rm kin}$. Substituting into \eqref{eq:appA_preflux} yields</p>
+<div class="math-block">$$
+\partial_t(\rho\uv)+\nabla\!\cdot(\rho\uv\otimes\uv)
+=
+\nabla\!\cdot\sigma^{\rm kin}
++
+\sum_i \Fv_i^{\rm int} W_i
++
+\rho\mathbf f.
+\label{eq:appA_kinetic_form}
+$$</div>
+<p>\subsection*{A.3 Pairwise internal forces and interaction stress}</p>
+<p>Assume the internal forces decompose into pair forces</p>
+<div class="math-block">$$
+\Fv_i^{\rm int}=\sum_{j\neq i}\Fv_{ij},
+\qquad
+\Fv_{ij}=-\Fv_{ji}.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$\begin{align}
+\sum_i \Fv_i^{\rm int} W_i
+&= \sum_{i}\sum_{j\neq i}\Fv_{ij} W_i
+= \frac12\sum_{i\neq j}\Fv_{ij}(W_i-W_j).
+\label{eq:appA_force_sym}
+\end{align}$$</div>
+<p>For fixed $i,j$, set $\mathbf r_{ij}:=\xv_i-\xv_j$ and consider the segment $\xv_j+s\mathbf r_{ij}$, $s\in[0,1]$. Using the fundamental theorem of calculus,</p>
+<div class="math-block">$$\begin{align}
+W_i-W_j
+&= W_\ell(\xv-\xv_i)-W_\ell(\xv-\xv_j)
+\\
+&=
+-\int_0^1 \mathbf r_{ij}\cdot\nabla W_\ell\big(\xv-\xv_j - s\mathbf r_{ij}\big)\,ds.
+\end{align}$$</div>
+<p>Because $\Fv_{ij}$ and $\mathbf r_{ij}$ do not depend on $\xv$, we can rewrite</p>
+<div class="math-block">$$
+\Fv_{ij}(W_i-W_j)
+=
+\nabla\!\cdot\left(
+-(\mathbf r_{ij}\otimes \Fv_{ij})
+\int_0^1 W_\ell\big(\xv-\xv_j - s\mathbf r_{ij}\big)\,ds
+\right).
+$$</div>
+<p>Insert this into \eqref{eq:appA_force_sym} and define the Irving--Kirkwood interaction stress</p>
+<div class="math-block">$$
+\sigma^{\rm int}(\xv,t)
+:=
+-\frac12\sum_{i\neq j}
+(\xv_i-\xv_j)\otimes \Fv_{ij}\,
+\int_0^1 W_\ell\!\big(\xv-\xv_j - s(\xv_i-\xv_j)\big)\,ds.
+\label{eq:appA_sigma_int}
+$$</div>
+<p>Then the internal-force term becomes an exact divergence:</p>
+<div class="math-block">$$
+\sum_i \Fv_i^{\rm int} W_i = \nabla\!\cdot\sigma^{\rm int}.
+$$</div>
+<p>\subsection*{A.4 Completion of the momentum identity}</p>
+<p>Define the total stress</p>
+<div class="math-block">$$
+\sigma := \sigma^{\rm kin} + \sigma^{\rm int}.
+$$</div>
+<p>\begin{remark}[Pressure from the stress trace (kinetic + interaction contributions)] Given the Irving--Kirkwood stress $\sigma=\sigma^{\rm kin}+\sigma^{\rm int}$, it is natural to define the <em>mechanical pressure</em> as the isotropic part of $\sigma$:</p>
+<div class="math-block">$$
+p
+ :=
+ -\frac{1}{3}\,\mathrm{tr}\,\sigma
+ \qquad (\text{in 3D}).
+$$</div>
+<p>Then $\sigma$ admits the exact split</p>
+<div class="math-block">$$
+\sigma = -p\Id + \tau,\qquad \mathrm{tr}\,\tau = 0,
+$$</div>
+<p>where $\tau$ is the deviatoric (shear) stress. In VP language, this pressure is the sum of a kinetic (velocity-fluctuation) part and an interaction (contact-network) part:</p>
+<div class="math-block">$$
+p = p_{\rm kin} + p_{\rm int},\qquad
+ p_{\rm kin} = \frac{1}{3}\sum_i m_i\,|\cv_i|^2\,W_i,\qquad
+ p_{\rm int} = -\frac{1}{3}\,\mathrm{tr}\,\sigma^{\rm int}.
+$$</div>
+<p>In a jammed/contact regime, $p_{\rm int}$ typically dominates and is the continuum counterpart of isotropic compressive force-chain stress.</p>
+<p>\medskip \noindent<strong>2D note.</strong> For the 2D reference simulations (periodic $[0,2\pi]^2$), the isotropic part is defined with $1/2$ instead of $1/3$, namely $p:=-(1/2)\,\mathrm{tr}\,\sigma$. \end{remark}</p>
+<p>Combining \eqref{eq:appA_kinetic_form} with the previous identity yields</p>
+<div class="math-block">$$
+\partial_t(\rho\uv)+\nabla\!\cdot(\rho\uv\otimes\uv)
+=
+\nabla\!\cdot\sigma + \rho\mathbf f,
+$$</div>
+<p>which is exactly Proposition~\ref{prop:momentum}.</p>
+<p>\subsection*{A.5 Jammed/contact regime and a contact-network approximation}</p>
+<p>In a jammed (solid-like) VP regime the kinetic contribution $\sigma^{\rm kin}$ is often subdominant: macroscopic stress is transmitted primarily through interlocked contacts (``force chains''). The identity \eqref{eq:appA_sigma_int} still holds, but a simpler approximation is often used.</p>
+<p>\noindent<strong>Contact-network approximation (useful in simulations).</strong> When contacts are well localized, the line-integral coarse graining can be approximated (on a coarse-graining volume $V_{\rm cg}$) by a discrete contact sum</p>
+<div class="math-block">$$
+\sigma^{\rm int}\ \approx\ -\frac{1}{V_{\rm cg}}\sum_{c\in{\rm contacts}}
+\mathbf \ell_c\otimes \mathbf f_c,
+$$</div>
+<p>where $\mathbf f_c$ is the contact force and $\mathbf \ell_c$ is the branch vector between the contact partners.</p>
+<p>\noindent<strong>VP interpretation.</strong> In VP, $\Fv_{ij}$ typically represents repulsive contact forces between volume particles in the jammed network. A localized ``Qu-Vortex'' can be interpreted as a region with reduced compressive contact stress, i.e.\ an effective low-pressure pocket that can steer transport pathways.</p>
+<h2>Appendix B. From linear response to Newtonian stress: representation, Green--Kubo, and Maxwell time</h2>
+<p>This appendix records (i) the representation-theorem step used to justify the Newtonian form once <em>local isotropic linear response</em> is declared, and (ii) a controlled route to that declaration via memory kernels (Maxwell time) and Green--Kubo formulas.</p>
+<p>\subsection*{B.1 Representation theorem (isotropic linear map, explicit proof)}</p>
+<p>The Newtonian stress \eqref{eq:newtonian_stress} is not an arbitrary guess once one declares <em>local, objective, isotropic linear response</em> at the coarse scale: it is the <em>only</em> possible instantaneous tensor form.</p>
+<p>Let $\mathcal F$ be a <em>linear</em> map that assigns to each velocity gradient $A:=\nabla\uv$ a symmetric tensor $\tau=\mathcal F(A)$. Assume $\mathcal F$ is <em>isotropic</em> in the sense that for every rotation $R\in\mathrm{SO}(3)$,</p>
+<div class="math-block">$$
+\mathcal F(RAR^\top)=R\,\mathcal F(A)\,R^\top.
+\label{eq:isotropy_F}
+$$</div>
+<p>Because $\mathcal F$ is linear, there exists a fourth-order tensor $L$ such that $\tau_{ij}=L_{ijkl}A_{kl}$. Condition \eqref{eq:isotropy_F} implies that $L$ is an <em>isotropic</em> fourth-order tensor. The standard classification of isotropic fourth-order tensors gives</p>
+<div class="math-block">$$
+L_{ijkl}
+=
+a\,\delta_{ij}\delta_{kl}
++
+b\,\delta_{ik}\delta_{jl}
++
+c\,\delta_{il}\delta_{jk},
+\label{eq:isotropic_4th_order}
+$$</div>
+<p>for some scalars $a,b,c$. Contracting with $A_{kl}$ yields</p>
+<div class="math-block">$$
+\tau_{ij}
+=
+a\,(\mathrm{tr}\,A)\,\delta_{ij}
++
+b\,A_{ij}
++
+c\,A_{ji},
+\qquad\text{i.e.}\qquad
+\tau = a(\nabla\!\cdot\uv)\Id + bA + cA^\top.
+\label{eq:tau_general_isotropic_linear}
+$$</div>
+<p>If $\tau$ is symmetric for all $A$, then \eqref{eq:tau_general_isotropic_linear} forces $b=c$, hence</p>
+<div class="math-block">$$
+\tau
+=
+a(\nabla\!\cdot\uv)\Id
++
+2b\,\mathrm{sym}(A),
+\qquad
+\mathrm{sym}(A):=\tfrac12(A+A^\top).
+\label{eq:tau_isotropic_symmetric}
+$$</div>
+<p>Writing $\mathrm{sym}(A)=S+\tfrac13(\nabla\!\cdot\uv)\Id$ with the trace-free strain-rate $S$ in \eqref{eq:newtonian_stress}, we obtain</p>
+<div class="math-block">$$
+\tau
+=
+2b\,S + \big(a+\tfrac23 b\big)(\nabla\!\cdot\uv)\Id.
+$$</div>
+<p>Identifying $\mu:=b$ and $\lambda:=a+\tfrac23b$ recovers \eqref{eq:newtonian_stress}. In particular, the antisymmetric part $\mathrm{skew}(A)$ cancels automatically in \eqref{eq:tau_isotropic_symmetric}, so rigid-body rotation does not contribute to the viscous stress (objectivity).</p>
+<p>\subsection*{B.2 Linear response with memory and the Markovian limit}</p>
+<p>The representation theorem above explains why the Newtonian form is the <em>only</em> possibility once one accepts a <em>local, isotropic, linear</em> dependence on $\nabla\uv$. What remains is to explain why VP should ever fall into that class.</p>
+<p>A general linear-response closure has <em>memory</em>:</p>
+<div class="math-block">$$
+\tau(t)=2\int_0^\infty G(s)\,S(t-s)\,ds,
+$$</div>
+<p>with $G(s)$ a shear relaxation kernel. If $G(s)$ decays on a Maxwell time $\tau_M$ and if the macroscopic strain-rate varies slowly on that time scale, then a Taylor expansion $S(t-s)\approx S(t)$ over the support of $G$ yields the Newtonian approximation</p>
+<div class="math-block">$$
+\tau(t)\approx 2\mu S(t),
+\qquad
+\mu=\int_0^\infty G(s)\,ds,
+$$</div>
+<p>which is \eqref{eq:newtonian_from_memory}. The parameter controlling the approximation is the Deborah number $\mathrm{De}=\tau_M/T_{\rm flow}$.</p>
+<p>\subsection*{B.3 Green--Kubo formula and $\mu\ge 0$}</p>
+<p>Under a local-equilibrium assumption with an effective temperature $\Theta$, linear response yields the Green--Kubo formula</p>
+<div class="math-block">$$
+\mu
+=
+\frac{1}{\Theta\,V_{\rm cg}}
+\int_0^\infty
+\langle \tau_{xy}(0)\tau_{xy}(s)\rangle_{\rm le}\,ds,
+$$</div>
+<p>which is \eqref{eq:green_kubo_mu}. This makes two points mathematically transparent:</p>
+<ul>
+<li><strong>Intrinsic transport.</strong> Once the VP microdynamics (including event rules) is fixed, the equilibrium (or local-equilibrium) stress correlations determine $\mu$.</li>
+<li><strong>Positivity.</strong> If the underlying equilibrium measure is stationary and the stress autocorrelation is nonnegative in the PSD sense, then $\mu\ge 0$, which is the key ingredient for nonnegative viscous dissipation.</li>
+</ul>
+<p>\subsection*{B.4 Jamming, force-chain anisotropy, and isotropization}</p>
+<p>In a jammed medium the interaction stress is transmitted through a contact/force-chain network and is instantaneously anisotropic. A convenient diagnostic is the fabric tensor $Q$ introduced in \eqref{eq:fabric_relax}. If $Q$ relaxes rapidly (small $\tau_M$) compared to the observation window, then time-averaged stresses become effectively isotropic even though instantaneous stresses are not. If $Q$ relaxes slowly, the correct continuum description is viscoelastic (or more generally non-Newtonian), and the Navier--Stokes closure is not expected.</p>
+<p>\subsection*{B.5 Chapman--Enskog / relaxation-time derivation (BGK/RTA model, optional but explicit)}</p>
+<p>Section~2.1 used the most general (and safest) closure logic: <em>memory $\to$ Markovian limit $\to$ Newtonian stress</em>. This subsection gives a concrete, fully worked <em>toy derivation</em> showing how the same structure appears from a fast relaxation operator, in the spirit of Chapman--Enskog. It is optional because it introduces an intermediate kinetic variable that is not part of the minimal VP contract.</p>
+<h5>B.5.1 A minimal BGK-style kinetic proxy (unjammed / gas-like window).</h5>
+<p>Assume there exists a mesoscopic one-particle distribution $f(\xv,\vv,t)$ whose moments reproduce the coarse fields, and write the peculiar velocity $\cv:=\vv-\uv(\xv,t)$. Consider a BGK relaxation model</p>
+<div class="math-block">$$
+\partial_t f + \vv\cdot\nabla_\xv f + \cdots
+=-\frac{1}{\tau_{\rm rel}}\big(f-f^{(0)}\big),
+\label{eq:bgk}
+$$</div>
+<p>where $f^{(0)}$ is a local equilibrium that is <em>isotropic in $\cv$</em>. In particular, assume</p>
+<div class="math-block">$$
+\int \cv\,f^{(0)}\,d\vv =0,
+\qquad
+\int \cv\otimes\cv\,f^{(0)}\,d\vv = \frac{p}{\rho}\,\Id,
+\label{eq:bgk_isotropy_moments}
+$$</div>
+<p>so that $f^{(0)}$ carries pressure but no deviatoric stress.</p>
+<p>Introduce a small parameter $\varepsilon\sim\mathrm{Kn}_{\rm VP}$ and expand $f=f^{(0)}+\varepsilon f^{(1)}+\cdots$. At order $\varepsilon^0$ one obtains the Euler equations. At order $\varepsilon^1$, the linearized relaxation equation gives schematically $f^{(1)}\approx-\tau_{\rm rel}(\partial_t+\vv\cdot\nabla_\xv)f^{(0)}$. The deviatoric stress (kinetic part) is the traceless second moment</p>
+<div class="math-block">$$
+\tau
+:=
+-\rho\int \Big(\cv\otimes\cv-\tfrac13|\cv|^2\Id\Big)\,f\,d\vv
+\approx
+-\rho\int \Big(\cv\otimes\cv-\tfrac13|\cv|^2\Id\Big)\,\varepsilon f^{(1)}\,d\vv.
+\label{eq:bgk_tau_def}
+$$</div>
+<p>Evaluating the moment (standard Chapman--Enskog algebra) yields the Newtonian law</p>
+<div class="math-block">$$
+\tau = 2\mu S,
+\qquad
+\mu = p\,\tau_{\rm rel}.
+\label{eq:bgk_mu}
+$$</div>
+<p>Thus $\mu>0$ is <em>intrinsic</em> provided $p>0$ and the relaxation time $\tau_{\rm rel}>0$.</p>
+<h5>B.5.2 A relaxation-time model for jammed force chains (Maxwell/Fabric route).</h5>
+<p>In the jammed VP regime, the interaction stress dominates, and a more appropriate mesoscopic variable is the fabric/anisotropy tensor $Q$. A minimal linear relaxation-time approximation is</p>
+<div class="math-block">$$
+\frac{D Q}{D t} = -\frac{1}{\tau_M}\big(Q-\kappa\,\tau_M S\big),
+\qquad \kappa>0,
+\label{eq:RTA_fabric}
+$$</div>
+<p>which says: (i) anisotropy relaxes on $\tau_M$, and (ii) a slowly varying strain-rate drives a small steady anisotropy proportional to $S$. Assume the deviatoric stress is proportional to fabric,</p>
+<div class="math-block">$$
+\tau = 2G_0\,Q,
+\label{eq:tau_from_fabric}
+$$</div>
+<p>where $G_0$ is a transient shear modulus of the jammed network. In the Markovian limit ($\mathrm{De}\ll 1$), solving \eqref{eq:RTA_fabric} gives $Q\approx\kappa\tau_M S$ and therefore</p>
+<div class="math-block">$$
+\tau\approx 2\mu S,
+\qquad
+\mu = \kappa\,G_0\,\tau_M\ >0.
+\label{eq:maxwell_mu_positive}
+$$</div>
+<p>This explicitly reconciles ``jammed force chains'' with a Newtonian law: Newtonian viscosity is the product of a (transient) shear modulus and a relaxation time.</p>
+<h5>B.5.3 Relation to the memory kernel and Green--Kubo.</h5>
+<p>The relaxation-time models above correspond to an exponential memory kernel, $G(s)\propto e^{-s/\tau_M}$, so that $\mu=\int_0^\infty G(s)ds$. More generally, whenever a fast relaxation operator exists and the dynamics admits a local equilibrium, the viscosity can be written either as an inverse linearized-collision operator (Chapman--Enskog view) or as a stress autocorrelation integral (Green--Kubo view), which is why \eqref{eq:green_kubo_mu} and \eqref{eq:newtonian_from_memory} are the structurally stable statements used in the main text.</p>
+<p>\medskip \noindent\GATE\ <strong>Interpretation.</strong> Equations \eqref{eq:bgk_mu} and \eqref{eq:maxwell_mu_positive} are not claimed as universal VP identities. They are explicit model examples that show how the Newtonian closure emerges once a fast relaxation time exists and local isotropy is recovered by averaging. The Gate suite (Section~6) determines which (if any) such window is realized in a concrete VP implementation.</p>
+<h2>Appendix C. Discrete--continuum dictionary for anomalous dissipation (refined)</h2>
+<p>This appendix refines the informal ``dictionary'' used to interpret VP event dissipation as a discrete counterpart of the Duchon--Robert defect.</p>
+<p>\subsection*{C.1 Continuum: defect as a small-scale flux}</p>
+<p>For a weak Euler solution, the defect $\mathcal D(\uv)$ is defined as the distributional limit of the filtered nonlinear flux $\Pi_\ell$ in \eqref{eq:filtered_energy_balance}:</p>
+<div class="math-block">$$
+\mathcal D(\uv)=\lim_{\ell\to 0}\Pi_\ell,
+\qquad
+\Pi_\ell = -\,\nabla\uv_\ell:\tau_\ell,
+$$</div>
+<p>or equivalently by the increment formula \eqref{eq:DR_increment_formula}. The key features are: (i) $\mathcal D(\uv)\ge 0$ for suitable weak solutions, and (ii) $\mathcal D(\uv)=0$ if $\uv$ is H\"older with exponent $>1/3$ (Lemma~\ref{lem:holder_DR}).</p>
+<p>\subsection*{C.2 VP: event dissipation as a positive measure}</p>
+<p>In the VP event-extended model, internal energy increments are recorded at discrete event times. If events occur at times $\{t_k\}$ with released energies $\Delta E_{{\rm bind},k}\ge 0$, define the <em>event dissipation measure</em> in time</p>
+<div class="math-block">$$
+\mu_{\rm events} := \sum_k \Delta E_{{\rm bind},k}\,\delta_{t=t_k}.
+$$</div>
+<p>Its absolutely continuous part (if any) corresponds to a smooth ``rate''; otherwise it is purely atomic (Dirac spikes).</p>
+<p>For any observation window $W=[t_0,t_1]$,</p>
+<div class="math-block">$$
+\int_W d\mu_{\rm events} = \sum_{t_k\in W}\Delta E_{{\rm bind},k} =: H_{\rm int}(t_1)-H_{\rm int}(t_0),
+$$</div>
+<p>and the window-averaged event dissipation rate is $\langle \varepsilon_{\rm events}\rangle_W = (|\Omega|\,|W|)^{-1}\int_W d\mu_{\rm events}$.</p>
+<p>\subsection*{C.3 Matching principle and the inviscid limit}</p>
+<p>The intended bridge is:</p>
+<div class="math-block">$$
+\text{(continuum)}\quad \mathcal D(\uv)\ \longleftrightarrow\
+\text{(VP)}\quad \frac{1}{|\Omega|}\,\frac{d\mu_{\rm events}}{dt}.
+$$</div>
+<p>A rigorous identification requires a two-scale limit (spatial $\ell\to 0$ and vanishing micro-correlation scale $D^\ast$) together with a convergence statement for the coarse-grained velocity fields. In this white paper we treat this as a \GATE\ item: <em>the identification is accepted only if simulations show that the spatial concentration of event activity tracks the regions where the resolved velocity field violates the $1/3$ H\"older threshold</em>.</p>
+<p>\subsection*{C.4 Practical co-localization test (an explicit gate protocol)}</p>
+<p>The strongest (and most falsifiable) version of the ``event defect'' identification is not merely a budget match in time, but a <em>spatial</em> co-localization statement: event activity should concentrate where the continuum flux $\Pi_\ell$ concentrates as $\ell\to 0$.</p>
+<p>A minimal protocol that can be implemented on simulation data is:</p>
+<ol>
+<li><strong>Choose a scale ladder.</strong> Pick a sequence $\ell_1>\ell_2>\cdots>\ell_m$ within the resolved range ($\ell_m$ above the grid scale, but below the outer scale).</li>
+<li><strong>Compute a windowed flux field.</strong> For each $\ell_k$, compute the positive part of the Duchon--Robert flux</li>
+<div class="math-block">$$
+\Pi_{\ell_k}^+(\xv,t):=\max(\Pi_{\ell_k}(\xv,t),0),
+$$</div>
+<p>and its time average on the analysis window $W$:</p>
+<div class="math-block">$$
+D_{\ell_k}(\xv):=\langle \Pi_{\ell_k}^+(\xv,\cdot)\rangle_W .
+$$</div>
+<li><strong>Compute a windowed event-power density.</strong> Using the same spatial kernel width $\ell_k$, define</li>
+<div class="math-block">$$
+E^{\rm evt}_{\ell_k}(\xv)
+:=
+\frac{1}{|W|}\sum_{t_n\in W}\Delta E_n\,W_{\ell_k}(\xv-\xv_n),
+$$</div>
+<p>so that $\langle E^{\rm evt}_{\ell_k}\rangle_\Omega=\langle\varepsilon_{\rm events}\rangle_W$.</p>
+<li><strong>Measure scale-by-scale overlap.</strong> Define the normalized $L^2$ overlap</li>
+<div class="math-block">$$
+\mathrm{OL}(\ell_k)
+:=
+\frac{\langle D_{\ell_k}\,E^{\rm evt}_{\ell_k}\rangle_\Omega}
+{\|D_{\ell_k}\|_{L^2(\Omega)}\,\|E^{\rm evt}_{\ell_k}\|_{L^2(\Omega)}}\ \in[0,1].
+$$</div>
+<p>A co-localization claim requires $\mathrm{OL}(\ell_k)$ to remain bounded away from $0$ as $\ell_k\downarrow 0$, and to be robust under seed/resolution changes.</p>
+<li><strong>Optional H\"older-threshold filter.</strong> Define a ``roughness set'' at scale $\ell_k$ by</li>
+<div class="math-block">$$
+A_{\ell_k}:=\Big\{\xv:\ \sup_{|\rv|\le \ell_k}\frac{|\uv(\xv+\rv)-\uv(\xv)|}{|\rv|^{1/3}} > C\Big\},
+$$</div>
+<p>with a declared threshold $C>0$. A stronger gate is that most event energy occurs inside $A_{\ell_k}$ for small $\ell_k$:</p>
+<div class="math-block">$$
+\frac{\int_{A_{\ell_k}} E^{\rm evt}_{\ell_k}(\xv)\,d\xv}{\int_\Omega E^{\rm evt}_{\ell_k}(\xv)\,d\xv}
+\ \ge\ 1-\delta,
+$$</div>
+</ol>
+<p>with a small declared $\delta$.</p>
+<p>\noindent<strong>Interpretation.</strong> If the overlap vanishes as $\ell\to 0$, then events may still be a <em>global</em> dissipation bookkeeping device, but they are not a good candidate for the <em>local</em> Duchon--Robert defect support. If the overlap persists and tightens with $\ell$, the event channel provides a concrete discrete model for the continuum defect localization.</p>
+<h2>Appendix D. Boussinesq / convection example (global identity with event dissipation)</h2>
+<p>This appendix records one representative ``complex fluid'' example where an event channel can be inserted without breaking classical global identities.</p>
+<p>\subsection*{D.1 Classical Boussinesq Rayleigh--B\'enard identity (reference)}</p>
+<p>For Rayleigh--B\'enard convection (Boussinesq approximation) with height $H$, kinematic viscosity $\nu$, thermal diffusivity $\kappa$, Rayleigh number $\Ra$ and Prandtl number $\Pran=\nu/\kappa$, a classical global identity relates the Nusselt number $Nu$ to the kinetic-energy dissipation rate. In one common nondimensionalization, the dimensional statement can be written schematically as</p>
+<div class="math-block">$$
+\langle \varepsilon_u\rangle
+=
+\nu^3\,\frac{\Ra}{H^4\,\Pran^{2}}\,(Nu-1),
+\label{eq:RBC_classic_global}
+$$</div>
+<p>where $\varepsilon_u$ is the viscous dissipation per unit mass (or per unit volume, depending on convention) and $\langle\cdot\rangle$ denotes a space--time average in a statistically steady regime.</p>
+<p>\subsection*{D.2 Event-extended identity}</p>
+<p>If VP injects an additional event dissipation channel $\varepsilon_{\rm events}$ that transfers flow energy into unresolved internal modes (but does not violate the total-energy bookkeeping), then a natural extension is</p>
+<div class="math-block">$$
+\langle \varepsilon_u\rangle + \langle \varepsilon_{\rm events}\rangle
+=
+\nu^3\,\frac{\Ra}{H^4\,\Pran^{2}}\,(Nu-1).
+\label{eq:RBC_event_global}
+$$</div>
+<p>In words: at fixed $(\Ra,\Pran)$, a nonzero event fraction increases the required $Nu-1$, i.e.\ increases heat transport relative to a purely viscous budget.</p>
+<p>\subsection*{D.3 Event fraction and a minimal predictive parameterization}</p>
+<p>Define the event fraction</p>
+<div class="math-block">$$
+\xi := \frac{\langle \varepsilon_{\rm events}\rangle}{\langle \varepsilon_u\rangle + \langle \varepsilon_{\rm events}\rangle}
+\in [0,1).
+$$</div>
+<p>Then \eqref{eq:RBC_event_global} implies</p>
+<div class="math-block">$$
+Nu-1
+=
+\frac{Nu_{\rm classic}-1}{1-\xi},
+\label{eq:Nu_event_fraction}
+$$</div>
+<p>where $Nu_{\rm classic}$ is the Nusselt number predicted by the classical (viscous-only) theory at the same control parameters.</p>
+<p>A minimal monotone-saturation ansatz for $\xi$ as a function of a dimensionless event-coupling parameter $\chi$ is</p>
+<div class="math-block">$$
+\xi(\chi) \approx 1-\exp(-b\,\chi^\gamma),
+\qquad b>0,\ \ 1\lesssim\gamma\lesssim 2,
+$$</div>
+<p>to be identified from data.</p>
+<p>\subsection*{D.4 Length-scale implication under $\Pi_L$ contact}</p>
+<p>If the $\Pi_L$ contact condition (Section~7) is enforced with $\varepsilon_{\rm bind}\equiv\langle\varepsilon_{\rm events}\rangle$, then the characteristic ``cell'' length scale satisfies</p>
+<div class="math-block">$$
+L_{\rm cell}\sim \left(\frac{\sigma_{\rm eff}}{\varepsilon_{\rm bind}}\right)^{\frac{1}{1+\alpha}},
+$$</div>
+<p>providing a direct scaling prediction connecting event dissipation to pattern size.</p>
+<h2>Appendix E. A structure-preserving time integrator template (ADG-style)</h2>
+<p>This appendix summarizes a practical numerical template for \eqref{eq:metriplectic_template} that is aligned with the VP philosophy: <em>avoid numerical drift in budgets so that any observed dissipation can be interpreted physically</em>.</p>
+<p>\subsection*{E.1 Two-step split: conservative then dissipative}</p>
+<p>For metriplectic dynamics</p>
+<div class="math-block">$$
+\dot z = \PoissonOp(z)\,\nabla H(z) + \MetricOp(z)\,\nabla S(z),
+$$</div>
+<p>a robust approach is to integrate the skew and symmetric sectors in two substeps per time step $\Delta t$.</p>
+<pre>Given state z^n at time t_n
+
+Step 1 (Poisson / conservative):
+  z* solves  (z* - z^n)/dt = J(z_bar) * gradbar_H(z^n, z*)
+
+Step 2 (metric / dissipative):
+  z^{n+1} solves (z^{n+1} - z*)/dt = G(z_bar) * gradbar_S(z*, z^{n+1})</pre>
+<p>Here:</p>
+<ul>
+<li>$z_{\rm bar}$ is a suitable midpoint/average state,</li>
+<li>$\mathrm{gradbar}_H$ and $\mathrm{gradbar}_S$ are <em>discrete gradients</em> satisfying a discrete chain rule:</li>
+<div class="math-block">$$
+H(z^*)-H(z^n)=\langle \mathrm{gradbar}_H(z^n,z^*),\, z^*-z^n\rangle,
+$$</div>
+</ul>
+<p>and similarly for $S$.</p>
+<p>\subsection*{E.2 Discrete thermodynamic guarantees}</p>
+<p>If $\PoissonOp$ is skew-symmetric, then Step~1 preserves $H$ (and Casimirs, when included) to solver tolerance. If $\MetricOp$ is symmetric positive semi-definite, then Step~2 guarantees</p>
+<div class="math-block">$$
+S^{n+1}-S^* = \Delta t\,
+(\mathrm{gradbar}_S)^\top\,\MetricOp\,(\mathrm{gradbar}_S)\ \ge\ 0.
+$$</div>
+<p>To enforce the ``energy degeneracy'' condition $(H,S)=0$ <em>at the discrete level</em>, one additionally imposes</p>
+<div class="math-block">$$
+(\mathrm{gradbar}_H)^\top\,\MetricOp\,(\mathrm{gradbar}_S)=0,
+$$</div>
+<p>so that $H$ is conserved while $S$ increases. This is the numerical analog of the VP requirement that event dissipation be a physical channel, not a numerical artifact.</p>
+<h2>Appendix F. Turbulence diagnostics (flux, third-order laws, and budget closure)</h2>
+<p>This appendix collects practical diagnostics that connect classical turbulence measurements to the event-extended budget used in this white paper.</p>
+<p>\subsection*{F.1 3D: third-order law as an $\varepsilon$ estimator}</p>
+<p>In homogeneous isotropic 3D turbulence, the longitudinal third-order structure function</p>
+<div class="math-block">$$
+S_3^\parallel(r):=\left\langle \big(\delta u_\parallel(r)\big)^3\right\rangle
+$$</div>
+<p>obeys, in the inertial range, the Kolmogorov $4/5$ law</p>
+<div class="math-block">$$
+S_3^\parallel(r)\simeq -\frac{4}{5}\,\varepsilon\,r,
+$$</div>
+<p>where $\varepsilon$ is the mean energy dissipation rate. In an event-extended model one interprets $\varepsilon$ as the <em>total</em> dissipation,</p>
+<div class="math-block">$$
+\varepsilon = \langle\varepsilon_\nu\rangle + \langle\varepsilon_{\rm events}\rangle,
+$$</div>
+<p>so that a viscosity scan with fixed forcing should show a slope that remains constant while the split between $\varepsilon_\nu$ and $\varepsilon_{\rm events}$ changes.</p>
+<p>\subsection*{F.2 2D and QG: energy/enstrophy flux plateaus}</p>
+<p>In 2D turbulence (and quasi-geostrophic analogs), a useful spectral diagnostic is the flux of energy and enstrophy. Denoting by $\Pi_E(k)$ the cumulative nonlinear transfer of energy across wavenumber $k$, a negative plateau $\Pi_E(k)\approx -\varepsilon_E$ indicates an inverse energy cascade. Similarly, a positive plateau of enstrophy flux $\Pi_\Omega(k)\approx +\varepsilon_\Omega$ indicates a forward enstrophy cascade.</p>
+<p>A robust ``cascade window'' is characterized by (i) simultaneous plateaus where applicable, and (ii) budget closure with event dissipation included.</p>
+<p>\subsection*{F.3 Budget residual as a pass/fail metric}</p>
+<p>For any statistically steady window $W$, define the relative residual</p>
+<div class="math-block">$$
+\mathrm{Res}(W):=
+\frac{\left|
+\left\langle\varepsilon_{\rm inj}\right\rangle_W
+-
+\left\langle\varepsilon_\nu+\varepsilon_{\rm events}\right\rangle_W
+-
+\frac{E_{\rm flow}(t_1)-E_{\rm flow}(t_0)}{|W|}
+\right|}
+{\left\langle\varepsilon_{\rm inj}\right\rangle_W}.
+$$</div>
+<p>On a steady window the drift term is negligible and $\mathrm{Res}(W)$ reduces to the relative mismatch in \eqref{eq:budget_window}. A typical gate is $\mathrm{Res}(W)\le 0.02$ (2\%), but the tolerance must be declared.</p>
+<h2>Appendix G. $\Pi$-pipeline pseudocode (windowing, RG exponents, and fail-fast logic)</h2>
+<p>This appendix sketches an implementation-level view of the $\Pi$-diagnostics of Section~7. It is included so that the rotation/verification logic can live inside this white paper (without requiring a separate ``rotation dynamics'' document).</p>
+<pre>Given a time window W, length scale series L(t), and measured series:
+  eps_inj(t), eps_nu(t), eps_events(t), sigma_eff(t)
+
+Compute:
+  eps_bind(t) := eps_events(t)   # binding/event dissipation
+  Pi_T := T * mean(eps_bind) / DeltaF_crit
+  Pi_L(t) := (L(t)^(1+alpha) * eps_bind(t)) / (C_alpha * sigma_eff(t))
+
+Combined:
+  Pi_ST := Pi_T^a * (mean over W of Pi_L)^b
+  delta_ST := | d/dt log Pi_ST | (window derivative)
+
+Budget residual:
+  Res := | mean(eps_inj - eps_nu - eps_events - dH_flow/dt) | / mean(eps_inj)
+
+Decision logic (fail-fast):
+  if delta_ST &gt; thr_ST:     SPLIT window
+  if Res &gt; thr_budget:      REFINE budget / resolution
+  else:                     ACCEPT window for anomaly/RG tests</pre>
+<p>The goal is to enforce that any claim about $\nu\to 0$ or event saturation is made only on windows that are: (i) quasi-steady (small $\delta_{ST}$) and (ii) budget-closed (small residual).</p>
+<h2>Appendix H. Distributional formulation of the resolved-flow energy with events</h2>
+<p>This appendix justifies the event-extended balance \eqref{eq:resolved_flow_budget} as an <em>exact</em> identity for piecewise-smooth dynamics with jump events. The main point is that when events are discrete, the correct mathematical object is a positive <em>measure</em> in time, not a smooth function.</p>
+<p>\subsection*{H.1 Setup: càdlàg energy, jump sizes, and the event measure}</p>
+<p>Let $E_{\rm flow}(t)=\langle e_{\rm flow}(\cdot,t)\rangle_\Omega$ be the spatial-mean resolved kinetic energy. Assume:</p>
+<ol>
+<li>Between event times $\{t_n\}$, the resolved flow evolves smoothly (e.g.\ by Navier--Stokes) so that $E_{\rm flow}$ is absolutely continuous and satisfies</li>
+<div class="math-block">$$
+\frac{d}{dt}E_{\rm flow}(t)=\varepsilon_{\rm inj}(t)-\varepsilon_\nu(t)
+\qquad (t\neq t_n).
+$$</div>
+<li>At each event time $t_n$, the resolved flow loses a recorded amount of energy $\Delta E_n\ge 0$, so that the <em>jump</em> in the mean energy is</li>
+<div class="math-block">$$
+E_{\rm flow}(t_n^+)-E_{\rm flow}(t_n^-)= -\frac{\Delta E_n}{|\Omega|}.
+$$</div>
+</ol>
+<p>(Equivalently, $H_{\rm flow}(t_n^+)-H_{\rm flow}(t_n^-)= -\Delta E_n$ in total-energy form.)</p>
+<p>Define the positive Radon measure on time</p>
+<div class="math-block">$$
+\mu_{\rm events}
+:=
+\frac{1}{|\Omega|}\sum_n \Delta E_n\,\delta_{t_n},
+\label{eq:mu_events_def}
+$$</div>
+<p>where $\delta_{t_n}$ is the Dirac measure at $t_n$. For any test function $\varphi\in C_c^\infty(\mathbb R)$,</p>
+<div class="math-block">$$
+\int_{\mathbb R}\varphi(t)\,d\mu_{\rm events}(t)
+=
+\frac{1}{|\Omega|}\sum_n \Delta E_n\,\varphi(t_n).
+\label{eq:mu_events_test}
+$$</div>
+<p>\subsection*{H.2 Distributional identity}</p>
+<p>Consider the distributional time derivative of $E_{\rm flow}$. Using the standard calculus of functions of bounded variation, the derivative decomposes into:</p>
+<div class="math-block">$$
+dE_{\rm flow}
+=
+\underbrace{\big(\varepsilon_{\rm inj}-\varepsilon_\nu\big)\,dt}_{\text{absolutely continuous part}}
+\;+\;
+\underbrace{\sum_n \big(E_{\rm flow}(t_n^+)-E_{\rm flow}(t_n^-)\big)\,\delta_{t_n}}_{\text{jump part}}.
+$$</div>
+<p>Substituting the jump size yields</p>
+<div class="math-block">$$
+dE_{\rm flow}
+=
+\big(\varepsilon_{\rm inj}-\varepsilon_\nu\big)\,dt
+-
+d\mu_{\rm events}.
+$$</div>
+<p>Equivalently,</p>
+<div class="math-block">$$
+\frac{d}{dt}E_{\rm flow}
+=
+\varepsilon_{\rm inj}-\varepsilon_\nu-\varepsilon_{\rm events}
+\qquad\text{in }\mathcal{D}'(\mathbb R),
+\label{eq:dist_resolved_budget}
+$$</div>
+<p>where $\varepsilon_{\rm events}$ denotes the measure $\mu_{\rm events}$ (possibly containing Dirac spikes). Equation \eqref{eq:dist_resolved_budget} is precisely \eqref{eq:resolved_flow_budget}.</p>
+<p>\subsection*{H.3 Proof by testing (one line)}</p>
+<p>Fix $\varphi\in C_c^\infty(\mathbb R)$. By definition of distributional derivative,</p>
+<div class="math-block">$$
+\left\langle \frac{d}{dt}E_{\rm flow},\,\varphi\right\rangle
+:=
+-\int_{\mathbb R} E_{\rm flow}(t)\,\varphi'(t)\,dt.
+$$</div>
+<p>Split the integral into disjoint intervals between events and integrate by parts on each open interval. The boundary terms telescope and produce the jump sum $\sum_n (E_{\rm flow}(t_n^+)-E_{\rm flow}(t_n^-))\varphi(t_n)$. Using the smooth evolution away from events gives</p>
+<div class="math-block">$$
+-\int E_{\rm flow}\,\varphi'\,dt
+=
+\int (\varepsilon_{\rm inj}-\varepsilon_\nu)\,\varphi\,dt
++
+\sum_n (E_{\rm flow}(t_n^+)-E_{\rm flow}(t_n^-))\,\varphi(t_n),
+$$</div>
+<p>which becomes \eqref{eq:dist_resolved_budget} after inserting the jump size formula and identifying the measure $\mu_{\rm events}$ via \eqref{eq:mu_events_test}.</p>
+<p>\subsection*{H.4 Window averages are exact}</p>
+<p>For a finite window $W=[t_0,t_1]$ with length $|W|$, the window-averaged event dissipation is</p>
+<div class="math-block">$$
+\langle \varepsilon_{\rm events}\rangle_W
+=
+\frac{1}{|W|}\mu_{\rm events}(W)
+=
+\frac{1}{|\Omega|\,|W|}\sum_{n:\,t_n\in W}\Delta E_n,
+$$</div>
+<p>which is exactly the discrete sum used in Section~3.2. Thus the budget closure \eqref{eq:budget_window} can be checked <em>without</em> approximating derivatives at event times.</p>
+<p>\begin{remark}[Dense-event limit] If events become dense while individual releases $\Delta E_n$ become small, the measure $\mu_{\rm events}$ may converge to an absolutely continuous measure $\varepsilon_{\rm events}(t)\,dt$. In that case the event channel becomes indistinguishable, at the level of time-averaged budgets, from a classical continuum dissipation density, even though its microscopic origin is discrete. \end{remark}</p>
+<h2>Appendix I. The Navier--Stokes Millennium problem in the VP frame</h2>
+<p>This appendix addresses a recurring question: does the VP event-dissipation picture ``solve'' the Navier--Stokes <em>existence and smoothness</em> Millennium problem?</p>
+<p>\subsection*{I.0 VP position statement (physics vs.\ mathematics)}</p>
+<p>The Clay Millennium question is a statement about an <em>idealized</em> continuum PDE that implicitly assumes one may resolve the velocity field to arbitrarily small spatial and temporal scales. In the VP framework this assumption is <em>not</em> part of the model: continuum fields are only interpreted after coarse graining above a finite cutoff scale.</p>
+<p>\medskip \noindent<strong>VP claim (physical).</strong> Within VP, the ``blow-up'' mechanism that worries analysts (unbounded $|\nabla \uv|$ in finite time) is not a physically admissible state:</p>
+<ul>
+<li><strong>Hard cutoff.</strong> VP carriers have finite volume (scale $a$) and the continuum projection is only used for $\ell_{\rm cg}\gtrsim a$ (and, more strongly, $\ell_{\rm cg}\gg D^\ast$). At any fixed $\ell_{\rm cg}$, the measured/coarse-grained fields are automatically smooth with explicit derivative bounds (Section~I.3).</li>
+<li><strong>Safety valve (events).</strong> When local strain approaches a \LOCK\ lattice/binding threshold, VP triggers a discrete event (unjam/merge/reconnect) that transfers resolved-flow energy into an internal reservoir $H_{\rm int}$. This produces a <em>nonnegative defect measure</em> $\mu_{\rm events}$ in the resolved-flow energy budget (Appendix~H / Section~3), and preempts any ``infinite'' concentration of resolved energy in a point-like region.</li>
+</ul>
+<p>\noindent<strong>Consequence.</strong> From the VP standpoint, ``global smoothness of the classical PDE down to $\ell\to 0$'' is a modeling extrapolation beyond the VP continuum window. The physically relevant target is instead the existence and stability of a <em>coarse-grained, event-weak</em> description with a recorded defect measure.</p>
+<p>\medskip \noindent<strong>Important limitation.</strong> This is <em>not</em> a proof of the Clay Millennium statement for the classical Navier--Stokes PDE. It is a declaration about what is (and is not) a well-posed <em>physical</em> question once a finite-volume ontology (VP) is assumed.</p>
+<p>\subsection*{I.1 What the Clay problem asks (mathematical statement)}</p>
+<p>The Clay Millennium problem concerns the <em>classical</em> 3D incompressible Navier--Stokes PDE, posed on $\mathbb R^3$ (or $\mathbb T^3$), with smooth divergence-free initial data $\uv_0$:</p>
+<div class="math-block">$$
+\partial_t\uv + \uv\cdot\nabla \uv = -\nabla p + \nu\nabla^2\uv,
+\qquad
+\nabla\cdot\uv=0,
+\qquad
+\uv(\cdot,0)=\uv_0,
+\qquad
+\nu>0.
+$$</div>
+<p>The question is purely mathematical: either prove that a smooth solution exists for all time, or produce an example of finite-time blow-up from smooth data.</p>
+<p>\subsection*{I.2 VP standpoint: ``smoothness to arbitrarily small scales'' is a modeling extrapolation}</p>
+<p>In VP theory the continuum hypothesis has a declared <em>domain of validity</em>. There is a finite microscopic scale $a$ (VP carrier scale) and a mesoscopic bridge scale $D^\ast$ (Section~2.5). Continuum fields are only interpreted physically after coarse graining with $\ell_{\rm cg}\gg D^\ast$.</p>
+<p>Thus, the limit $\ell_{\rm cg}\to 0$---which is implicit in the continuum idealization---is not a physical limit inside VP. In that sense, the Clay question is asking about an extrapolated regime where the VP ontology is no longer ``continuum''.</p>
+<p>\subsection*{I.3 Hard cutoff: coarse-grained fields are automatically smooth at finite $\ell_{\rm cg}$}</p>
+<p>Let $u_\ell = W_\ell * u^{\rm micro}$ be any coarse-grained scalar (or vector) field built from a bounded micro field and a smooth kernel $W_\ell$ (Section~1.1). Then for any multiindex $\alpha$,</p>
+<div class="math-block">$$
+\|\partial^\alpha u_\ell\|_{L^\infty}\ \le\ \|\partial^\alpha W_\ell\|_{L^1}\,\|u^{\rm micro}\|_{L^\infty}
+\ \sim\ C_\alpha\,\ell^{-|\alpha|}\,\|u^{\rm micro}\|_{L^\infty}.
+$$</div>
+<p>In particular, at a \LOCK\ coarse-graining length $\ell_{\rm cg}\gtrsim a$ there is a finite, explicit upper bound on gradients and higher derivatives of the observed fields. Within VP language, ``$\nabla\uv\to\infty$'' is not an admissible physical statement because it requires resolving below the carrier scale.</p>
+<p>This bound does <em>not</em> prove global smoothness of the classical PDE as $\ell\to 0$; it only states that the VP-measurable fields are smooth for all finite coarse-graining.</p>
+<p>\subsection*{I.4 Events: physical realization of the defect measure (and why blow-up is preempted)}</p>
+<p>VP introduces discrete events with recorded released energy $\Delta E_n\ge 0$. Appendix~H shows that the correct mathematical object is the positive Radon measure</p>
+<div class="math-block">$$
+\mu_{\rm events}=\frac{1}{|\Omega|}\sum_n \Delta E_n\,\delta_{t_n},
+$$</div>
+<p>and that the resolved-flow energy is a càdlàg function whose distributional derivative contains a jump part. In the inviscid limit $\nu\to 0$, it is consistent (and testable) that a nonzero dissipation channel remains, encoded either as a dense-event limit $\mu_{\rm events}\to \varepsilon_{\rm events}(t)\,dt$ or as a singular measure (bursty spikes).</p>
+<p>In this language, the ``blow-up fear'' is reinterpreted as follows:</p>
+<ul>
+<li>A continuum blow-up scenario is a scenario of <em>unbounded</em> local strain (or vorticity stretching), usually accompanied by a breakdown of classical calculus in the energy budget.</li>
+<li>In VP, when a local strain indicator approaches a \LOCK\ critical threshold (a binding/unjamming limit), an event occurs <em>before</em> any divergence. The excess resolved-flow energy is transferred to $H_{\rm int}$ and appears as a positive contribution to $\mu_{\rm events}$.</li>
+<li>Therefore the physically relevant statement is: the global resolved-flow budget stays closed (with a defect measure) even when $\nu\to 0$.</li>
+</ul>
+<p>\subsection*{I.5 Replacement statement (VP-appropriate well-posedness target)}</p>
+<p>A VP-appropriate replacement of the classical ``existence and smoothness'' target is:</p>
+<p>\medskip \noindent<strong>Event-weak solution (informal).</strong> A triple $(\uv,p,\mu_{\rm events})$ is a VP-consistent solution if: (i) $(\uv,p)$ satisfy the incompressible momentum equation in the sense of distributions; (ii) the resolved-flow energy balance holds in $\mathcal{D}'(t)$ with an additional <em>nonnegative</em> measure $\mu_{\rm events}$ as in Appendix~H; and (iii) $\mu_{\rm events}$ is <em>recordable</em> from VP micro events.</p>
+<p>\medskip \noindent In this formulation, ``singularity'' is replaced by ``nonzero defect measure'' and the existence question becomes: <em>do global event-weak solutions exist and are they stable under refinement?</em> The VP micro-dynamics are ordinary differential equations with finite carrier volume and therefore exist globally (by construction), and the coarse-grained fields are smooth at any fixed $\ell_{\rm cg}$. The only nontrivial step is to characterize the continuum limit and the statistics/geometry of $\mu_{\rm events}$.</p>
+<p>\begin{remark}[About claiming a Clay-prize ``solution''] Nothing in this appendix is a proof of (or a counterexample to) the Clay Millennium problem as stated for the classical Navier--Stokes PDE. Rather, it gives a VP interpretation: the Clay question probes an extrapolation of the continuum hypothesis beyond the VP cutoff scales, while VP replaces that extrapolation by an explicit event-measure channel that keeps budgets well-defined. \end{remark}</p>
+<p>\subsection*{I.6 Toy demonstration: a finite-time gradient blow-up prevented by a VP-style event valve}</p>
+<p>As a minimal demonstration of the mechanism (not of 3D Navier--Stokes), consider inviscid 1D Burgers. For $u(x,0)=\sin x$ the classical solution forms a shock at $t^\ast=1$ where $|u_x|$ diverges. Below we compare a baseline pseudo-spectral run (no events) with a VP-style run where an ``event'' triggers when $\max|u_x|>S_{\rm crit}$ and applies a discrete smoothing step. The energy removed is recorded as $H_{\rm int}$.</p>
+<p>\medskip \noindent<strong>Baseline (no events):</strong> the strain grows rapidly as $t\to 1^+$.</p>
+<pre>+-----------------------------------------------------------------------------+
+| BASELINE (Toy inviscid Burgers, no events)                                 |
++-----------------------------------------------------------------------------+
+| STEP | TIME   | MAX|u_x|  | E_flow    | dE_event | H_int    | STATUS       |
++-----------------------------------------------------------------------------+
+|    0 | 0.0000 |     1.000 | 0.250000 | 0.000000 | 0.000000 | BASELINE    |
+| 1800 | 0.9000 |    10.000 | 0.250000 | 0.000000 | 0.000000 | BASELINE    |
+| 2000 | 1.0000 |   110.153 | 0.250000 | 0.000000 | 0.000000 | BASELINE    |
+| 2100 | 1.0500 |   316.072 | 0.250000 | 0.000000 | 0.000000 | BASELINE    |
++-----------------------------------------------------------------------------+</pre>
+<p>\noindent<strong>VP-style event valve:</strong> events occur near the would-be singular time and keep $\max|u_x|$ bounded while recording the removed energy in $H_{\rm int}$.</p>
+<pre>+-----------------------------------------------------------------------------+
+| VP-STYLE SAFETY VALVE (Toy Burgers: event dissipation)                     |
++-----------------------------------------------------------------------------+
+| STEP | TIME   | MAX|u_x|  | E_flow    | dE_event | H_int    | STATUS       |
++-----------------------------------------------------------------------------+
+|    0 | 0.0000 |     1.000 | 0.250000 | 0.000000 | 0.000000 | Stable      |
+| 1800 | 0.9000 |    10.000 | 0.250000 | 0.000000 | 0.000000 | Stable      |
+| 1986 | 0.9930 |    54.790 | 0.249997 | 0.000003 | 0.000003 | EVENT       |
+| 1999 | 0.9995 |    53.959 | 0.249988 | 0.000008 | 0.000012 | EVENT       |
+| 2000 | 1.0000 |    55.455 | 0.249988 | 0.000000 | 0.000012 | Stable      |
+| 2012 | 1.0060 |    53.525 | 0.249973 | 0.000015 | 0.000027 | EVENT       |
+| 2025 | 1.0125 |    55.093 | 0.249953 | 0.000021 | 0.000047 | EVENT       |
+| 2352 | 1.1760 |    53.581 | 0.244740 | 0.000361 | 0.005260 | EVENT       |
+| 2365 | 1.1825 |    54.318 | 0.244368 | 0.000372 | 0.005632 | EVENT       |
+| 2377 | 1.1885 |    54.763 | 0.244004 | 0.000364 | 0.005996 | EVENT       |
+| 2389 | 1.1945 |    55.342 | 0.243631 | 0.000372 | 0.006369 | EVENT       |
+| 2400 | 1.2000 |    79.557 | 0.243631 | 0.000000 | 0.006369 | Approaching |
++-----------------------------------------------------------------------------+</pre>
+<p>\noindent<strong>Reproducibility.</strong> The full script and logs are included in the DOI bundle under <code>toy\_singularity\_demo/</code> (file <code>vp\_burgers\_safety\_valve\_demo.py</code>).</p>
+<p>\section*{Bibliography (selected)} \begin{thebibliography}{99}</p>
+<p>\bibitem{VPWhitePaper} Y.~J. Lee, <em>Volume Particle Theory (VP): A Jamming-Lattice White Paper</em>, Zenodo, 2025. DOI: <a href="\VPURL">\VPDOI</a>.</p>
+<p>\bibitem{Temam77} R.~Temam, <em>Navier--Stokes Equations</em>, North-Holland, 1977.</p>
+<p>\bibitem{ConstantinFoias88} P.~Constantin and C.~Foias, <em>Navier--Stokes Equations</em>, University of Chicago Press, 1988.</p>
+<p>\bibitem{DuchonRobert00} J.~Duchon and R.~Robert, Inertial energy dissipation for weak solutions of incompressible Euler and Navier--Stokes equations, <em>Nonlinearity</em> <strong>13</strong> (2000), 249--255.</p>
+<p>\bibitem{Onsager49} L.~Onsager, Statistical hydrodynamics, <em>Nuovo Cimento (Supplemento)</em> <strong>6</strong> (1949), 279--287.</p>
+<p>\bibitem{Eyink94} G.~L. Eyink, Energy dissipation without viscosity in ideal hydrodynamics I. Fourier analysis and local energy transfer, <em>Physica D</em> <strong>78</strong> (1994), 222--240.</p>
+<p>\bibitem{Kubo57} R.~Kubo, Statistical-mechanical theory of irreversible processes. I. General theory and simple applications to magnetic and conduction problems, <em>J. Phys. Soc. Jpn.</em> <strong>12</strong> (1957), 570--586.</p>
+<p>\bibitem{MoriZwanzig} H.~Mori, Transport, collective motion, and Brownian motion, <em>Prog. Theor. Phys.</em> <strong>33</strong> (1965), 423--455; R.~Zwanzig, Memory effects in irreversible thermodynamics, <em>Phys. Rev.</em> <strong>124</strong> (1961), 983--992.</p>
+<p>\bibitem{LeeMetriplectic25} Y.~J. Lee, <em>Vortex-Merger Thermodynamics in 2D Turbulence: A Metriplectic Scenario for the Onsager Anomaly</em>, unpublished manuscript (2025). (See also the reproducibility package referenced in the manuscript.)</p>
+<p>\bibitem{MetriplecticRepro} Y.~J. Lee, <em>Reproducibility Package: Onsager Anomaly Dissipation Saturation</em>, Zenodo, 2025. DOI: <a href="https://doi.org/10.5281/zenodo.17758705">10.5281/zenodo.17758705</a>.</p>
+<p>\end{thebibliography}</p>
+      </div>
+    </article>
   </div>
-</div>
-<p>Hub entry. Full HTML build can be added when LaTeX source is uploaded.</p>
-<p><a href="https://doi.org/10.5281/zenodo.17972570">Open on Zenodo</a></p>
-</article>
 </main>
 </body>
 </html>
