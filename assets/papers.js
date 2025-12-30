@@ -39,6 +39,22 @@ window.JP_PAPERS = {
       "path_en": "/en/whitepapers/bio-physical-apps/",
       "path_ko": "/ko/whitepapers/bio-physical-apps/",
       "doi": "10.5281/zenodo.17979016"
+    },
+    {
+      "key": "atlantic-expansion",
+      "title_en": "Atlantic Expansion Concept (Upgrade) — White Paper (v1.34 r16)",
+      "title_ko": "대서양 확장 개념(업그레이드) 백서 (v1.34 r16)",
+      "path_en": "/en/whitepapers/atlantic-expansion/",
+      "path_ko": "/ko/whitepapers/atlantic-expansion/",
+      "doi": "10.5281/zenodo.17978935"
+    },
+    {
+      "key": "vp-application",
+      "title_en": "VP Application Whitepaper v0.2 (ESS → Power → Desalination + Pt Catalyst/H₂)",
+      "title_ko": "부피입자(VP) 응용백서 v0.2 (ESS → 전력 → 정수/탈염 + Pt 촉매/H₂)",
+      "path_en": "/en/whitepapers/vp-application/",
+      "path_ko": "/ko/whitepapers/vp-application/",
+      "doi": "10.5281/zenodo.18043066"
     }
   ]
 };
