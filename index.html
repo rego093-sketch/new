@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Jamming Physics | Zero-Parameter Algebraic Universal Theory</title>
-  <meta name="description" content="Deriving fundamental constants (c, G, α, mp) with 99.999% precision from a single VP lattice unit. Zero free parameters. Pure algebraic determinism."/>
-  
+  <title>Jamming Physics | VP Lattice Theory — Algebraic Derivation of Physical Constants</title>
+  <meta name="description" content="Closed-form derivation of α (137.0364, 99.9997% match), m_p, m_H from a deterministic VP lattice. Lattice yield model for gravity (Appendix G). Falsifiable predictions, LOCK→derive→Gate verification."/>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ScientificTheory",
-    "name": "Jamming Physics (VP Theory)",
-    "description": "A deterministic theory deriving all SI constants from a rigid VP lattice structure with zero free parameters.",
-    "educationalLevel": "Postgraduate",
-    "assesses": ["Speed of Light", "Fine Structure Constant", "Proton Mass", "DNA Decoding"],
-    "identifier": "https://doi.org/10.5281/zenodo.17932567"
+    "@type": "ScholarlyArticle",
+    "name": "Volume Particle (VP) Theory: A Jamming-Lattice Framework with LOCK→Derive→Gate Reproducibility",
+    "description": "Deterministic derivation of physical constants (α_em, m_p, m_H, Coulomb K_C, elementary charge e) from a single VP lattice unit. Internal-consistency claims at Level-C0~C1; quantitative experimental agreement requires attached Gate reports.",
+    "author": { "@type": "Person", "name": "Young jae Lee", "affiliation": "Independent researcher, Daegu, Korea", "identifier": "https://orcid.org/0009-0002-7535-8245" },
+    "identifier": "https://doi.org/10.5281/zenodo.17932567",
+    "datePublished": "2025-12-15",
+    "keywords": "Volume Particle Theory, jamming lattice, fine-structure constant, proton mass, lattice yield, reproducibility"
   }
   </script>
 
@@ -22,19 +23,31 @@
   <link rel="stylesheet" href="/assets/style.css"/>
   <link rel="stylesheet" href="/assets/whitepapers.css"/>
   <style>
-    :root { --accent-blue: #eef7ff; --dark-gray: #333; --highlight: #d14; --success: #28a745; }
-    .hero-box { background: var(--dark-gray); color: #fff; padding: 40px; border-radius: 4px; margin: 30px 0; border-left: 12px solid #007bff; }
-    .precision-badge { background: var(--success); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.9rem; }
-    .mapping-logic { background: var(--accent-blue); padding: 25px; border-radius: 8px; margin-bottom: 40px; border: 1px solid #d1e9ff; }
+    :root { --primary-blue: #007bff; --bg-accent: #f8f9fa; --text-dark: #2c3e50; --honest-amber: #856404; }
+    .hero-section { background: #2c3e50; color: #fff; padding: 50px 30px; border-radius: 4px; margin: 30px 0; border-left: 12px solid var(--primary-blue); }
+    .claim-tier { background: #fff8e1; padding: 18px; border-radius: 6px; margin: 20px 0; border-left: 6px solid #ffc107; font-size: 0.95rem; }
+    .mapping-logic { background: #eef7ff; padding: 25px; border-radius: 8px; margin-bottom: 40px; border: 1px solid #d1e9ff; }
+    .formula-box { font-family: "Cambria Math", serif; font-size: 1.15rem; background: #fffbe6; padding: 20px; border: 1px dashed #ffe58f; margin: 25px 0; text-align: center; color: #856404; line-height: 1.8; }
     .algebraic-table { width: 100%; border-collapse: collapse; margin: 25px 0; background: white; font-size: 0.95rem; }
-    .algebraic-table th, .algebraic-table td { border: 1px solid #dee2e6; padding: 15px; text-align: center; }
-    .algebraic-table th { background-color: #f8f9fa; font-weight: 700; }
-    .formula-line { font-family: "Cambria Math", "serif"; font-style: italic; background: #fffbe6; padding: 15px; border: 1px dashed #ffe58f; margin: 20px 0; display: block; text-align: center; font-size: 1.2rem; }
-    .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0; }
-    .pillar-card { border: 1px solid #ddd; padding: 20px; border-radius: 8px; text-decoration: none; color: inherit; transition: 0.3s; background: #fff; }
-    .pillar-card:hover { border-color: #007bff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-    .faq-section { background: #fdfdfd; padding: 20px; border-top: 2px solid #eee; margin-top: 50px; }
-    code { font-weight: bold; color: var(--highlight); }
+    .algebraic-table th, .algebraic-table td { border: 1px solid #dee2e6; padding: 12px; text-align: center; vertical-align: middle; }
+    .algebraic-table th { background-color: #f1f3f5; }
+    .algebraic-table td:first-child { text-align: left; }
+    .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 40px 0; }
+    .pillar-card { border: 2px solid #333; padding: 25px; border-radius: 10px; text-decoration: none; color: inherit; transition: all 0.3s ease; background: #fff; }
+    .pillar-card:hover { transform: translateY(-5px); border-color: var(--primary-blue); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    .pillar-card h3 { color: var(--primary-blue); margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    .pillar-card.tier-applied { border-color: #6c757d; opacity: 0.92; }
+    .pillar-card.tier-applied h3 { color: #6c757d; }
+    .precision-strong { background: #28a745; color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; }
+    .precision-medium { background: #17a2b8; color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; }
+    .precision-anchor { background: #6c757d; color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; }
+    .faq-section { background: #fdfdfd; padding: 30px; border-top: 2px solid #eee; margin-top: 60px; }
+    .faq-section details { margin-bottom: 20px; padding: 15px; background: #fff; border-radius: 6px; border: 1px solid #e9ecef; }
+    .faq-section summary { font-weight: bold; cursor: pointer; padding: 5px 0; }
+    .faq-section details[open] summary { margin-bottom: 12px; border-bottom: 1px solid #e9ecef; padding-bottom: 8px; }
+    code { font-weight: bold; color: #d14; background: #fdf0f0; padding: 2px 4px; border-radius: 3px; }
+    .section-divider { border: 0; border-top: 3px solid #333; margin: 60px 0 30px 0; }
+    .applied-header { color: #6c757d; }
   </style>
 </head>
 <body>
@@ -49,126 +62,238 @@
 
 <main id="main" class="container">
   <header>
-    <h1 style="font-size: 2.5rem;">Algebraic Universal Physics</h1>
-    <p style="font-size: 1.2rem; color: #666;">99.999% Precision. <strong>ZERO Free Parameters.</strong> Deterministic VP Lattice.</p>
-    
-    <div class="hero-box">
+    <h1 style="font-size: 2.6rem; margin-bottom: 10px;">VP Lattice Theory</h1>
+    <p style="font-size: 1.2rem; color: #555;">Algebraic derivation of physical constants from a deterministic jamming lattice. <strong>LOCK → derive → Gate</strong> reproducibility.</p>
+
+    <div class="hero-section">
       <strong>[ABSOLUTE PROPOSITION]</strong>
-      <p style="font-size: 1.2rem; line-height: 1.6; margin-top: 10px;">
-        The universe is a <strong>VP (Volume Particle, Infinite Rigidity) lattice jamming structure.</strong> 
-        All physical constants and biological codes are purely geometric outputs of this grid.
+      <p style="font-size: 1.2rem; line-height: 1.7; margin-top: 15px;">
+        The vacuum is modeled as a fully-packed, infinitely rigid <strong>VP (Volume Particle) jamming lattice.</strong>
+        Physical constants are treated as <strong>geometric outputs</strong> of this lattice, derived under a frozen LOCK and qualified by Gate verdicts (PASS/FAIL/INCONCLUSIVE).
       </p>
+    </div>
+
+    <div class="claim-tier">
+      <strong>Claim Scope (W.3.1):</strong> This work primarily presents derivations at <strong>Level-C0~C1</strong> (internal consistency + scale reproduction). Numerical agreement with measured constants is recorded as a Gate verdict, <strong>not used as justification</strong>. Level-C2+ (quantitative experimental agreement; cosmological replacement) requires attached Gate reports — see <a href="/en/whitepaper.html">main whitepaper</a> §17.3.
     </div>
   </header>
 
-  <section id="core-derivation">
-    <h2 style="border-bottom: 3px solid #007bff; display: inline-block;">The Core: Algebraic Derivation</h2>
-    <p>By mapping the dimensionless VP grid to the <strong>He-Ne Laser (632.991 nm)</strong>, we achieve a closed-form derivation of SI constants without empirical fitting.</p>
-    
-    <div class="formula-line">
-      &alpha;<sup>-1</sup> = f(&ell;<sub>rot</sub>, r<sub>vp</sub>) &asymp; 137.0364... (Exact Geometric Ratio)
+  <section>
+    <h2 style="border-bottom: 3px solid var(--primary-blue); display: inline-block;">Closed-Form Derivations</h2>
+    <p>Dimensionless lattice values are mapped to SI via the <strong>I₂-stabilized He-Ne reference</strong> (λ<sub>ref</sub> = 632.99121257859865746 nm). The integers (n<sub>r</sub>=5, N<sub>core</sub>=82, N<sub>shell</sub>=7, N=10¹²) are LOCK structural inputs; π and π² emerge as rectification constants from full-cycle averaging under maximum-entropy uniform measure (§5.1, §5.2.5).</p>
+
+    <div class="formula-box">
+      α<sub>em</sub><sup>−1</sup> = 4π · (N<sub>shell</sub> + N<sub>sec</sub> + N<sub>spin</sub> − δ<sub>proj</sub>)<br>
+      <span style="font-size: 0.95rem;">δ<sub>proj</sub> = (35/32) · (2/π²) · (3/7), with N<sub>shell</sub>=7, N<sub>sec</sub>=3, N<sub>spin</sub>=1</span><br>
+      <strong>= 137.0364</strong> &nbsp;vs CODATA 137.035999
     </div>
 
     <table class="algebraic-table">
       <thead>
         <tr>
           <th>Constant</th>
-          <th>VP Lattice Logic</th>
+          <th>VP Lattice Origin</th>
           <th>Derived Value</th>
-          <th>Match (%)</th>
+          <th>vs Measured</th>
           <th>Free Params</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Fine Structure (&alpha;<sup>-1</sup>)</strong></td>
-          <td>Scale-locked grid torsion</td>
+          <td><strong>Fine Structure α<sub>em</sub><sup>−1</sup></strong><br><small>§14.5</small></td>
+          <td>Integer counts (7,3,1,35,32) + π rectification</td>
           <td><code>137.0364</code></td>
-          <td><span class="precision-badge">99.9997%</span></td>
+          <td><span class="precision-strong">99.9997%</span></td>
           <td><strong>0</strong></td>
         </tr>
         <tr>
-          <td><strong>Proton Mass (m<sub>p</sub>)</strong></td>
-          <td>Rigid shell defect density</td>
-          <td><code>1.6726e-27 kg</code></td>
-          <td><span class="precision-badge">~100%</span></td>
+          <td><strong>m<sub>p</sub> · r<sub>p</sub> = (2/π)hc</strong><br><small>§6.2 + §13.4</small></td>
+          <td>1/R⁴ vs 1/R⁵ balance, a cancels algebraically</td>
+          <td><code>1.2646 × 10⁻²⁵ J·m</code></td>
+          <td><span class="precision-strong">99.985%</span></td>
           <td><strong>0</strong></td>
         </tr>
         <tr>
-          <td><strong>Speed of Light (c)</strong></td>
-          <td>Infinite rigidity wave propagation</td>
+          <td><strong>Proton mass m<sub>p</sub></strong><br><small>§13.4</small></td>
+          <td>m<sub>p</sub> = (2/π) · hc / r<sub>p</sub></td>
+          <td><code>0.93831 GeV</code></td>
+          <td><span class="precision-strong">99.996%</span></td>
+          <td><strong>0</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Higgs mass m<sub>H</sub></strong><br><small>§13.3</small></td>
+          <td>m<sub>H</sub> = U<sub>lat</sub>/(5π); 5π = (6 faces − 1 gauge) × π</td>
+          <td><code>124.69 GeV</code></td>
+          <td><span class="precision-medium">99.55%</span></td>
+          <td><strong>0</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Coulomb K<sub>C</sub></strong><br><small>§14.2</small></td>
+          <td>(N<sub>e</sub>/N<sub>p,core</sub>) · A<sup>−1/2</sup> · hc<sub>ref</sub></td>
+          <td><code>2.297 × 10⁻²⁸ N·m²</code></td>
+          <td><span class="precision-medium">99.57%</span></td>
+          <td><strong>0</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Elementary charge e</strong><br><small>§14.3</small></td>
+          <td>e<sub>map</sub> = √(K<sub>C</sub><sup>(VP)</sup>/k<sub>e</sub>)</td>
+          <td><code>1.5987 × 10⁻¹⁹ C</code></td>
+          <td><span class="precision-medium">99.78%</span></td>
+          <td><strong>0</strong></td>
+        </tr>
+        <tr>
+          <td><strong>m<sub>p</sub>/m<sub>e</sub> ratio</strong><br><small>§13.5</small></td>
+          <td>2π · ν<sub>p,can</sub> (reporting convention)</td>
+          <td><code>1836.78</code></td>
+          <td><span class="precision-strong">99.97%</span></td>
+          <td><strong>0</strong></td>
+        </tr>
+        <tr style="background: #f8f9fa;">
+          <td><strong>Speed of light c</strong></td>
+          <td>Operational anchor (clock-free def: c² = B<sub>eff</sub>/ρ<sub>eff</sub>)</td>
           <td><code>299,792,458 m/s</code></td>
-          <td><span class="precision-badge">Defined</span></td>
-          <td><strong>0</strong></td>
-        </tr>
-        <tr>
-          <td><strong>Gravity (G)</strong></td>
-          <td>Lattice flux gradient</td>
-          <td><code>6.6743e-11</code></td>
-          <td>Proposed</td>
-          <td><strong>0</strong></td>
+          <td><span class="precision-anchor">SI Anchor</span></td>
+          <td>—</td>
         </tr>
       </tbody>
     </table>
+
+    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">
+      <strong>Notes:</strong> "Free params" counts adjustable parameters in the closed-form derivation. External SI anchors (h, c<sub>ref</sub>, λ<sub>HeNe</sub>, r<sub>p</sub>) and internal LOCK inputs (D<sub>anch</sub>, A — both deterministic simulation outputs, see §6.1, §10.3) are not counted. Some derivations (m<sub>e</sub> direct form §13.5, Ψ<sub>yield</sub> Appendix G) have known internal consistency notes — see whitepaper §13.5 and §17.3 for explicit limitations.
+    </p>
   </section>
 
-  <section style="margin-top: 60px;">
-    <h2 style="border-bottom: 3px solid var(--dark-gray); display: inline-block;">Unified Applications (7 Pillars)</h2>
-    <p>The same VP logic extends from sub-quantum constants to macroscopic biological and geodynamic systems.</p>
-    
+  <hr class="section-divider">
+
+  <section class="mapping-logic">
+    <h2 style="color: #0056b3;">Gravity: Lattice Yield Model (Appendix G)</h2>
+    <p>Gravity is reframed as the <strong>restoring pressure of a jammed lattice attempting to fill the Void</strong> (mass-equivalent deficit). The lattice has a finite yield curvature demand Ψ<sub>yield</sub>, so contact-mode acceleration cannot exceed the lattice yield limit.</p>
+
+    <div class="formula-box" style="background: #eefbff; border-color: #b8daff; color: #004085;">
+      <strong>2-channel decomposition (G.1):</strong><br>
+      g<sub>obs</sub> = g<sub>geom</sub>(R) for orbit/free-fall (curvature channel)<br>
+      g<sub>obs</sub> = g<sub>restore</sub> ≤ g<sub>★</sub> for contact/static (restoring channel)<br><br>
+      <strong>Yield limit:</strong> g<sub>★</sub> ≡ c² · Ψ<sub>yield</sub><br>
+      Earth happens to provide Ψ<sub>geom</sub> ≈ Ψ<sub>yield</sub>, so surface g ≈ 9.8 m/s²
+    </div>
+
+    <h3 style="color: #0056b3;">Falsifiable predictions distinguishable from Newton</h3>
+    <ul>
+      <li><strong>Solid-surface bodies</strong> with g<sub>pot</sub> > g<sub>★</sub>: scale reading saturates at g<sub>★</sub> (no unbounded growth)</li>
+      <li><strong>Gas giants (Jupiter, Sun)</strong>: no static surface contact → no g<sub>★</sub> measurable; only g<sub>geom</sub> from orbital data</li>
+      <li><strong>Neutron star surface</strong>: fluidization transition above g<sub>★</sub>; excess dispersed into pressure/EM/rotation channels</li>
+    </ul>
+
+    <p style="font-size: 0.9rem; color: #666;">
+      <strong>Honesty note:</strong> Ψ<sub>yield</sub> is currently a LOCK input (canonical value frozen by realization protocol). A closed-form derivation of Ψ<sub>yield</sub> from the VP unit alone is an open item — see whitepaper §17.3 (limitations and vNext roadmap). The 2-channel decomposition and saturation behavior are themselves falsifiable predictions independent of the specific Ψ<sub>yield</sub> value.
+    </p>
+  </section>
+
+  <hr class="section-divider">
+
+  <section>
+    <h2 style="border-bottom: 3px solid var(--primary-blue); display: inline-block;">Methodology: LOCK → Derive → Gate</h2>
+    <p>Every numerical claim in this work carries three traceable elements: <strong>(i) LOCK provenance</strong> (which canonical inputs were frozen), <strong>(ii) derivation chain identifier</strong> (which transformations were applied), and <strong>(iii) Gate verdict</strong> (PASS / FAIL / INCONCLUSIVE). Statements lacking any of the three are treated as unclassified text, not conclusions.</p>
+
+    <ul>
+      <li><strong>No-Tuning rule:</strong> Post-hoc adjustment of definitions, inputs, thresholds, or verdict rules is forbidden within a version. Changes exist only as new LOCK versions.</li>
+      <li><strong>Single Source of Truth (SSOT):</strong> Each definition is fixed at exactly one location; re-derivation elsewhere is forbidden.</li>
+      <li><strong>Gate stack:</strong> G-SYM, G-LOCK, G-REG, G-RECT, G-STR, G-RCROSS, G-REP — required-route Gates.</li>
+      <li><strong>Numerical agreement is not justification:</strong> External constant matching is recorded as Gate evidence, not as theory validation.</li>
+    </ul>
+  </section>
+
+  <hr class="section-divider">
+
+  <section style="margin-top: 40px;">
+    <h2 class="applied-header" style="border-bottom: 3px solid #6c757d; display: inline-block;">Extended Application Modules</h2>
+    <p style="color: #666;">The following are <strong>conditional extensions</strong> (Level-C0~C1, claim type [H] hypothesis with declared regimes). Their conclusion status is independent of the core derivations above; each requires its own Gate stack to PASS.</p>
+
     <div class="pillar-grid">
-      <a href="/en/whitepaper.html" class="pillar-card" style="border-left: 5px solid #007bff;">
-        <h3>1. Fundamental Physics</h3>
-        <p>Core derivation of c, G, &alpha;, and m<sub>p</sub>.</p>
+      <a href="/en/whitepapers/cosmology-optics/" class="pillar-card tier-applied">
+        <h3>Lattice Cosmology &amp; Optics</h3>
+        <p>Light propagation, lensing, and expansion constraints in a global rigid lattice. Includes lattice-friction redshift module (separate Gates required: achromatic shift, energy sink, blurring).</p>
       </a>
-      <a href="/en/whitepapers/cosmology-optics/" class="pillar-card">
-        <h3>2. Lattice Cosmology</h3>
-        <p>Light propagation and lensing in a rigid grid.</p>
+      <a href="/en/whitepapers/fluid-dynamics/" class="pillar-card tier-applied">
+        <h3>Emergent Fluidics</h3>
+        <p>Continuity equation and Navier–Stokes emergence from VP jamming stability criteria. Stability regime declarations and testable scaling predictions.</p>
       </a>
-      <a href="/en/whitepapers/fluid-dynamics/" class="pillar-card">
-        <h3>3. Emergent Fluidics</h3>
-        <p>Navier–Stokes from VP jamming stability.</p>
+      <a href="/en/whitepapers/dna-mm39/" class="pillar-card tier-applied">
+        <h3>Deterministic DNA Pipeline</h3>
+        <p>Rule-based decoding pipeline for the Mouse/mm39 genome with reproducibility checkpoints and falsifiable outputs. <em>Hypothesis tier — independent verification required.</em></p>
       </a>
-      <a href="/en/whitepapers/dna-mm39/" class="pillar-card">
-        <h3>4. Deterministic DNA</h3>
-        <p>Decoding Mouse/mm39 genome via lattice periodicity.</p>
+      <a href="/en/whitepapers/bio-physical-apps/" class="pillar-card tier-applied">
+        <h3>Bio-Physical Applications</h3>
+        <p>Modular bio-physical applications derived from VP principles, with reproducibility bundles and validation gates per module. <em>Hypothesis tier.</em></p>
       </a>
-      <a href="/en/whitepapers/bio-physical-apps/" class="pillar-card">
-        <h3>5. Bio-Physical Apps</h3>
-        <p>Structured biological validation gates.</p>
+      <a href="/en/whitepapers/atlantic-expansion/" class="pillar-card tier-applied">
+        <h3>Geodynamics (Atlantic Opening)</h3>
+        <p>Pressure-deficit "void suction" + lubrication mechanism for episodic Atlantic opening. Pre-registered PASS/HOLD/FAIL tests. <em>Hypothesis tier.</em></p>
       </a>
-      <a href="/en/whitepapers/atlantic-expansion/" class="pillar-card">
-        <h3>6. Geodynamics</h3>
-        <p>Atlantic opening via "Void Suction" mechanics.</p>
-      </a>
-      <a href="/en/whitepapers/vp-application/" class="pillar-card">
-        <h3>7. Energy & Catalyst</h3>
-        <p>H2 production and energy-ledger accounting.</p>
+      <a href="/en/whitepapers/vp-application/" class="pillar-card tier-applied">
+        <h3>Energy &amp; Catalyst Engineering</h3>
+        <p>ESS → power → desalination paths and Pt catalyst / H₂ pathways under locked scale separation and energy-ledger accounting.</p>
       </a>
     </div>
   </section>
 
   <section class="faq-section">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-item">
-      <p><strong>Q: How does VP Theory achieve such high precision without free parameters?</strong></p>
-      <p>A: Because all physical constants are not independent variables; they are geometric ratios of the universal VP lattice, which has infinite rigidity and fixed packing density.</p>
-    </div>
-    <div class="faq-item">
-      <p><strong>Q: Why is the He-Ne laser used as a reference?</strong></p>
-      <p>A: It provides the fundamental SI mapping scale to translate dimensionless lattice units into physical meters and seconds.</p>
-    </div>
+    <h2>Verification FAQ</h2>
+
+    <details>
+      <summary>Are there free fit parameters in the constant derivations?</summary>
+      <p>For α<sub>em</sub>, m<sub>p</sub>, m<sub>p</sub>·r<sub>p</sub>, m<sub>H</sub>, and the Coulomb K<sub>C</sub> derivations: <strong>zero free parameters</strong> in the closed-form chain. External anchors are SI-standard (h, c<sub>ref</sub>, λ<sub>HeNe</sub>, r<sub>p</sub>); internal LOCK inputs (D<sub>anch</sub>, A) are <em>deterministic simulation outputs</em> from the VP lattice dynamics, not adjustable knobs. Some advanced items (m<sub>e</sub> direct form §13.5, Ψ<sub>yield</sub> in Appendix G) have explicit limitation notes — the whitepaper records these as Level-C0~C1 with vNext roadmap.</p>
+    </details>
+
+    <details>
+      <summary>How can α<sub>em</sub><sup>−1</sup> = 137.0364 emerge from integers alone?</summary>
+      <p>Only integers (N<sub>shell</sub>=7, N<sub>sec</sub>=3, N<sub>spin</sub>=1, 35, 32) and π enter the formula. The 7 comes from §8.2's 3D minimal cancellation structure (2-pair + 4-tetrahedral + 1-survive); the 3 from topological enclosure (§7.1); the 35/32 ratio from a permutation count 7!/(3!·2!·2!) = 210 over a sign/projection count 3·2⁶ = 192. The full chain is in §14.5 and is reproducible with the deterministic verification scripts in the DOI bundle.</p>
+    </details>
+
+    <details>
+      <summary>Why is gravity bounded near 9.8 m/s² on Earth-like bodies?</summary>
+      <p>Because the lattice has finite yield curvature demand (Ψ<sub>yield</sub>), the contact-mode restoring acceleration saturates at g<sub>★</sub> ≡ c²·Ψ<sub>yield</sub>. Earth happens to lie near this saturation (Ψ<sub>geom</sub> ≈ Ψ<sub>yield</sub>). The model is falsifiable: gas giants and neutron stars enter different regimes (no contact / fluidization), with distinct observable signatures detailed in Appendix G.4.</p>
+    </details>
+
+    <details>
+      <summary>Where do π and π² come from? Are they external math?</summary>
+      <p>No — they emerge as <strong>rectification constants</strong> from full-cycle averaging under a uniform measure, which itself emerges from maximum entropy under "no a priori bias" (§5.2.5). Specifically: α = ⟨|cos θ|⟩ = 2/π; δ = ⟨[cos θ]<sub>+</sub>·[cos φ]<sub>+</sub>⟩ = 1/π². The 2π in the denominator traces to rotational closure of phase variables; the 4π in §14.3 traces to 3D isotropic averaging. Both are lattice-symmetry results, not imposed mathematical constants.</p>
+    </details>
+
+    <details>
+      <summary>How does this differ from numerology or coincidence-fitting?</summary>
+      <p>Three structural protections: (i) <strong>No-Tuning rule</strong> — definitions, thresholds, and inputs cannot change after seeing results, only via versioning; (ii) <strong>SSOT enforcement</strong> — each constant is derived at exactly one location, with later sections only referencing it; (iii) <strong>multiple independent precision tests</strong> — α (5-digit), m<sub>p</sub>·r<sub>p</sub> (4-digit), m<sub>H</sub> (3-digit), e (3-digit), m<sub>p</sub>/m<sub>e</sub> (4-digit) are derived from the same backbone; coincidence-fitting cannot achieve simultaneous agreement on independent measured quantities at this scale.</p>
+    </details>
+
+    <details>
+      <summary>What are the known limitations and open items?</summary>
+      <p>Whitepaper §17.3 enumerates limitation classes: REGIME_OUT, IDENTIFIABILITY, NUMERICS, MEASUREMENT, DEPENDENCY. Specific open items include the explicit form of g(μ) for anisotropy, conditions for elevating ℓ<sub>rot</sub> from extension to LOCK, finite-size scaling diagnostics, and the closed-form derivation of Ψ<sub>yield</sub>. Items not yet at LOCK status are treated as hypotheses [H] with declared regimes, not conclusions [F].</p>
+    </details>
+
+    <details>
+      <summary>How is reproducibility ensured?</summary>
+      <p>The DOI bundle (Zenodo 10.5281/zenodo.17932567) includes: registry snapshot (canon_lock, realization_lock, gate_lock, protocol_lock); derived claims with dependency DAG; Gate reports and logs; deterministic verification scripts (Python) for the core derivations; manifest with sha256 checksums per file. The LOCK→derive→Gate pipeline is machine-auditable: any reader can re-execute the scripts under the frozen registry and verify Gate verdicts.</p>
+    </details>
   </section>
 
-  <section style="margin-top: 40px; text-align: center;">
-    <div class="wp-badges">
-      <a class="badge" href="https://doi.org/10.5281/zenodo.17932567" target="_blank">Core Whitepaper DOI</a>
-    </div>
+  <section style="text-align: center; margin: 60px 0 40px 0;">
+    <h2>DOI-Anchored Whitepapers</h2>
+    <p style="margin-bottom: 25px;">All theoretical frameworks are pre-registered on Zenodo with deterministic verification scripts.</p>
+    <p>
+      <a class="badge" href="https://doi.org/10.5281/zenodo.17932567" style="padding: 10px 18px; margin: 5px;">Core Whitepaper</a>
+      <a class="badge" href="https://doi.org/10.5281/zenodo.18012058" style="padding: 10px 18px; margin: 5px;">Cosmology &amp; Optics</a>
+      <a class="badge" href="https://doi.org/10.5281/zenodo.17972570" style="padding: 10px 18px; margin: 5px;">Fluid Dynamics</a>
+      <a class="badge" href="https://doi.org/10.5281/zenodo.17963127" style="padding: 10px 18px; margin: 5px;">DNA</a>
+      <a class="badge" href="https://doi.org/10.5281/zenodo.17978935" style="padding: 10px 18px; margin: 5px;">Geodynamics</a>
+      <a class="badge" href="https://doi.org/10.5281/zenodo.18043066" style="padding: 10px 18px; margin: 5px;">Applications</a>
+    </p>
   </section>
 </main>
 
-<footer>
-  <p>&copy; 2026 Jamming Physics Research | "Algebraic Determinism: No Fit, Only Prediction."</p>
+<footer style="text-align: center; padding: 30px; color: #666; font-size: 0.9rem;">
+  <p>&copy; 2026 Jamming Physics Research</p>
+  <p><em>Numerical agreement is recorded as Gate evidence, not used as theory justification.</em></p>
+  <p>Author: Young jae Lee · ORCID 0009-0002-7535-8245 · Independent researcher, Daegu, Korea</p>
 </footer>
 
 </body>
