@@ -4,8 +4,8 @@
   <meta charset="utf-8"/>
   <meta name="google-site-verification" content="sMEtw-AiE52TcmwsmY1XCM-K1POSzHfZCbFQlKAOxXA" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Jamming Physics — VP Lattice Theory | Closed-form derivation of α, m_H, m_p</title>
-  <meta name="description" content="VP (Volume Particle) lattice theory: closed-form algebraic derivation of α_em⁻¹ = 137.0364 (99.9997%), m_H = U_lat/(5π) = 124.69 GeV (99.55%), and m_p · r_p = (2/π) hc (99.985%). Zero free parameters. LOCK→derive→Gate reproducibility. Author: Young jae Lee (ORCID 0009-0002-7535-8245)."/>
+  <title>Jamming Physics — VP Lattice Theory | m_p/m_e = 6π⁵ (−19 ppm), proton radius = (2/π)λ_C, m_H = U_lat/5π</title>
+  <meta name="description" content="VP (Volume Particle) lattice theory: parameter-free predictions from a single anchor — m_p/m_e = 6π⁵ = 1836.118 (−19 ppm, anchor-free), the proton radius r_p = (2/π)λ_C forced as a stiffness–inflow equilibrium, and the Higgs mass m_H = U_lat/(5π) = 124.7 GeV (within 0.4%). No fitted parameters. LOCK→derive→Gate reproducibility. v0.2.0. Author: Young jae Lee (ORCID 0009-0002-7535-8245)."/>
   <meta name="author" content="Young jae Lee"/>
 
   <script type="application/ld+json">
@@ -13,7 +13,7 @@
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "name": "Volume Particle (VP) Theory: A Jamming-Lattice Whitepaper with LOCK→Derive→Gate Reproducibility Specification",
-    "description": "Closed-form algebraic derivation of dimensionless invariants (α_em, m_H/U_lat, m_p·r_p/hc, m_p/m_e) from a single VP jamming lattice. Zero free parameters in the derivation chain.",
+    "description": "Parameter-free predictions of dimensionless invariants (m_p/m_e = 6π⁵, proton radius r_p = (2/π)λ_C, ν_p = 3π⁴) and the Higgs mass m_H = U_lat/(5π) from a single VP jamming lattice with one empirical anchor. No fitted parameters in the derivation chain.",
     "author": {
       "@type": "Person",
       "name": "Young jae Lee",
@@ -21,10 +21,10 @@
       "identifier": "https://orcid.org/0009-0002-7535-8245",
       "email": "rego093@naver.com"
     },
-    "identifier": "https://doi.org/10.5281/zenodo.17932567",
+    "identifier": "https://doi.org/10.5281/zenodo.20442141",
     "datePublished": "2025-12-15",
-    "version": "Draft v0.1.2",
-    "keywords": "Volume Particle Theory, jamming lattice, fine-structure constant, Higgs mass, proton mass, dimensionless invariant, reproducibility"
+    "version": "v0.2.0 (Integrated Edition)",
+    "keywords": "Volume Particle Theory, jamming lattice, proton-electron mass ratio, proton radius, Higgs mass, dimensionless invariant, reproducibility"
   }
   </script>
 
@@ -275,51 +275,57 @@
 <main id="main" class="container">
 
   <header class="hero">
-    <h1>Three constants. One lattice. Zero free parameters.</h1>
+    <h1>One jammed lattice. One anchor. Zero fitted parameters.</h1>
     <p class="lede">
-      The <strong>fine-structure constant α</strong>, the <strong>Higgs mass m<sub>H</sub></strong>, and the <strong>proton mass × radius product m<sub>p</sub>·r<sub>p</sub></strong> — three quantities the Standard Model treats as inputs or measurements — are derived in <strong>closed algebraic form</strong> from a single VP (Volume Particle) jamming lattice. Each derivation is reproducible in 4–5 steps with deterministic verification scripts.
+      From a <strong>single empirical anchor</strong> — one laser wavelength — Volume Particle (VP) theory predicts, with <strong>no fitted parameters</strong>:
+      the proton-to-electron mass ratio <strong>m<sub>p</sub>/m<sub>e</sub> = 6π⁵ = 1836.118</strong> (a pure number carrying no anchor — <strong>−19 ppm</strong> from measurement);
+      the <strong>proton radius r<sub>p</sub> = (2/π)·λ<sub>C</sub></strong>, forced as the stable equilibrium of the lattice's stiffness against inflow;
+      and the <strong>Higgs mass m<sub>H</sub> = U<sub>lat</sub>/(5π) = 124.7 GeV</strong> (within <strong>0.4%</strong>).
+      Each is reproducible in a few algebraic steps with deterministic verification scripts.
     </p>
   </header>
+
+  <div class="cta-row" style="display:flex;flex-wrap:wrap;gap:.6rem;margin:1.3rem 0 .5rem;">
+    <a href="/en/whitepaper.html" style="background:var(--primary,#0b5fa5);color:#fff;padding:.6rem 1.05rem;border-radius:8px;font-weight:700;text-decoration:none;">Read the white paper →</a>
+    <a href="https://doi.org/10.5281/zenodo.20442141" style="border:1px solid var(--primary,#0b5fa5);color:var(--primary,#0b5fa5);padding:.6rem 1.05rem;border-radius:8px;font-weight:700;text-decoration:none;">PDF · Zenodo (DOI)</a>
+    <a href="https://doi.org/10.5281/zenodo.17932567" style="border:1px solid #9aa3af;color:#3a3f47;padding:.6rem 1.05rem;border-radius:8px;font-weight:700;text-decoration:none;">Run the code · reproduce</a>
+  </div>
 
   <section class="derivations">
     <h2>Live derivations</h2>
     <p class="deriv-intro">
-      The three derivations below use only integers (from lattice geometry), π (from rotational symmetry, §5), and external SI anchors (h, c<sub>ref</sub>, λ<sub>HeNe</sub>, r<sub>p</sub>). No fitting parameters at any step.
+      The derivations below use only integers (from lattice geometry), π (from rotational symmetry, §5), and a <strong>single empirical anchor</strong> — the HeNe wavelength λ<sub>ref</sub> = 632.99 nm (with h and c from CODATA). No fitting parameters at any step. The proton radius is a <em>prediction</em>, not an input.
     </p>
 
     <div class="deriv-grid">
 
-      <!-- ALPHA -->
+      <!-- MASS RATIO m_p/m_e = 6 pi^5 -->
       <div class="deriv-card">
-        <div class="label">Whitepaper §14.5</div>
-        <h3>Fine-structure constant α<sub>em</sub><sup>−1</sup></h3>
-        <p class="target">Standard Model: free input, no closed-form derivation. Measured to 10 digits.</p>
+        <div class="label">Whitepaper §8.0.5 + §13.5</div>
+        <h3>Proton-to-electron mass ratio m<sub>p</sub>/m<sub>e</sub></h3>
+        <p class="target">Standard Model: free input, measured to 11 digits, no closed-form derivation.</p>
 
         <div class="steps">
-          <b>Step 1 — Lattice integers:</b><br>
-          N<sub>shell</sub> = 7 (3D minimal cancellation: 2-pair + 4-tetrahedral + 1 survivor, §8.2)<br>
-          N<sub>sec</sub> = 3 (topological enclosure, §7.1)<br>
-          N<sub>spin</sub> = 1 (axial)<br><br>
+          <b>Step 1 — n-fold event-rate law (LOCK-NU-N, §8.0.5):</b><br>
+          ν<sub>n</sub> = n · π<sup>2(n−1)</sup> &nbsp;(canonical rate of an n-sector core)<br>
+          Proton has n = 3 sectors → ν<sub>p</sub> = 3π⁴ ≈ <b>292.227</b><br><br>
 
-          <b>Step 2 — Permutation/projection ratio:</b><br>
-          β = (7! / 3!2!2!) / (3 · 2⁶) = 210/192 = <b>35/32</b><br><br>
+          <b>Step 2 — Mass ratio (§13.5):</b><br>
+          m<sub>p</sub>/m<sub>e</sub> = 2π · ν<sub>p</sub>, &nbsp; with 2π = α/δ <em>(derived, §5)</em><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 2π · 3π⁴<br><br>
 
-          <b>Step 3 — Projection coefficient:</b><br>
-          δ<sub>proj</sub> = (35/32) · (2/π²) · (3/7) ≈ 0.09499<br><br>
-
-          <b>Step 4 — Closed form:</b><br>
-          <span class="arrow">⇒</span> α<sub>em</sub><sup>−1</sup> = 4π · (7 + 3 + 1 − δ<sub>proj</sub>)<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 4π × 10.9050<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <b>137.0364</b>
+          <b>Step 3 — Closed form:</b><br>
+          <span class="arrow">⇒</span> m<sub>p</sub>/m<sub>e</sub> = <b>6π⁵</b><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <b>1836.118</b>
         </div>
 
         <div class="result">
-          <span class="big">137.0364 vs measured 137.035999</span>
-          Match: <strong>99.9997%</strong> &nbsp;·&nbsp; Δ = 0.0003%
+          <span class="big">1836.118 vs measured 1836.15267</span>
+          Match: <strong>99.998%</strong> &nbsp;·&nbsp; Δ = <strong>−19 ppm</strong>
         </div>
         <div class="meta">
           <span class="free">Free parameters: 0</span>
-          <span>Inputs: integers + π</span>
+          <span>Pure dimensionless · carries no anchor</span>
         </div>
       </div>
 
@@ -363,8 +369,8 @@
       <!-- PROTON -->
       <div class="deriv-card">
         <div class="label">Whitepaper §6.2 + §13.4</div>
-        <h3>Proton invariant m<sub>p</sub> · r<sub>p</sub></h3>
-        <p class="target">Standard Model: m<sub>p</sub> and r<sub>p</sub> measured separately, no algebraic relation.</p>
+        <h3>Proton radius invariant r<sub>p</sub> / λ<sub>C,p</sub></h3>
+        <p class="target">Standard Model: r<sub>p</sub> measured, no first-principles relation to the Compton scale.</p>
 
         <div class="steps">
           <b>Step 1 — Stability scaling laws (§6.2):</b><br>
@@ -375,16 +381,16 @@
           Π<sub>4</sub>(R<sub>p</sub>) = Π<sub>5</sub>(R<sub>p</sub>)<br>
           ⇒ R<sub>p</sub>/L<sub>q</sub> = α = <b>2/π</b><br><br>
 
-          <b>Step 3 — Mass formula (§13.4):</b><br>
-          m<sub>p</sub> = U<sub>lat</sub> / S<sub>p</sub>, &nbsp; S<sub>p</sub> = λ<sub>C</sub>/a<br>
-          λ<sub>C</sub> = (π/2) · r<sub>p</sub> &nbsp; (from R<sub>p</sub>/L<sub>q</sub> = 2/π)<br><br>
+          <b>Step 3 — Proton Compton length (§13.4):</b><br>
+          λ<sub>C,p</sub> = h/(m<sub>p</sub>c) &nbsp; (proton Compton wavelength)<br>
+          r<sub>p</sub> = (2/π) · λ<sub>C,p</sub> &nbsp; (from R<sub>p</sub>/L<sub>q</sub> = 2/π)<br><br>
 
-          <b>Step 4 — a cancels algebraically:</b><br>
-          m<sub>p</sub> = hc/λ<sub>C</sub> = (2/π) · hc / r<sub>p</sub><br><br>
+          <b>Step 4 — Both are lengths on the same scale:</b><br>
+          their ratio is dimensionless and carries no anchor.<br><br>
 
           <b>Step 5 — Anchor-free invariant:</b><br>
-          <span class="arrow">⇒</span> m<sub>p</sub> · r<sub>p</sub> / (hc) = <b>2/π</b><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 0.63662
+          <span class="arrow">⇒</span> r<sub>p</sub> / λ<sub>C,p</sub> = <b>2/π</b> = 0.63662<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:.9em">(equivalently m<sub>p</sub>·r<sub>p</sub>·c/h = 2/π)</span>
         </div>
 
         <div class="result">
@@ -403,16 +409,11 @@
   <section class="significance">
     <h2>Why this is significant</h2>
 
-    <div class="feynman">
-      "It has been a mystery ever since it was discovered more than fifty years ago, and all good theoretical physicists put this number up on their wall and worry about it… we don't know what kind of dance to do on the computer to make this number come out — without putting it in secretly."
-      <br>— <strong>Richard Feynman</strong>, on α (QED, 1985)
-    </div>
-
     <ul>
-      <li><strong>α is a 100-year unsolved problem.</strong> Eddington, Pauli, Heisenberg all attempted derivations and failed. The Standard Model accepts α as a free parameter. A closed-form derivation matching to 5 digits is not a small claim.</li>
-      <li><strong>m<sub>H</sub> has no first-principles derivation in the Standard Model.</strong> It was a free input until LHC measured it in 2012. Here it falls out of cube geometry plus a gauge quotient.</li>
-      <li><strong>m<sub>p</sub> · r<sub>p</sub> = (2/π) hc is anchor-independent.</strong> The SI value of c, the choice of unit system — none of these affect this dimensionless ratio. It is a direct test of the geometric prediction.</li>
-      <li><strong>Three independent measured quantities, simultaneously matched from one backbone.</strong> Coincidence-fitting can occasionally hit one number; matching three independent ratios at 3–5 digit precision from a single closed derivation chain is a structurally different claim.</li>
+      <li><strong>m<sub>p</sub>/m<sub>e</sub> = 6π⁵ is a pure number that carries no anchor</strong>, and it matches measurement to <strong>19 ppm</strong>. The SI value of c, the unit system, the calibration wavelength — none of them affect it. It is re-derived structurally from the lattice n-fold law (ν<sub>p</sub> = 3π⁴), not fitted to the data.</li>
+      <li><strong>The proton radius is forced, not fitted.</strong> r<sub>p</sub> is the single <em>stable</em> radius at which the lattice's outward stiffness (∝ r⁻⁵) balances the inward inflow (∝ r⁻⁴): compress and stiffness pushes back, expand and inflow pulls in. That equilibrium pins r<sub>p</sub>/λ<sub>C,p</sub> = 2/π — an anchor-independent prediction, not an adjustable parameter.</li>
+      <li><strong>m<sub>H</sub> has no first-principles derivation in the Standard Model.</strong> It was a free input until the LHC measured it in 2012. Here it falls out of cube geometry plus a gauge quotient (5 = 6 − 1), as m<sub>H</sub> = U<sub>lat</sub>/(5π): <em>one length in, a mass out</em>, within 0.4%.</li>
+      <li><strong>Three independent dimensionless relations from one backbone</strong>, with no per-quantity calibration. Coincidence-fitting can occasionally land one number; matching three independent ratios from a single, no-tuning derivation chain is a structurally different claim — and it is meant to be checked, not believed (run the scripts below).</li>
     </ul>
   </section>
 
@@ -432,25 +433,24 @@
       </thead>
       <tbody>
         <tr>
-          <td>§13.5</td>
-          <td>m<sub>p</sub> / m<sub>e</sub> = 2π · ν<sub>p,can</sub></td>
-          <td class="ctr">1836.78</td>
-          <td class="ctr">1836.15</td>
-          <td class="ctr"><span class="prec prec-4">99.97%</span></td>
+          <td>§5.1</td>
+          <td>Rectification α = ⟨|cos θ|⟩ = 2/π</td>
+          <td class="ctr">0.63662</td>
+          <td class="ctr">exact integral</td>
+          <td class="ctr"><span class="prec prec-5">exact</span></td>
         </tr>
         <tr>
-          <td>§14.2</td>
-          <td>Coulomb K<sub>C</sub><sup>(VP)</sup> ∝ (N<sub>e</sub>/N<sub>p,core</sub>) · A<sup>−1/2</sup> · hc</td>
-          <td class="ctr">2.297 × 10⁻²⁸ N·m²</td>
-          <td class="ctr">2.307 × 10⁻²⁸</td>
-          <td class="ctr"><span class="prec prec-3">99.57%</span></td>
+          <td>§5.2</td>
+          <td>Double rectification δ = 1/π²</td>
+          <td class="ctr">0.10132</td>
+          <td class="ctr">exact integral</td>
+          <td class="ctr"><span class="prec prec-5">exact</span></td>
         </tr>
         <tr>
-          <td>§14.3</td>
-          <td>Elementary charge: e<sub>map</sub> = √(K<sub>C</sub><sup>(VP)</sup>/k<sub>e</sub>)</td>
-          <td class="ctr">1.5987 × 10⁻¹⁹ C</td>
-          <td class="ctr">1.6022 × 10⁻¹⁹ C</td>
-          <td class="ctr"><span class="prec prec-3">99.78%</span></td>
+          <td>§8.0.5</td>
+          <td>Canonical event rate ν<sub>p</sub> = 3π⁴ &nbsp;(n-fold law, n = 3)</td>
+          <td class="ctr" colspan="2">292.227 s⁻¹ &nbsp;(geometric, no anchor)</td>
+          <td class="ctr"><span class="prec prec-5">forced</span></td>
         </tr>
         <tr>
           <td>§15.5</td>
@@ -467,7 +467,7 @@
         <tr>
           <td>§18.3</td>
           <td>Chemical bond rupture at √2 ratio (cube diagonal)</td>
-          <td class="ctr" colspan="2">N₂, CO₂, H₂O experimental data confirms</td>
+          <td class="ctr" colspan="2">N₂, CO₂, H₂O experimental data consistent</td>
           <td class="ctr"><span class="prec prec-3">geometric</span></td>
         </tr>
       </tbody>
@@ -535,8 +535,9 @@
       <h3>Scope and acknowledged limitations (§17.3)</h3>
       <p>The whitepaper enumerates limitations rather than claiming completeness. Items below are recorded as hypotheses [H], not conclusions [F]:</p>
       <ul>
+        <li><strong>The fine-structure constant α<sub>em</sub> ≈ 1/137 is NOT claimed as a derivation.</strong> It is taken from measurement — an open input (§14.5); the 4π(11 − …) numerical match is recorded as a <em>coincidence, not evidence</em>. We state this plainly because "deriving α from integers" is a classic over-claim, and this framework does not make it.</li>
+        <li><strong>Absolute mass scale is anchored, not predicted.</strong> The dimensionless ratio m<sub>p</sub>/m<sub>e</sub> = 6π⁵ is forced (−19 ppm), but the absolute electron and proton masses descend from the single wavelength anchor; m<sub>e</sub> is the calibration node (Compton relation), not an independent prediction (§13.5).</li>
         <li><strong>Claim tier:</strong> primarily Level-C0 (internal consistency) + Level-C1 (scale reproduction). Level-C2+ (quantitative experimental claims) requires attached Gate reports verified as PASS.</li>
-        <li><strong>m<sub>e</sub> direct form (§13.5):</strong> closed-form r<sub>e</sub> = (D<sub>anch</sub>/2)·δ off by π² from measurement; reporting convention m<sub>p</sub>/m<sub>e</sub> = 2π·ν<sub>p,can</sub> agrees. Documented, not hidden.</li>
         <li><strong>Ψ<sub>yield</sub> (Appendix G):</strong> currently a LOCK input. Earth's 9.8 m/s² is a consistency anchor, not a prediction; the falsifiable content is the saturation behavior across regimes.</li>
         <li><strong>N<sub>core</sub> = 82 (§7.1.8.2):</strong> φ<sub>pack</sub> = 82/125 explicitly flagged as back-calculated consistency indicator, not a prediction.</li>
         <li><strong>D<sub>anch</sub>, A precision:</strong> deterministic simulation outputs (§6.1, §10.3); reproducing them requires running bundled scripts.</li>
@@ -588,7 +589,9 @@
     <h2 style="border: none; color: var(--primary);">DOI-anchored whitepapers</h2>
     <p>All frameworks pre-registered on Zenodo with deterministic verification scripts and machine-readable LOCK files.</p>
     <div class="doi-badges">
-      <a href="https://doi.org/10.5281/zenodo.17932567">Core Whitepaper · 10.5281/zenodo.17932567</a>
+      <a href="https://doi.org/10.5281/zenodo.20442141">Core Whitepaper (v0.2.0) · 10.5281/zenodo.20442141</a>
+      <a href="https://doi.org/10.5281/zenodo.17932566">Concept DOI (all versions)</a>
+      <a href="https://doi.org/10.5281/zenodo.17932567">Code/data reproducibility bundle</a>
       <a href="https://doi.org/10.5281/zenodo.18012058">Cosmology &amp; Optics</a>
       <a href="https://doi.org/10.5281/zenodo.17972570">Fluid Dynamics</a>
       <a href="https://doi.org/10.5281/zenodo.17963127">DNA</a>
