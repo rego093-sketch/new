@@ -1,6 +1,5 @@
 (function(){
   function getLang(){
-    if (location.pathname.startsWith('/ko/')) return 'ko';
     return 'en';
   }
   function slugify(s){
