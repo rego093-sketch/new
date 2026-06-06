@@ -78,6 +78,9 @@ nav.top a:hover{color:var(--primary);text-decoration:none}
 .phero .tagline{font-size:1.12rem;opacity:.95;margin:14px 0 0;max-width:58ch}
 .phero.plain .tagline{color:var(--muted);opacity:1}
 .phero .pill{background:rgba(255,255,255,.16);color:#fff}
+.phero-cta{margin:22px 0 0}
+.phero-cta a{display:inline-block;background:#fff;color:var(--primary);font-family:var(--body);font-weight:600;font-size:.98rem;padding:11px 20px;border-radius:7px;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.phero-cta a:hover{text-decoration:none;transform:translateY(-1px);box-shadow:0 10px 24px -12px rgba(0,0,0,.55)}
 .pbody{padding:36px 0 8px}
 .block{margin:0 0 38px;max-width:none}
 .block h2{font-size:1.5rem;color:var(--primary);border-bottom:1px solid var(--line);padding-bottom:7px;margin-bottom:16px}
