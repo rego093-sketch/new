@@ -1,680 +1,146 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="google-site-verification" content="sMEtw-AiE52TcmwsmY1XCM-K1POSzHfZCbFQlKAOxXA" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Jamming Physics — Volume-Particle (VP) Theory &amp; a Deterministic Two-Layer Interpretation of DNA</title>
-  <meta name="description" content="Jamming Physics: two DOI-anchored research lines. (1) Volume-Particle (VP) lattice theory — parameter-free predictions from a single anchor: m_p/m_e = 6π⁵ (−19 ppm), proton radius r_p = (2/π)λ_C, Higgs mass m_H = U_lat/(5π) (within 0.4%). (2) A deterministic two-layer reading of DNA — position is grammar, quantity is runtime, validated across organisms, with an exponential conservation law (R² = 0.975). Author: Young Jae Lee (ORCID 0009-0002-7535-8245)."/>
-  <meta name="author" content="Young jae Lee"/>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "name": "Volume Particle (VP) Theory: A Jamming-Lattice Whitepaper with LOCK→Derive→Gate Reproducibility Specification",
-    "description": "Parameter-free predictions of dimensionless invariants (m_p/m_e = 6π⁵, proton radius r_p = (2/π)λ_C, ν_p = 3π⁴) and the Higgs mass m_H = U_lat/(5π) from a single VP jamming lattice with one empirical anchor. No fitted parameters in the derivation chain.",
-    "author": {
-      "@type": "Person",
-      "name": "Young jae Lee",
-      "affiliation": "Independent researcher, Daegu, Korea",
-      "identifier": "https://orcid.org/0009-0002-7535-8245",
-      "email": "rego093@naver.com"
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"/><title>The Volume Particle (VP) Project | Jamming Physics</title><meta name="description" content="A reproducible research program modelling the vacuum as a jammed packing of finite-volume quanta — from c²=B/ρ to gravity as vacuum inflow, across six DOI-anchored whitepapers."/><meta name="author" content="Young Jae Lee"/><meta name="theme-color" content="#16335f"/><link rel="canonical" href="https://jamming-physics.org/"/><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%2316335f%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%229%22 fill=%22none%22 stroke=%22%230d7c66%22 stroke-width=%222%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%223%22 fill=%22%23fff%22/%3E%3C/svg%3E"/><meta property="og:type" content="website"/><meta property="og:site_name" content="Jamming Physics"/><meta property="og:locale" content="en"/><meta property="og:url" content="https://jamming-physics.org/"/><meta property="og:title" content="The Volume Particle (VP) Project"/><meta property="og:description" content="A reproducible research program modelling the vacuum as a jammed packing of finite-volume quanta — from c²=B/ρ to gravity as vacuum inflow, across six DOI-anchored whitepapers."/><meta property="og:image" content="https://jamming-physics.org/assets/og-cover.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="The Volume Particle (VP) Project"/><meta name="twitter:description" content="A reproducible research program modelling the vacuum as a jammed packing of finite-volume quanta — from c²=B/ρ to gravity as vacuum inflow, across six DOI-anchored whitepapers."/><meta name="twitter:image" content="https://jamming-physics.org/assets/og-cover.png"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet"/><link rel="stylesheet" href="/assets/style.css"/><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://jamming-physics.org/#website",
+      "url": "https://jamming-physics.org/",
+      "name": "Jamming Physics — The Volume Particle (VP) Project",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://jamming-physics.org/#author"
+      }
     },
-    "identifier": "https://doi.org/10.5281/zenodo.20442141",
-    "datePublished": "2025-12-15",
-    "version": "v0.2.0 (Integrated Edition)",
-    "keywords": "Volume Particle Theory, jamming lattice, proton-electron mass ratio, proton radius, Higgs mass, dimensionless invariant, reproducibility"
-  }
-  </script>
-
-  <link rel="canonical" href="https://jamming-physics.org/"/>
-  <link rel="stylesheet" href="/assets/style.css"/>
-  <link rel="stylesheet" href="/assets/whitepapers.css"/>
-  <style>
-    :root {
-      --primary: #1a4480;
-      --primary-light: #2c5aa0;
-      --accent: #0d7c66;
-      --gold: #b08800;
-      --neutral: #6c757d;
-      --bg-soft: #f8f9fa;
-      --bg-deriv: #fdfcf3;
-      --border: #dee2e6;
-      --text: #212529;
+    {
+      "@type": "Person",
+      "@id": "https://jamming-physics.org/#author",
+      "name": "Young Jae Lee",
+      "url": "https://jamming-physics.org/about/",
+      "affiliation": "Independent Researcher, Daegu, Republic of Korea",
+      "email": "rego093@naver.com",
+      "identifier": "https://orcid.org/0009-0002-7535-8245",
+      "sameAs": [
+        "https://orcid.org/0009-0002-7535-8245"
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://jamming-physics.org/#webpage",
+      "url": "https://jamming-physics.org/",
+      "name": "The Volume Particle (VP) Project",
+      "isPartOf": {
+        "@id": "https://jamming-physics.org/#website"
+      },
+      "about": "A jammed-medium research program with six reproducible, DOI-anchored whitepapers.",
+      "hasPart": [
+        {
+          "@type": "ScholarlyArticle",
+          "name": "Volume Particle Theory (VP) Whitepaper v0.4",
+          "url": "https://jamming-physics.org/physics/",
+          "identifier": "https://doi.org/10.5281/zenodo.17932566",
+          "sameAs": "https://zenodo.org/records/17932566",
+          "author": {
+            "@id": "https://jamming-physics.org/#author"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "name": "The Configured Continuum: A Foundational Whitepaper on Fluid Form as a Necessary Consequence of Arrangement",
+          "url": "https://jamming-physics.org/fluid-dynamics/",
+          "identifier": "https://doi.org/10.5281/zenodo.17972568",
+          "sameAs": "https://zenodo.org/records/17972568",
+          "author": {
+            "@id": "https://jamming-physics.org/#author"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "name": "The Earth–Cosmos Volume: Gravity, Planetary Motion, Galactic Dynamics, and Cosmology as Vacuum Inflow — A Simulation-Grounded Account",
+          "url": "https://jamming-physics.org/cosmology/",
+          "identifier": "https://doi.org/10.5281/zenodo.20568874",
+          "sameAs": "https://zenodo.org/records/20568874",
+          "author": {
+            "@id": "https://jamming-physics.org/#author"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "name": "A Volume-Particle Jamming–Unjamming Mechanism for Rapid Continental Break-up: A Falsifiable Whitepaper and Reproducibility Bundle (Atlantic test case, r18)",
+          "url": "https://jamming-physics.org/geodynamics/",
+          "identifier": "https://doi.org/10.5281/zenodo.17978934",
+          "sameAs": "https://zenodo.org/records/17978934",
+          "author": {
+            "@id": "https://jamming-physics.org/#author"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "name": "Deterministic Two-Layer Interpretation of DNA — Position as Grammar, Quantity as Runtime (v8: A Self-Gating Interpreter with Zero Hand-Tuned Parameters)",
+          "url": "https://jamming-physics.org/dna/",
+          "identifier": "https://doi.org/10.5281/zenodo.20471407",
+          "sameAs": "https://zenodo.org/records/20471407",
+          "author": {
+            "@id": "https://jamming-physics.org/#author"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "name": "Foreign-Material Incorporation as a Cross-Chronometer Accuracy Limit: Extending Matrix-Informed Radiocarbon Correction to Zircon U–Pb Geochronology",
+          "url": "https://jamming-physics.org/geochronology/",
+          "identifier": "https://doi.org/10.5281/zenodo.20568673",
+          "sameAs": "https://zenodo.org/records/20568673",
+          "author": {
+            "@id": "https://jamming-physics.org/#author"
+          }
+        }
+      ]
     }
-    * { box-sizing: border-box; }
-    body { color: var(--text); line-height: 1.6; margin: 0; }
-    .container { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
-
-    /* Hero */
-    .hero {
-      background: linear-gradient(135deg, #1a4480 0%, #2c5aa0 100%);
-      color: #fff;
-      padding: 55px 38px 50px;
-      border-radius: 6px;
-      margin: 30px 0 40px;
-    }
-    .hero h1 { margin: 0 0 14px 0; font-size: 2.4rem; line-height: 1.2; }
-    .hero .lede { font-size: 1.18rem; opacity: 0.97; line-height: 1.55; max-width: 880px; }
-    .hero .lede strong { color: #ffe082; }
-
-    /* Three derivation cards — equal weight, side by side */
-    .derivations { margin: 0 0 40px; }
-    .derivations h2 { color: var(--primary); border-bottom: 3px solid var(--primary); display: inline-block; padding-bottom: 6px; margin-bottom: 8px; }
-    .derivations .deriv-intro { font-size: 1.02rem; color: #444; margin: 12px 0 28px; max-width: 920px; }
-
-    .deriv-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin: 0;
-    }
-    @media (max-width: 980px) {
-      .deriv-grid { grid-template-columns: 1fr; }
-    }
-
-    .deriv-card {
-      background: #fff;
-      border: 2px solid var(--primary);
-      border-radius: 6px;
-      padding: 24px 24px 22px;
-      display: flex;
-      flex-direction: column;
-    }
-    .deriv-card .label {
-      font-size: 0.78rem;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: var(--primary);
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .deriv-card h3 {
-      margin: 0 0 8px 0;
-      font-size: 1.18rem;
-      color: var(--text);
-    }
-    .deriv-card .target {
-      font-size: 0.92rem;
-      color: #555;
-      margin: 0 0 18px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
-    }
-    .deriv-card .steps {
-      background: var(--bg-deriv);
-      padding: 16px 18px;
-      border-radius: 4px;
-      font-family: "Cambria Math", "Latin Modern Math", "Cambria", serif;
-      font-size: 0.93rem;
-      line-height: 1.7;
-      flex-grow: 1;
-    }
-    .deriv-card .steps b { color: var(--gold); }
-    .deriv-card .steps .arrow { color: var(--accent); font-weight: 700; }
-    .deriv-card .result {
-      margin-top: 14px;
-      padding: 14px 16px;
-      background: #e8f5e9;
-      border-left: 4px solid var(--accent);
-      border-radius: 0 4px 4px 0;
-      font-size: 0.95rem;
-    }
-    .deriv-card .result .big {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 4px;
-    }
-    .deriv-card .meta {
-      margin-top: 10px;
-      font-size: 0.85rem;
-      color: #666;
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-    }
-    .deriv-card .meta .free { color: var(--accent); font-weight: 600; }
-
-    /* Why this matters */
-    .significance {
-      margin: 50px 0;
-      padding: 28px 30px;
-      background: var(--bg-soft);
-      border-left: 5px solid var(--gold);
-      border-radius: 0 6px 6px 0;
-    }
-    .significance h2 { margin-top: 0; color: var(--primary); }
-    .significance ul { margin: 12px 0; padding-left: 24px; }
-    .significance li { margin: 8px 0; }
-    .significance .feynman {
-      background: #fff;
-      padding: 14px 18px;
-      border-left: 3px solid var(--gold);
-      margin: 16px 0;
-      font-style: italic;
-      color: #555;
-      font-size: 0.95rem;
-    }
-
-    /* Sections */
-    section { margin: 55px 0; }
-    h2 { color: var(--primary); border-bottom: 3px solid var(--primary); display: inline-block; padding-bottom: 6px; }
-    h3 { color: var(--primary-light); margin-top: 28px; }
-
-    /* Compact summary table */
-    .summary-table { width: 100%; border-collapse: collapse; margin: 18px 0; background: #fff; font-size: 0.93rem; }
-    .summary-table th, .summary-table td { border: 1px solid var(--border); padding: 11px 12px; }
-    .summary-table th { background: var(--bg-soft); text-align: left; font-weight: 600; }
-    .summary-table .ctr { text-align: center; }
-    .prec { padding: 3px 9px; border-radius: 4px; font-size: 0.82rem; font-weight: 600; color: #fff; white-space: nowrap; }
-    .prec-5 { background: #0d7c66; }
-    .prec-4 { background: #2c5aa0; }
-    .prec-3 { background: #6c757d; }
-
-    /* Pi emergence box */
-    .pi-box {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 24px 28px;
-      margin: 20px 0;
-    }
-    .pi-box ol { margin: 12px 0; padding-left: 22px; }
-    .pi-box li { margin: 8px 0; }
-
-    /* Gravity */
-    .gravity-formula {
-      background: #fdfcf3;
-      padding: 18px 22px;
-      border-left: 4px solid var(--accent);
-      border-radius: 0 4px 4px 0;
-      margin: 16px 0;
-      font-family: "Cambria Math", serif;
-      font-size: 1.02rem;
-      line-height: 1.85;
-    }
-
-    /* Honesty (compact) */
-    .honesty {
-      background: #fff8e1;
-      border: 1px solid #ffd54f;
-      border-radius: 6px;
-      padding: 22px 26px;
-      margin: 30px 0;
-    }
-    .honesty h3 { margin-top: 0; color: #856404; }
-    .honesty ul { margin: 8px 0 0; padding-left: 22px; }
-    .honesty li { margin: 5px 0; font-size: 0.94rem; }
-
-    /* Methodology */
-    .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 18px 0; }
-    .method-card { background: var(--bg-soft); padding: 16px 18px; border-radius: 5px; border-top: 3px solid var(--primary); }
-    .method-card h4 { margin: 0 0 6px 0; color: var(--primary); font-size: 1rem; }
-    .method-card p { margin: 0; font-size: 0.9rem; }
-
-    /* Pillars */
-    .pillar-section { margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border); }
-    .pillar-section h2 { color: var(--neutral); border-bottom-color: var(--neutral); }
-    .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 22px 0; }
-    .pillar-card {
-      border: 1px solid var(--border);
-      padding: 18px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.2s ease;
-      background: #fff;
-    }
-    .pillar-card:hover { border-color: var(--primary); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
-    .pillar-card h3 { margin: 0 0 6px 0; color: var(--neutral); font-size: 1rem; }
-    .pillar-card p { margin: 0; font-size: 0.88rem; color: #555; }
-    .pillar-tier { display: inline-block; font-size: 0.7rem; padding: 2px 7px; border-radius: 3px; margin-bottom: 5px; font-weight: 600; letter-spacing: 0.3px; background: #e3f2fd; color: #1565c0; }
-
-    /* DOI section */
-    .doi-section { background: var(--bg-soft); padding: 30px; border-radius: 6px; margin-top: 50px; text-align: center; }
-    .doi-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 18px; }
-    .doi-badges a {
-      padding: 8px 16px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      text-decoration: none;
-      color: var(--primary);
-      font-size: 0.9rem;
-      transition: all 0.2s;
-    }
-    .doi-badges a:hover { background: var(--primary); color: #fff; }
-
-    code { background: #fdf0f0; color: #c0392b; padding: 2px 5px; border-radius: 3px; font-weight: 500; font-size: 0.92em; }
-    .small { font-size: 0.85rem; color: #666; }
-
-    footer { padding: 35px 20px; text-align: center; color: #666; font-size: 0.88rem; border-top: 1px solid var(--border); margin-top: 50px; }
-    footer p { margin: 5px 0; }
-
-    @media (max-width: 700px) {
-      .hero h1 { font-size: 1.7rem; }
-      .hero { padding: 35px 22px; }
-      .summary-table { font-size: 0.85rem; }
-      .summary-table th, .summary-table td { padding: 8px 6px; }
-    }
-  </style>
-</head>
-<body>
-
-<nav class="navbar">
-  <a href="/" class="nav-logo">JAMMING PHYSICS</a>
-  <div class="nav-right">
-    <a class="nav-link" href="#vp-theory">VP Theory</a>
-    <a class="nav-link" href="#dna">DNA</a>
-    <a class="nav-link" href="/en/whitepapers/">Whitepapers</a>
-    <a class="nav-link" href="#dois">DOIs</a>
-  </div>
-</nav>
-
-<main id="main" class="container">
-
-  <header class="hero">
-    <h1>One lattice for matter. Two layers for the genome.</h1>
-    <p class="lede">
-      <strong>Jamming Physics</strong> develops two independent, DOI-anchored research lines — each built to be <em>checked</em>, not believed:
-      <br><br>
-      <strong>Volume-Particle (VP) theory.</strong> From a <strong>single empirical anchor</strong> — one laser wavelength — parameter-free predictions of dimensionless invariants:
-      <strong>m<sub>p</sub>/m<sub>e</sub> = 6π⁵</strong> (−19 ppm), the <strong>proton radius r<sub>p</sub> = (2/π)·λ<sub>C</sub></strong>, and the <strong>Higgs mass m<sub>H</sub> = U<sub>lat</sub>/(5π)</strong> (within 0.4%).
-      <br><br>
-      <strong>A deterministic two-layer reading of DNA.</strong> Position is grammar, quantity is runtime: the sequence fixes <strong>position and phase</strong> (validated across organisms), while <strong>amount</strong> is set by the living cell — with an <strong>exponential conservation law (R² = 0.975)</strong>.
-    </p>
-  </header>
-
-  <div class="cta-row" style="display:flex;flex-wrap:wrap;gap:.6rem;margin:1.3rem 0 .5rem;">
-    <a href="/en/whitepaper.html" style="background:var(--primary,#0b5fa5);color:#fff;padding:.6rem 1.05rem;border-radius:8px;font-weight:700;text-decoration:none;">Read the white paper →</a>
-    <a href="https://doi.org/10.5281/zenodo.20442141" style="border:1px solid var(--primary,#0b5fa5);color:var(--primary,#0b5fa5);padding:.6rem 1.05rem;border-radius:8px;font-weight:700;text-decoration:none;">PDF · Zenodo (DOI)</a>
-    <a href="https://doi.org/10.5281/zenodo.17932567" style="border:1px solid #9aa3af;color:#3a3f47;padding:.6rem 1.05rem;border-radius:8px;font-weight:700;text-decoration:none;">Run the code · reproduce</a>
-  </div>
-
-  <section id="vp-theory" style="margin:34px 0 0;">
-    <h2 style="font-size:1.75rem;">① Volume-Particle (VP) Theory — the physics</h2>
-    <p style="color:#444;max-width:920px;font-size:1.02rem;">From one laser-wavelength anchor, the VP jamming lattice forces a chain of parameter-free predictions. Each is reproducible in a few algebraic steps with deterministic verification scripts.</p>
-  </section>
-
-  <section class="derivations">
-    <h2>Live derivations</h2>
-    <p class="deriv-intro">
-      The derivations below use only integers (from lattice geometry), π (from rotational symmetry, §5), and a <strong>single empirical anchor</strong> — the HeNe wavelength λ<sub>ref</sub> = 632.99 nm (with h and c from CODATA). No fitting parameters at any step. The proton radius is a <em>prediction</em>, not an input.
-    </p>
-
-    <div class="deriv-grid">
-
-      <!-- MASS RATIO m_p/m_e = 6 pi^5 -->
-      <div class="deriv-card">
-        <div class="label">Whitepaper §8.0.5 + §13.5</div>
-        <h3>Proton-to-electron mass ratio m<sub>p</sub>/m<sub>e</sub></h3>
-        <p class="target">Standard Model: free input, measured to 11 digits, no closed-form derivation.</p>
-
-        <div class="steps">
-          <b>Step 1 — n-fold event-rate law (LOCK-NU-N, §8.0.5):</b><br>
-          ν<sub>n</sub> = n · π<sup>2(n−1)</sup> &nbsp;(canonical rate of an n-sector core)<br>
-          Proton has n = 3 sectors → ν<sub>p</sub> = 3π⁴ ≈ <b>292.227</b><br><br>
-
-          <b>Step 2 — Mass ratio (§13.5):</b><br>
-          m<sub>p</sub>/m<sub>e</sub> = 2π · ν<sub>p</sub>, &nbsp; with 2π = α/δ <em>(derived, §5)</em><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 2π · 3π⁴<br><br>
-
-          <b>Step 3 — Closed form:</b><br>
-          <span class="arrow">⇒</span> m<sub>p</sub>/m<sub>e</sub> = <b>6π⁵</b><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <b>1836.118</b>
-        </div>
-
-        <div class="result">
-          <span class="big">1836.118 vs measured 1836.15267</span>
-          Match: <strong>99.998%</strong> &nbsp;·&nbsp; Δ = <strong>−19 ppm</strong>
-        </div>
-        <div class="meta">
-          <span class="free">Free parameters: 0</span>
-          <span>Pure dimensionless · carries no anchor</span>
-        </div>
-      </div>
-
-      <!-- HIGGS -->
-      <div class="deriv-card">
-        <div class="label">Whitepaper §13.3</div>
-        <h3>Higgs boson mass m<sub>H</sub></h3>
-        <p class="target">Standard Model: free input. Measured at LHC (2012, refined 2024).</p>
-
-        <div class="steps">
-          <b>Step 1 — Anchor cell geometry:</b><br>
-          Anchor cell is a cube → 6 faces<br><br>
-
-          <b>Step 2 — Gauge quotient:</b><br>
-          Global reference shift u ~ u + c·1₆<br>
-          dim(R⁶ / span{1₆}) = 6 − 1 = <b>5</b><br><br>
-
-          <b>Step 3 — Channel area (inscribed disk):</b><br>
-          Each face: σ = π(a/2)²<br>
-          Dimensionless: σ₀ = 4σ/a² = <b>π</b><br><br>
-
-          <b>Step 4 — Effective cross-section:</b><br>
-          σ<sub>eff</sub>(H) = Σ<sub>k</sub> σ₀ = 5 × π = <b>5π</b><br><br>
-
-          <b>Step 5 — Mass:</b><br>
-          <span class="arrow">⇒</span> m<sub>H</sub> = U<sub>lat</sub> / (5π)<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 1958.7 GeV / 15.708<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <b>124.69 GeV</b>
-        </div>
-
-        <div class="result">
-          <span class="big">124.69 GeV vs measured 125.25 GeV (LHC)</span>
-          Match: <strong>99.55%</strong> &nbsp;·&nbsp; Δ = 0.45%
-        </div>
-        <div class="meta">
-          <span class="free">Free parameters: 0</span>
-          <span>Inputs: cube geometry + π</span>
-        </div>
-      </div>
-
-      <!-- PROTON -->
-      <div class="deriv-card">
-        <div class="label">Whitepaper §6.2 + §13.4</div>
-        <h3>Proton radius invariant r<sub>p</sub> / λ<sub>C,p</sub></h3>
-        <p class="target">Standard Model: r<sub>p</sub> measured, no first-principles relation to the Compton scale.</p>
-
-        <div class="steps">
-          <b>Step 1 — Stability scaling laws (§6.2):</b><br>
-          Π<sub>4</sub>(R) ∝ (1/α) · L<sub>q</sub>⁴/R⁴ &nbsp; (collapse term)<br>
-          Π<sub>5</sub>(R) ∝ &nbsp; L<sub>q</sub>⁵/R⁵ &nbsp; (rigidity term)<br><br>
-
-          <b>Step 2 — Balance condition:</b><br>
-          Π<sub>4</sub>(R<sub>p</sub>) = Π<sub>5</sub>(R<sub>p</sub>)<br>
-          ⇒ R<sub>p</sub>/L<sub>q</sub> = α = <b>2/π</b><br><br>
-
-          <b>Step 3 — Proton Compton length (§13.4):</b><br>
-          λ<sub>C,p</sub> = h/(m<sub>p</sub>c) &nbsp; (proton Compton wavelength)<br>
-          r<sub>p</sub> = (2/π) · λ<sub>C,p</sub> &nbsp; (from R<sub>p</sub>/L<sub>q</sub> = 2/π)<br><br>
-
-          <b>Step 4 — Both are lengths on the same scale:</b><br>
-          their ratio is dimensionless and carries no anchor.<br><br>
-
-          <b>Step 5 — Anchor-free invariant:</b><br>
-          <span class="arrow">⇒</span> r<sub>p</sub> / λ<sub>C,p</sub> = <b>2/π</b> = 0.63662<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:.9em">(equivalently m<sub>p</sub>·r<sub>p</sub>·c/h = 2/π)</span>
-        </div>
-
-        <div class="result">
-          <span class="big">0.63662 vs measured 0.63672</span>
-          Match: <strong>99.985%</strong> &nbsp;·&nbsp; Δ = 0.015%
-        </div>
-        <div class="meta">
-          <span class="free">Free parameters: 0</span>
-          <span>Pure dimensionless</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="significance">
-    <h2>Why this is significant</h2>
-
-    <ul>
-      <li><strong>m<sub>p</sub>/m<sub>e</sub> = 6π⁵ is a pure number that carries no anchor</strong>, and it matches measurement to <strong>19 ppm</strong>. The SI value of c, the unit system, the calibration wavelength — none of them affect it. It is re-derived structurally from the lattice n-fold law (ν<sub>p</sub> = 3π⁴), not fitted to the data.</li>
-      <li><strong>The proton radius is forced, not fitted.</strong> r<sub>p</sub> is the single <em>stable</em> radius at which the lattice's outward stiffness (∝ r⁻⁵) balances the inward inflow (∝ r⁻⁴): compress and stiffness pushes back, expand and inflow pulls in. That equilibrium pins r<sub>p</sub>/λ<sub>C,p</sub> = 2/π — an anchor-independent prediction, not an adjustable parameter.</li>
-      <li><strong>m<sub>H</sub> has no first-principles derivation in the Standard Model.</strong> It was a free input until the LHC measured it in 2012. Here it falls out of cube geometry plus a gauge quotient (5 = 6 − 1), as m<sub>H</sub> = U<sub>lat</sub>/(5π): <em>one length in, a mass out</em>, within 0.4%.</li>
-      <li><strong>Three independent dimensionless relations from one backbone</strong>, with no per-quantity calibration. Coincidence-fitting can occasionally land one number; matching three independent ratios from a single, no-tuning derivation chain is a structurally different claim — and it is meant to be checked, not believed (run the scripts below).</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Other closed-form derivations</h2>
-    <p>The same backbone produces additional dimensionless invariants (full whitepaper for derivation chains):</p>
-
-    <table class="summary-table">
-      <thead>
-        <tr>
-          <th>WP §</th>
-          <th>Dimensionless invariant</th>
-          <th class="ctr">Predicted</th>
-          <th class="ctr">Measured</th>
-          <th class="ctr">Match</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>§5.1</td>
-          <td>Rectification α = ⟨|cos θ|⟩ = 2/π</td>
-          <td class="ctr">0.63662</td>
-          <td class="ctr">exact integral</td>
-          <td class="ctr"><span class="prec prec-5">exact</span></td>
-        </tr>
-        <tr>
-          <td>§5.2</td>
-          <td>Double rectification δ = 1/π²</td>
-          <td class="ctr">0.10132</td>
-          <td class="ctr">exact integral</td>
-          <td class="ctr"><span class="prec prec-5">exact</span></td>
-        </tr>
-        <tr>
-          <td>§8.0.5</td>
-          <td>Canonical event rate ν<sub>p</sub> = 3π⁴ &nbsp;(n-fold law, n = 3)</td>
-          <td class="ctr" colspan="2">292.227 s⁻¹ &nbsp;(geometric, no anchor)</td>
-          <td class="ctr"><span class="prec prec-5">forced</span></td>
-        </tr>
-        <tr>
-          <td>§15.5</td>
-          <td>Planck blackbody form ν³/(exp(hν/kT) − 1)</td>
-          <td class="ctr" colspan="2">structural derivation from rigidity-shell filtering</td>
-          <td class="ctr"><span class="prec prec-5">exact form</span></td>
-        </tr>
-        <tr>
-          <td>§14.4</td>
-          <td>Casimir 1/d⁴ pressure law</td>
-          <td class="ctr" colspan="2">structural derivation from boundary screening</td>
-          <td class="ctr"><span class="prec prec-5">exact form</span></td>
-        </tr>
-        <tr>
-          <td>§18.3</td>
-          <td>Chemical bond rupture at √2 ratio (cube diagonal)</td>
-          <td class="ctr" colspan="2">N₂, CO₂, H₂O experimental data consistent</td>
-          <td class="ctr"><span class="prec prec-3">geometric</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section class="pi-box">
-    <h2 style="border: none; padding: 0; margin-top: 0;">Why π emerges from the lattice (§5.1, §5.2.5)</h2>
-    <p>A common question: aren't π, 2/π, 1/π² simply external mathematical constants? In this framework they are <strong>derived from the lattice itself</strong>, not imposed:</p>
-    <ol>
-      <li><strong>2π</strong> emerges from rotational closure of phase variables — full-cycle angular states return to the same configuration. Lattice-symmetry property.</li>
-      <li><strong>Uniform measure 1/(2π)</strong> emerges from <strong>maximum entropy</strong> under "no a priori bias" (§5.2.5) — an information-theoretic principle, not an assumption.</li>
-      <li><strong>α = ⟨|cos θ|⟩ = 2/π</strong> from full-cycle absolute rectification.</li>
-      <li><strong>δ = ⟨[cos θ]<sub>+</sub> · [cos φ]<sub>+</sub>⟩ = 1/π²</strong> from two independent half-wave constraints.</li>
-      <li><strong>4π in shell counting</strong> emerges from 3D isotropic averaging (§14.3); anisotropic regimes give different values.</li>
-    </ol>
-    <p>So π and its powers are <em>outputs</em> of rotational symmetry plus maximum-entropy uniform distribution — in the same operational sense that Kolmogorov scales emerge from turbulence dynamics rather than being imposed.</p>
-  </section>
-
-  <section>
-    <h2>Gravity: a new lens (Appendix G)</h2>
-    <p>Gravity is reframed as the restoring pressure of a jammed lattice attempting to fill the mass-equivalent void. The lattice has finite yield curvature demand Ψ<sub>yield</sub>, so contact-mode acceleration cannot exceed a saturation limit:</p>
-
-    <div class="gravity-formula">
-      <strong>2-channel decomposition</strong> (G.1):<br>
-      &nbsp;&nbsp;g<sub>obs</sub> = g<sub>geom</sub>(R) = GM/R² &nbsp;&nbsp; <em>orbit / free-fall mode</em><br>
-      &nbsp;&nbsp;g<sub>obs</sub> = g<sub>restore</sub> ≤ g<sub>★</sub> &nbsp;&nbsp; <em>contact / static mode</em><br>
-      <strong>Yield limit:</strong> g<sub>★</sub> ≡ c² · Ψ<sub>yield</sub>
-    </div>
-
-    <h3>Falsifiable predictions distinguishable from Newton</h3>
-    <ul>
-      <li><strong>Solid-surface bodies with g<sub>pot</sub> &gt; g<sub>★</sub>:</strong> scale-measured surface acceleration saturates rather than growing without bound.</li>
-      <li><strong>Gas giants (Jupiter, Sun):</strong> no static surface contact → no g<sub>★</sub> measurable; only g<sub>geom</sub> from orbital data.</li>
-      <li><strong>Neutron-star regime:</strong> fluidization transition above g<sub>★</sub>; excess curvature demand dispersed into pressure / EM / rotation channels.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Methodology: LOCK → Derive → Gate</h2>
-    <p>Every numerical statement in the whitepaper carries three traceable identifiers: <strong>LOCK provenance, derivation chain, Gate verdict</strong>. Sentences without all three are not promoted to conclusions.</p>
-
-    <div class="method-grid">
-      <div class="method-card">
-        <h4>LOCK</h4>
-        <p>Inputs frozen at a single source (SSOT). Changes exist only as new versions.</p>
-      </div>
-      <div class="method-card">
-        <h4>Derive</h4>
-        <p>Only LOCK items + permitted transformations. SSOT enforced.</p>
-      </div>
-      <div class="method-card">
-        <h4>Gate</h4>
-        <p>PASS / FAIL / INCONCLUSIVE. Required stack: G-SYM, G-LOCK, G-REG, G-RECT, G-STR, G-RCROSS, G-REP.</p>
-      </div>
-      <div class="method-card">
-        <h4>No-Tuning</h4>
-        <p>Post-hoc adjustment forbidden within a version. Selection bias requires pre-registered rules.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="honesty">
-      <h3>Scope and acknowledged limitations (§17.3)</h3>
-      <p>The whitepaper enumerates limitations rather than claiming completeness. Items below are recorded as hypotheses [H], not conclusions [F]:</p>
-      <ul>
-        <li><strong>The fine-structure constant α<sub>em</sub> ≈ 1/137 is NOT claimed as a derivation.</strong> It is taken from measurement — an open input (§14.5); the 4π(11 − …) numerical match is recorded as a <em>coincidence, not evidence</em>. We state this plainly because "deriving α from integers" is a classic over-claim, and this framework does not make it.</li>
-        <li><strong>Absolute mass scale is anchored, not predicted.</strong> The dimensionless ratio m<sub>p</sub>/m<sub>e</sub> = 6π⁵ is forced (−19 ppm), but the absolute electron and proton masses descend from the single wavelength anchor; m<sub>e</sub> is the calibration node (Compton relation), not an independent prediction (§13.5).</li>
-        <li><strong>Claim tier:</strong> primarily Level-C0 (internal consistency) + Level-C1 (scale reproduction). Level-C2+ (quantitative experimental claims) requires attached Gate reports verified as PASS.</li>
-        <li><strong>Ψ<sub>yield</sub> (Appendix G):</strong> currently a LOCK input. Earth's 9.8 m/s² is a consistency anchor, not a prediction; the falsifiable content is the saturation behavior across regimes.</li>
-        <li><strong>N<sub>core</sub> = 82 (§7.1.8.2):</strong> φ<sub>pack</sub> = 82/125 explicitly flagged as back-calculated consistency indicator, not a prediction.</li>
-        <li><strong>D<sub>anch</sub>, A precision:</strong> deterministic simulation outputs (§6.1, §10.3); reproducing them requires running bundled scripts.</li>
-        <li><strong>Identifiability:</strong> §17.3 notes different closures may reproduce the same observations — agreement does not prove uniqueness.</li>
-        <li><strong>Numerical agreement is recorded as Gate evidence, not used as theory justification</strong> (§0.1.5).</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="dna" style="margin-top:55px;padding-top:30px;border-top:1px solid var(--border);">
-    <h2 style="font-size:1.75rem;">② Deterministic Two-Layer Interpretation of DNA <span style="font-size:1rem;font-weight:600;color:var(--accent);">— v3, validated across organisms</span></h2>
-    <p style="color:#444;max-width:960px;font-size:1.04rem;">
-      A genome reading with one organizing split: <strong>position is grammar, quantity is runtime.</strong>
-      The sequence (Layer 1) fixes <em>which structural features sit where</em> and <em>which phase a region takes</em>; the living cell (Layer 2) sets <em>how much, how often, how fast</em>. The framework is built to state its own limits — and it was tested against real genomic data, reporting negatives as well as confirmations.
-    </p>
-
-    <div class="deriv-grid" style="margin-top:24px;">
-      <div class="deriv-card" style="border-color:var(--accent);">
-        <div class="label" style="color:var(--accent);">Layer 1 · the sequence (γ)</div>
-        <h3>Position &amp; phase — in the letters</h3>
-        <p class="target">Where features sit, and which phase a region joins. Read from composition (chiefly GC).</p>
-        <div class="result">
-          <span class="big">Compartment AUROC 0.72–0.84 (≈0.92 consensus)</span>
-          GC alone predicts open/closed (A/B) chromatin — composition itself, not a gene-density proxy (gene-poor AUROC ≈ 0.84).
-        </div>
-      </div>
-      <div class="deriv-card">
-        <div class="label" style="color:var(--gold);">Layer 2 · the cell (φ)</div>
-        <h3>Quantity — set by the runtime</h3>
-        <p class="target">How much / how often. Not in the letters; set as the program runs.</p>
-        <div class="result" style="background:#fff8e1;border-left-color:var(--gold);">
-          <span class="big" style="color:var(--gold);">R² ≈ 0.03 from sequence → 0.37 with runtime</span>
-          Origin-firing efficiency is barely predictable from sequence until cellular-state measurements are added. Amount lives in the runtime.
-        </div>
-      </div>
-      <div class="deriv-card">
-        <div class="label">The law</div>
-        <h3>Importance → fixedness</h3>
-        <p class="target">How locked a position is — “important” defined four independent, non-circular ways.</p>
-        <div class="result">
-          <span class="big">pN/pS ≈ exp(−5.91 + 0.087·ENC), R² = 0.975</span>
-          Conservation falls exponentially with constraint; the deepest valleys (zero protein-changing change) are ~9× enriched for ribosomal proteins.
-        </div>
-      </div>
-    </div>
-
-    <h3 style="margin-top:30px;">Confirmed results (data-validated)</h3>
-    <table class="summary-table">
-      <thead><tr><th>Test</th><th class="ctr">Result</th><th>Reading</th></tr></thead>
-      <tbody>
-        <tr><td>Hi-C compartment from GC</td><td class="ctr">AUROC 0.72–0.84 (0.92 consensus)</td><td>position / phase is sequence-encoded</td></tr>
-        <tr><td>“Dial, not a switch” across cell types</td><td class="ctr">~76% invariant / ~24% flip</td><td>graded propensity; runtime tips the ambiguous middle</td></tr>
-        <tr><td>Compartment boundaries from sequence</td><td class="ctr">AUROC ≈ 0.52 (chance)</td><td><strong>predicted negative</strong> — boundary-position is emergent</td></tr>
-        <tr><td>Nucleosome depletion at NDRs</td><td class="ctr">1.66× (z = −38.8)</td><td>positioning signal in the letters</td></tr>
-        <tr><td>Exponential conservation law</td><td class="ctr">R² = 0.975 (2 independent axes)</td><td>constraint → fixedness, quantitatively</td></tr>
-        <tr><td>Deep time (18S rRNA)</td><td class="ctr">core invariant across ~1 Gyr</td><td>most-central machinery stays fixed</td></tr>
-      </tbody>
-    </table>
-
-    <div class="honesty" style="margin-top:26px;">
-      <h3>Where this stops — and what is hypothesis</h3>
-      <ul>
-        <li><strong>Not from sequence:</strong> quantity / expression level, timing, phenotype, and the <em>location</em> of phase boundaries. These are runtime (φ) or emergent — the boundary test returns chance by design.</li>
-        <li><strong>Hypothesis [H], not measured:</strong> the geometric <em>mechanism</em> (many intersecting constraints → a deep valley → a restoring force = fixedness) and continuity-as-separation-of-timescales. The fingerprints are measured; the valley itself is not. Confirming it needs external data — solved structures, interaction networks, deep mutational scanning, annotated multi-species genomes, high-resolution Hi-C.</li>
-      </ul>
-    </div>
-
-    <div class="cta-row" style="display:flex;flex-wrap:wrap;gap:.6rem;margin:22px 0 6px;">
-      <a href="/en/whitepapers/dna-interpretation/" style="background:var(--accent);color:#fff;padding:.6rem 1.05rem;border-radius:8px;font-weight:700;text-decoration:none;">Read the paper (HTML) →</a>
-      <a href="https://doi.org/10.5281/zenodo.20471407" style="border:1px solid var(--accent);color:var(--accent);padding:.6rem 1.05rem;border-radius:8px;font-weight:700;text-decoration:none;">PDF · Zenodo (DOI)</a>
-    </div>
-    <p class="small" style="margin-top:8px;">A plain-language companion — the <strong>“4D DNA Blueprint”</strong> educational series — walks through the same readings step by step (forthcoming).</p>
-  </section>
-
-  <section id="whitepapers" class="pillar-section">
-    <h2>③ Other whitepapers</h2>
-    <p>Extensions and applications at claim-type [H] (hypothesis with declared regime). Conclusion status is independent of the core results above; each requires its own Gate stack to PASS. All are DOI-anchored.</p>
-
-    <div class="pillar-grid">
-      <a href="/en/whitepapers/cosmology-optics/" class="pillar-card">
-        <span class="pillar-tier">Hypothesis [H]</span>
-        <h3>Lattice cosmology &amp; optics</h3>
-        <p>Light propagation, lensing, expansion constraints. Tired-light-style redshift requires separate Gates.</p>
-      </a>
-      <a href="/en/whitepapers/fluid-dynamics/" class="pillar-card">
-        <span class="pillar-tier">Hypothesis [H]</span>
-        <h3>Emergent fluidics</h3>
-        <p>Continuity and Navier–Stokes emergence from VP jamming stability.</p>
-      </a>
-      <a href="/en/whitepapers/dna-mm39/" class="pillar-card">
-        <span class="pillar-tier">Pipeline · methods</span>
-        <h3>Deterministic DNA pipeline (mm39)</h3>
-        <p>Auditable, reproducible decoding for Mouse/mm39 — hash-tracked checkpoints, explicit failure labels. Conceptual model updated in the v3 two-layer paper above.</p>
-      </a>
-      <a href="/en/whitepapers/atlantic-expansion/" class="pillar-card">
-        <span class="pillar-tier">Hypothesis [H]</span>
-        <h3>Geodynamics (Atlantic opening)</h3>
-        <p>Pressure-deficit "void suction" mechanism. Pre-registered PASS/HOLD/FAIL tests.</p>
-      </a>
-      <a href="/en/whitepapers/vp-application/" class="pillar-card">
-        <span class="pillar-tier">Hypothesis [H]</span>
-        <h3>Energy &amp; catalyst engineering</h3>
-        <p>ESS → power → desalination. Pt catalyst / H₂ pathways under energy-ledger accounting.</p>
-      </a>
-    </div>
-  </section>
-
-  <section id="dois" class="doi-section">
-    <h2 style="border: none; color: var(--primary);">DOI-anchored whitepapers</h2>
-    <p>All frameworks pre-registered on Zenodo with deterministic verification scripts and machine-readable LOCK files.</p>
-    <div class="doi-badges">
-      <a href="https://doi.org/10.5281/zenodo.20442141">VP Core Whitepaper (v0.2.0) · 10.5281/zenodo.20442141</a>
-      <a href="https://doi.org/10.5281/zenodo.17932566">VP Concept DOI (all versions)</a>
-      <a href="https://doi.org/10.5281/zenodo.17932567">VP code/data reproducibility bundle</a>
-      <a href="https://doi.org/10.5281/zenodo.20471407">DNA Two-Layer Interpretation (v3) · concept DOI</a>
-      <a href="https://doi.org/10.5281/zenodo.18012058">Cosmology &amp; Optics</a>
-      <a href="https://doi.org/10.5281/zenodo.17972570">Fluid Dynamics</a>
-      <a href="https://doi.org/10.5281/zenodo.17963127">DNA pipeline (mm39)</a>
-      <a href="https://doi.org/10.5281/zenodo.17978935">Geodynamics</a>
-      <a href="https://doi.org/10.5281/zenodo.18043066">Applications</a>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <p>&copy; 2026 Jamming Physics Research</p>
-  <p>Author: Young jae Lee · <a href="https://orcid.org/0009-0002-7535-8245">ORCID 0009-0002-7535-8245</a> · Independent researcher, Daegu, Korea · <code>rego093@naver.com</code></p>
-</footer>
-
-</body>
-</html>
+  ]
+}</script></head><body><a class="skip" href="#main">Skip to content</a><header class="site"><div class="wrap bar"><a class="brand" href="/">Jamming&nbsp;Physics<span>.</span></a><nav class="top" aria-label="Primary"><a href="/physics/">Physics</a><a href="/fluid-dynamics/">Fluid</a><a href="/cosmology/">Cosmology</a><a href="/geodynamics/">Geodynamics</a><a href="/dna/">DNA</a><a href="/geochronology/">Geochronology</a><a href="/about/">About</a></nav></div></header><main id="main"><section class="hero"><div class="wrap"><p class="eyebrow">The Volume Particle (VP) Project</p><h1>The vacuum is a jammed solid. So is everything that fills it.</h1><p class="lede">From one locked premise — that the vacuum and continuous media are a space-filling, <strong>jammed packing of finite-volume quanta</strong> — six DOI-anchored whitepapers carry, with no fitted parameters and a runnable check on every claim, from the speed of light to gravity, fluids, plate tectonics, the genome, and the limits of radiometric dating.</p><div class="meta-row"><span class="chip"><b>6</b>&nbsp; whitepapers</span><span class="chip"><b>c² = B/ρ</b></span><span class="chip"><b>m_p/m_e = 6π⁵</b>&nbsp; (−19 ppm)</span><span class="chip"><b>a₀ = cH₀/2π</b></span><span class="chip">ORCID <b>0009-0002-7535-8245</b></span></div></div></section><section class="program"><div class="wrap"><div class="prose"><h2>One premise, many scales</h2><p>Volume Particle (VP) theory treats space not as a smooth backdrop but as a <span class="k">fully packed, jammed arrangement of identical rigid quanta</span> whose only freedom is rotation. Light is the elastic wave of this lattice, so its speed <span class="k">emerges</span> as c² = B/ρ rather than being postulated. The same packing, depleted by matter that annihilates quanta, produces gravity as an inflow; coarse-grained, it produces the balance laws of fluids; unjammed, it produces a failure mode for rock. The physics whitepaper is the foundation; the other volumes are its consequences.</p><p>Every quantitative claim follows a <span class="k">LOCK → Derive → Gate</span> specification, is graded (forced / calibrated / open, or degenerate / distinguishing / conflicting), and ships reproducible code and data under a DOI. There is <span class="k">no parameter tuning</span>, and the order of work is evidence first, then theory.</p></div><figure class="mapfig"><svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dm-t dm-d" class="dmap">
+<title id="dm-t">Derivation map of the Volume Particle program</title>
+<desc id="dm-d">The physics whitepaper is the foundation. Its jamming branch yields the Configured Continuum (fluid dynamics) and the two-layer DNA interpretation; its inflow branch yields the Earth-Cosmos cosmology volume. The jamming mechanism together with the cross-chronometer dating method supports the Atlantic rapid break-up hypothesis.</desc>
+<defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#6b6452"/></marker></defs>
+<style>
+.bx{fill:#fff;stroke:#16335f;stroke-width:1.5;rx:8}
+.bx.root{fill:#16335f}.bx.root+text,.rootlbl{fill:#fff}
+.t{font-family:Georgia,serif;font-size:15px;fill:#1b1b1a}
+.tt{font-family:Georgia,serif;font-size:16px;font-weight:600}
+.lab{font-family:ui-monospace,Menlo,monospace;font-size:11px;fill:#0d7c66;letter-spacing:.04em}
+.ln{stroke:#6b6452;stroke-width:1.4;fill:none}
+</style>
+<!-- root -->
+<rect x="280" y="14" width="200" height="56" rx="8" fill="#16335f"/>
+<text x="380" y="38" text-anchor="middle" class="tt" fill="#fff">Physics — VP theory</text>
+<text x="380" y="57" text-anchor="middle" class="lab" fill="#cfe0f5">jammed packing · c²=B/ρ</text>
+<!-- branch labels -->
+<text x="232" y="100" text-anchor="middle" class="lab">jamming</text>
+<text x="536" y="100" text-anchor="middle" class="lab">inflow</text>
+<!-- connectors from root -->
+<path class="ln" marker-end="url(#ar)" d="M340,70 C300,92 150,96 120,128"/>
+<path class="ln" marker-end="url(#ar)" d="M380,70 C380,96 300,100 300,128"/>
+<path class="ln" marker-end="url(#ar)" d="M440,70 C520,96 600,100 615,128"/>
+<!-- jamming children -->
+<rect class="bx" x="40" y="132" width="180" height="48" rx="8" fill="#fff" stroke="#16335f"/>
+<text x="130" y="161" text-anchor="middle" class="t">Fluid — Configured Continuum</text>
+<rect class="bx" x="232" y="132" width="150" height="48" rx="8" fill="#fff" stroke="#16335f"/>
+<text x="307" y="161" text-anchor="middle" class="t">DNA — two-layer</text>
+<!-- inflow child -->
+<rect class="bx" x="540" y="132" width="180" height="48" rx="8" fill="#fff" stroke="#16335f"/>
+<text x="630" y="161" text-anchor="middle" class="t">Cosmology — inflow</text>
+<!-- convergence -->
+<rect x="120" y="252" width="210" height="50" rx="8" fill="#fff" stroke="#16335f" stroke-width="1.5"/>
+<text x="225" y="274" text-anchor="middle" class="t">Geodynamics</text>
+<text x="225" y="292" text-anchor="middle" class="lab">jamming → unjamming</text>
+<rect x="430" y="252" width="210" height="50" rx="8" fill="#fff" stroke="#16335f" stroke-width="1.5"/>
+<text x="535" y="274" text-anchor="middle" class="t">Geochronology</text>
+<text x="535" y="292" text-anchor="middle" class="lab">cross-chronometer</text>
+<text x="380" y="356" text-anchor="middle" class="lab">jamming  +  chronology</text>
+<rect x="270" y="368" width="220" height="50" rx="8" fill="#eef6f2" stroke="#0d7c66" stroke-width="1.6"/>
+<text x="380" y="390" text-anchor="middle" class="tt">Atlantic rapid break-up</text>
+<text x="380" y="408" text-anchor="middle" class="lab">physical possibility (falsifiable)</text>
+<!-- connectors to convergence -->
+<path class="ln" d="M225,180 L225,252"/>
+<path class="ln" d="M535,180 L535,252"/>
+<path class="ln" marker-end="url(#ar)" d="M225,302 C225,340 330,348 330,368"/>
+<path class="ln" marker-end="url(#ar)" d="M535,302 C535,340 430,348 430,368"/>
+</svg><figcaption>How the volumes derive from one foundation.</figcaption></figure></div></section><section id="works" class="works wrap"><h2 class="vh">Whitepapers</h2><div class="cluster"><div class="cluster-head"><h2>Foundation</h2></div><div class="cards"><article class="card pillar"><div class="kicker"><span class="pill">Pillar</span> Foundations · Volume Particle Theory</div><h3><a href="/physics/">The vacuum as a jammed elastic solid</a></h3><p class="desc">…and the speed of light as its elastic-wave speed.</p><div class="result"><span class="rk">Emergent speed of light</span> c² = B/ρ</div><div class="card-foot"><span class="doi"><a href="https://zenodo.org/records/17932566">10.5281/zenodo.17932566</a></span><a class="read" href="/physics/">Read overview →</a></div></article></div></div><div class="cluster"><div class="cluster-head"><h2>From jamming</h2></div><div class="cards"><article class="card"><div class="kicker">From jamming · Fluid dynamics</div><h3><a href="/fluid-dynamics/">The Configured Continuum</a></h3><p class="desc">Fluid form as a necessary consequence of arrangement.</p><div class="result"><span class="rk">Balance laws as identities</span> ∂ρ/∂t + ∇·(ρu) = 0 ,  ρ Du/Dt = ∇·T</div><div class="card-foot"><span class="doi"><a href="https://zenodo.org/records/17972568">10.5281/zenodo.17972568</a></span><a class="read" href="/fluid-dynamics/">Read overview →</a></div></article><article class="card"><div class="kicker">From jamming · Genome</div><h3><a href="/dna/">A deterministic two-layer interpretation of DNA</a></h3><p class="desc">Position is grammar; quantity is runtime.</p><div class="result"><span class="rk">Two layers, two knobs</span> form ← γ (Layer 1, sequence) ;  quantity ← φ (Layer 2, runtime)</div><div class="card-foot"><span class="doi"><a href="https://zenodo.org/records/20471407">10.5281/zenodo.20471407</a></span><a class="read" href="/dna/">Read overview →</a></div></article></div></div><div class="cluster"><div class="cluster-head"><h2>From inflow</h2></div><div class="cards"><article class="card"><div class="kicker">From inflow · Cosmology</div><h3><a href="/cosmology/">Gravity, galaxies, and cosmology as vacuum inflow</a></h3><p class="desc">A simulation-grounded account with a runnable check on every claim.</p><div class="result"><span class="rk">The acceleration scale, derived</span> a₀ = cH₀/2π ≈ 1.08×10⁻¹⁰ m s⁻²</div><div class="card-foot"><span class="doi"><a href="https://zenodo.org/records/20568874">10.5281/zenodo.20568874</a></span><a class="read" href="/cosmology/">Read overview →</a></div></article></div></div><div class="cluster"><div class="cluster-head"><h2>Convergence: jamming + chronology</h2></div><div class="cards"><article class="card"><div class="kicker">Convergence · Geodynamics</div><h3><a href="/geodynamics/">A jamming–unjamming mechanism for rapid continental break-up</a></h3><p class="desc">A falsifiable framework, with the Atlantic as the test case.</p><div class="result"><span class="rk">Unjamming trigger</span> Ψ_eff &gt; Ψ_y</div><div class="card-foot"><span class="doi"><a href="https://zenodo.org/records/17978934">10.5281/zenodo.17978934</a></span><a class="read" href="/geodynamics/">Read overview →</a></div></article><article class="card"><div class="kicker">Methods · Geochronology</div><h3><a href="/geochronology/">Foreign-material incorporation as a cross-chronometer accuracy limit</a></h3><p class="desc">It does not dispute either clock — it addresses sample-level accuracy.</p><div class="result"><span class="rk">One shared failure structure</span> foreign older material  ⇒  age biased older</div><div class="card-foot"><span class="doi"><a href="https://zenodo.org/records/20568673">10.5281/zenodo.20568673</a></span><a class="read" href="/geochronology/">Read overview →</a></div></article></div></div></section><section class="method"><div class="wrap"><h2>How every claim is made</h2><p class="lead">The same protocol runs through all six whitepapers — it is what lets an independent reader re-derive and re-run each result.</p><div class="pillars"><div class="pillar-box"><h3>LOCK → Derive → Gate</h3><p>Inputs are locked first, results are derived with no omitted steps, and each must pass a reproducible numerical gate before it stands.</p></div><div class="pillar-box"><h3>No parameter tuning</h3><p>Every number is forced by geometry, calibrated against one declared anchor, or marked open. Reproducibility is guaranteed by the deposited record.</p></div><div class="pillar-box"><h3>Evidence first, then theory</h3><p>Claims are read off reproducible computations and real data and graded; interpretation beyond what the data force is flagged or avoided.</p></div></div><p class="more"><a href="/reproducibility/">Read the method &amp; reproducibility charter →</a></p></div></section></main><footer class="site"><div class="wrap"><div class="cols"><div><h4>Jamming Physics</h4><p class="muted">The Volume Particle (VP) Project — a reproducible, DOI-anchored research program modelling media as jammed packings of finite-volume quanta.</p><p class="muted"><a href="/concepts/">Concepts</a> · <a href="/reproducibility/">Reproducibility</a> · <a href="/about/">About</a></p></div><div><h4>Whitepapers</h4><ul><li><a href="/physics/">Physics — Volume Particle Theory</a></li><li><a href="/fluid-dynamics/">Fluid — The Configured Continuum</a></li><li><a href="/cosmology/">Cosmology — Gravity &amp; cosmology as vacuum inflow — The Earth–Cosmos Volume</a></li><li><a href="/geodynamics/">Geodynamics — Rapid continental break-up</a></li><li><a href="/dna/">DNA — Deterministic two-layer interpretation of DNA</a></li><li><a href="/geochronology/">Geochronology — A cross-chronometer accuracy limit</a></li></ul></div><div><h4>Persistent records (DOI)</h4><ul class="doi-list"><li><a href="https://zenodo.org/records/17932566">10.5281/zenodo.17932566</a></li><li><a href="https://zenodo.org/records/17972568">10.5281/zenodo.17972568</a></li><li><a href="https://zenodo.org/records/20568874">10.5281/zenodo.20568874</a></li><li><a href="https://zenodo.org/records/17978934">10.5281/zenodo.17978934</a></li><li><a href="https://zenodo.org/records/20471407">10.5281/zenodo.20471407</a></li><li><a href="https://zenodo.org/records/20568673">10.5281/zenodo.20568673</a></li></ul></div></div><div class="fine"><span class="brandline">jamming-physics.org</span><span>© 2026 Young Jae Lee · Text under CC BY 4.0 unless noted · Daegu, Republic of Korea</span></div></div></footer></body></html>

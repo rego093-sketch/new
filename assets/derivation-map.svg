@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dm-t dm-d" class="dmap">
+<title id="dm-t">Derivation map of the Volume Particle program</title>
+<desc id="dm-d">The physics whitepaper is the foundation. Its jamming branch yields the Configured Continuum (fluid dynamics) and the two-layer DNA interpretation; its inflow branch yields the Earth-Cosmos cosmology volume. The jamming mechanism together with the cross-chronometer dating method supports the Atlantic rapid break-up hypothesis.</desc>
+<defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#6b6452"/></marker></defs>
+<style>
+.bx{fill:#fff;stroke:#16335f;stroke-width:1.5;rx:8}
+.bx.root{fill:#16335f}.bx.root+text,.rootlbl{fill:#fff}
+.t{font-family:Georgia,serif;font-size:15px;fill:#1b1b1a}
+.tt{font-family:Georgia,serif;font-size:16px;font-weight:600}
+.lab{font-family:ui-monospace,Menlo,monospace;font-size:11px;fill:#0d7c66;letter-spacing:.04em}
+.ln{stroke:#6b6452;stroke-width:1.4;fill:none}
+</style>
+<!-- root -->
+<rect x="280" y="14" width="200" height="56" rx="8" fill="#16335f"/>
+<text x="380" y="38" text-anchor="middle" class="tt" fill="#fff">Physics — VP theory</text>
+<text x="380" y="57" text-anchor="middle" class="lab" fill="#cfe0f5">jammed packing · c²=B/ρ</text>
+<!-- branch labels -->
+<text x="232" y="100" text-anchor="middle" class="lab">jamming</text>
+<text x="536" y="100" text-anchor="middle" class="lab">inflow</text>
+<!-- connectors from root -->
+<path class="ln" marker-end="url(#ar)" d="M340,70 C300,92 150,96 120,128"/>
+<path class="ln" marker-end="url(#ar)" d="M380,70 C380,96 300,100 300,128"/>
+<path class="ln" marker-end="url(#ar)" d="M440,70 C520,96 600,100 615,128"/>
+<!-- jamming children -->
+<rect class="bx" x="40" y="132" width="180" height="48" rx="8" fill="#fff" stroke="#16335f"/>
+<text x="130" y="161" text-anchor="middle" class="t">Fluid — Configured Continuum</text>
+<rect class="bx" x="232" y="132" width="150" height="48" rx="8" fill="#fff" stroke="#16335f"/>
+<text x="307" y="161" text-anchor="middle" class="t">DNA — two-layer</text>
+<!-- inflow child -->
+<rect class="bx" x="540" y="132" width="180" height="48" rx="8" fill="#fff" stroke="#16335f"/>
+<text x="630" y="161" text-anchor="middle" class="t">Cosmology — inflow</text>
+<!-- convergence -->
+<rect x="120" y="252" width="210" height="50" rx="8" fill="#fff" stroke="#16335f" stroke-width="1.5"/>
+<text x="225" y="274" text-anchor="middle" class="t">Geodynamics</text>
+<text x="225" y="292" text-anchor="middle" class="lab">jamming → unjamming</text>
+<rect x="430" y="252" width="210" height="50" rx="8" fill="#fff" stroke="#16335f" stroke-width="1.5"/>
+<text x="535" y="274" text-anchor="middle" class="t">Geochronology</text>
+<text x="535" y="292" text-anchor="middle" class="lab">cross-chronometer</text>
+<text x="380" y="356" text-anchor="middle" class="lab">jamming  +  chronology</text>
+<rect x="270" y="368" width="220" height="50" rx="8" fill="#eef6f2" stroke="#0d7c66" stroke-width="1.6"/>
+<text x="380" y="390" text-anchor="middle" class="tt">Atlantic rapid break-up</text>
+<text x="380" y="408" text-anchor="middle" class="lab">physical possibility (falsifiable)</text>
+<!-- connectors to convergence -->
+<path class="ln" d="M225,180 L225,252"/>
+<path class="ln" d="M535,180 L535,252"/>
+<path class="ln" marker-end="url(#ar)" d="M225,302 C225,340 330,348 330,368"/>
+<path class="ln" marker-end="url(#ar)" d="M535,302 C535,340 430,348 430,368"/>
+</svg>
