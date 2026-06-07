@@ -1,0 +1,52 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it using these metadata."
+title: "Volume Particle (VP) Theory — the Jamming Physics research program"
+abstract: "A reproducible research program modelling the vacuum and continuous media as a jammed packing of finite-volume quanta."
+type: software
+authors:
+  - family-names: Lee
+    given-names: Young Jae
+    orcid: "https://orcid.org/0009-0002-7535-8245"
+url: "https://jamming-physics.org"
+repository-code: "https://github.com/rego093-sketch/new"
+license: CC-BY-4.0
+keywords:
+  - Volume Particle theory
+  - jamming
+  - reproducible physics
+preferred-citation:
+  type: article
+  title: "Volume Particle Theory (VP) Whitepaper v0.4"
+  year: 2026
+  doi: "10.5281/zenodo.17932566"
+  url: "https://jamming-physics.org/physics/"
+  authors:
+    - family-names: Lee
+      given-names: Young Jae
+      orcid: "https://orcid.org/0009-0002-7535-8245"
+references:
+  - type: article
+    title: "The Earth–Cosmos Volume: Gravity, Planetary Motion, Galactic Dynamics, and Cosmology as Vacuum Inflow"
+    year: 2026
+    doi: "10.5281/zenodo.20568874"
+    authors: [{family-names: Lee, given-names: Young Jae}]
+  - type: article
+    title: "The Configured Continuum: Fluid Form as a Necessary Consequence of Arrangement"
+    year: 2026
+    doi: "10.5281/zenodo.17972568"
+    authors: [{family-names: Lee, given-names: Young Jae}]
+  - type: article
+    title: "A Volume-Particle Jamming–Unjamming Mechanism for Rapid Continental Break-up"
+    year: 2026
+    doi: "10.5281/zenodo.17978934"
+    authors: [{family-names: Lee, given-names: Young Jae}]
+  - type: article
+    title: "Deterministic Two-Layer Interpretation of DNA — Position as Grammar, Quantity as Runtime"
+    year: 2026
+    doi: "10.5281/zenodo.20471407"
+    authors: [{family-names: Lee, given-names: Young Jae}]
+  - type: article
+    title: "Foreign-Material Incorporation as a Cross-Chronometer Accuracy Limit"
+    year: 2026
+    doi: "10.5281/zenodo.20568673"
+    authors: [{family-names: Lee, given-names: Young Jae}]
